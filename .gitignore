@@ -22,4 +22,5 @@ selenium-debug.log
 package-lock.json
 
 
-src/lang/draft
+src/lang/draft/
+/eoa-web.iml
