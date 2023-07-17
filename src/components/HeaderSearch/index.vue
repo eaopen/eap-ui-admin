@@ -95,6 +95,7 @@ export default {
         threshold: 0.4,
         location: 0,
         distance: 100,
+        maxPatternLength: 32,
         minMatchCharLength: 1,
         keys: [{
           name: 'title',
@@ -122,8 +123,9 @@ export default {
         if (router.meta && router.meta.title) {
           // generate internationalized title, replace by menu api
           const i18ntitle = i18n.t(`route.${router.meta.title}`)
-          data.title = [...data.title, i18ntitle]
-          //data.title = [...data.title, router.meta.title]
+          let title = i18ntitle
+          if (i18ntitle.indexOf('route.') > -1 && router.meta.zhTitle) title = router.meta.zhTitle
+          data.title = [...data.title, title]
 
           if (router.redirect !== 'noRedirect') {
             // only push the routes with title
