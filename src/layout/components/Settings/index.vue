@@ -3,7 +3,7 @@
     <div>
       <div class="setting-drawer-content">
         <div class="setting-drawer-title">
-          <h3 class="drawer-title">主题风格设置</h3>
+          <h3 class="drawer-title">{{ $t('settings.themeStyle') }}</h3>
         </div>
         <div class="setting-drawer-block-checbox">
           <div class="setting-drawer-block-checbox-item" @click="handleTheme('theme-dark')">
@@ -33,44 +33,60 @@
         </div>
 
         <div class="drawer-item">
-          <span>主题颜色</span>
+          <span>{{ $t('settings.theme') }}</span>
           <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
         </div>
       </div>
 
       <el-divider/>
 
-      <h3 class="drawer-title">系统布局配置</h3>
+      <h3 class="drawer-title">{{ $t('settings.title') }}</h3>
 
       <div class="drawer-item">
-        <span>开启 TopNav</span>
+        <span>{{ $t('settings.topNav') }}</span>
         <el-switch v-model="topNav" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
-        <span>开启 Tags-Views</span>
+        <span>{{ $t('settings.tagsView') }}</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
-        <span>固定 Header</span>
+        <span>{{ $t('settings.fixedHeader') }}</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
-        <span>显示 Logo</span>
+        <span>{{ $t('settings.sidebarLogo') }}</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
       </div>
 
       <div class="drawer-item">
-        <span>动态标题</span>
+        <span>{{ $t('settings.dynamicTitle') }}</span>
         <el-switch v-model="dynamicTitle" class="drawer-switch" />
       </div>
 
-      <el-divider/>
+      <div v-if="showMoreState">
+        <div class="drawer-item" v-if="topNav">
+          <span>{{$t('settings.language')}}</span>
+          <el-switch v-model="showLanguage" class="drawer-switch" />
+        </div>
 
-      <el-button size="small" type="primary" plain icon="el-icon-document-add" @click="saveSetting">保存配置</el-button>
-      <el-button size="small" plain icon="el-icon-refresh" @click="resetSetting">重置配置</el-button>
+        <div class="drawer-item">
+          <span>{{$t('settings.search')}}</span>
+          <el-switch v-model="showSearch" class="drawer-switch" />
+        </div>
+        <div class="drawer-item">
+          <span>{{ $t('settings.isTopNavCache') }}</span>
+          <el-switch v-model="isTopNavCache" class="drawer-switch" />
+        </div>
+      </div>
+      <!-- 其他配置项待确定 -->
+      <el-divider><el-button type="text" @click="showMore">{{ $t('settings.showMore') }}</el-button></el-divider>
+
+      <el-button size="small" type="primary" plain icon="el-icon-document-add" @click="saveSetting">{{ $t('settings.saveSetting') }}</el-button>
+      <el-button size="small" plain icon="el-icon-refresh" @click="resetSetting">{{ $t('settings.resetSetting') }}</el-button>
     </div>
   </div>
 </template>
@@ -83,7 +99,8 @@ export default {
   data() {
     return {
       theme: this.$store.state.settings.theme,
-      sideTheme: this.$store.state.settings.sideTheme
+      sideTheme: this.$store.state.settings.sideTheme,
+      showMoreState: false
     };
   },
   computed: {
@@ -146,8 +163,44 @@ export default {
         })
       }
     },
+    showLanguage: {
+      get() {
+        return this.$store.state.settings.showLanguage;
+      },
+      set(val) {
+        this.$store.dispatch("settings/changeSetting", {
+          key: "showLanguage",
+          value: val
+        });
+      }
+    },
+    showSearch: {
+      get() {
+        return this.$store.state.settings.showSearch;
+      },
+      set(val) {
+        this.$store.dispatch("settings/changeSetting", {
+          key: "showSearch",
+          value: val
+        })
+      }
+    },
+    isTopNavCache: {
+      get() {
+        return this.$store.state.settings.isTopNavCache
+      },
+      set(val) {
+        this.$store.dispatch('settings/changeSetting', {
+          key: 'isTopNavCache',
+          value: val
+        })
+      }
+    },
   },
   methods: {
+    showMore(){
+      this.showMoreState = !this.showMoreState
+    },
     themeChange(val) {
       this.$store.dispatch('settings/changeSetting', {
         key: 'theme',
@@ -172,8 +225,10 @@ export default {
             "fixedHeader":${this.fixedHeader},
             "sidebarLogo":${this.sidebarLogo},
             "dynamicTitle":${this.dynamicTitle},
+            "supportPinyinSearch":${this.supportPinyinSearch},
             "sideTheme":"${this.sideTheme}",
-            "theme":"${this.theme}"
+            "theme":"${this.theme}",
+            "isTopNavCache": "${this.isTopNavCache}"
           }`
       );
       setTimeout(this.$modal.closeLoading(), 1000)

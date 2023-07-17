@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      title: '芋道管理系统',
+      title: '企业应用框架',
       logo: logoImg
     }
   }

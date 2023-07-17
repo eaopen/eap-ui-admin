@@ -128,115 +128,56 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/bpm',
-    component: Layout,
-    hidden: true,
-    redirect: 'noredirect',
-    children: [{
-        path: 'oa/leave/create',
-        component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
-        name: 'BpmOALeaveCreate',
-        meta: {title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave'}
-      }, {
-        path: 'oa/leave/detail',
-        component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
-        name: 'BpmOALeaveDetail',
-        meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
-      }
-    ]
-  },
-  {
-    path: '/bpm',
-    component: Layout,
-    hidden: true,
-    children: [{
-        path: 'manager/form/edit',
-        component: (resolve) => require(['@/views/bpm/form/formEditor'], resolve),
-        name: 'BpmFormEditor',
-        meta: {title: '流程表单-编辑', activeMenu: '/bpm/manager/form'}
-      }, {
-        path: 'manager/definition',
-        component: (resolve) => require(['@/views/bpm/definition/index'], resolve),
-        name: 'BpmProcessDefinition',
-        meta: {title: '流程定义', activeMenu: '/bpm/manager/model'}
-      }, {
-        path: 'manager/model/design',
-        component: (resolve) => require(['@/views/bpm/model/modelEditor'], resolve),
-        name: 'BpmModelEditor',
-        meta: {title: '设计流程', activeMenu: '/bpm/manager/model'}
-      }, {
-        path: 'process-instance/create',
-        component: (resolve) => require(['@/views/bpm/processInstance/create'], resolve),
-        name: 'BpmProcessInstanceCreate',
-        meta: {title: '发起流程', activeMenu: '/bpm/task/my'}
-      }, {
-        path: 'process-instance/detail',
-        component: (resolve) => require(['@/views/bpm/processInstance/detail'], resolve),
-        name: 'BpmProcessInstanceDetail',
-        meta: {title: '流程详情', activeMenu: '/bpm/task/my'}
-      }
-    ]
-  },
-  {
-    path: '/property',
-    component: Layout,
-    hidden: true,
-    children: [{
-      path: 'value/:propertyId(\\d+)',
-      component: (resolve) => require(['@/views/mall/product/property/value'], resolve),
-      name: 'ProductPropertyValue',
-      meta: {title: '商品属性值', icon: '', activeMenu: '/product/property'}
-    }
-    ]
-  },
-  {
-    path: '/spu',
-    component: Layout,
-    hidden: true,
-    children: [{
-      path: 'edit/:spuId(\\d+)',
-      component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
-      name: 'ProductSpuUpdate',
-      meta: {title: '修改商品', activeMenu: '/product/spu'}
-    },
-      {
-        path: 'add',
-        component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
-        name: 'ProductSpuCreate',
-        meta: {title: '添加商品', activeMenu: '/product/spu'}
-      }
-    ]
-  },
-  {
-    path: '/trade/order',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: 'detail',
-        name: 'TradeOrderDetail',
-        hidden: true,
-        meta: { title: '订单详情' },
-        component: (resolve) => require(['@/views/mall/trade/order/detail'], resolve)
-      }
-    ]
-  },
-  {
-    path: '/pay',
-    component: Layout,
-    hidden: true,
-    children: [{
-      path: 'order/submit',
-      name: 'PayOrderSubmit',
-      hidden: true,
-      meta: {
-        title: '收银台',
-        noCache: true
-      },
-      component: (resolve) => require(['@/views/pay/order/submit'], resolve)
-    }]
-  }
+  // {
+  //   path: '/bpm',
+  //   component: Layout,
+  //   hidden: true,
+  //   redirect: 'noredirect',
+  //   children: [{
+  //       path: 'oa/leave/create',
+  //       component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
+  //       name: 'BpmOALeaveCreate',
+  //       meta: {title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave'}
+  //     }, {
+  //       path: 'oa/leave/detail',
+  //       component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
+  //       name: 'BpmOALeaveDetail',
+  //       meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: '/bpm',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [{
+  //       path: 'manager/form/edit',
+  //       component: (resolve) => require(['@/views/bpm/form/formEditor'], resolve),
+  //       name: 'BpmFormEditor',
+  //       meta: {title: '流程表单-编辑', activeMenu: '/bpm/manager/form'}
+  //     }, {
+  //       path: 'manager/definition',
+  //       component: (resolve) => require(['@/views/bpm/definition/index'], resolve),
+  //       name: 'BpmProcessDefinition',
+  //       meta: {title: '流程定义', activeMenu: '/bpm/manager/model'}
+  //     }, {
+  //       path: 'manager/model/design',
+  //       component: (resolve) => require(['@/views/bpm/model/modelEditor'], resolve),
+  //       name: 'BpmModelEditor',
+  //       meta: {title: '设计流程', activeMenu: '/bpm/manager/model'}
+  //     }, {
+  //       path: 'process-instance/create',
+  //       component: (resolve) => require(['@/views/bpm/processInstance/create'], resolve),
+  //       name: 'BpmProcessInstanceCreate',
+  //       meta: {title: '发起流程', activeMenu: '/bpm/task/my'}
+  //     }, {
+  //       path: 'process-instance/detail',
+  //       component: (resolve) => require(['@/views/bpm/processInstance/detail'], resolve),
+  //       name: 'BpmProcessInstanceDetail',
+  //       meta: {title: '流程详情', activeMenu: '/bpm/task/my'}
+  //     }
+  //   ]
+  // }
 ]
 
 // 防止连续点击多次路由报错
