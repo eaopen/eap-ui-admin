@@ -43,6 +43,9 @@
   "dependencies": {
     "@babel/parser": "7.18.4",
     "@riophae/vue-treeselect": "0.4.0",
+    "ag-grid-community": "^28.0.2",
+    "ag-grid-enterprise": "^28.0.2",
+    "ag-grid-vue": "^28.0.0",
     "axios": "0.27.2",
     "benz-amr-recorder": "^1.1.5",
     "bpmn-js-token-simulation": "0.10.0",
