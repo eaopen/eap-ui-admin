@@ -23,6 +23,7 @@
 import Fuse from 'fuse.js/dist/fuse.min.js'
 import path from 'path'
 import i18n from '@/lang'
+import { generateTitle } from '@/utils/i18n'
 
 export default {
   name: 'HeaderSearch',
@@ -122,7 +123,7 @@ export default {
 
         if (router.meta && router.meta.title) {
           // generate internationalized title, replace by menu api
-          const i18ntitle = i18n.t(`route.${router.meta.title}`)
+          const i18ntitle = generateTitle(router.meta.title)
           let title = i18ntitle
           if (i18ntitle.indexOf('route.') > -1 && router.meta.zhTitle) title = router.meta.zhTitle
           data.title = [...data.title, title]
@@ -153,7 +154,8 @@ export default {
     },
     ishttp(url) {
       return url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1
-    }
+    },
+    generateTitle
   }
 }
 </script>
