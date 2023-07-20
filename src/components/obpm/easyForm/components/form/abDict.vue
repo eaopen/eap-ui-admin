@@ -279,7 +279,7 @@
                         } else {
 
                             axios.defaults.withCredentials = true;
-                            let req = `${__ctx}/util/getSnowFlakeId`;
+                            let req = `${__ctx}/etechutil/getSnowFlakeId`;
                             axios.get(req).then(res => {
                                 that.newId = res.data;
                                 that.newName = val;

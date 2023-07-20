@@ -31,7 +31,7 @@ import datePicker from './components/agDatePicker'
 import setFilter from './components/agGridSetFilter'
 import agImage from './components/agGridImage'
 import agOperations from './components/agGridOperations'
-import { getListData } from '@/api/system/list.js'
+import { getListData } from '@/api/obpm/grid.js'
 window.agGridMapList = {}
 // 数据源
 window.createDatasource = (server) => {

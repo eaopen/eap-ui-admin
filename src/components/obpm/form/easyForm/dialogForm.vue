@@ -10,7 +10,7 @@
 <script>
 import Vue from "vue"
 import { filterHtml } from '@/utils/easyForm'
-import { getFormConfig } from '@/api/system/list.js'
+import { getFormConfig } from '@/api/obpm/grid.js'
 export default {
   name: 'easyForm',
   props: ['params'],

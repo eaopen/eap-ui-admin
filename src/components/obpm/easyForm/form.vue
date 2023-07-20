@@ -1,20 +1,15 @@
 <template>
-     <div>
-        <div class="ibox-title" style="padding: 10px 15px;border: none">
-            <button class="btn btn-primary fa-save" v-on:click="saveData" :disabled="btnLoading">提交</button>
-            <button v-if="showCancelButton" class="btn btn-primary fa-reply" @click="closeDialog">关闭</button>
-        </div>
-        <div v-if="loaded">
-            <ab-custom-form style="padding: 0 15px"></ab-custom-form>
-        </div>
+    <div v-if="loaded">
+      111
+        <ab-custom-form style="padding: 0 15px"></ab-custom-form>
     </div>
 </template>
 <script>
 import Vue from "vue"
-import { getFormConfig } from '@/api/obpm/grid.js'
+import { filterHtml } from '@/utils/easyForm'
 export default {
   name: 'easyForm',
-  props: ['formKey'],
+  props: ['formHtml','formData', 'permission', 'tablePermission', 'initData'],
   data() {
     return {
         loaded: false,
@@ -24,6 +19,9 @@ export default {
     }
   },
   methods: {
+    validateForm(){
+      return true
+    },
     saveData: async function () {
         var errorMsg = Vue.formService.getValidateMsg(this.$children[0]);
         if (errorMsg) {
@@ -42,8 +40,8 @@ export default {
         let formActionUrl = this.$children[0].formActionUrl;
         let logType = this.$children[0].logType;
         //是否调用的默认的保存接口，默认保存有处理文件的保存和删除，如果不是默认的下面手动调用一次
-        this.isDefaultUrl = formActionUrl && formActionUrl.indexOf("/form/formDefData/saveData?") === -1 ? false : true;
-        formActionUrl = formActionUrl || "/form/formDefData/saveData?key=" + $.getParam("key") + "&sql=" + $.getParam("sql") + (logType ? `&log_type=${logType}` : '');
+        this.isDefaultUrl = formActionUrl && formActionUrl.indexOf("/etech/formDefData/saveData?") === -1 ? false : true;
+        formActionUrl = formActionUrl || "/etech/formDefData/saveData?key=" + $.getParam("key") + "&sql=" + $.getParam("sql") + (logType ? `&log_type=${logType}` : '');
         let formActionData = this.$children[0].formActionUrl ? (this.$children[0].formActionData || this.$children[0].$data.data) : this.$children[0].$data.data;
         var url = Vue.__ctx + formActionUrl;
         let that = this
@@ -109,8 +107,6 @@ export default {
                 }else{
                     $.Dialog.error(data.msg);
                 }
-
-
             }
 
         }, function (e) {
@@ -123,7 +119,7 @@ export default {
         }
         let formActionData = this.$children[0].formActionData || this.$children[0].$data.data;
         if (formActionData.add_file_list || formActionData.del_file_list) {
-            Vue.baseService.post(Vue.__ctx + "/sys/sysFile/webuploader/afterSaveFile", {
+            Vue.baseService.post(Vue.__ctx + "/sys/etechFile/webuploader/afterSaveFile", {
                 'add_file_list': formActionData.add_file_list,
                 'del_file_list': formActionData.del_file_list
             }).then(function (data) {
@@ -133,19 +129,32 @@ export default {
             });
         }
     },
+    closeDialog(){
+        let closeDom = window.parent.$(".work-dialog .el-dialog__headerbtn .el-dialog__close");
+        if (closeDom.length && closeDom.length>0){
+            console.log("closeDom")
+            closeDom.click()
+        }
+        else{
+            console.log("close Dialog")
+            $.Dialog.close(window);
+        }
+    },
   },
   created: function () {
-    getFormConfig({
-      key: this.formKey
-    }).then(res=>{
-      const html = res.data.html.replace(/\u200B/g, '');
+    let { html, customScript } = filterHtml(this.formHtml)
+      let obj = {}
+      obj.permission = this.permission
+      obj.tablePermission = this.tablePermission
+      obj.data = this.formData
       Vue.component('ab-custom-form',{
-        template: html
+        template: html,
+        mixins: [customScript],
+        data(){
+          return obj
+        }
       })
       this.loaded = true;
-      // console.log(this)
-
-    })
   },
 }
 </script>

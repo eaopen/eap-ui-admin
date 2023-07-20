@@ -24,12 +24,12 @@ import {
   getTaskDetail,
   getFlowImage,
   getOperationTypeEnum,
-} from "@/api/system/list.js";
+} from "@/api/obpm/grid.js";
 import { mapActions } from "vuex";
 import taskButton from "./components/taskButton.vue";
 import approveHistory from "./components/approveHistory.vue";
 import flowImage from "./components/flowImage.vue";
-import easyForm from "@/components/easyForm/form.vue"
+import easyForm from "@/components/obpm/easyForm/form.vue"
 import carbonCopyAction from "./components/carbonCopyAction.vue";
 export default {
   name: "taskDetail",

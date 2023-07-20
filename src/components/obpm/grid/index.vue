@@ -56,7 +56,7 @@
   import dataList from './dataList.vue'
   import page from './page.vue'
   import filters from './filter.vue'
-  import {getListConfig} from "@/api/system/list.js"
+  import {getListConfig} from "@/api/obpm/grid.js"
 
   export default {
     name: 'FormCustSqlView',

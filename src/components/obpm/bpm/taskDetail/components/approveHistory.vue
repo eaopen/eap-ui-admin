@@ -45,8 +45,8 @@
     </el-table>
 </template>
 <script>
-import {getHistory,getInstanceData2} from "@/api/system/list.js"
-import easyForm from "@/components/easyForm/dialogForm.vue"
+import {getHistory,getInstanceData2} from "@/api/obpm/grid.js"
+import easyForm from "@/components/obpm/form/easyForm/dialogForm.vue"
 export default {
   name: "approve-histoty",
   props: ["instId"],

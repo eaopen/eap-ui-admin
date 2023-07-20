@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import easyForm from "@/components/easyForm/dialogForm.vue"
-import {formatString ,getParams} from '@/utils/other'
+import easyForm from "@/components/obpm/form/easyForm/dialogForm.vue"
+import {formatString ,getParams} from '@/utils/obpm'
 export default {
   name: 'agGridOprations',
   data() {
