@@ -3,7 +3,6 @@
     <task-detail :taskid="taskid"/>
   </div>
 </template>
-
 <script>
 import { mapState } from 'vuex'
 import variables from '@/assets/styles/variables.scss'
