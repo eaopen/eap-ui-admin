@@ -11,7 +11,7 @@
 </template>
 <script>
 import Vue from "vue"
-import { getFormConfig } from '@/api/obpm/grid.js'
+import { getFormConfig } from '@/api/obpm/form.js'
 export default {
   name: 'easyForm',
   props: ['formKey'],

@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
     <theme-picker />
-    <custom-component-dialog :visible="dialogInfo.visible" :title="dialogInfo.title" :width="dialogInfo.width" :height="dialogInfo.height" :component="component"/>
+    <custom-component-dialog :visible="dialogInfo.visible" :title="dialogInfo.title" :width="dialogInfo.width" :height="dialogInfo.height" :innerComponent="dialogInfo.component"/>
   </div>
 </template>
 

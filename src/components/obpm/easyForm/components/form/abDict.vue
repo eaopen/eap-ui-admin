@@ -18,7 +18,7 @@
 <script>
     import Vue from 'vue'
     import { generateUUID } from '@/utils/easyForm'
-    import {getDictData} from '@/api/obpm/grid.js'
+    import {getDictData} from '@/api/obpm/sys.js'
     export default {
         props: {
             dictKey: {
