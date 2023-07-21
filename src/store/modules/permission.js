@@ -80,9 +80,9 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         route.component = ParentView
       }
     } else { // 根节点
-      if(route.path.startsWith('/listGrid')){
+      if(route.path.indexOf('/listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
         route.component = import("@/views/obpm/agList.vue")
-      }else if(route.path.startsWith('/easyForm')){
+      }else if(route.path.indexOf('/easyForm')>-1){
         route.component = import("@/components/obpm/easyForm/index.vue")
       }else {
         route.component = loadView(route.component)
