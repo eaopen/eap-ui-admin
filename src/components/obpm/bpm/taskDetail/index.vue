@@ -23,8 +23,10 @@ import {
   getInstanceId,
   getTaskDetail,
   getFlowImage,
+} from "@/api/obpm/bpm.js";
+import {
   getOperationTypeEnum,
-} from "@/api/obpm/grid.js";
+} from "@/api/obpm/sys.js";
 import { mapActions } from "vuex";
 import taskButton from "./components/taskButton.vue";
 import approveHistory from "./components/approveHistory.vue";
