@@ -57,6 +57,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       title: route.name,
       icon: route.icon,
       noCache: !route.keepAlive,
+      urlAddr: route.path,
     }
     route.hidden = !route.visible
     // 处理 name 属性

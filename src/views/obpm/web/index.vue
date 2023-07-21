@@ -13,22 +13,23 @@ export default {
     return {
       // TODO path => url
       // sso
-      // obpmWebBaseUrl = /obpm-web/  规避跨域问题
+      // obpmWebBaseUrl = /obpm/  规避跨域问题
       // obpmBaseUrl = http://localhost:3002/  dev only
       // url = obpmBaseUrl + path + ssoAuth
-      url: "http://localhost:3002/bpm/definition/definitionList.html",
+      url: "/obpm/"+this.$route.meta.urlAddr,
       loading: true
     };
   },
   created() {
-    // getConfigKey("url.skywalking").then(response => {
-    //   if (!response.data || response.data.length === 0) {
-    //     return
-    //   }
-    //   this.url = response.data;
-    // }).finally(() => {
-    //   this.loading = false;
-    // })
+    getConfigKey("url.obpm").then(response => {
+      if (!response.data || response.data.length === 0) {
+        return
+      }
+      this.obpmBaseUrl = response.data;
+      this.url = this.obpmBaseUrl +"/"+ this.$route.meta.urlAddr;
+    }).finally(() => {
+      this.loading = false;
+    })
 
     this.loading = false;
   }
