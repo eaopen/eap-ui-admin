@@ -1,6 +1,6 @@
 FROM node:16-alpine as build-stage
 
-WORKDIR /admim
+WORKDIR /web
 
 COPY .npmrc package.json yarn.lock ./
 RUN --mount=type=cache,id=yarn-store,target=/root/.yarn-store \
@@ -8,7 +8,9 @@ RUN --mount=type=cache,id=yarn-store,target=/root/.yarn-store \
 
 COPY . .
 ARG NODE_ENV=""
-RUN env ${NODE_ENV} yarn build:prod
+ENV NODE_ENV ${NODE_ENV}
+RUN  yarn build:prod
+#RUN env ${NODE_ENV} yarn build:prod
 
 ## -- stage: dist => nginx --
 FROM nginx:alpine
@@ -19,6 +21,6 @@ ENV TZ=Asia/Shanghai
 ENV WORKDIR /usr/share/nginx/html
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build-stage /admim/dist ${WORKDIR}
+COPY --from=build-stage /web/dist ${WORKDIR}
 
 EXPOSE 80
