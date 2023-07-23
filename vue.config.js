@@ -42,6 +42,7 @@ module.exports = {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       ['/proxy-api']: {
         target: `http://localhost:48080`,
+        // target: `http://124.223.81.114:48080`,
         // target: `http://api-dashboard.eap.iocoder.cn`,
         changeOrigin: true,
         pathRewrite: {
