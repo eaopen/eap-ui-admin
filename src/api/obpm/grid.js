@@ -1,3 +1,5 @@
+import request from "@/utils/request";
+
 // 获取列表配置
 export function getListConfig(code) {
     return request({

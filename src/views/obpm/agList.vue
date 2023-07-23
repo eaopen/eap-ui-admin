@@ -5,23 +5,11 @@
 </template>
 
 <script>
-import RightPanel from '@/components/RightPanel'
 import { mapState } from 'vuex'
 import variables from '@/assets/styles/variables.scss'
-// const ListAgGrid = ()=> import("@/components/agGrid/index.vue")
 
 export default {
-  name: 'Layout',
-  components: {
-    AppMain,
-    Navbar,
-    RightPanel,
-    Settings,
-    Sidebar,
-    TagsView,
-    // ListAgGrid
-  },
-  mixins: [ResizeMixin],
+  name: 'AgList',
   data(){
     return {
       tableKey: '',

@@ -75,7 +75,7 @@ export default {
             if(router.path === "/") {
               router.children[item].path = "/" + router.children[item].path;
             } else {
-              if(!this.ishttp(router.children[item].path)) {
+              if(!this.ishttp(router.children[item].path) &&!router.children[item].path.startsWith('/')) {
                 router.children[item].path = router.path + "/" + router.children[item].path;
               }
             }

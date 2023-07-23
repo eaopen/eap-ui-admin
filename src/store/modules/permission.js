@@ -2,7 +2,9 @@ import {constantRoutes} from '@/router'
 import {getRouters} from '@/api/menu'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
+import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
+import {getParams, formatListGridPath} from "@/utils/obpm"
 
 const permission = {
   state: {
@@ -36,6 +38,7 @@ const permission = {
           const rdata = JSON.parse(JSON.stringify(res.data)) // 用于最后添加到 Router 中的数据
           const sidebarRoutes = filterAsyncRouter(sdata)
           const rewriteRoutes = filterAsyncRouter(rdata, false, true)
+          console.log(rewriteRoutes)
           rewriteRoutes.push({path: '*', redirect: '/404', hidden: true})
           commit('SET_ROUTES', rewriteRoutes)
           commit('SET_SIDEBAR_ROUTERS', constantRoutes.concat(sidebarRoutes))
@@ -81,7 +84,9 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       }
     } else { // 根节点
       if(route.path.indexOf('/listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
-        route.component = import("@/views/obpm/agList.vue")
+        route.name = getParams(route.path).code
+        route.path = '/'+formatListGridPath(route.path)
+        route.component = agList
       }else if(route.path.indexOf('/easyForm')>-1){
         route.component = import("@/components/obpm/easyForm/index.vue")
       }else {
