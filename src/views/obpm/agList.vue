@@ -1,12 +1,10 @@
 <template>
   <div>
-    <List-ag-grid :code="tableKey" :params="tableParams" v-if="showList"/>
+    <List-ag-grid :code="tableKey" v-if="showList"/>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import variables from '@/assets/styles/variables.scss'
 
 export default {
   name: 'AgList',
@@ -26,36 +24,12 @@ export default {
         this.tableKey = v.path.split('listGrid/')[1]
 
       }
+      this.tableKey = this.$route.name
     }
   },
   created(){
-    this.tableKey = this.$route.path.split('/listGrid/')[1]
-    console.log(this.$route)
+    this.tableKey = this.$route.name
     this.reloadGrid()
-  },
-  computed: {
-    ...mapState({
-      theme: state => state.settings.theme,
-      sideTheme: state => state.settings.sideTheme,
-      sidebar: state => state.app.sidebar,
-      device: state => state.app.device,
-      needTagsView: state => state.settings.tagsView,
-      fixedHeader: state => state.settings.fixedHeader
-    }),
-    cachedViews() {
-      return this.$store.state.tagsView.cachedViews
-    },
-    classObj() {
-      return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
-      }
-    },
-    variables() {
-      return variables;
-    }
   },
   methods: {
     reloadGrid(){
@@ -64,9 +38,6 @@ export default {
         this.showList = true
       }, 10);
     },
-    handleClickOutside() {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
   }
 }
 </script>

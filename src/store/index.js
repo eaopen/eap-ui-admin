@@ -7,6 +7,7 @@ import permission from './modules/permission'
 import settings from './modules/settings'
 import dict from './modules/dict'
 import customDialog from './modules/customDialog'
+import list from './modules/list'
 import getters from './getters'
 
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ const store = new Vuex.Store({
     permission,
     settings,
     dict,
+    list,
     customDialog
   },
   getters

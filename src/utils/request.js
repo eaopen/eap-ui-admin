@@ -83,6 +83,7 @@ service.interceptors.request.use(config => {
 // 响应拦截器
 service.interceptors.response.use(async res => {
   // 未设置状态码则默认成功状态
+  res.data.code = res.data.code - 0
   const code = res.data.code || 200;
   // 获取错误信息
   const msg = res.data.msg || errorCode[code] || errorCode['default']

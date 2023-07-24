@@ -26,6 +26,11 @@
 </template>
 <script>
 
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
+import './components/ag-grid-enterprise.auto.esm'
+
+import { AgGridVue } from 'ag-grid-vue'
 import basicRender from './components/agGridBasic'
 import datePicker from './components/agDatePicker'
 import setFilter from './components/agGridSetFilter'
@@ -76,7 +81,7 @@ window.createDatasource = (server) => {
 }
 export default {
   name: 'dataList',
-  components: { basicRender, datePicker,setFilter, agImage, agOperations },
+  components: { AgGridVue, basicRender, datePicker,setFilter, agImage, agOperations },
   props: [
     'listFields',
     'code',

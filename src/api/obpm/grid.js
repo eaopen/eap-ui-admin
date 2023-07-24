@@ -3,8 +3,8 @@ import request from "@/utils/request";
 // 获取列表配置
 export function getListConfig(code) {
     return request({
-        url: '/form/formCustSql/view/vo2_' + code,
-        method: 'post'
+        url: '/form/formCustSql/view/vo_' + code,
+        method: 'get'
     })
 }
 

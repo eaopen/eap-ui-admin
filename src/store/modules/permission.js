@@ -85,7 +85,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
     } else { // 根节点
       if(route.path.indexOf('/listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
         route.name = getParams(route.path).code
-        route.path = '/'+formatListGridPath(route.path)
+        route.path = '/' + formatListGridPath(route.path)
         route.component = agList
       }else if(route.path.indexOf('/easyForm')>-1){
         route.component = import("@/components/obpm/easyForm/index.vue")

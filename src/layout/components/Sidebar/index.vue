@@ -33,7 +33,8 @@ import variables from "@/assets/styles/variables.scss";
 export default {
   components: { SidebarItem, Logo },
   created(){
-    console.log(this.sidebarRouters)
+    console.log('sidebarRouters', this.sidebarRouters)
+    console.log('activeMenu', this.activeMenu)
   },
   computed: {
     ...mapState(["settings"]),
