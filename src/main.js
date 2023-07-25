@@ -13,6 +13,7 @@ import plugins from './plugins' // plugins
 import i18n from './lang' // internationalization
 
 import './assets/icons' // icon
+import './assets/obpm/font-awesome.min.css'
 import './permission' // permission control
 //import './tongji' // 百度统计
 import { getDicts } from "@/api/system/dict/data";

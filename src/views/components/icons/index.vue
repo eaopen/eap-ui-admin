@@ -1,12 +1,12 @@
 <template>
   <div class="icons-container">
     <aside>
-      <a href="#" target="_blank">Add and use
-      </a>
+      <el-input size="mini" v-model="searchKey" style="width: 250px" placeholder="输入icon名字搜索" clearable></el-input>
+      <span style="display: inline-block; font-size: 14px; color:#67C23A; margin-left: 20px;">点击图标复制图标代码</span>
     </aside>
     <el-tabs type="border-card">
       <el-tab-pane label="Icons">
-        <div v-for="item of svgIcons" :key="item">
+        <div v-for="item of svgIconsPool" :key="item" v-clipboard:copy="generateIconCode(item)" v-clipboard:success="clipboardSuccess">
           <el-tooltip placement="top">
             <div slot="content">
               {{ generateIconCode(item) }}
@@ -19,7 +19,7 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="Element-UI Icons">
-        <div v-for="item of elementIcons" :key="item">
+        <div v-for="item of elementIconsPool" :key="item" v-clipboard:copy="generateElementIconCode(item)" v-clipboard:success="clipboardSuccess">
           <el-tooltip placement="top">
             <div slot="content">
               {{ generateElementIconCode(item) }}
@@ -31,6 +31,19 @@
           </el-tooltip>
         </div>
       </el-tab-pane>
+      <el-tab-pane label="Etech Icons">
+        <div v-for="item of etechIconsPool" :key="item.alias" v-clipboard:copy="generateEtechIconCode(item.alias)" v-clipboard:success="clipboardSuccess">
+          <el-tooltip placement="top">
+            <div slot="content">
+              {{ generateEtechIconCode(item.alias) }}
+            </div>
+            <div class="icon-item">
+              <i :class="'fa ' + item.alias" />
+              <span>{{ item.alias }}</span>
+            </div>
+          </el-tooltip>
+        </div>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -38,22 +51,57 @@
 <script>
 import svgIcons from './svg-icons'
 import elementIcons from './element-icons'
+import etechIcons from './etech-icons'
 
 export default {
   name: 'Icons',
   data() {
     return {
       svgIcons,
-      elementIcons
+      elementIcons,
+      etechIcons,
+      searchKey: ''
     }
   },
+  computed:{
+    svgIconsPool(){
+      if(this.searchKey){
+        return this.svgIcons.filter(i=>i.indexOf(this.searchKey)!=-1)
+      }else {
+        return this.svgIcons
+      }
+    },
+    elementIconsPool(){
+      if(this.searchKey){
+        return this.elementIcons.filter(i=>i.indexOf(this.searchKey)!=-1)
+      }else {
+        return this.elementIcons
+      }
+    },
+    etechIconsPool(){
+      if(this.searchKey){
+        return this.etechIcons.filter(i=>i.alias.indexOf(this.searchKey)!=-1)
+      }else {
+        return this.etechIcons
+      }
+    },
+  },
   methods: {
+    clipboardSuccess() {
+      this.$modal.msgSuccess("复制成功");
+    },
     generateIconCode(symbol) {
       return `<svg-icon icon-class="${symbol}" />`
     },
     generateElementIconCode(symbol) {
       return `<i class="el-icon-${symbol}" />`
+    },
+    generateEtechIconCode(symbol){
+      return `<i class="fa ${symbol}" />`
     }
+  },
+  created(){
+    console.log(this.etechIcons)
   }
 }
 </script>

@@ -94,6 +94,18 @@ export const constantRoutes = [
     }]
   },
   {
+    path: '/components',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [{
+        path: 'icons',
+        component: (resolve) => require(['@/views/components/icons/index'], resolve),
+        name: 'Icons',
+        meta: {title: 'Icons', icon: 'icon'}
+      }]
+  },
+  {
     path: '/dict',
     component: Layout,
     hidden: true,
