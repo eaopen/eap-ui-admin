@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <List-ag-grid :code="tableKey" v-if="showList"/>
-  </div>
+  <List-ag-grid :code="tableKey" v-if="showList"/>
 </template>
-
 <script>
 
 export default {
-  name: 'AgList',
+  name: 'agList',
   data(){
     return {
       tableKey: '',
@@ -16,15 +13,6 @@ export default {
         initParams: {},
         initFilters: {}
       }
-    }
-  },
-  watch:{
-    '$route'(v){
-      if(v.fullPath.startsWith('/listGrid/')){
-        this.tableKey = v.path.split('listGrid/')[1]
-
-      }
-      this.tableKey = this.$route.name
     }
   },
   created(){

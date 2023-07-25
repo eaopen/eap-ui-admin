@@ -70,7 +70,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       // 路由地址转首字母大写驼峰，作为路由名称，适配 keepAlive
       route.name = toCamelCase(route.path, true)
       // 处理三级及以上菜单路由缓存问题，将 path 名字赋值给 name
-      if (route.path.indexOf("/") !== -1) {
+      if (route.path &&route.path.indexOf("/") !== -1) {
         const pathArr = route.path.split("/");
         route.name = toCamelCase(pathArr[pathArr.length - 1], true)
       }
@@ -82,11 +82,12 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       } else {
         route.component = ParentView
       }
-    } else { // 根节点
+    } else if(route.path) { // 根节点
       if(route.path.indexOf('/listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
         route.name = getParams(route.path).code
         route.path = '/' + formatListGridPath(route.path)
-        route.component = agList
+        let agListCache = Object.assign({}, agList, {name: route.name})
+        route.component = agListCache
       }else if(route.path.indexOf('/easyForm')>-1){
         route.component = import("@/components/obpm/easyForm/index.vue")
       }else {
