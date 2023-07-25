@@ -15,7 +15,6 @@ import i18n from './lang' // internationalization
 import './assets/icons' // icon
 import './assets/obpm/font-awesome.min.css'
 import './permission' // permission control
-//import './tongji' // 百度统计
 import { getDicts } from "@/api/system/dict/data";
 import { getConfigKey } from "@/api/infra/config";
 import { parseTime, resetForm, handleTree, addBeginAndEndTime, divide} from "@/utils/ruoyi";
@@ -59,14 +58,15 @@ Vue.use(plugins)
 Vue.use(VueMeta)
 // Vue.use(hljs.vuePlugin);
 
+// bpm will change
 // bpmnProcessDesigner 需要引入
-import MyPD from "@/components/bpmnProcessDesigner/package/index.js";
-Vue.use(MyPD);
-import "@/components/bpmnProcessDesigner/package/theme/index.scss";
-import "bpmn-js/dist/assets/diagram-js.css";
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
+// import MyPD from "@/components/bpmnProcessDesigner/package/index.js";
+// Vue.use(MyPD);
+// import "@/components/bpmnProcessDesigner/package/theme/index.scss";
+// import "bpmn-js/dist/assets/diagram-js.css";
+// import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
+// import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
+// import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 
 // Form Generator 组件需要使用到 tinymce
 import Tinymce from '@/components/tinymce/index.vue'
