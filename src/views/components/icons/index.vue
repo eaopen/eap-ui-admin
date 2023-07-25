@@ -31,8 +31,8 @@
           </el-tooltip>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="Etech Icons">
-        <div v-for="item of etechIconsPool" :key="item.alias" v-clipboard:copy="generateEtechIconCode(item.alias)" v-clipboard:success="clipboardSuccess">
+      <el-tab-pane label="FA Icons">
+        <div v-for="item of faIconsPool" :key="item.alias" v-clipboard:copy="generateEtechIconCode(item.alias)" v-clipboard:success="clipboardSuccess">
           <el-tooltip placement="top">
             <div slot="content">
               {{ generateEtechIconCode(item.alias) }}
@@ -51,7 +51,7 @@
 <script>
 import svgIcons from './svg-icons'
 import elementIcons from './element-icons'
-import etechIcons from './etech-icons'
+import faIcons from './fa-icons'
 
 export default {
   name: 'Icons',
@@ -59,7 +59,7 @@ export default {
     return {
       svgIcons,
       elementIcons,
-      etechIcons,
+      faIcons,
       searchKey: ''
     }
   },
@@ -78,11 +78,11 @@ export default {
         return this.elementIcons
       }
     },
-    etechIconsPool(){
+    faIconsPool(){
       if(this.searchKey){
-        return this.etechIcons.filter(i=>i.alias.indexOf(this.searchKey)!=-1)
+        return this.faIcons.filter(i=>i.alias.indexOf(this.searchKey)!=-1)
       }else {
-        return this.etechIcons
+        return this.faIcons
       }
     },
   },
@@ -101,7 +101,7 @@ export default {
     }
   },
   created(){
-    console.log(this.etechIcons)
+    console.log(this.faIcons)
   }
 }
 </script>
