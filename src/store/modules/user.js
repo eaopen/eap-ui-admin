@@ -1,5 +1,6 @@
 import {login, logout, getInfo, socialLogin, smsLogin} from '@/api/login'
 import {setToken, removeToken} from '@/utils/auth'
+import {getLock, setLock} from '@/utils/auth'
 
 const user = {
   state: {
@@ -7,10 +8,14 @@ const user = {
     name: '',
     avatar: '',
     roles: [],
-    permissions: []
+    permissions: [],
+    isLock: getLock() || 0,
   },
 
   mutations: {
+    SET_LOCK: (state, isLock) => {
+      state.isLock = isLock
+    },
     SET_ID: (state, id) => {
       state.id = id
     },
@@ -32,6 +37,10 @@ const user = {
   },
 
   actions: {
+    setLock({ commit }) {
+      commit('SET_LOCK', 1)
+      setLock(1)
+    },
     // 登录
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()

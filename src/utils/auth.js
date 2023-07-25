@@ -95,5 +95,13 @@ export function removeTenantId() {
   localStorage.removeItem(TenantIdKey)
 }
 
+export function getLock() {
+  return localStorage.getItem('lock')
+}
+
+export function setLock(lock) {
+  return localStorage.setItem('lock', lock)
+}
+
 export class getToken {
 }

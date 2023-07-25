@@ -65,6 +65,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/lockScreen',
+    component: (resolve) => require(['@/views/system/lockScreen'], resolve),
+    hidden: true
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'index',
