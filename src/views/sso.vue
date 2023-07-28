@@ -9,7 +9,7 @@
       <div class="field">
         <!-- [移动端]标题 -->
         <h2 class="mobile-title">
-          <h3 class="title">芋道后台管理系统</h3>
+          <h3 class="title">EAP后台管理系统</h3>
         </h2>
 
         <!-- 表单 -->
@@ -45,7 +45,7 @@
     </div>
     <!-- footer -->
     <div class="footer">
-      Copyright © 2020-2022 iocoder.cn All Rights Reserved.
+      Copyright © 2019-2023 OpenEA EAP All Rights Reserved.
     </div>
   </div>
 </template>
