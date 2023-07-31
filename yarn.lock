@@ -880,6 +880,40 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fullcalendar/bootstrap@^4.4.0":
+  version "4.4.2"
+  resolved "https://registry.npmmirror.com/@fullcalendar/bootstrap/-/bootstrap-4.4.2.tgz#b396aa39fd2e49c1bfb68deb677df5a5544bb924"
+  integrity sha512-zxtQvpZqr7zeBCfszo/i1e4zCvGwLh2zOp8J6Wxw5s73HsB1zuftWop7sPO+qhRrhX5MdM9i/wr8/nNY8BZSmw==
+
+"@fullcalendar/core@^6.1.4":
+  version "6.1.8"
+  resolved "https://registry.npmmirror.com/@fullcalendar/core/-/core-6.1.8.tgz#62008f7b2785dc01f0bf8c2f0c853925eab1c03a"
+  integrity sha512-i8JBIvZCWGO9dsMEDcx9bnsQZ9PtGSJdOXGgWbhLaGq2iq41OBdp9g9gM4b/Otv2oK8bL5Gl6CsMmb/HkDtA6Q==
+  dependencies:
+    preact "~10.12.1"
+
+"@fullcalendar/daygrid@^6.1.4", "@fullcalendar/daygrid@~6.1.8":
+  version "6.1.8"
+  resolved "https://registry.npmmirror.com/@fullcalendar/daygrid/-/daygrid-6.1.8.tgz#2ca4a10892f5e2abeac0f8a8ecc8f07c002a4bf4"
+  integrity sha512-kCZxQFKb9Vqa3CZRX0v7rMSJ2mlTt4gDpyLfiNJKxUAq7W51uKurPaFZWicaXy1ESHVBxKNlbx5uNjBpyu50JQ==
+
+"@fullcalendar/interaction@^6.1.4":
+  version "6.1.8"
+  resolved "https://registry.npmmirror.com/@fullcalendar/interaction/-/interaction-6.1.8.tgz#36c35bd5718f893e8215a45d48a6ef7d5fcc4650"
+  integrity sha512-r6W4E9ohaA87M2uPSlmpE2WT7Fzu7LN0u2pE6D/tThruCEaAPbN8Pw5+sqclsuyTIL09mg0eSJm/ggJekTabSA==
+
+"@fullcalendar/timegrid@^6.1.4":
+  version "6.1.8"
+  resolved "https://registry.npmmirror.com/@fullcalendar/timegrid/-/timegrid-6.1.8.tgz#30b9860eb900c5dc9b72ceaab98c0728018a0ff1"
+  integrity sha512-3+3KHHCoNcaLs/gQt004hAqICbY5+WAffrZ0ePv+80HFB1OVh8BQ5XXLHSOUbTvXdgtUTcfBHuw9fhO31kt5gA==
+  dependencies:
+    "@fullcalendar/daygrid" "~6.1.8"
+
+"@fullcalendar/vue@^6.1.4":
+  version "6.1.8"
+  resolved "https://registry.npmmirror.com/@fullcalendar/vue/-/vue-6.1.8.tgz#b0cd7a765e82707244dcc8760cd9f4f55e8b409f"
+  integrity sha512-rCfmpwsNkMQhhNiSGt2ZVW0yNmFyXC6O5dto+Rsj3MsJDVXAjI9pR2KRtg1vBh/6hgp8vHcMFcSCJZxIqfui+A==
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.npmmirror.com/@gar/promisify/-/promisify-1.1.3.tgz"
@@ -910,6 +944,11 @@
   resolved "https://registry.npmmirror.com/@hapi/topo/-/topo-3.1.6.tgz"
   dependencies:
     "@hapi/hoek" "^8.3.0"
+
+"@interactjs/types@1.10.18":
+  version "1.10.18"
+  resolved "https://registry.npmmirror.com/@interactjs/types/-/types-1.10.18.tgz#807411b3e460f856e26e7ba988dab6abb14da15f"
+  integrity sha512-3a+2Kx6PhA60ekxImRQJl+EyT4lD0/kd3/PveyaLtgfNxkxnSWdUq7Ixo3Y/t1lon4EqVGZQgp+qj/QNaEs6qA==
 
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
@@ -2020,6 +2059,11 @@ base@^0.11.1:
     isobject "^3.0.1"
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
+
+batch-processor@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
+  integrity sha512-xoLQD8gmmR32MeuBHgH0Tzd5PuSZx71ZsbhVxOCRbgktZEPe4SQy7s9Z50uPp0F/f7iw2XmkHN2xkgbMfckMDA==
 
 batch@0.6.1:
   version "0.6.1"
@@ -3531,6 +3575,13 @@ electron-to-chromium@^1.4.251:
   version "1.4.284"
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.284.tgz"
 
+element-resize-detector@^1.2.1:
+  version "1.2.4"
+  resolved "https://registry.npmmirror.com/element-resize-detector/-/element-resize-detector-1.2.4.tgz#3e6c5982dd77508b5fa7e6d5c02170e26325c9b1"
+  integrity sha512-Fl5Ftk6WwXE0wqCgNoseKWndjzZlDCwuPTcoVZfCP9R3EHQF8qUtr3YUPNETegRBOKqQKPW3n4kiIWngGi8tKg==
+  dependencies:
+    batch-processor "1.0.0"
+
 element-ui@2.15.12:
   version "2.15.12"
   resolved "https://registry.npmmirror.com/element-ui/-/element-ui-2.15.12.tgz"
@@ -4960,6 +5011,13 @@ inquirer@^7.1.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
+
+interactjs@^1.10.2:
+  version "1.10.18"
+  resolved "https://registry.npmmirror.com/interactjs/-/interactjs-1.10.18.tgz#6e5db48389f22d3b0499124bc84ebdeaa5107fb6"
+  integrity sha512-ho+Qgr5U3b3oz23Iv7MkIZGoWaTsSCRnrCL34Dtjzs5eFghwpESJeiPj9RhYKc/SgRJL9anR+2OQxFsCg4PmLA==
+  dependencies:
+    "@interactjs/types" "1.10.18"
 
 internal-ip@^4.3.0:
   version "4.3.0"
@@ -7010,6 +7068,11 @@ posthtml@^0.9.2:
     posthtml-parser "^0.2.0"
     posthtml-render "^1.0.5"
 
+preact@~10.12.1:
+  version "10.12.1"
+  resolved "https://registry.npmmirror.com/preact/-/preact-10.12.1.tgz#8f9cb5442f560e532729b7d23d42fd1161354a21"
+  integrity sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmmirror.com/prelude-ls/-/prelude-ls-1.2.1.tgz"
@@ -7130,6 +7193,11 @@ q@^1.1.2:
 qrcode.vue@^1.7.0:
   version "1.7.0"
   resolved "https://registry.npmmirror.com/qrcode.vue/-/qrcode.vue-1.7.0.tgz"
+
+qrcodejs2@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmmirror.com/qrcodejs2/-/qrcodejs2-0.0.2.tgz#465afe5e39f19facecb932c11f7a186109146ae1"
+  integrity sha512-+Y4HA+cb6qUzdgvI3KML8GYpMFwB24dFwzMkS/yXq6hwtUGNUnZQdUnksrV1XGMc2mid5ROw5SAuY9XhI3ValA==
 
 qs@6.11.0:
   version "6.11.0"
@@ -8841,6 +8909,20 @@ vue-cropper@0.5.8:
   version "0.5.8"
   resolved "https://registry.npmmirror.com/vue-cropper/-/vue-cropper-0.5.8.tgz"
 
+vue-drag-resize@^1.4.2, vue-drag-resize@^1.5.0-rc3:
+  version "1.5.4"
+  resolved "https://registry.npmmirror.com/vue-drag-resize/-/vue-drag-resize-1.5.4.tgz#f583f40f356e5792aa89109b3d13ba4407c25198"
+  integrity sha512-SR3U7n6TAZEBgP7zw7bR9mjtAlYBjqIoaWTDPz5HXN/nYhOxKSA31aD7p71fmq1jtyt9reAnCx62valNL9ZAcg==
+  dependencies:
+    vue-drag-resize "^1.5.0-rc3"
+
+vue-esign@^1.0.5:
+  version "1.1.4"
+  resolved "https://registry.npmmirror.com/vue-esign/-/vue-esign-1.1.4.tgz#3e0cc2b72c3ef5914822929193f6a9ddeb775b3a"
+  integrity sha512-7Ix5PdcyyhVfsvrT9a+yp5+36gbQ0/bpDO+QSLT58IgJ5t164PEptOy5Nslw8bZbk3n3Hc7SP5B8eXQ8X8W+OA==
+  dependencies:
+    vue "^2.5.11"
+
 vue-eslint-parser@^9.0.1:
   version "9.1.0"
   resolved "https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-9.1.0.tgz"
@@ -8852,6 +8934,14 @@ vue-eslint-parser@^9.0.1:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-grid-layout@2.3.12-legacy:
+  version "2.3.12-legacy"
+  resolved "https://registry.npmmirror.com/vue-grid-layout/-/vue-grid-layout-2.3.12-legacy.tgz#4893bdc1e7a0fe7994fa05e11471cf7d6592a52b"
+  integrity sha512-/I1axGZ8wKjdosbWsgVsJToNmuhw9E/C1rUjUrYPPopQ/0dAttB6OWizoPDabbYxvJoEM/5g159Rzi9m6CbhnQ==
+  dependencies:
+    element-resize-detector "^1.2.1"
+    interactjs "^1.10.2"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
@@ -8922,7 +9012,7 @@ vue-video-player@^5.0.2:
     videojs-flash "^2.1.0"
     videojs-hotkeys "^0.2.20"
 
-vue@2.7.14:
+vue@2.7.14, vue@^2.5.11:
   version "2.7.14"
   resolved "https://registry.npmmirror.com/vue/-/vue-2.7.14.tgz"
   dependencies:
