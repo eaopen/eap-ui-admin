@@ -1,8 +1,8 @@
 <template>
   <div class="lock-container">
     <div class="lock-form">
-      <img :src="userInfo.avatar" class="lock-screen-img">
-      <p class="mb-20 mt-10">{{userInfo.nickName}}/{{userInfo.name}}</p>
+      <img :src="avatar" class="lock-screen-img">
+      <p class="mb-20 mt-10">{{nickname}}/{{name}}</p>
       <el-input placeholder="请输入登录密码" show-password v-model="password">
         <!-- @keyup.enter.native="handleLogin" -->
         <el-button slot="append" @click="handleLogin" icon="ace-icon el-icon-unlock"
