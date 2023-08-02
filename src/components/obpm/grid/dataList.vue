@@ -1,7 +1,6 @@
 <template>
     <ag-grid-vue
-      style="width: 100%;"
-      :style="{height: tableHeight + 'px'}"
+      :style="{height: tableHeight + 'px', width: tableWidth}"
       class="ag-theme-alpine"
       :rowModelType="rowModelType"
       :serverSideFilterOnServer="true"
@@ -29,7 +28,7 @@
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import './components/ag-grid-enterprise.auto.esm'
-
+import {listBaseConfig} from './listBaseConfig'
 import { AgGridVue } from 'ag-grid-vue'
 import basicRender from './components/agGridBasic'
 import datePicker from './components/agDatePicker'
@@ -42,6 +41,7 @@ window.agGridMapList = {}
 window.createDatasource = (server) => {
   return {
     getRows: (params) => {
+      console.log(params)
       let filterModel = {}
       let filterCache = params.request.filterModel
       Object.keys(filterCache).forEach(k=>{
@@ -100,6 +100,10 @@ export default {
   ],
   data() {
     return {
+      listBaseConfig,
+      listConfig: {
+        
+      }, // 
       serverSideInfiniteScroll: true,
       page: 1,
       size: 100,
@@ -110,6 +114,7 @@ export default {
         sortable: true,
         menuTabs: ['filterMenuTab']
       },
+      tableWidth: '100%',
       tableHeight: 500,
       columnDefs: [],
       getListData: getListData,
@@ -173,17 +178,18 @@ export default {
       this.gridApi.refreshServerSide({ purge: true })
     },
     resetFilter(){
+      console.log('this.localConfigs.filter:',this.localConfigs.filter)
       this.gridApi.setFilterModel(this.localConfigs.filter)
     },
     onGridReady(params) {
       this.gridApi = params.api
       this.gridColumnApi = params.columnApi
-      if(this.localConfigs.filter && Object.keys(this.localConfigs.filter).length){
-        // console.log('设置筛选', this.localConfigs.filter)
-        setTimeout(()=>{
-          params.api.setFilterModel(this.localConfigs.filter)
-        },100)
-      }
+      // if(this.localConfigs.filter && Object.keys(this.localConfigs.filter).length){
+      //   console.log('设置筛选', this.localConfigs.filter)
+      //   setTimeout(()=>{
+      //     params.api.setFilterModel(this.localConfigs.filter)
+      //   },100)
+      // }
       var datasource = createDatasource(this)
       this.gridApi.setServerSideDatasource(datasource)
     },

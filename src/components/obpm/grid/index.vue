@@ -120,11 +120,6 @@
       //测试URL参数 {"componentid":"433396969320742913","componentnum":"75429-11028G01","title":"75429-11028G01计划任务"}
       this.init(this.code)
     },
-    activated(){
-      console.log(this.visitedViews)
-    },
-    mounted(){
-    },
     methods: {
       changeTotal(data) {
         this.pageData.total = data
