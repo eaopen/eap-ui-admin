@@ -9,6 +9,7 @@ const state = {
         }
         state.configs[data.code]['filter'] = data.filter
         state.configs[data.code]['updateTime'] = Date.parse(new Date())
+        console.log(state.configs)
       },
       SET_LIST_SORT(state, data){
         if(!state.configs[data.code]){

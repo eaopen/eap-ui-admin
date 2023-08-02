@@ -31,7 +31,7 @@ export function getParams(str) {
   return json;
 }
 
-// listGrid path修改，删除code
+// listGrid path修改，删除code,保留其他的参数
 export function formatListGridPath(path) {
   if (!path) return "";
   if(path.indexOf('?')== -1) return path
@@ -46,7 +46,7 @@ export function formatListGridPath(path) {
       return path;
     }
   } else {
-    let newPath = Object.keys(paramsObj) + "?";
+    let newPath = path.split('?')[0] + "?";
     keys.forEach((k) => {
       if (k !== "code") {
         newPath += k + "=" + paramsObj[k];

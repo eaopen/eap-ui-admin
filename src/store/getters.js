@@ -19,6 +19,9 @@ const getters = {
   defaultRoutes:state => state.permission.defaultRoutes,
   sidebarRouters:state => state.permission.sidebarRouters,
   // 数据字典
-  dict_datas: state => state.dict.dictDatas
+  dict_datas: state => state.dict.dictDatas,
+  list_configs: state => state.list.configs,
+  socket: state => state.user.socket,
+  isLock: state => state.user.isLock,
 }
 export default getters

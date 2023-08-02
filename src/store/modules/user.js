@@ -10,9 +10,13 @@ const user = {
     roles: [],
     permissions: [],
     isLock: getLock() || 0,
+    socket: ''
   },
 
   mutations: {
+    SET_SOCKET: (state, socket) => {
+      state.socket = socket
+    },
     SET_LOCK: (state, isLock) => {
       state.isLock = isLock
     },

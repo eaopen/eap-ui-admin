@@ -92,7 +92,7 @@ export default {
       let activePath = path;
       if (path !== undefined && path.lastIndexOf("/") > 0 && hideList.indexOf(path) === -1) {
         const tmpPath = path.substring(1, path.length);
-        if(this.$route.path.indexOf('obpm/listGrid')!=-1){
+        if(this.$route.path.indexOf('/listGrid')!=-1){
           activePath = this.$route.matched[0].path
         }else {
           activePath = "/" + tmpPath.substring(0, tmpPath.indexOf("/"));
