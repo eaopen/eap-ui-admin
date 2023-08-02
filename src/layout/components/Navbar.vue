@@ -13,16 +13,18 @@
 
         <!-- 站内信 -->
         <notify-message class="right-menu-item hover-effect" />
-
-
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
-
-
-
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
+        <!-- <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
-        </el-tooltip>
-
+        </el-tooltip> -->
+        <div class="right-menu-item hover-effect">
+          <i class="el-icon-chat-line-round" style="font-size: 20px;" @click="openUserList()"
+            :class="{'twinkle':isTwinkle}"></i>
+        </div>
+        <div class="right-menu-item hover-effect">
+          <i class="el-icon-lock" style="font-size: 20px;" @click="setLock()"
+            :class="{'twinkle':isTwinkle}"></i>
+        </div>
         <template v-if="showLanguage">
           <lang-select class="right-menu-item hover-effect" />
         </template>
@@ -48,6 +50,7 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <UserList ref="UserList" @changeTwinkle='changeTwinkle' />
   </div>
 </template>
 
@@ -60,8 +63,10 @@ import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
 import Search from '@/components/HeaderSearch'
+import UserList from './userList/UserList'
 import NotifyMessage from '@/layout/components/Message'
 import {getPath} from "@/utils/ruoyi";
+
 
 export default {
   components: {
@@ -72,7 +77,8 @@ export default {
     SizeSelect,
     LangSelect,
     Search,
-    NotifyMessage
+    NotifyMessage,
+    UserList
   },
   computed: {
     ...mapGetters([
@@ -108,12 +114,147 @@ export default {
       }
     }
   },
+  data(){
+    return {
+      isTwinkle: false
+    }
+  },
+  created(){
+    this.initWebSocket()
+  },
   methods: {
+    setLock(){
+      this.$store.dispatch('user/setLock')
+      this.$nextTick(() => {
+        this.$router.push('/lockScreen')
+      })
+    },
     changeAvatar(event){
       event.target.src = require("@/assets/images/avatar.png");
     },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
+    },
+    openUserList() {
+      this.$refs.UserList.init()
+    },
+    changeTwinkle(boo) {
+      this.isTwinkle = boo
+    },
+    initWebSocket() {
+      this.socket = this.$store.getters.socket || null
+      if ('WebSocket' in window) {
+        if (!this.socket) {
+          const isDev = process.env.NODE_ENV === 'development'
+          const token = this.$store.getters.token
+          const url = isDev ? this.define.APIURl + '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
+          const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
+          this.socket = new ReconnectingWebSocket(webSocketUrl)
+          this.$store.commit('user/SET_SOCKET', this.socket)
+        }
+        //添加事件监听
+        let socket = this.socket
+        socket.onopen = () => {
+          var onConnection = {
+            "method": "OnConnection", "token": this.$store.getters.token, "mobileDevice": false
+          }
+          socket.send(JSON.stringify(onConnection))
+        }
+        socket.onmessage = (event) => {
+          let data = JSON.parse(event.data)
+          if (data.method == 'initMessage') {
+            this.messageCount = data.unreadMessageCount + data.unreadNoticeCount+data.unreadSystemMessageCount
+            this.isTwinkle = !!data.unreadNums.length
+          }
+          //用户在线
+          if (data.method == 'Online') {
+          }
+          //用户离线
+          if (data.method == 'Offline') {
+          }
+          //消息推送（消息公告用的）
+          if (data.method == 'messagePush') {
+            this.messageCount += data.unreadNoticeCount
+            if (this.$refs.MessageList.visible) this.$refs.MessageList.init()
+          }
+          //用户过期
+          if (data.method == 'logout') {
+            if (this.socket) {
+              this.socket.close()
+              this.socket = null
+              this.$store.commit('user/SET_SOCKET', this.socket)
+            }
+            this.$message({
+              message: data.msg || '登录过期,请重新登录',
+              type: 'error',
+              duration: 1000,
+              onClose: () => {
+                this.$store.dispatch('user/resetToken').then(() => {
+                  location.reload()
+                })
+              }
+            })
+          }
+          //断开websocket连接
+          if (data.method == 'closeSocket') {
+            if (this.socket) {
+              this.socket.close()
+              this.socket = null
+              this.$store.commit('user/SET_SOCKET', this.socket)
+            }
+          }
+          //接收对方发送的消息
+          if (data.method == 'receiveMessage') {
+            //判断是否打开窗口
+            if (this.$refs.UserList && this.$refs.UserList.$refs.JNPFIm && this.$refs.UserList.$refs.JNPFIm.visible) {
+              if (this.$refs.UserList.$refs.JNPFIm.info.id === data.formUserId) {
+                let messItem = {
+                  userId: data.formUserId,
+                  messageType: data.messageType,
+                  message: data.formMessage,
+                  dateTime: this.jnpf.toDate(data.dateTime)
+                }
+                this.$refs.UserList.$refs.JNPFIm.addItem(messItem)
+                //更新已读
+                let updateReadMessage = {
+                  method: "UpdateReadMessage",
+                  formUserId: data.formUserId,
+                  token: this.$store.getters.token
+                }
+                socket.send(JSON.stringify(updateReadMessage))
+                this.$refs.UserList.updateReply(data)
+              } else {
+                this.$refs.UserList.updateReply(data, 1)
+                this.isTwinkle = true
+              }
+            } else {
+              this.$refs.UserList.updateReply(data, 1)
+              this.isTwinkle = true
+            }
+          }
+          //显示自己发送的消息
+          if (data.method == 'sendMessage') {
+            if (this.$refs.UserList.$refs.JNPFIm.info.id !== data.toUserId) return
+            //添加到客户端
+            let messItem = {
+              userId: data.UserId,
+              messageType: data.messageType,
+              message: data.toMessage,
+              dateTime: this.jnpf.toDate(data.dateTime)
+            }
+            this.$refs.UserList.updateLatestMessage(data)
+            this.$refs.UserList.$refs.JNPFIm.addItem(messItem)
+          }
+          //消息列表
+          if (data.method == 'messageList') {
+            this.$refs.UserList.$refs.JNPFIm.getList(data)
+          }
+          //刷新页面
+          if (data.method == 'refresh') {
+            location.reload()
+          }
+        }
+      }
     },
     async logout() {
       this.$modal.confirm('确定注销并退出系统吗？', '提示').then(() => {
