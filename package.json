@@ -1,6 +1,6 @@
 {
   "name": "eap-ui-admin",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "企业应用框架",
   "author": "EAP",
   "license": "MIT",
@@ -61,6 +61,7 @@
     "js-beautify": "1.13.0",
     "js-cookie": "2.2.0",
     "jsencrypt": "3.3.1",
+    "jsonlint": "1.6.3",
     "min-dash": "3.5.2",
     "nprogress": "0.2.0",
     "qrcode.vue": "^1.7.0",

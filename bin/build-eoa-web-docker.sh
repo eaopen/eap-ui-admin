@@ -1,6 +1,9 @@
 #!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd ../
+cd ${DIR}/..
+
+#yarn build:prod
 
 # docker
 docker build \
@@ -9,7 +12,7 @@ docker build \
   .
 
 ## dicker login
-sh ./openea-docker-login.sh
+sh {DIR}/openea-docker-login.sh
 
 docker tag eoa-web openea-docker.pkg.coding.net/reps/docker/eoa-web:latest
 
