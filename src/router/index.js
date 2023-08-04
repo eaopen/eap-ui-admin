@@ -108,7 +108,13 @@ export const constantRoutes = [
         component: (resolve) => require(['@/views/components/icons/index'], resolve),
         name: 'Icons',
         meta: {title: 'Icons', icon: 'icon'}
-      }]
+      },{
+        path: 'visualPortal',
+        component: (resolve) => require(['@/views/onlineDev/visualPortal/index'], resolve),
+        name: 'VisualPortal',
+        meta: {title: 'visualPortal', icon: 'icon'}
+      }
+    ]
   },
   {
     path: '/dict',

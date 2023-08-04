@@ -4,6 +4,7 @@ import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
 import '@/assets/styles/index.scss' // global css
+import '@/assets/styles/jnpf.scss' // global css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
 import App from './App'
 import store from './store'
@@ -11,6 +12,9 @@ import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
 import i18n from './lang' // internationalization
+
+// JNPF 组件引入
+import topOperation from '@/components/JNPF-topOperation/index'
 
 import './assets/icons' // icon
 import './assets/obpm/font-awesome.min.css'
@@ -47,6 +51,8 @@ Vue.component('DocAlert', DocAlert)
 Vue.component('Pagination', Pagination)
 Vue.component('RightToolbar', RightToolbar)
 Vue.component('ListAgGrid', ListAgGrid)
+Vue.component('topOpts', topOperation)
+
 // 字典标签组件
 import DictTag from '@/components/DictTag'
 import DocAlert from '@/components/DocAlert'
