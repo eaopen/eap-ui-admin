@@ -12,7 +12,10 @@ docker build \
   .
 
 ## dicker login
-sh {DIR}/openea-docker-login.sh
+LOGIN_FILE_PATH="${DIR}/openea-docker-login.sh"
+if [ -f "$LOGIN_FILE_PATH" ]; then
+  sh $LOGIN_FILE_PATH
+fi
 
 docker tag eoa-web openea-docker.pkg.coding.net/reps/docker/eoa-web:latest
 
