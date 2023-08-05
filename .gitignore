@@ -24,3 +24,5 @@ package-lock.json
 **/openea-docker-login.sh
 src/lang/draft/
 /eoa-web.iml
+
+.env

@@ -14,7 +14,8 @@
     "build:static": "vue-cli-service build --mode static",
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules",
+    "jkhook": "node bin/jkhook.js"
   },
   "husky": {
     "hooks": {
