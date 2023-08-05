@@ -1,13 +1,7 @@
 // IM通讯获取用户
 import request from "@/utils/request";
 
-export function getImUser(data){
-    return request({
-        url: '/api/permission/Users/ImUser',
-        method: 'get',
-        data
-    })
-}
+
 
 // 获取消息中心列表
 export function getMessageList(data) {

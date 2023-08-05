@@ -61,7 +61,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { getImUser, getIMReply, deleteChatRecord, relocation } from '@/api/obpm/user'
+import { getImUser} from '@/api/system/user'
+import { getIMReply, deleteChatRecord, relocation } from '@/api/system/message'
 import Im from './Im'
 export default {
   name: 'UserList',
@@ -85,6 +86,9 @@ export default {
         keyword: '',
         currentPage: 1,
         pageSize: 20
+      },
+      define:{
+        comUrl: ""
       }
     }
   },
