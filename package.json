@@ -15,7 +15,7 @@
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
     "clean": "rimraf node_modules",
-    "jkhook": "node bin/jkhook.js"
+    "jkhook": "npm install dotenv axios && node bin/jkhook.js"
   },
   "husky": {
     "hooks": {
