@@ -32,6 +32,10 @@ import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/
 
 import ListAgGrid from '@/components/obpm/grid/index.vue'
 
+Object.assign(Vue.prototype, {
+  define: require('./utils/define')
+})
+
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts
 Vue.prototype.getConfigKey = getConfigKey

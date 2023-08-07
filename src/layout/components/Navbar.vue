@@ -65,6 +65,7 @@ import LangSelect from '@/components/LangSelect'
 import Search from '@/components/HeaderSearch'
 import UserList from './userList/UserList'
 import NotifyMessage from '@/layout/components/Message'
+import ReconnectingWebSocket from 'reconnecting-websocket'
 import {getPath} from "@/utils/ruoyi";
 
 
