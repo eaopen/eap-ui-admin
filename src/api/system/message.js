@@ -35,3 +35,34 @@ export function getMessageList(data) {
       data
     })
   }
+
+// 获取IM对话列表
+export function getIMReply() {
+  return request({
+    url: '/api/message/imreply',
+    method: 'GET'
+  })
+}
+
+//删除聊天记录
+export function deleteChatRecord(id) {
+  return request({
+    url: `/api/message/imreply/deleteChatRecord/${id}`,
+    method: 'DELETE'
+  })
+}
+
+//移除
+export function relocation(id) {
+  return request({
+    url: `/api/message/imreply/relocation/${id}`,
+    method: 'DELETE'
+  })
+}
+//发送配置回写
+export function sendMessageConfig(id) {
+  return request({
+    url: `api/message/SendMessageConfig/${id}`,
+    method: 'get'
+  })
+}
