@@ -140,6 +140,10 @@ const user = {
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
+          if (state.socket) {
+            state.socket.close()
+            commit('SET_SOCKET', null)
+          }
           commit('SET_ROLES', [])
           commit('SET_PERMISSIONS', [])
           removeToken()

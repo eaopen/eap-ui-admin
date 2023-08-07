@@ -65,6 +65,7 @@ import LangSelect from '@/components/LangSelect'
 import Search from '@/components/HeaderSearch'
 import UserList from './userList/UserList'
 import NotifyMessage from '@/layout/components/Message'
+import {getAccessToken} from '@/utils/auth'
 import ReconnectingWebSocket from 'reconnecting-websocket'
 import {getPath} from "@/utils/ruoyi";
 
@@ -147,11 +148,11 @@ export default {
       if ('WebSocket' in window) {
         if (!this.socket) {
           const isDev = process.env.NODE_ENV === 'development'
-          const token = this.$store.getters.token
+          const token = getAccessToken()
           const url = isDev ? this.define.APIURl + '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
           const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
           this.socket = new ReconnectingWebSocket(webSocketUrl)
-          this.$store.commit('user/SET_SOCKET', this.socket)
+          this.$store.commit('SET_SOCKET', this.socket)
         }
         //添加事件监听
         let socket = this.socket
@@ -183,7 +184,7 @@ export default {
             if (this.socket) {
               this.socket.close()
               this.socket = null
-              this.$store.commit('user/SET_SOCKET', this.socket)
+              this.$store.commit('SET_SOCKET', this.socket)
             }
             this.$message({
               message: data.msg || '登录过期,请重新登录',
@@ -201,7 +202,7 @@ export default {
             if (this.socket) {
               this.socket.close()
               this.socket = null
-              this.$store.commit('user/SET_SOCKET', this.socket)
+              this.$store.commit('SET_SOCKET', this.socket)
             }
           }
           //接收对方发送的消息
