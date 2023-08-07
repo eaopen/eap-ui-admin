@@ -1,7 +1,7 @@
 <template>
-  <div class="JNPF-common-layout">
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+  <div class="OBPM-common-layout">
+    <div class="OBPM-common-layout-center">
+      <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -28,15 +28,15 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
-        <div class="JNPF-common-head">
+      <div class="OBPM-common-layout-main OBPM-flex-main">
+        <div class="OBPM-common-head">
           <topOpts @add="dialogVisible=true" addText="新建门户">
             <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
               @on-success="initData" />
           </topOpts>
-          <div class="JNPF-common-head-right">
+          <div class="OBPM-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
-              <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
+              <el-link icon="icon-ym icon-ym-Refresh OBPM-common-head-icon" :underline="false"
                 @click="initData()" />
             </el-tooltip>
           </div>
@@ -88,7 +88,7 @@
     <Preview :visible.sync="previewVisible" :id="activeId" />
     <Transfer ref="transfer" :visible.sync="transferShow" :id="transferId" />
     <el-dialog title="新建门户" :visible.sync="dialogVisible"
-      class="JNPF-dialog JNPF-dialog-add JNPF-dialog_center" lock-scroll width="600px">
+      class="OBPM-dialog OBPM-dialog-add OBPM-dialog_center" lock-scroll width="600px">
       <div class="add-main">
         <div class="add-item add-item-left" @click="addOrUpdateHandle(1)">
           <i class="add-icon icon-ym icon-ym-customUrl"></i>

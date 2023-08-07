@@ -1,7 +1,7 @@
 <template>
-  <div class="JNPF-common-layout MessageRecord-container">
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+  <div class="OBPM-common-layout MessageRecord-container">
+    <div class="OBPM-common-layout-center">
+      <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -19,20 +19,20 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
+      <div class="OBPM-common-layout-main OBPM-flex-main">
         <el-tabs type="border-card" v-model="activeName" class="messageRecord-tab">
           <el-tab-pane label="全部" name="0"></el-tab-pane>
           <el-tab-pane label="系统" name="3"></el-tab-pane>
           <el-tab-pane label="流程" name="1"></el-tab-pane>
           <el-tab-pane label="公告" name="2"></el-tab-pane>
           <div class="box">
-            <div class="JNPF-common-head">
+            <div class="OBPM-common-head">
               <div class="left-btn">
                 <el-button type="danger" @click="handleDel" icon="el-icon-delete">删除</el-button>
               </div>
-              <div class="JNPF-common-head-right">
+              <div class="OBPM-common-head-right">
                 <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
-                  <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
+                  <el-link icon="icon-ym icon-ym-Refresh OBPM-common-head-icon" :underline="false"
                     @click="initData()" />
                 </el-tooltip>
               </div>

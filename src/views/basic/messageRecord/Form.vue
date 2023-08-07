@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="查看消息" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center JNPF-dialog-notice" lock-scroll width="80%"
+    class="OBPM-dialog OBPM-dialog_center OBPM-dialog-notice" lock-scroll width="80%"
     append-to-body>
     <div class="notice-wrapper" v-loading="loading">
       <h1 class="title">{{info.title}}</h1>

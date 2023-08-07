@@ -1,7 +1,7 @@
 
 <template>
   <el-dialog :title="title" :close-on-click-modal="false"
-    class="JNPF-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
+    class="OBPM-dialog OBPM-dialog_center transfer-dialog" lock-scroll append-to-body
     v-bind="$attrs" width="800px" :modal-append-to-body="false" v-on="$listeners" @open="onOpen">
     <userTransfer v-model="selectedData" ref="userTransfer" multiple v-if="type==='user'" />
     <usersTransfer v-model="selectedData" ref="usersTransfer" multiple v-else-if="type==='users'" />

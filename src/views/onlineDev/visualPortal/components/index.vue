@@ -1,5 +1,5 @@
 <template>
-  <el-container class="JNPF-Portal">
+  <el-container class="OBPM-Portal">
     <el-aside width="250px" class="left-box">
       <el-scrollbar class="aside-scrollbar">
         <div class="components-list">

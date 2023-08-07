@@ -38,6 +38,7 @@ const permission = {
     GenerateRoutes({commit}, menus) {
       return new Promise(resolve => {
         // 将 menus 菜单，转换为 route 路由数组
+        console.log('menus', menus)
         const sdata = JSON.parse(JSON.stringify(menus)) // 【重要】用于菜单中的数据
         const rdata = JSON.parse(JSON.stringify(menus)) // 用于最后添加到 Router 中的数据
 
