@@ -55,7 +55,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-drawer>
-    <Im ref="JNPFIm" append-to-body />
+    <Im ref="OBPMI m" append-to-body />
   </div>
 </template>
 
@@ -130,14 +130,14 @@ export default {
       this.selectedTag = tag
     },
     relocation() {
-      this.$refs.JNPFIm.closeIM()
+      this.$refs.OBPMIm.closeIM()
       relocation(this.selectedTag.id).then((res) => {
         const list = this.replyList.filter(o => o.id !== this.selectedTag.id)
         this.replyList = list
       });
     },
     deleteChatRecord() {
-      this.$refs.JNPFIm.closeIM()
+      this.$refs.OBPMIm.closeIM()
       this.$confirm("是否清空当前聊天的所有记录?", "提示", {
         type: "warning",
       }).then(() => {
@@ -265,7 +265,7 @@ export default {
         }
       }
       this.toggleBlink()
-      this.$refs.JNPFIm.list = []
+      this.$refs.OBPMIm.list = []
       //获取消息列表
       var messageList = {
         method: "MessageList",
@@ -277,7 +277,7 @@ export default {
         sord: "desc"
       }
       socket.send(JSON.stringify(messageList));
-      this.$refs.JNPFIm.init(item)
+      this.$refs.OBPMIm.init(item)
     },
     getMsgText(text, type) {
       let message = ''
@@ -295,7 +295,7 @@ export default {
       return message
     },
     handleClose(done) {
-      this.$refs.JNPFIm.closeIM()
+      this.$refs.OBPMIm.closeIM()
       let vBody = this.$refs.userList;
       vBody.removeEventListener("scroll", function () { });
       done();
