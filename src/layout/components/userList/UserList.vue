@@ -55,7 +55,7 @@
         </el-tab-pane>
       </el-tabs>
     </el-drawer>
-    <Im ref="OBPMI m" append-to-body />
+    <Im ref="OBPMIm" append-to-body />
   </div>
 </template>
 
