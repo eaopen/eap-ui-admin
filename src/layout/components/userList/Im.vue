@@ -11,11 +11,11 @@
           <div class="chatList-item" v-for="(item,index) in list" :key="index"
             :class="{'chatList-item--mine': item.userId==userInfo.userId}">
             <div class="chatList-user" v-if="item.userId==userInfo.userId">
-              <el-avatar :size="40" :src="define.comUrl+userInfo.headIcon" />
+              <el-avatar :size="40" :src="userInfo.headIcon" />
               <cite><i>{{item.dateTime}}</i>我</cite>
             </div>
             <div class="chatList-user" v-else>
-              <el-avatar :size="40" :src="define.comUrl+info.headIcon" />
+              <el-avatar :size="40" :src="info.headIcon" />
               <cite>{{info.realName}}<i>{{item.dateTime}}</i></cite>
             </div>
             <div class="chatList-text">
@@ -80,11 +80,11 @@
           <div class="chatList historyList">
             <div class="chatList-item" v-for="(item,index) in historyList" :key="index">
               <div class="chatList-user" v-if="item.userId==userInfo.userId">
-                <el-avatar :size="40" :src="define.comUrl+userInfo.headIcon" />
+                <el-avatar :size="40" :src="userInfo.headIcon" />
                 <cite>我<i>{{item.dateTime}}</i></cite>
               </div>
               <div class="chatList-user" v-else>
-                <el-avatar :size="40" :src="define.comUrl+info.headIcon" />
+                <el-avatar :size="40" :src="info.headIcon" />
                 <cite>{{info.realName}}<i>{{item.dateTime}}</i></cite>
               </div>
               <div class="chatList-text">

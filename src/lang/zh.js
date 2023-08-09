@@ -203,6 +203,15 @@ export default {
     noFilter: '无筛选条件'
   },
   common: {
-    noData: '暂无内容'
+    noData: '暂无内容',
+    confirmButton: '确认',
+    cancelButton: '取消',
+    addButton: '添加',
+    moreButton: '更多',
+    prev: '前一个',
+    next: '后一个',
+    search: '搜索',
+    reset: '重置',
+    refresh: '刷新',
   }
 }

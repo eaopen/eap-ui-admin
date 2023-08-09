@@ -204,6 +204,15 @@ export default {
     noFilter: 'no filter'
   },
   common: {
-    noData: 'no data'
+    noData: 'no data',
+    confirmButton: 'confirm',
+    cancelButton: 'cancel',
+    addButton: 'add',
+    moreButton: 'more',
+    prev: 'prev',
+    next: 'next',
+    search: 'search',
+    reset: 'reset',
+    refresh: 'refresh',
   }
 }
