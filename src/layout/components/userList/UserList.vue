@@ -40,7 +40,7 @@
             <div v-if="userList.length">
               <div v-for="(item,i) in userList" :key="i" class="userList-item"
                 @click="readInfo(item)">
-                <el-avatar :size="36" :src="define.comUrl+item.headIcon">
+                <el-avatar :size="36" :src="item.headIcon">
                 </el-avatar>
                 <div class="userList-txt">
                   <p class="title">{{item.realName}}/{{item.account}}</p>
@@ -187,6 +187,9 @@ export default {
       this.loading = true
       getImUser(this.listQuery).then(res => {
         if (res.data.list.length < this.listQuery.pageSize) this.finish = true
+        res.data.list.forEach((item, index)=>{
+          if(!item.headIcon) item.headIcon = require(`static/avatar/1000${index}.jpeg`)
+        })
         this.userList = [...this.userList, ...res.data.list]
         this.loading = false
       })
