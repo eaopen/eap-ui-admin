@@ -270,7 +270,7 @@ export default {
       var messageList = {
         method: "MessageList",
         toUserId: item.id,
-        formUserId: this.userInfo.userId,
+        formUserId: this.$store.getters.userId,
         token: this.$store.getters.token,
         currentPage: 1,
         pageSize: 30,
