@@ -147,15 +147,15 @@ export default {
       this.socket = this.$store.getters.socket || null
       if ('WebSocket' in window) {
         if (!this.socket) {
-          //const isDev = process.env.NODE_ENV === 'development'
-          const token = getAccessToken()
-          //const url = isDev ? this.define.APIURl + '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
-          //const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
-          const url = process.env.VUE_APP_BASE_API + "/websocket/message?token=" + token
+          const isDev = process.env.NODE_ENV === 'development'
+          const token = this.$store.getters.token
+          const url = isDev ? process.env.VUE_APP_BASE_API+ '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
+          // const url = ''
           const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
           this.socket = new ReconnectingWebSocket(webSocketUrl)
-          //this.socket = new WebSocket(webSocketUrl)
+          
           this.$store.commit('SET_SOCKET', this.socket)
+          console.log('this.socket', this.$store.getters.socket )
         }
         //添加事件监听
         let socket = this.socket
