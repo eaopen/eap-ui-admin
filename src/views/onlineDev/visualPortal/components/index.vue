@@ -302,12 +302,12 @@ $lighterBlue: #409eff;
         height: 500px;
       }
     }
-    >>> .vue-grid-item.vue-grid-placeholder {
+    :deep(.vue-grid-item.vue-grid-placeholder) {
       background: $lighterBlue;
     }
     .layout-area {
       height: calc(100% - 42px);
-      >>> .el-scrollbar__wrap {
+      :deep(.el-scrollbar__wrap) {
         margin-bottom: 0 !important;
         overflow-x: auto;
       }
@@ -322,7 +322,7 @@ $lighterBlue: #409eff;
             display: block;
           }
         }
-        >>> .vue-resizable-handle {
+        :deep(.vue-resizable-handle) {
           z-index: 20;
         }
         .mask {
@@ -378,7 +378,7 @@ $lighterBlue: #409eff;
             display: block;
           }
         }
-        >>> .el-card {
+        :deep(.el-card){
           width: 100%;
           height: 100%;
           .el-card__body {
