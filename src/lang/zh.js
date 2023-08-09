@@ -201,5 +201,8 @@ export default {
     filters: '筛选',
     sort: '排序',
     noFilter: '无筛选条件'
+  },
+  common: {
+    noData: '暂无内容'
   }
 }

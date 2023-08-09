@@ -202,5 +202,8 @@ export default {
     filters: 'filters',
     sort: 'sort',
     noFilter: 'no filter'
+  },
+  common: {
+    noData: 'no data'
   }
 }

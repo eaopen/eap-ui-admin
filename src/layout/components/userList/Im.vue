@@ -268,6 +268,8 @@ export default {
         messageContent: this.messageContent,
         token: this.$store.getters.token,
       }
+      console.log(socket)
+      console.log(JSON.stringify(sendMessage))
       socket.send(JSON.stringify(sendMessage));
       this.messageContent = ''
     },
@@ -443,7 +445,7 @@ export default {
     }
     .el-link {
       float: right;
-      >>> .el-icon-close {
+      :deep(.el-icon-close){
         font-size: 20px;
         margin-top: 15px;
       }
@@ -476,7 +478,7 @@ export default {
           cursor: pointer;
         }
         .toolBox-left {
-          >>> .el-link {
+          :deep(.el-link) {
             line-height: 35px;
             i {
               font-size: 20px;
@@ -491,7 +493,7 @@ export default {
           color: #6b7a99;
           line-height: 35px;
           font-size: 14px;
-          >>> .el-link {
+          :deep(.el-link ){
             line-height: 35px;
             i {
               font-size: 18px;
@@ -503,7 +505,7 @@ export default {
       .writeBox {
         background: #fff;
         height: 110px;
-        >>> .el-textarea {
+        :deep(.el-textarea){
           .el-textarea__inner {
             border: none;
             resize: none;
@@ -521,7 +523,7 @@ export default {
       margin-left: 10px;
       background: #fff;
       .el-input {
-        >>> .el-input__inner {
+        :deep(.el-input__inner){
           border-radius: 0;
           border-right: none;
           border-left: none;
@@ -609,7 +611,7 @@ export default {
     }
     .chatList__msg--text {
       line-height: 24px;
-      >>> img {
+      :deep(img){
         vertical-align: top;
         width: 24px;
         height: 24px;

@@ -148,7 +148,7 @@ export default {
       if ('WebSocket' in window) {
         if (!this.socket) {
           const isDev = process.env.NODE_ENV === 'development'
-          const token = this.$store.getters.token
+          const token = localStorage.getItem('ACCESS_TOKEN')
           const url = isDev ? process.env.VUE_APP_BASE_API+ '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
           // const url = ''
           const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
