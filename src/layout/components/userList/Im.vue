@@ -218,7 +218,7 @@ export default {
           userId: item.sendUserId,
           messageType: item.contentType,
           message: item.content,
-          dateTime: this.jnpf.toDate(item.sendTime)
+          dateTime: this.obpm.toDate(item.sendTime)
         })
       }
       if (!this.showHistory) {

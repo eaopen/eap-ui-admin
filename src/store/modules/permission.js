@@ -4,7 +4,7 @@ import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
 import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
-import {getParams, formatListGridPath} from "@/utils/obpm"
+import obpm from "@/utils/obpm"
 
 const permission = {
   state: {
@@ -88,8 +88,8 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       }
     } else if(route.path) { // 根节点
       if(route.path.indexOf('listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
-        route.name = getParams(route.path).code
-        route.path = '/' + formatListGridPath(route.path)
+        route.name = obpm.getParams(route.path).code
+        route.path = '/' + obpm.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
         route.component = agListCache
       }else if(route.path.indexOf('/easyForm')>-1){

@@ -11,6 +11,7 @@ import store from './store'
 import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
+const obpm = require('./utils/obpm').default
 import i18n from './lang' // internationalization
 
 // JNPF 组件引入
@@ -37,6 +38,7 @@ Object.assign(Vue.prototype, {
 })
 
 // 全局方法挂载
+Vue.prototype.obpm = obpm // utils对象位置
 Vue.prototype.getDicts = getDicts
 Vue.prototype.getConfigKey = getConfigKey
 Vue.prototype.parseTime = parseTime
