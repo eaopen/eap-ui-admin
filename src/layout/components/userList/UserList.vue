@@ -327,7 +327,7 @@ export default {
   }
 }
 .contacts-drawer {
-  >>> .el-tabs {
+  :deep(.el-tabs) {
     height: 100%;
     .el-tabs__header {
       margin-bottom: 0 !important;
@@ -358,7 +358,7 @@ export default {
     padding-top: 20px;
   }
   .search-input {
-    >>> .el-input__inner {
+    :deep(.el-input__inner){
       border-radius: 0;
       border-right: none;
       border-left: none;
@@ -371,10 +371,10 @@ export default {
       }
     }
   }
-  >>> .el-drawer__header {
+  :deep(.el-drawer__header) {
     border: none;
   }
-  >>> .el-drawer__body {
+  :deep(.el-drawer__body) {
     overflow: hidden;
     .userList {
       overflow: auto;
@@ -394,7 +394,7 @@ export default {
       .el-badge {
         margin-top: 10px;
       }
-      >>> .el-loading-mask {
+      :deep(.el-loading-mask){
         top: 100px;
       }
     }
