@@ -149,7 +149,7 @@ export default {
         if (!this.socket) {
           const isDev = process.env.NODE_ENV === 'development'
           const token = localStorage.getItem('ACCESS_TOKEN')
-          const url = isDev ? process.env.VUE_APP_BASE_API+ '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/websocket/' + token
+          const url = isDev ? process.env.VUE_APP_BASE_API+ '/api/message/websocket/' + token : window.location.origin + process.env.VUE_APP_BASE_API + '/api/message/websocket/' + token
           // const url = ''
           const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
           this.socket = new ReconnectingWebSocket(webSocketUrl)
