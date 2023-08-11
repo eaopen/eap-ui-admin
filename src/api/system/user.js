@@ -153,10 +153,10 @@ export function UpdateLanguage(data) {
   })
 }
 
-export function getImUser(data){
+export function getImUser(params){
   return request({
     url: '/system/user/ImUser',
     method: 'get',
-    data
+    params
   })
 }

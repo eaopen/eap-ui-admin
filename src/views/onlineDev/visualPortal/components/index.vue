@@ -94,7 +94,7 @@ const defaultConf = {
 }
 
 export default {
-  name: 'JNPF-PortalDesigner',
+  name: 'OBPM-PortalDesigner',
   props: ['conf'],
   components: {
     GridLayout: VueGridLayout.GridLayout,
@@ -192,10 +192,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 $lighterBlue: #409eff;
-.JNPF-Portal {
+.OBPM-Portal {
   height: 100%;
   .el-aside,
-  >>> .el-aside {
+  :deep(.el-aside){
     padding: 0;
     margin: 0;
     .cap-wrapper {

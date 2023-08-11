@@ -185,6 +185,7 @@ export default {
     },
     getUserList() {
       this.loading = true
+      console.log(this.listQuery)
       getImUser(this.listQuery).then(res => {
         if (res.data.list.length < this.listQuery.pageSize) this.finish = true
         res.data.list.forEach((item, index)=>{

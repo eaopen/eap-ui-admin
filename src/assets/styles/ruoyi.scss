@@ -75,7 +75,7 @@
   padding: 10px 20px 0;
 }
 
-.el-dialog{
+.el-dialog:not(.is-fullscreen) {
   display: flex;
   flex-direction: column;
   max-width: calc(100% - 30px);
