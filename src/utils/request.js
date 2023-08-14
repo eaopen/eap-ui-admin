@@ -51,7 +51,7 @@ service.interceptors.request.use(config => {
     }
   }
 
-  console.log(config)
+  // console.log(config)
   // get请求映射params参数
   if (config.method === 'get' && config.params) {
     let url = config.url + '?';
@@ -101,7 +101,8 @@ service.interceptors.response.use(async res => {
       try {
         const refreshTokenRes = await refreshToken()
         // 2.1 刷新成功，则回放队列的请求 + 当前请求
-        setToken(refreshTokenRes.data)
+        store.commit('SET_TOKEN', refreshTokenRes)
+        // setToken(refreshTokenRes.data)
         requestList.forEach(cb => cb())
         return service(res.config)
       } catch (e) {// 为什么需要 catch 异常呢？刷新失败时，请求因为 Promise.reject 触发异常。

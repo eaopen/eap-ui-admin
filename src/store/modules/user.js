@@ -10,6 +10,7 @@ const user = {
     roles: [],
     permissions: [],
     isLock: getLock() || 0,
+    token: localStorage.getItem('ACCESSS_TOKEN')?localStorage.getItem('ACCESSS_TOKEN'):'',
     socket: ''
   },
 
@@ -37,7 +38,16 @@ const user = {
     },
     SET_PERMISSIONS: (state, permissions) => {
       state.permissions = permissions
-    }
+    },
+    SET_TOKEN: (state, token) => {
+      state.token = token.accessToken
+      if(token){
+        setToken(token)
+      }else {
+        removeToken()
+      }
+      
+    },
   },
 
   actions: {
@@ -57,7 +67,7 @@ const user = {
         login(username, password, captchaVerification, socialType, socialCode, socialState).then(res => {
           res = res.data;
           // 设置 token
-          setToken(res)
+          commit('SET_TOKEN', res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -74,7 +84,7 @@ const user = {
         socialLogin(type, code, state).then(res => {
           res = res.data;
           // 设置 token
-          setToken(res)
+          commit('SET_TOKEN', res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -90,7 +100,7 @@ const user = {
         smsLogin(mobile,mobileCode).then(res => {
           res = res.data;
           // 设置 token
-          setToken(res)
+          commit('SET_TOKEN', res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -146,7 +156,7 @@ const user = {
           }
           commit('SET_ROLES', [])
           commit('SET_PERMISSIONS', [])
-          removeToken()
+          commit('SET_TOKEN', '')
           resolve()
         }).catch(error => {
           reject(error)

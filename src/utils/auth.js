@@ -14,8 +14,10 @@ export function getRefreshToken() {
 }
 
 export function setToken(token) {
+  console.log(token)
   localStorage.setItem(AccessTokenKey, token.accessToken)
   localStorage.setItem(RefreshTokenKey, token.refreshToken)
+
 }
 
 export function removeToken() {

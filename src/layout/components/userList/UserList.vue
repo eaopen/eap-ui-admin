@@ -251,12 +251,14 @@ export default {
       this.$emit('changeTwinkle', boo)
     },
     readInfo(item, isReply) {
+      console.log(this.$store)
       let socket = this.$store.getters.socket
       let updateReadMessage = {
         method: "UpdateReadMessage",
         formUserId: item.id,
         token: this.$store.getters.token
       }
+      console.log(socket)
       socket.send(JSON.stringify(updateReadMessage));
       if (isReply) {
         item.unreadMessage = 0

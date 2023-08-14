@@ -12,8 +12,8 @@ NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/social-login',  '/auth-redirect', '/bind', '/register', '/oauthLogin/gitee']
 
 router.beforeEach((to, from, next) => {
-  console.log(from)
-  console.log(to)
+  // console.log(from)
+  // console.log(to)
   NProgress.start()
   if (getAccessToken()) {
     to.meta.title && store.dispatch('settings/setTitle', to.meta.title)

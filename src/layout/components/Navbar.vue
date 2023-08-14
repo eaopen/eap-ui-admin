@@ -153,20 +153,22 @@ export default {
           // const url = ''
           const webSocketUrl = url.replace('https://', 'wss://').replace('http://', 'ws://')
           this.socket = new ReconnectingWebSocket(webSocketUrl)
-          
           this.$store.commit('SET_SOCKET', this.socket)
           console.log('this.socket', this.$store.getters.socket )
         }
         //添加事件监听
         let socket = this.socket
         socket.onopen = () => {
+          console.log(this.$store)
           var onConnection = {
             "method": "OnConnection", "token": this.$store.getters.token, "mobileDevice": false
           }
+          console.log('socket send', onConnection)
           socket.send(JSON.stringify(onConnection))
         }
         socket.onmessage = (event) => {
           let data = JSON.parse(event.data)
+          console.log('socket response', data)
           if (data.method == 'initMessage') {
             this.messageCount = data.unreadMessageCount + data.unreadNoticeCount+data.unreadSystemMessageCount
             this.isTwinkle = !!data.unreadNums.length
@@ -187,6 +189,7 @@ export default {
             if (this.socket) {
               this.socket.close()
               this.socket = null
+              console.log(this.socket)
               this.$store.commit('SET_SOCKET', this.socket)
             }
             this.$message({
@@ -205,6 +208,7 @@ export default {
             if (this.socket) {
               this.socket.close()
               this.socket = null
+              console.log('closeSocket', this.socket)
               this.$store.commit('SET_SOCKET', this.socket)
             }
           }

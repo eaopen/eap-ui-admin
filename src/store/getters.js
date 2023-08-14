@@ -6,7 +6,6 @@ const getters = {
   visitedViews: state => state.tagsView.visitedViews,
   cachedViews: state => state.tagsView.cachedViews,
   userId: state => state.user.id,
-  token: state => state.user.token,
   avatar: state => state.user.avatar,
   name: state => state.user.name,
   nickname: state => state.user.nickname,
@@ -23,5 +22,6 @@ const getters = {
   list_configs: state => state.list.configs,
   socket: state => state.user.socket,
   isLock: state => state.user.isLock,
+  token: state => state.user.token,
 }
 export default getters
