@@ -4,6 +4,9 @@
     <doc-alert title="菜单路由" url="https://doc.iocoder.cn/vue2/route/" />
     <!-- 搜索工作栏 -->
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch">
+      <el-form-item label="菜单key" prop="alias">
+        <el-input v-model="queryParams.alias" placeholder="请输入菜单key" clearable @keyup.enter.native="handleQuery"/>
+      </el-form-item>
       <el-form-item label="菜单名称" prop="name">
         <el-input v-model="queryParams.name" placeholder="请输入菜单名称" clearable @keyup.enter.native="handleQuery"/>
       </el-form-item>
@@ -32,6 +35,7 @@
     <el-table v-if="refreshTable" v-loading="loading" :data="menuList" row-key="id" :default-expand-all="isExpandAll"
               :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
       <el-table-column prop="name" label="菜单名称" :show-overflow-tooltip="true" width="250"></el-table-column>
+      <el-table-column prop="alias" label="alias/key" :show-overflow-tooltip="true" />
       <el-table-column prop="icon" label="图标" align="center" width="100">
         <template v-slot="scope">
           <svg-icon :icon-class="scope.row.icon" />
@@ -76,6 +80,16 @@
               </el-radio-group>
             </el-form-item>
           </el-col>
+          <el-col :span="12">
+            <el-form-item label="菜单名称" prop="name">
+              <el-input v-model="form.name" placeholder="请输入菜单名称" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="显示排序" prop="sort">
+              <el-input-number v-model="form.sort" controls-position="right" :min="0" />
+            </el-form-item>
+          </el-col>
           <el-col :span="24">
             <el-form-item v-if="form.type !== 3" label="菜单图标">
               <el-popover placement="bottom-start" width="460" trigger="click" @show="$refs['iconSelect'].reset()">
@@ -89,13 +103,13 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="菜单名称" prop="name">
-              <el-input v-model="form.name" placeholder="请输入菜单名称" />
+            <el-form-item label="菜单key" prop="alias">
+              <el-input v-model="form.alias" placeholder="请输入菜单key" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="显示排序" prop="sort">
-              <el-input-number v-model="form.sort" controls-position="right" :min="0" />
+            <el-form-item label="国际化翻译" prop="i18n">
+              <el-input v-model="form.i18n"/>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -304,6 +318,7 @@ export default {
       this.form = {
         id: undefined,
         parentId: 0,
+        alias: undefined,
         name: undefined,
         icon: undefined,
         type: SystemMenuTypeEnum.DIR,
