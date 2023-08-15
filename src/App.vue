@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
     <theme-picker />
-    <custom-component-dialog :visible="dialogInfo.visible" :title="dialogInfo.title" :width="dialogInfo.width" :height="dialogInfo.height" :innerComponent="dialogInfo.component"/>
+    <custom-component-dialog :visible="visible" :title="dialogInfo.title" :width="width" :height="dialogInfo.height" :innerComponent="component" :params="params"/>
   </div>
 </template>
 
@@ -16,12 +16,30 @@ export default {
     return {
       dialogInfo: {
         title: this.$store.state.customDialog.title,
-        visible: this.$store.state.customDialog.visible,
         width: this.$store.state.customDialog.width,
         height: this.$store.state.customDialog.height,
         component: this.$store.state.customDialog.component,
         params: this.$store.state.customDialog.params,
       }
+    }
+  },
+  computed: {
+    visible(){
+      return this.$store.state.customDialog.visible
+    },
+    width(){
+      return this.$store.state.customDialog.width
+    },
+    component(){
+      return this.$store.state.customDialog.component
+    },
+    params(){
+      return this.$store.state.customDialog.params
+    }
+  },
+  watch:{
+    'dialogInfo.visible'(val){
+      console.log(val)
     }
   },
   metaInfo() {

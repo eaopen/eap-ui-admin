@@ -1,6 +1,7 @@
 <template>
     <div v-if="loaded" style="position: relative; padding-bottom: 30px;">
-        <ab-custom-form style="padding: 0 15px" ref="abCustomForm"></ab-custom-form>
+        <!-- <ab-custom-form style="padding: 0 15px" ref="abCustomForm"></ab-custom-form> -->
+        222
         <div style="width: 100%; text-align: right; padding:10px 15px 0 ; border-top: 1px #eee solid; position: absolute; bottom: 0">
           <el-button type="default" size="mini" @click="cancelDialog">取消</el-button>
           <el-button type="primary" size="mini" @click="save">提交</el-button>
@@ -32,7 +33,7 @@ export default {
       return true
     },
     cancelDialog(){
-      this.$store.dispatch('dialog/hided1')
+      this.$store.dispatch('customDialog/hideDialog')
     },
     save(){
       let url = '/etech/formDefData/saveData'
@@ -43,7 +44,7 @@ export default {
       this.$axios.post(url, this.$refs.abCustomForm.data).then(res=>{
         console.log(res)
         if(res.isOk){
-          this.$store.dispatch('dialog/hided1')
+          this.$store.dispatch('customDialog/hideDialog')
           this.$alert('修改完成')
         }else {
           this.$alert(res.msg)
@@ -164,6 +165,7 @@ export default {
   },
   created: function () {
     // params.type == async
+    console.log(this.params)
     if(this.params.async && this.params){
       if(!this.params.key){
         return

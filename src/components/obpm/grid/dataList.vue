@@ -41,7 +41,6 @@ window.agGridMapList = {}
 window.createDatasource = (server) => {
   return {
     getRows: (params) => {
-      console.log(params)
       let filterModel = {}
       let filterCache = params.request.filterModel
       Object.keys(filterCache).forEach(k=>{

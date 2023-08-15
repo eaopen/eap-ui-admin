@@ -1,4 +1,5 @@
 import {decrypt, encrypt} from "@/utils/jsencrypt";
+import store from "@/store"
 
 const AccessTokenKey = 'ACCESS_TOKEN'
 const RefreshTokenKey = 'REFRESH_TOKEN'
@@ -14,7 +15,7 @@ export function getRefreshToken() {
 }
 
 export function setToken(token) {
-  console.log(token)
+  console.log('setToken', token)
   localStorage.setItem(AccessTokenKey, token.accessToken)
   localStorage.setItem(RefreshTokenKey, token.refreshToken)
 

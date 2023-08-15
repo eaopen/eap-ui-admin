@@ -3,10 +3,10 @@
       :title="title"
       :visible="visible"
       :width="width"
-      :height="height || '400px'">
+      :height="height || '400px'"
+      :before-close="closeDialog">
       <div>
-        <component v-if="showComponent" :is="componentName" :params="params"></component>
-        <div v-else>11</div>
+        <component v-if="showComponent" :is="innerComponent" :params="params"></component>
       </div>
     </el-dialog>
 </template>
@@ -19,11 +19,19 @@ export default {
             showComponent: false,
         }
     },
-    created(){
-
+    watch:{
+      visible(v){
+        if(v){
+          this.showComponent = true
+        }else{
+          this.showComponent = false
+        }
+      }
     },
     methods:{
-        
+      closeDialog(){
+        this.$store.dispatch('customDialog/hideDialog')
+      }  
     }
 }
 </script>
