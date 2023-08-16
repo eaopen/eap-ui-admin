@@ -27,6 +27,10 @@
                    v-hasPermi="['system:menu:create']">新增</el-button>
       </el-col>
       <el-col :span="1.5">
+        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleI18n"
+                   v-hasPermi="['system:menu:i18n']">检查菜单国际化</el-button>
+      </el-col>
+      <el-col :span="1.5">
         <el-button type="info" plain icon="el-icon-sort" size="mini" @click="toggleExpandAll">展开/折叠</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -211,7 +215,7 @@
 </template>
 
 <script>
-import { listMenu, getMenu, delMenu, addMenu, updateMenu } from "@/api/system/menu";
+import { listMenu, getMenu, delMenu, addMenu, updateMenu,checkMenuI18n } from "@/api/system/menu";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 import IconSelect from "@/components/IconSelect";
@@ -333,6 +337,12 @@ export default {
     /** 搜索按钮操作 */
     handleQuery() {
       this.getList();
+    },
+    /** 检查菜单国际化 */
+    handleI18n() {
+      checkMenuI18n().then(response => {
+        console.debug(response.data)
+      });
     },
     /** 重置按钮操作 */
     resetQuery() {
