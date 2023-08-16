@@ -75,7 +75,8 @@ export default {
     size: '布局大小',
     lockScreen: '锁住屏幕',
     github: '项目地址',
-    chat: '聊天'
+    chat: '聊天',
+    moreMenu: '更多菜单'
   },
   login: {
     titleUname: '账号密码登录',

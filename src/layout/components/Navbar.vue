@@ -215,15 +215,15 @@ export default {
           //接收对方发送的消息
           if (data.method == 'receiveMessage') {
             //判断是否打开窗口
-            if (this.$refs.UserList && this.$refs.UserList.$refs.JNPFIm && this.$refs.UserList.$refs.JNPFIm.visible) {
-              if (this.$refs.UserList.$refs.JNPFIm.info.id === data.formUserId) {
+            if (this.$refs.UserList && this.$refs.UserList.$refs.OBPMIm && this.$refs.UserList.$refs.OBPMIm.visible) {
+              if (this.$refs.UserList.$refs.OBPMIm.info.id === data.formUserId) {
                 let messItem = {
                   userId: data.formUserId,
                   messageType: data.messageType,
                   message: data.formMessage,
                   dateTime: this.jnpf.toDate(data.dateTime)
                 }
-                this.$refs.UserList.$refs.JNPFIm.addItem(messItem)
+                this.$refs.UserList.$refs.OBPMIm.addItem(messItem)
                 //更新已读
                 let updateReadMessage = {
                   method: "UpdateReadMessage",
@@ -243,7 +243,7 @@ export default {
           }
           //显示自己发送的消息
           if (data.method == 'sendMessage') {
-            if (this.$refs.UserList.$refs.JNPFIm.info.id !== data.toUserId) return
+            if (this.$refs.UserList.$refs.OBPMIm.info.id !== data.toUserId) return
             //添加到客户端
             let messItem = {
               userId: data.UserId,
@@ -252,11 +252,11 @@ export default {
               dateTime: this.jnpf.toDate(data.dateTime)
             }
             this.$refs.UserList.updateLatestMessage(data)
-            this.$refs.UserList.$refs.JNPFIm.addItem(messItem)
+            this.$refs.UserList.$refs.OBPMIm.addItem(messItem)
           }
           //消息列表
           if (data.method == 'messageList') {
-            this.$refs.UserList.$refs.JNPFIm.getList(data)
+            this.$refs.UserList.$refs.OBPMIm.getList(data)
           }
           //刷新页面
           if (data.method == 'refresh') {
