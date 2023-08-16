@@ -34,9 +34,9 @@
 
     <el-table v-if="refreshTable" v-loading="loading" :data="menuList" row-key="id" :default-expand-all="isExpandAll"
               :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
-      <el-table-column prop="name" label="菜单名称" :show-overflow-tooltip="true" width="250"></el-table-column>
-      <el-table-column prop="alias" label="alias/key" :show-overflow-tooltip="true" />
-      <el-table-column prop="icon" label="图标" align="center" width="100">
+      <el-table-column prop="name" label="菜单名称" :show-overflow-tooltip="true" width="220"></el-table-column>
+      <!-- <el-table-column prop="alias" label="alias/key" :show-overflow-tooltip="true" width="150" /> -->
+      <el-table-column prop="icon" label="图标" align="center" width="80">
         <template v-slot="scope">
           <svg-icon :icon-class="scope.row.icon" />
         </template>
@@ -79,7 +79,7 @@
                   {{dict.label}}</el-radio>
               </el-radio-group>
             </el-form-item>
-          </el-col>
+          </el-col>   
           <el-col :span="12">
             <el-form-item label="菜单名称" prop="name">
               <el-input v-model="form.name" placeholder="请输入菜单名称" />
@@ -90,7 +90,7 @@
               <el-input-number v-model="form.sort" controls-position="right" :min="0" />
             </el-form-item>
           </el-col>
-          <el-col :span="24">
+          <el-col :span="12">
             <el-form-item v-if="form.type !== 3" label="菜单图标">
               <el-popover placement="bottom-start" width="460" trigger="click" @show="$refs['iconSelect'].reset()">
                 <IconSelect ref="iconSelect" @selected="selected" />
@@ -100,16 +100,6 @@
                   <i v-else slot="prefix" class="el-icon-search el-input__icon" />
                 </el-input>
               </el-popover>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="菜单key" prop="alias">
-              <el-input v-model="form.alias" placeholder="请输入菜单key" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="国际化翻译" prop="i18n">
-              <el-input v-model="form.i18n"/>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -200,7 +190,17 @@
 							</el-radio-group>
 						</el-form-item>
 					</el-col>
-        </el-row>
+          <el-col :span="12">
+            <el-form-item label="菜单key" prop="alias">
+              <el-input v-model="form.alias" placeholder="请输入菜单key" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item label="国际化翻译" prop="i18nJson">
+              <el-input v-model="form.i18nJson" />
+            </el-form-item>
+          </el-col>
+        </el-row>    
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
