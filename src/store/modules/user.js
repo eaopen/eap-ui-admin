@@ -10,7 +10,7 @@ const user = {
     roles: [],
     permissions: [],
     isLock: getLock() || 0,
-    token: localStorage.getItem('ACCESSS_TOKEN')?localStorage.getItem('ACCESSS_TOKEN'):'',
+    token: localStorage.getItem('ACCESS_TOKEN')?localStorage.getItem('ACCESS_TOKEN'):'',
     socket: ''
   },
 
@@ -40,6 +40,7 @@ const user = {
       state.permissions = permissions
     },
     SET_TOKEN: (state, token) => {
+      console.log('token', token)
       state.token = token.accessToken
       if(token){
         setToken(token)
