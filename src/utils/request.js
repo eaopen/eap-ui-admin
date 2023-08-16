@@ -101,7 +101,7 @@ service.interceptors.response.use(async res => {
       try {
         const refreshTokenRes = await refreshToken()
         // 2.1 刷新成功，则回放队列的请求 + 当前请求
-        store.commit('SET_TOKEN', refreshTokenRes)
+        store.commit('SET_TOKEN', refreshTokenRes.data)
         // setToken(refreshTokenRes.data)
         requestList.forEach(cb => cb())
         return service(res.config)
