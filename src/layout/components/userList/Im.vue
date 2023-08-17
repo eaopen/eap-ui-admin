@@ -268,8 +268,8 @@ export default {
         messageContent: this.messageContent,
         token: this.$store.getters.token,
       }
-      console.log(socket)
-      console.log(JSON.stringify(sendMessage))
+      //console.log(socket)
+      //console.log(JSON.stringify(sendMessage))
       socket.send(JSON.stringify(sendMessage));
       this.messageContent = ''
     },

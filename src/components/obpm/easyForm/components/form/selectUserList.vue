@@ -46,7 +46,7 @@ export default {
   methods:{
     getUserInfo(str){
       Vue.baseService
-        .postForm(Vue.__ctx + "/etech/formCustDialog/listData_ygxz", {
+        .postForm(Vue.__ctx + "/form/formCustDialog/listData_ygxz", {
           order: "asc",
           offset: 0,
           limit: 10,
@@ -75,7 +75,7 @@ export default {
     },
     queryUser(str, cb){
       Vue.baseService
-        .postForm(Vue.__ctx + "/etech/formCustDialog/listData_ygxz", {
+        .postForm(Vue.__ctx + "/form/formCustDialog/listData_ygxz", {
           order: "asc",
           offset: 0,
           limit: 10,
