@@ -22,6 +22,8 @@ const getters = {
   list_configs: state => state.list.configs,
   socket: state => state.user.socket,
   isLock: state => state.user.isLock,
+  // 
   token: state => state.user.token,
+  userInfo: state => state.user.userInfo,
 }
 export default getters

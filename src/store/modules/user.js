@@ -147,8 +147,9 @@ const user = {
           commit('SET_AVATAR', avatar)
 
           // fix ['userInfo']
-          if(!user.userId) user.userId = user.id
-          commit('SET_USERINFO', user)
+          let userInfo = user;
+          if(!userInfo.userId) userInfo.userId = userInfo.id
+          commit('SET_USERINFO', userInfo)
           resolve(res)
         }).catch(error => {
           reject(error)
