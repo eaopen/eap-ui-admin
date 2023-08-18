@@ -222,7 +222,7 @@ export default {
                   userId: data.formUserId,
                   messageType: data.messageType,
                   message: data.formMessage,
-                  dateTime: this.jnpf.toDate(data.dateTime)
+                  dateTime: this.obpm.toDate(data.dateTime)
                 }
                 this.$refs.UserList.$refs.OBPMIm.addItem(messItem)
                 //更新已读
@@ -250,7 +250,7 @@ export default {
               userId: data.UserId,
               messageType: data.messageType,
               message: data.toMessage,
-              dateTime: this.jnpf.toDate(data.dateTime)
+              dateTime: this.obpm.toDate(data.dateTime)
             }
             this.$refs.UserList.updateLatestMessage(data)
             this.$refs.UserList.$refs.OBPMIm.addItem(messItem)
