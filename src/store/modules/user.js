@@ -11,7 +11,8 @@ const user = {
     permissions: [],
     isLock: getLock() || 0,
     token: localStorage.getItem('ACCESS_TOKEN')?localStorage.getItem('ACCESS_TOKEN'):'',
-    socket: ''
+    socket: '',
+    userInfo: {}
   },
 
   mutations: {
@@ -48,6 +49,9 @@ const user = {
         removeToken()
       }
       
+    },
+    SET_USERINFO: (state, userInfo) => {
+      state.userInfo = userInfo
     },
   },
 
@@ -119,6 +123,7 @@ const user = {
                 roles: [],
                 user: {
                   id: '',
+                  userId: '',
                   avatar: '',
                   userName: '',
                   nickname: ''
@@ -140,6 +145,11 @@ const user = {
           commit('SET_NAME', user.userName)
           commit('SET_NICKNAME', user.nickname)
           commit('SET_AVATAR', avatar)
+
+          // fix ['userInfo']
+          let userInfo = user;
+          if(!userInfo.userId) userInfo.userId = userInfo.id
+          commit('SET_USERINFO', userInfo)
           resolve(res)
         }).catch(error => {
           reject(error)

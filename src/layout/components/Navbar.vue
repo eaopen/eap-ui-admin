@@ -160,11 +160,9 @@ export default {
         //添加事件监听
         let socket = this.socket
         socket.onopen = () => {
-          console.log(this.$store)
           var onConnection = {
             "method": "OnConnection", "token": this.$store.getters.token, "mobileDevice": false
           }
-          console.log('socket send', onConnection)
           socket.send(JSON.stringify(onConnection))
         }
         socket.onmessage = (event) => {

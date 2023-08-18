@@ -182,11 +182,12 @@ export default {
     },
     getUserList() {
       this.loading = true
-      console.log(this.listQuery)
+      //console.log(this.listQuery)
       getImUser(this.listQuery).then(res => {
         if (res.data.list.length < this.listQuery.pageSize) this.finish = true
         res.data.list.forEach((item, index)=>{
           if(!item.headIcon) item.headIcon = require(`static/avatar/1000${index}.jpeg`)
+          if(!item.userId) item.userId = item.id;
         })
         this.userList = [...this.userList, ...res.data.list]
         this.loading = false
@@ -248,15 +249,15 @@ export default {
       this.$emit('changeTwinkle', boo)
     },
     readInfo(item, isReply) {
-      console.log(this.$store)
+      //console.log(this.$store)
       let socket = this.$store.getters.socket
       let updateReadMessage = {
         method: "UpdateReadMessage",
         formUserId: item.id,
         token: this.$store.getters.token
       }
-      console.log(socket)
-      socket.send(JSON.stringify(updateReadMessage));
+      //console.log(socket)
+      socket && socket.send(JSON.stringify(updateReadMessage));
       if (isReply) {
         item.unreadMessage = 0
       } else {
