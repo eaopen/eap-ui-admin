@@ -9,7 +9,7 @@
             <div v-if="replyList.length">
               <div v-for="(item,i) in replyList" :key="i" class="userList-item"
                 @contextmenu.prevent=openMenu(item,$event) @click="readInfo(item,true) ">
-                <el-avatar :size="36" :src="define.comUrl+item.headIcon">
+                <el-avatar :size="36" :src="item.headIcon">
                 </el-avatar>
                 <div class="userList-txt">
                   <p class="title">
@@ -18,7 +18,7 @@
                   </p>
                   <p class="name">
                     <span class="content">{{getMsgText(item.latestMessage,item.messageType)}}</span>
-                    <span class="time">{{item.latestDate | toDateText()}}</span>
+                    <span class="time">{{item.latestDate}}</span>
                   </p>
                 </div>
                 <!-- <el-badge :value="item.unreadMessage" :hidden="!item.unreadMessage"></el-badge> -->
@@ -174,10 +174,10 @@ export default {
       });
     },
     getReplyList() {
-      this.replyLoading = true
+      // this.replyLoading = true
       getIMReply().then(res => {
         this.replyList = res.data.list
-        this.replyLoading = false
+        // this.replyLoading = false
       })
     },
     getUserList() {

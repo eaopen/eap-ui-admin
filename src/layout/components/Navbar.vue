@@ -163,7 +163,9 @@ export default {
           var onConnection = {
             "method": "OnConnection", "token": this.$store.getters.token, "mobileDevice": false
           }
+          console.log('Store', this.$store)
           socket.send(JSON.stringify(onConnection))
+          console.log('socket send', onConnection)
         }
         socket.onmessage = (event) => {
           let data = JSON.parse(event.data)

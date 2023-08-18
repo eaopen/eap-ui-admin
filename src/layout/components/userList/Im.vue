@@ -1,7 +1,7 @@
 <template>
   <div class="im-container" v-if="visible">
     <div class="header">
-      <el-avatar :size="30" :src="define.comUrl+info.headIcon" />
+      <el-avatar :size="30" :src="avatar" />
       <span class="name">{{info.realName}}/{{info.account}}</span>
       <el-link icon="el-icon-close" :underline="false" @click="visible=false"></el-link>
     </div>

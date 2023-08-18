@@ -8,7 +8,7 @@
         <router-link class="item com-hover" :to="'/emailDetail?id='+item.id"
           v-for="(item, i) in list" :key="i">
           <span class="name">{{item.fullName}}</span>
-          <span class="time">{{item.creatorTime | toDateText()}}</span>
+          <span class="time">{{item.creatorTime}}</span>
         </router-link>
       </template>
       <div class="portal-common-noData" v-else>
