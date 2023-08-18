@@ -76,7 +76,8 @@ export default {
     size: 'Global Size',
     lockScreen: 'Lock Screen',
     github: 'github',
-    chat: 'chat'
+    chat: 'chat',
+    moreLink: 'More Link'
   },
   login: {
     titleUname: 'Account Login',

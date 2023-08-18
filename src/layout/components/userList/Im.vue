@@ -9,9 +9,9 @@
       <div class="chatBox">
         <div class="chatList" ref="chatList">
           <div class="chatList-item" v-for="(item,index) in list" :key="index"
-            :class="{'chatList-item--mine': item.userId==userInfo.userId}">
-            <div class="chatList-user" v-if="item.userId==userInfo.userId">
-              <el-avatar :size="40" :src="userInfo.headIcon" />
+            :class="{'chatList-item--mine': item.userId==userId}">
+            <div class="chatList-user" v-if="item.userId==userId">
+              <el-avatar :size="40" :src="avatar" />
               <cite><i>{{item.dateTime}}</i>我</cite>
             </div>
             <div class="chatList-user" v-else>
@@ -79,8 +79,8 @@
         <div class="historyList-box" ref="historyListBox">
           <div class="chatList historyList">
             <div class="chatList-item" v-for="(item,index) in historyList" :key="index">
-              <div class="chatList-user" v-if="item.userId==userInfo.userId">
-                <el-avatar :size="40" :src="userInfo.headIcon" />
+              <div class="chatList-user" v-if="item.userId==userId">
+                <el-avatar :size="40" :src="avatar" />
                 <cite>我<i>{{item.dateTime}}</i></cite>
               </div>
               <div class="chatList-user" v-else>
@@ -122,7 +122,7 @@ import emojiList from 'static/emoji.json';
 export default {
   name: 'im',
   computed: {
-    ...mapGetters(['userInfo']),
+    ...mapGetters(['userInfo', 'userId', 'avatar']),
   },
   filters: {
     urlFilter(url) {
@@ -221,6 +221,7 @@ export default {
           dateTime: this.obpm.toDate(item.sendTime)
         })
       }
+      console.log(list)
       if (!this.showHistory) {
         this.list = list
         this.$nextTick(() => {
@@ -301,7 +302,7 @@ export default {
       let messageList = {
         method: "MessageList",
         toUserId: this.info.id,
-        formUserId: this.userInfo.userId,
+        formUserId: this.userId,
         token: this.$store.getters.token,
         currentPage: this.currentPage,
         pageSize: this.pageSize,

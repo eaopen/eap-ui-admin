@@ -93,9 +93,6 @@ export default {
     }
   },
   created() { },
-  computed: {
-    ...mapGetters(['userInfo']),
-  },
   watch: {
     activeTab(val) {
       if (val === 'contacts' && !this.userList.length) {
