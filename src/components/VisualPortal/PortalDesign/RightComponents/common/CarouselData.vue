@@ -90,8 +90,8 @@
 import iconBox from '@/components/extn/iconBox'
 import Sortable from 'sortablejs'
 import { linkTypeList, imageStyleList } from '../../components/config'
-//import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
-import singleImg from '@/components/Upload/SingleImg'
+//import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
+import singleImg from '@/components/extn/Upload/SingleImg'
 import { validURL } from '@/utils/validate'
 export default {
   components: { iconBox,

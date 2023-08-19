@@ -79,9 +79,9 @@
 <script>
 import draggable from 'vuedraggable'
 import { getSelectorAll, getDataInterfaceSelector } from '@/api/extn/cache'
-// import iconBox from '@/components/JNPF-iconBox'
+// import iconBox from '@/components/extn/iconBox'
 import JSONArea from './JSONArea'
-import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
+import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
 export default {
   props: ['activeData'],
   components: { draggable, JSONArea, InterfaceDialog },

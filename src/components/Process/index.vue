@@ -47,7 +47,7 @@
 import ProcessMain from "./main"
 import { NodeUtils, getMockData } from "./FlowCard/util.js";
 import draggable from 'vuedraggable'
-import { getFormInfo } from '@/api/workFlow/FormDesign'
+import { getFormInfo } from '@/api/extn/workFlow'
 const requiredDisabled = (jnpfKey) => {
   return ['billRule', 'createUser', 'createTime', 'modifyTime', 'modifyUser', 'currPosition', 'currOrganize', 'table'].includes(jnpfKey)
 }

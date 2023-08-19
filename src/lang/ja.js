@@ -75,7 +75,6 @@ export default {
     theme: 'テーマ変更',
     size: '画面サイズ',
     lockScreen: '锁住屏幕',
-    github: '项目地址',
     chat: '聊天',
     moreLink: '更多导航'
   },

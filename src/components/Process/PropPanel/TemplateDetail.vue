@@ -160,7 +160,7 @@
   </el-dialog>
 </template>
 <script>
-import { getMsgTemplateDetail, getMsgTypeList } from '@/api/msgCenter/msgTemplate'
+import { getMsgTemplateDetail, getMsgTypeList } from '@/api/extn/msgTemplate'
 export default {
   name: 'msgTemplate-Detail',
   data() {

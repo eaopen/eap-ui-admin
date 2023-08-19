@@ -1,6 +1,6 @@
 import CardHeader from "../CardHeader"
 import webLink from '../Link'
-import { getDataInterfaceRes } from '@/api/systemData/dataInterface'
+import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 const arrayList = ['carousel', 'rankList', 'timeAxis']
 export default {
   components: { CardHeader, webLink },

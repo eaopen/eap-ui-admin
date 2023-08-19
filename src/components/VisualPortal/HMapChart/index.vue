@@ -27,7 +27,7 @@
 <script>
 import { getMapData, getAtlas } from '@/api/onlineDev/portal'
 import CardHeader from "../CardHeader"
-import { getDataInterfaceRes } from '@/api/systemData/dataInterface'
+import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 import resize from '@/components/Charts/mixins/resize'
 import { mapChartData } from '@/components/VisualPortal/PortalDesign/components/data'
 import { debounce } from 'throttle-debounce'

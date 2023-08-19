@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { getFormSelect } from '@/api/workFlow/FormDesign.js'
+import { getFormSelect } from '@/api/extn/workFlow.js'
 export default {
   name: 'FlowFormDialog',
   props: {

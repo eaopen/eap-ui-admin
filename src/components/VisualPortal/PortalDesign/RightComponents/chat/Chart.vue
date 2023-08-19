@@ -512,7 +512,7 @@ import {
   tableTypeList
 } from '../../components/config'
 import draggable from 'vuedraggable'
-//import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
+//import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
 import popupEditor from '../../components/popupEditor'
 import todoData from '../common/TodoData'
 import CommonFunData from '../common/CommonFunData'
@@ -525,7 +525,7 @@ import Link from '../common/Link'
 import { getFeatureSelector } from '@/api/onlineDev/visualDev'
 import { getAtlas } from '@/api/onlineDev/portal'
 import Refresh from '../common/Refresh'
-import singleImg from '@/components/Upload/SingleImg'
+import singleImg from '@/components/extn/Upload/SingleImg'
 export default {
   props: ['activeData', 'menuList', 'appMenuList', 'showType'],
   components: {

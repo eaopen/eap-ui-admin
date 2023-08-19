@@ -110,7 +110,7 @@
 import iconBox from '@/components/extn/iconBox'
 import Sortable from 'sortablejs'
 import { linkTypeList, appLinkTypeList, dataTypeList } from '../../components/config'
-//import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
+//import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
 import { validURL } from '@/utils/validate'
 export default {
   components: { iconBox

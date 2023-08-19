@@ -28,7 +28,7 @@
   </el-card>
 </template>
 <script>
-import { getDataInterfaceRes } from '@/api/systemData/dataInterface'
+import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 import CardHeader from "../CardHeader"
 import webLink from '../Link'
 export default {

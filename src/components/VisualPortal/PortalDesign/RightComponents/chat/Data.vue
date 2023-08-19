@@ -40,7 +40,7 @@ const barTypeList = [
 ]
 
 import JSONArea from '../../components/JSONArea'
-//import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
+//import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
 import Refresh from '../common/Refresh'
 export default {
   props: ['activeData'],

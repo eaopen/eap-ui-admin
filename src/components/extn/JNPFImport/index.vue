@@ -137,7 +137,7 @@
 </template>
 
 <script>
-import { getTemplateDownload, getImportPreview, importData, getImportExceptionData } from '@/api/common'
+import { getTemplateDownload, getImportPreview, importData, getImportExceptionData } from '@/api/extn/common'
 export default {
   data() {
     return {

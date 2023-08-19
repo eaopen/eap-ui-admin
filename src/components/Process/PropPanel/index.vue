@@ -2364,9 +2364,9 @@
   </el-drawer>
 </template>
 <script>
-import { getPrintDevSelector } from '@/api/system/printDev'
-import { getFlowFormInfo } from '@/api/workFlow/FlowEngine'
-import { getFormInfo } from '@/api/workFlow/FormDesign'
+import { getPrintDevSelector } from '@/api/extn/printDev'
+import { getFlowFormInfo } from '@/api/extn/workFlow'
+import { getFormInfo } from '@/api/extn/workFlow'
 import { NodeUtils } from "../FlowCard/util"
 import nodeConfig from "../FlowCard/config"
 import OrgSelect from '../OrgSelect'

@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import JNPFTransfer from '@/components/JNPF-transfer'
-import userTransfer from '@/components/JNPF-userTransfer'
-import usersTransfer from '@/components/JNPF-usersTransfer'
+import JNPFTransfer from '@/components/extn/transfer'
+import userTransfer from '@/components/extn/userTransfer'
+import usersTransfer from '@/components/extn/usersTransfer'
 import roleTransfer from './roleTransfer'
 
 export default {

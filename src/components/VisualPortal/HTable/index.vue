@@ -101,7 +101,7 @@
 </template>
 <script>
 import CardHeader from "../CardHeader"
-import { getDataInterfaceRes } from '@/api/systemData/dataInterface'
+import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 export default {
   components: { CardHeader },
   props: {

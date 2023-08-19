@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { getMsgTemplate } from '@/api/msgCenter/sendConfig'
+import { getMsgTemplate } from '@/api/extn/sendConfig'
 export default {
   name: 'PopupSelect',
   props: {

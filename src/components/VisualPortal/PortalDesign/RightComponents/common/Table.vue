@@ -149,7 +149,7 @@
 import JSONArea from '../../components/JSONArea'
 import ColumnData from './ColumnData'
 import { alignList } from '../../components/config'
-//import InterfaceDialog from '@/components/Process/PropPanel/InterfaceDialog'
+//import InterfaceDialog from '@/components/extnProcess/PropPanel/InterfaceDialog'
 import Refresh from '../common/Refresh'
 export default {
   components: { JSONArea

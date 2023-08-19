@@ -13,7 +13,7 @@
 
 <script>
 import { getModelData, setModelData } from '@/api/extn/cache'
-import roleTransfer from '@/components/Process/OrgTransfer/roleTransfer'
+import roleTransfer from '@/components/extnProcess/OrgTransfer/roleTransfer'
 
 export default {
   name: 'transfer',

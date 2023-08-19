@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { FlowEnginePageChildList } from '@/api/workFlow/FlowEngine'
+import { FlowEnginePageChildList } from '@/api/extn/workFlow'
 export default {
   props: {
     value: {

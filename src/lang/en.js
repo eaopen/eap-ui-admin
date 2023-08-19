@@ -75,7 +75,6 @@ export default {
     theme: 'Theme',
     size: 'Global Size',
     lockScreen: 'Lock Screen',
-    github: 'github',
     chat: 'chat',
     moreLink: 'More Link'
   },
