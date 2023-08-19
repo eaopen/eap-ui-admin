@@ -13,7 +13,7 @@
 
     <!-- 顶部菜单超出数量折叠 -->
     <el-submenu :style="{'--theme': theme}" index="more" v-if="topMenus.length > visibleNumber">
-      <template slot="title">更多菜单</template>
+      <template slot="title">{{ $t('navbar.moreLink') }}</template>
       <template v-for="(item, index) in topMenus">
         <el-menu-item
           :index="item.path"
@@ -92,7 +92,7 @@ export default {
       let activePath = path;
       if (path !== undefined && path.lastIndexOf("/") > 0 && hideList.indexOf(path) === -1) {
         const tmpPath = path.substring(1, path.length);
-        if(this.$route.path.indexOf('obpm/listGrid')!=-1){
+        if(this.$route.path.indexOf('/listGrid')!=-1){
           activePath = this.$route.matched[0].path
         }else {
           activePath = "/" + tmpPath.substring(0, tmpPath.indexOf("/"));

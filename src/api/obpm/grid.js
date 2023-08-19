@@ -4,10 +4,9 @@ import request from "@/utils/request";
 export function getListConfig(code) {
     return request({
         url: '/form/formCustSql/view/vo_' + code,
-        method: 'get'
+        method: 'post'
     })
 }
-
 // 获取列表数据
 export function getListData(code, data) {
     return request({

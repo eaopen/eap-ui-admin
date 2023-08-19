@@ -1,4 +1,5 @@
 import {decrypt, encrypt} from "@/utils/jsencrypt";
+import store from "@/store"
 
 const AccessTokenKey = 'ACCESS_TOKEN'
 const RefreshTokenKey = 'REFRESH_TOKEN'
@@ -14,8 +15,10 @@ export function getRefreshToken() {
 }
 
 export function setToken(token) {
+  console.log('setToken', token)
   localStorage.setItem(AccessTokenKey, token.accessToken)
   localStorage.setItem(RefreshTokenKey, token.refreshToken)
+
 }
 
 export function removeToken() {
@@ -93,6 +96,14 @@ export function setTenantId(username) {
 
 export function removeTenantId() {
   localStorage.removeItem(TenantIdKey)
+}
+
+export function getLock() {
+  return localStorage.getItem('lock')
+}
+
+export function setLock(lock) {
+  return localStorage.setItem('lock', lock)
 }
 
 export class getToken {

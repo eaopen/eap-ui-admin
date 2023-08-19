@@ -1,6 +1,6 @@
 {
   "name": "eap-ui-admin",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "企业应用框架",
   "author": "EAP",
   "license": "MIT",
@@ -14,7 +14,8 @@
     "build:static": "vue-cli-service build --mode static",
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
-    "clean": "rimraf node_modules"
+    "clean": "rimraf node_modules",
+    "jkhook": "npm install dotenv axios && node bin/jkhook.js"
   },
   "husky": {
     "hooks": {
@@ -41,12 +42,6 @@
     "url": "https://github.com/eaopen/openea-eap"
   },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.4",
-    "@fullcalendar/daygrid": "^6.1.4",
-    "@fullcalendar/interaction": "^6.1.4",
-    "@fullcalendar/timegrid": "^6.1.4",
-    "@fullcalendar/vue": "^6.1.4",
-    "@fullcalendar/bootstrap": "^4.4.0",
     "@babel/parser": "7.18.4",
     "@riophae/vue-treeselect": "0.4.0",
     "ag-grid-community": "^28.0.2",
@@ -59,6 +54,8 @@
     "codemirror": "^5.58.2",
     "core-js": "^3.26.0",
     "crypto-js": "^4.0.0",
+    "dayjs": "^1.11.9",
+    "dotenv": "^16.3.1",
     "echarts": "5.4.0",
     "element-ui": "2.15.12",
     "file-saver": "2.0.5",
@@ -73,6 +70,7 @@
     "qrcode.vue": "^1.7.0",
     "qrcodejs2": "0.0.2",
     "quill": "1.3.7",
+    "reconnecting-websocket": "^4.4.0",
     "screenfull": "5.0.2",
     "script-loader": "^0.7.2",
     "sortablejs": "1.10.2",
@@ -81,9 +79,7 @@
     "vue-class-component": "^7.2.6",
     "vue-count-to": "1.0.13",
     "vue-cropper": "0.5.8",
-    "vue-drag-resize": "^1.4.2",
-    "vue-esign": "^1.0.5",
-    "vue-grid-layout": "2.3.12-legacy",
+    "vue-grid-layout": "^2.4.0",
     "vue-i18n": "7.3.2",
     "vue-meta": "^2.4.0",
     "vue-property-decorator": "^9.1.2",

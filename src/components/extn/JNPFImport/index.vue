@@ -9,7 +9,7 @@
     <div class="import-main" v-show="active==1">
       <div class="upload">
         <div class="up_left">
-          <img src="@/assets/images/upload.png">
+          <img src="../../../assets/images/extn/upload.png">
         </div>
         <div class="up_right">
           <p class="title">
@@ -25,7 +25,7 @@
       </div>
       <div class="upload">
         <div class="up_left">
-          <img src="@/assets/images/import.png">
+          <img src="../../../assets/images/extn/import.png">
         </div>
         <div class="up_right">
           <p class="title">填写导入数据信息</p>
@@ -71,7 +71,7 @@
     </div>
     <div class="import-main import-main-overflow" v-show="active==3">
       <div class="success" v-if="!result.resultType">
-        <img src="@/assets/images/success.png" alt="">
+        <img src="../../../assets/images/extn/success.png" alt="">
         <p class="success-title">批量导入成功</p>
         <p class="success-tip">您已成功导入{{result.snum}}条数据</p>
       </div>
@@ -79,7 +79,7 @@
         <el-alert title="错误提醒：导入失败数据展示" type="warning" show-icon :closable="false" />
         <div class="upload error-show">
           <div class="up_left">
-            <img class="" src="@/assets/images/tip.png">
+            <img class="" src="../../../assets/images/extn/tip.png">
           </div>
           <div class="up_right">
             <p class="tip">正常数量条数：<el-link type="success" :underline="false">{{result.snum}}条

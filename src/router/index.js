@@ -65,6 +65,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/lockScreen',
+    component: (resolve) => require(['@/views/system/lockScreen'], resolve),
+    hidden: true
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'index',
@@ -92,6 +97,24 @@ export const constantRoutes = [
         name: 'MyNotifyMessage',
         meta: { title: 'myNotifyMessage', icon: 'message' },
     }]
+  },
+  {
+    path: '/components',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [{
+        path: 'icons',
+        component: (resolve) => require(['@/views/components/icons/index'], resolve),
+        name: 'Icons',
+        meta: {title: 'Icons', icon: 'icon'}
+      },{
+        path: 'visualPortal',
+        component: (resolve) => require(['@/views/onlineDev/visualPortal/index'], resolve),
+        name: 'VisualPortal',
+        meta: {title: 'visualPortal', icon: 'icon'}
+      }
+    ]
   },
   {
     path: '/dict',

@@ -10,7 +10,7 @@
         </video>
       </template>
       <div class="portal-common-noData" v-else>
-        <img src="@/assets/images/portal-nodata.png" alt="" class="noData-img">
+        <img src="../../../assets/images/extn/portal-nodata.png" alt="" class="noData-img">
         <p class="noData-txt">暂无视频</p>
       </div>
     </div>

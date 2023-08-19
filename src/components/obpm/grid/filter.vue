@@ -1,11 +1,10 @@
 <template>
   <el-col :span="10" class="mt5" style="height: 36px; display: flex; align-items: center;">
-    <b>排序：</b>
+    <b>{{$t('list.sort')}}：</b>
     <el-button tyle="default" size="mini" >11</el-button>
-    <b style="margin-left: 16px;">筛选：</b>
+    <b style="margin-left: 16px;">{{$t('list.filters')}}：</b>
     <span v-if="!filterList || !filterList.length">暂无筛选条件</span>
     <el-button @click="removeFilter(f)" tyle="default" size="mini" v-for="f in filterList" :key="f.name">{{f.name}}</el-button>
-    <!-- {{ filterList }} -->
   </el-col>
 </template>
 <script>
@@ -29,6 +28,17 @@
           return []
         }
       }
+    },
+    watch: {
+      configs:{
+        handler:(val)=>{
+          console.log('configs:', val)
+        },
+        deep: true
+      }
+    },
+    created(){
+      console.log('thisconfigs:', this.configs)
     },
     methods:{
       removeFilter(f){

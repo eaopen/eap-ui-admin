@@ -3,7 +3,7 @@
     :show-close="false" :modal="false">
     <div class="JNPF-full-dialog-header">
       <div class="header-title">
-        <img src="@/assets/images/jnpf.png" class="header-logo" />
+        <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <el-tooltip class="item" effect="dark" :content="fullName" placement="top">
           <p class="header-txt"> · {{fullName}}</p>
         </el-tooltip>

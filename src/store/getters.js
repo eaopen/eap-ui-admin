@@ -6,7 +6,6 @@ const getters = {
   visitedViews: state => state.tagsView.visitedViews,
   cachedViews: state => state.tagsView.cachedViews,
   userId: state => state.user.id,
-  token: state => state.user.token,
   avatar: state => state.user.avatar,
   name: state => state.user.name,
   nickname: state => state.user.nickname,
@@ -19,6 +18,12 @@ const getters = {
   defaultRoutes:state => state.permission.defaultRoutes,
   sidebarRouters:state => state.permission.sidebarRouters,
   // 数据字典
-  dict_datas: state => state.dict.dictDatas
+  dict_datas: state => state.dict.dictDatas,
+  list_configs: state => state.list.configs,
+  socket: state => state.user.socket,
+  isLock: state => state.user.isLock,
+  // 
+  token: state => state.user.token,
+  userInfo: state => state.user.userInfo,
 }
 export default getters

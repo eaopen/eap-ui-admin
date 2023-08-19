@@ -4,7 +4,9 @@ WORKDIR /web
 
 COPY .npmrc package.json yarn.lock ./
 RUN --mount=type=cache,id=yarn-store,target=/root/.yarn-store \
-    yarn install --frozen-lockfile
+    yarn install
+
+# yarn install --frozen-lockfile
 
 COPY . .
 ARG NODE_ENV=""

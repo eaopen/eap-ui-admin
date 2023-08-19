@@ -74,7 +74,9 @@ export default {
     theme: '换肤',
     size: '布局大小',
     lockScreen: '锁住屏幕',
-    github: '项目地址'
+    github: '项目地址',
+    chat: '聊天',
+    moreLink: '更多导航'
   },
   login: {
     titleUname: '账号密码登录',
@@ -196,4 +198,21 @@ export default {
     isTopNavCache: '是否缓存选项卡',
     showMore: '更多配置'
   },
+  list: {
+    filters: '筛选',
+    sort: '排序',
+    noFilter: '无筛选条件'
+  },
+  common: {
+    noData: '暂无内容',
+    confirmButton: '确认',
+    cancelButton: '取消',
+    addButton: '添加',
+    moreButton: '更多',
+    prev: '前一个',
+    next: '后一个',
+    search: '搜索',
+    reset: '重置',
+    refresh: '刷新',
+  }
 }

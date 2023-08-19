@@ -40,9 +40,11 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input v-model="loginForm.password" type="password" auto-complete="off" :placeholder="$t('login.password')"
+                  <el-input v-model="loginForm.password" :type="showPassword?'text':'password'" auto-complete="off" :placeholder="$t('login.password')"
                             @keyup.enter.native="getCode">
                     <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon"/>
+                    <svg-icon slot="suffix"  icon-class="eye-open" style="cursor: pointer;" v-if="!showPassword" @click="showPassword=!showPassword"/>
+                    <svg-icon slot="suffix"  icon-class="eye" style="cursor: pointer;" v-if="showPassword" @click="showPassword=!showPassword"/>
                   </el-input>
                 </el-form-item>
                 <el-checkbox v-model="loginForm.rememberMe" style="margin:0 0 25px 0;">{{ $t('login.rememberMe') }}</el-checkbox>
@@ -143,6 +145,7 @@ export default {
       captchaEnable: true,
       tenantEnable: true,
       mobileCodeTimer: 0,
+      showPassword: false,
       loginForm: {
         loginType: "uname",
         username: "admin",

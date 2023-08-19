@@ -12,6 +12,8 @@ NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/social-login',  '/auth-redirect', '/bind', '/register', '/oauthLogin/gitee']
 
 router.beforeEach((to, from, next) => {
+  // console.log(from)
+  // console.log(to)
   NProgress.start()
   if (getAccessToken()) {
     to.meta.title && store.dispatch('settings/setTitle', to.meta.title)
@@ -25,11 +27,14 @@ router.beforeEach((to, from, next) => {
         // 获取字典数据 add by 芋艿
         store.dispatch('dict/loadDictDatas')
         // 判断当前用户是否已拉取完 user_info 信息
-        store.dispatch('GetInfo').then(() => {
+        store.dispatch('GetInfo').then(userInfo => {
           isRelogin.show = false
-          store.dispatch('GenerateRoutes').then(accessRoutes => {
+          // 触发 GenerateRoutes 事件时，将 menus 菜单树传递进去
+          store.dispatch('GenerateRoutes', userInfo.menus).then(accessRoutes => {
             // 根据 roles 权限生成可访问的路由表
+            console.log('add routes', accessRoutes)
             router.addRoutes(accessRoutes) // 动态添加可访问路由表
+            console.log('full routers', router)
             next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
           })
         }).catch(err => {

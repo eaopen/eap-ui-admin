@@ -34,18 +34,26 @@ export default {
   },
   methods: {
     handleSetLanguage(lang) {
-      loadLanguage(lang)
-      this.$i18n.locale = lang
-      this.$store.dispatch('app/setLanguage', lang)
-      let text = 'Switch Language Success'
-      if (lang === 'zh') text = '切换成功'
-      if (lang === 'zhtw') text = '切換成功'
-      if (lang === 'ja') text = '言語切替成功'
-      document.title = getPageTitle(this.$route.meta.title, this.$route.meta.zhTitle)
-      this.$message({
-        message: text,
-        type: 'success'
+      this.$confirm('刷新后生效，是否刷新？','注意').then(()=>{
+        loadLanguage(lang)
+        this.$i18n.locale = lang
+        this.$store.dispatch('app/setLanguage', lang)
+        window.location.reload()
+      }).catch(()=>{
+
       })
+      // loadLanguage(lang)
+      // this.$i18n.locale = lang
+      // this.$store.dispatch('app/setLanguage', lang)
+      // let text = 'Switch Language Success'
+      // if (lang === 'zh') text = '切换成功'
+      // if (lang === 'zhtw') text = '切換成功'
+      // if (lang === 'ja') text = '言語切替成功'
+      // document.title = getPageTitle(this.$route.meta.title, this.$route.meta.zhTitle)
+      // this.$message({
+      //   message: text,
+      //   type: 'success'
+      // })
     }
   }
 }

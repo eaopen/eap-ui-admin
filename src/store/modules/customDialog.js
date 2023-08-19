@@ -28,6 +28,7 @@ const mutations = {
 
 const actions = {
   showCustomDialog({commit}, data){
+    console.log(data)
     if(data.component) commit("SET_DIALOG_COMPONENT", data.component);
     if(data.width) commit("SET_DIALOG_WIDTH", data.width)
     if(data.params) commit("SET_PARAMS", data.params)

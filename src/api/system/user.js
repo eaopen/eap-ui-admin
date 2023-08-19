@@ -152,3 +152,11 @@ export function UpdateLanguage(data) {
     data
   })
 }
+
+export function getImUser(params){
+  return request({
+    url: '/system/user/ImUser',
+    method: 'get',
+    params
+  })
+}

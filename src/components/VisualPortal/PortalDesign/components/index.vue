@@ -35,7 +35,7 @@
             </grid-item>
           </grid-layout>
           <div v-show="!layout.length" class="empty-info">
-            <img src="@/assets/images/emptyPortal.png" class="empty-img">
+            <img src="../../../../assets/images/extn/emptyPortal.png" class="empty-img">
           </div>
         </div>
         <div id="ipad" v-else>
@@ -58,7 +58,7 @@
                   </div>
                 </draggable>
                 <div v-show="!layout.length" class="empty-info app-empty-info">
-                  <img src="@/assets/images/emptyPortal.png" class="empty-img">
+                  <img src="../../../../assets/images/extn/emptyPortal.png" class="empty-img">
                 </div>
               </el-scrollbar>
             </div>
@@ -486,7 +486,7 @@ $lighterBlue: #409eff;
         }
 
         .outeripad {
-          background: url('../../../../assets/images/iphoneBg.png');
+          background: url('extn/iphoneBg.png');
           width: 389px;
           height: 711px;
           padding: 65px 40px;

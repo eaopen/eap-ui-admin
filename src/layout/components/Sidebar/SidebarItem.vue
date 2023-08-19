@@ -89,11 +89,10 @@ export default {
       }
       if (isExternal(this.basePath)) {
         return this.basePath
-      }
-      console.log(this.basePath, routePath)
+      }   
+      if(!routePath) routePath = ''
       return path.resolve(this.basePath, routePath)
     },
-
     generateTitle
   }
 }

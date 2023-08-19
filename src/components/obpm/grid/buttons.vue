@@ -15,7 +15,6 @@
 </template>
 <script>
   import easyForm from "@/components/obpm/form/easyForm/dialogForm.vue"
-  import {formatString ,getParams} from '@/utils/obpm'
   export default {
     name: 'ButtonPage',
     props: ['list', 'req',  'listId', 'code'],
@@ -55,7 +54,7 @@
       // 点击发生后先判定选中状态和按钮提醒
       handleClick(btn) {
         // 新增按钮过滤功能
-        let selects = this.$store.state.list.configs[this.code].selects
+        let selects = this.$store.state.list.configs[this.code]&&this.$store.state.list.configs[this.code].selects?this.$store.state.list.configs[this.code].selects: []
         if(btn.mustSelect == 1 && (!selects|| !selects.length)){
           this.$alert("请选择数据后再操作")
           return
@@ -103,29 +102,25 @@
       },
       // 确定生效
       clickAction(btn, selects){
-        // 0 是直接请求
-        // 1 是方法按钮
-        // 2 是选项卡
-        // 3，4 是弹窗
-        // if(){
-
-        // }
-        console.log(btn)
         if(btn.alias === 'preProject:editBasic'){
           this.$tab.openPage(btn.name, "/taskDetail/441327614131699713").then(res=>{
             console.log('res:',res)
           })
         }else if(btn.clickType === '3' || btn.clickType === '4'){
-          const { hrefSetting } = JSON.parse(btn.expand)
+          const { hrefSetting } = btn.expand?JSON.parse(btn.expand):{}
           if(btn.url.startsWith('/form/formDef/vueFormDefPreview.html')){
             const component = easyForm
-            let newUrl = formatString(btn.url, selects)
-            let params = getParams(newUrl)
+            let newUrl = this.obpm.formatString(btn.url, selects)
+            let params = this.obpm.getParams(newUrl)
             params.async = true
-            this.$store.dispatch('dialog/showd1', {
+            let dialogWidth = hrefSetting&&hrefSetting.width?hrefSetting.width: 600
+            let dialogHeight = hrefSetting&&hrefSetting.height?hrefSetting.height: 500
+            let dialogWidthUnit = hrefSetting&&hrefSetting.widthUnit?hrefSetting.widthUnit: 'px'
+            let dialogHeightUnit = hrefSetting&&hrefSetting.heightUnit?hrefSetting.heightUnit: 'px'
+            this.$store.dispatch('customDialog/showCustomDialog', {
               component,
-              width: hrefSetting.width + hrefSetting.widthUnit,
-              height: hrefSetting.height + hrefSetting.heightUnit,
+              width: dialogWidth + dialogWidthUnit,
+              height: dialogHeight + dialogHeightUnit,
               title: btn.name,
               params
             })

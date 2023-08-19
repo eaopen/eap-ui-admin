@@ -73,7 +73,11 @@ export default {
     profile: 'Profile',
     setting: 'Setting',
     theme: 'Theme',
-    size: 'Global Size'
+    size: 'Global Size',
+    lockScreen: 'Lock Screen',
+    github: 'github',
+    chat: 'chat',
+    moreLink: 'More Link'
   },
   login: {
     titleUname: 'Account Login',
@@ -195,4 +199,21 @@ export default {
     isTopNavCache: 'local topnav',
     showMore: 'show more'
   },
+  list: {
+    filters: 'filters',
+    sort: 'sort',
+    noFilter: 'no filter'
+  },
+  common: {
+    noData: 'no data',
+    confirmButton: 'confirm',
+    cancelButton: 'cancel',
+    addButton: 'add',
+    moreButton: 'more',
+    prev: 'prev',
+    next: 'next',
+    search: 'search',
+    reset: 'reset',
+    refresh: 'refresh',
+  }
 }

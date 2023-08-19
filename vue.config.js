@@ -64,6 +64,7 @@ module.exports = {
     resolve: {
       alias: {
         '@': resolve('src'),
+        'vue$': 'vue/dist/vue.esm.js',
         'static': resolve('static') // 增加这一行代码
       }
     },

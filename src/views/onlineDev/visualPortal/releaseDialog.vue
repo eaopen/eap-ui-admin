@@ -51,9 +51,9 @@
 <script>
 import {
   Release
-} from "@/api/system/portal";
+} from "@/api/extn/portal";
 import { mapGetters } from "vuex";
-import { getSystem } from "@/api/system/system";
+import { getSystem } from "@/api/extn/system";
 export default {
   props: [],
   name: 'releaseDialog',

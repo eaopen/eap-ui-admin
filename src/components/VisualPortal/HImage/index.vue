@@ -13,7 +13,7 @@
         </div>
       </web-link>
       <div class="portal-common-noData" v-else>
-        <img src="@/assets/images/portal-nodata.png" alt="" class="noData-img">
+        <img src="../../../assets/images/extn/portal-nodata.png" alt="" class="noData-img">
         <p class="noData-txt">暂无图片</p>
       </div>
     </div>

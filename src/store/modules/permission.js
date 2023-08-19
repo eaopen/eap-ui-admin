@@ -1,10 +1,10 @@
 import {constantRoutes} from '@/router'
-import {getRouters} from '@/api/menu'
+//import {getRouters} from '@/api/menu'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
 import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
-import {getParams, formatListGridPath} from "@/utils/obpm"
+import obpm from "@/utils/obpm"
 
 const permission = {
   state: {
@@ -29,29 +29,33 @@ const permission = {
     },
   },
   actions: {
-    // 生成路由
-    GenerateRoutes({commit}) {
+    /**
+     * 生成路由
+     *
+     * @param commit commit 函数
+     * @param menus  路由参数
+     */
+    GenerateRoutes({commit}, menus) {
       return new Promise(resolve => {
-        // 向后端请求路由数据（菜单）
-        getRouters().then(res => {
-          const sdata = JSON.parse(JSON.stringify(res.data)) // 【重要】用于菜单中的数据
-          const rdata = JSON.parse(JSON.stringify(res.data)) // 用于最后添加到 Router 中的数据
-          const sidebarRoutes = filterAsyncRouter(sdata)
-          const rewriteRoutes = filterAsyncRouter(rdata, false, true)
-          console.log(rewriteRoutes)
-          rewriteRoutes.push({path: '*', redirect: '/404', hidden: true})
-          commit('SET_ROUTES', rewriteRoutes)
-          commit('SET_SIDEBAR_ROUTERS', constantRoutes.concat(sidebarRoutes))
-          commit('SET_DEFAULT_ROUTES', sidebarRoutes)
-          commit('SET_TOPBAR_ROUTES', sidebarRoutes)
-          resolve(rewriteRoutes)
-        })
+        // 将 menus 菜单，转换为 route 路由数组
+        console.log('menus', menus)
+        const sdata = JSON.parse(JSON.stringify(menus)) // 【重要】用于菜单中的数据
+        const rdata = JSON.parse(JSON.stringify(menus)) // 用于最后添加到 Router 中的数据
+
+        const sidebarRoutes = filterAsyncRouter(sdata)
+        const rewriteRoutes = filterAsyncRouter(rdata, false, true)
+        rewriteRoutes.push({path: '*', redirect: '/404', hidden: true})
+        commit('SET_ROUTES', rewriteRoutes)
+        commit('SET_SIDEBAR_ROUTERS', constantRoutes.concat(sidebarRoutes))
+        commit('SET_DEFAULT_ROUTES', sidebarRoutes)
+        commit('SET_TOPBAR_ROUTES', sidebarRoutes)
+        resolve(rewriteRoutes)
       })
     }
   }
 }
 
-// 遍历后台传来的路由字符串，转换为组件对象
+// 遍历后台传来的路由字符串，转换为组件对象,add routes lastRouter=false, type=true
 function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
   return asyncRouterMap.filter(route => {
     // 将 ruoyi 后端原有耦合前端的逻辑，迁移到此处
@@ -83,9 +87,9 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         route.component = ParentView
       }
     } else if(route.path) { // 根节点
-      if(route.path.indexOf('/listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
-        route.name = getParams(route.path).code
-        route.path = '/' + formatListGridPath(route.path)
+      if(route.path.indexOf('listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
+        route.name = obpm.getParams(route.path).code
+        route.path = '/' + obpm.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
         route.component = agListCache
       }else if(route.path.indexOf('/easyForm')>-1){
@@ -116,7 +120,9 @@ function filterChildren(childrenMap, lastRouter = false) {
     if (el.children && el.children.length) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
-          c.path = el.path + '/' + c.path
+          if(c.path && !c.path.startsWith('')){
+            c.path = el.path + '/' + c.path
+          }
           if (c.children && c.children.length) {
             children = children.concat(filterChildren(c.children, c))
             return

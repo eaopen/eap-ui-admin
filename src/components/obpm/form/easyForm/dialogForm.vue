@@ -1,6 +1,6 @@
 <template>
-    <div v-if="loaded" style="position: relative; padding-bottom: 30px;">
-        <ab-custom-form style="padding: 0 15px" ref="abCustomForm"></ab-custom-form>
+    <div style="position: relative; padding-bottom: 30px;">
+        <abCustomForm v-if="loaded" style="padding: 0 15px" ref="abCustomForm"></abCustomForm>333
         <div style="width: 100%; text-align: right; padding:10px 15px 0 ; border-top: 1px #eee solid; position: absolute; bottom: 0">
           <el-button type="default" size="mini" @click="cancelDialog">取消</el-button>
           <el-button type="primary" size="mini" @click="save">提交</el-button>
@@ -32,7 +32,7 @@ export default {
       return true
     },
     cancelDialog(){
-      this.$store.dispatch('dialog/hided1')
+      this.$store.dispatch('customDialog/hideDialog')
     },
     save(){
       let url = '/form/formDefData/saveData'
@@ -43,7 +43,7 @@ export default {
       this.$axios.post(url, this.$refs.abCustomForm.data).then(res=>{
         console.log(res)
         if(res.isOk){
-          this.$store.dispatch('dialog/hided1')
+          this.$store.dispatch('customDialog/hideDialog')
           this.$alert('修改完成')
         }else {
           this.$alert(res.msg)
@@ -164,6 +164,7 @@ export default {
   },
   created: function () {
     // params.type == async
+    console.log(this.params)
     if(this.params.async && this.params){
       if(!this.params.key){
         return
@@ -184,15 +185,17 @@ export default {
         obj.permission = this.permission
         obj.tablePermission = this.tablePermission
         obj.data = this.formData
-        console.log('obj:', html)
-        Vue.component('ab-custom-form',{
+        let componentObj = {
           template: html,
           mixins: [customScript],
           data(){
             return obj
           }
-        })
-        this.loaded = true;
+        }
+        Vue.component('abCustomForm', componentObj)
+        setTimeout(()=>{
+          this.loaded = true;
+        },100)
       })
     }else {
       this.formHtml = this.params.formHtml

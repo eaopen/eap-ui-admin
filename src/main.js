@@ -4,17 +4,22 @@ import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
 import '@/assets/styles/index.scss' // global css
+import '@/assets/styles/obpm.scss' // global css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
 import App from './App'
 import store from './store'
 import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
+const obpm = require('./utils/obpm').default
 import i18n from './lang' // internationalization
 
+// extn 组件引入
+import topOperation from '@/components/extn/topOperation/index'
+
 import './assets/icons' // icon
+import './assets/obpm/font-awesome.min.css'
 import './permission' // permission control
-//import './tongji' // 百度统计
 import { getDicts } from "@/api/system/dict/data";
 import { getConfigKey } from "@/api/infra/config";
 import { parseTime, resetForm, handleTree, addBeginAndEndTime, divide} from "@/utils/ruoyi";
@@ -28,7 +33,12 @@ import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/
 
 import ListAgGrid from '@/components/obpm/grid/index.vue'
 
+Object.assign(Vue.prototype, {
+  define: require('./utils/define')
+})
+
 // 全局方法挂载
+Vue.prototype.obpm = obpm // utils对象位置
 Vue.prototype.getDicts = getDicts
 Vue.prototype.getConfigKey = getConfigKey
 Vue.prototype.parseTime = parseTime
@@ -47,6 +57,8 @@ Vue.component('DocAlert', DocAlert)
 Vue.component('Pagination', Pagination)
 Vue.component('RightToolbar', RightToolbar)
 Vue.component('ListAgGrid', ListAgGrid)
+Vue.component('topOpts', topOperation)
+
 // 字典标签组件
 import DictTag from '@/components/DictTag'
 import DocAlert from '@/components/DocAlert'
@@ -58,7 +70,8 @@ Vue.use(plugins)
 Vue.use(VueMeta)
 // Vue.use(hljs.vuePlugin);
 
-// // bpmnProcessDesigner 需要引入
+// bpm will change
+// bpmnProcessDesigner 需要引入
 // import MyPD from "@/components/bpmnProcessDesigner/package/index.js";
 // Vue.use(MyPD);
 // import "@/components/bpmnProcessDesigner/package/theme/index.scss";
@@ -72,7 +85,6 @@ import Tinymce from '@/components/tinymce/index.vue'
 Vue.component('tinymce', Tinymce)
 import '@/assets/icons'
 import request from "@/utils/request" // 实现 form generator 使用自己定义的 axios request 对象
-console.log(request)
 Vue.prototype.$axios = request
 import '@/styles/index.scss'
 
@@ -96,9 +108,8 @@ Vue.use(Element, {
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
   router,
   store,
   i18n,
   render: h => h(App)
-})
+}).$mount("#app")
