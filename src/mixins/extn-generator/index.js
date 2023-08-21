@@ -40,7 +40,7 @@ export default {
       this.search()
     },
     getDictionaryData() {
-      this.$store.dispatch('base/getDictionaryData', { sort: this.sort }).then((res) => {
+      this.$store.dispatch('dict/loadDictDatas', { sort: this.sort }).then((res) => {
         this.categoryList = res
       })
     },

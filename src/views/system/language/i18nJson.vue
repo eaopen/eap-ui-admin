@@ -94,7 +94,7 @@ import ClipboardJS from 'clipboard'
 import JSONEditor from '@/components/JsonEditor';
 
 export default {
-  name: "I18nJsonData",
+  name: "I18nJson",
   components: {
     JSONEditor
   },

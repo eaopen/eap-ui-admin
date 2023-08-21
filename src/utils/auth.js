@@ -15,7 +15,6 @@ export function getRefreshToken() {
 }
 
 export function setToken(token) {
-  console.log('setToken', token)
   localStorage.setItem(AccessTokenKey, token.accessToken)
   localStorage.setItem(RefreshTokenKey, token.refreshToken)
 

@@ -147,7 +147,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('base/getDictionaryData', { sort: 'businessType' }).then((res) => {
+    this.$store.dispatch('dict/loadDictDatas', { sort: 'businessType' }).then((res) => {
       this.treeData = [{ id: '', fullName: '业务分类', children: res }]
       this.categoryId = this.treeData[0].id
       this.categoryList = res

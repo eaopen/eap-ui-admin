@@ -558,7 +558,7 @@ export default {
       this.$nextTick(() => {
         this.$refs['dataForm'].resetFields()
         // 获取分类
-        this.$store.dispatch('base/getDictionaryData', { sort: 'DataInterfaceType' }).then((res) => {
+        this.$store.dispatch('dict/loadDictDatas', { sort: 'DataInterfaceType' }).then((res) => {
           this.selectData = res
         })
         // 获取数据库

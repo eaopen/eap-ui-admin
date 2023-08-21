@@ -38,7 +38,7 @@ const permission = {
     GenerateRoutes({commit}, menus) {
       return new Promise(resolve => {
         // 将 menus 菜单，转换为 route 路由数组
-        console.log('menus', menus)
+        // console.log('menus', menus)
         const sdata = JSON.parse(JSON.stringify(menus)) // 【重要】用于菜单中的数据
         const rdata = JSON.parse(JSON.stringify(menus)) // 用于最后添加到 Router 中的数据
 
@@ -86,13 +86,17 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       } else {
         route.component = ParentView
       }
-    } else if(route.path) { // 根节点
-      if(route.path.indexOf('listGrid/')>-1 || route.path.indexOf('/obpm/agList/')>-1){
+    } 
+    // else if(!!route.component){
+    //   route.component = loadView(route.component)
+    // }
+    else if(route.component) { // 根节点
+      if(route.component.indexOf('listGrid/')>-1 || route.component.indexOf('/obpm/agList/')>-1){
         route.name = obpm.getParams(route.path).code
         route.path = '/' + obpm.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
         route.component = agListCache
-      }else if(route.path.indexOf('/easyForm')>-1){
+      }else if(route.component.indexOf('/easyForm')>-1){
         route.component = import("@/components/obpm/easyForm/index.vue")
       }else {
         route.component = loadView(route.component)
@@ -120,7 +124,7 @@ function filterChildren(childrenMap, lastRouter = false) {
     if (el.children && el.children.length) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
-          if(c.path && !c.path.startsWith('')){
+          if(c.path){
             c.path = el.path + '/' + c.path
           }
           if (c.children && c.children.length) {

@@ -220,7 +220,7 @@ export default {
       this.visible = true
       this.treeLoading = true
       this.listLoading = true
-      this.$store.dispatch('base/getDictionaryData', { sort: 'DataInterfaceType' }).then((res) => {
+      this.$store.dispatch('dict/loadDictDatas', { sort: 'DataInterfaceType' }).then((res) => {
         this.treeData = res
         if (!this.treeData.length) return this.treeLoading = false
         this.$nextTick(() => {

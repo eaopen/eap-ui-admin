@@ -168,7 +168,7 @@ export default {
         this.dataForm.oracleLinkType = ''
         this.dataForm.oracleService = ''
         this.dataForm.oracleRole = ''
-        const res = await this.$store.dispatch('base/getDictionaryData', { sort: 'dbType' })
+        const res = await this.$store.dispatch('dict/loadDictDatas', { sort: 'dbType' })
         this.dbOptions = JSON.parse(JSON.stringify(res))
         if (this.dataForm.id) {
           DataSourceInfo(this.dataForm.id).then(res => {

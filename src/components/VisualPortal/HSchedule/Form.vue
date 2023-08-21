@@ -412,7 +412,7 @@ export default {
       this.dataForm.endTime = time < 10 ? '0' + time + ':' + arr[1] : time + ':' + arr[1]
     },
     getDictionaryData() {
-      this.$store.dispatch('base/getDictionaryData', { sort: 'scheduleType' }).then((res) => {
+      this.$store.dispatch('dict/loadDictDatas', { sort: 'scheduleType' }).then((res) => {
         this.typeOptions = res
         if (this.typeOptions.length) this.dataForm.type = this.typeOptions[0].id
       })

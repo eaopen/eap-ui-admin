@@ -136,7 +136,7 @@ export default {
       previewVisible: false,
       transferShow: false,
       listLoading: false,
-      formVisible: false,
+      formVisible: true,
       form1Visible: false,
       categoryList: []
     }
@@ -161,7 +161,7 @@ export default {
       this.initData()
     },
     getDictionaryData() {
-      this.$store.dispatch('base/getDictionaryData', { sort: 'portalDesigner' }).then((res) => {
+      this.$store.dispatch('dict/loadDictDatas', { sort: 'portalDesigner' }).then((res) => {
         this.categoryList = res
       })
     },
@@ -233,6 +233,7 @@ export default {
       this.dialogVisible = false
       const key = type === 1 ? 'form1' : 'form'
       const time = type === 1 && !id ? 300 : 0
+      console.log(key)
       setTimeout(() => {
         this[key + 'Visible'] = true
         this.$nextTick(() => {
@@ -241,7 +242,7 @@ export default {
       }, time);
     },
     closeForm(isRefresh) {
-      this.formVisible = false
+      this.formVisible = true
       if (isRefresh) this.initData()
     },
     closeForm1(isRefresh) {
