@@ -84,7 +84,7 @@
       </div>
     </div>
     <Form v-if="formVisible" ref="form" @close="closeForm" />
-    <Form1 v-if="form1Visible" ref="form1" @close="closeForm1" />
+    <Form1 v-if="form1Visible" ref="form1" @close="closeForm1" @nextStep="handleNextStep"/>
     <Preview :visible.sync="previewVisible" :id="activeId" />
     <Transfer ref="transfer" :visible.sync="transferShow" :id="transferId" />
     <el-dialog title="新建门户" :visible.sync="dialogVisible"
@@ -146,6 +146,11 @@ export default {
     this.initData()
   },
   methods: {
+    handleNextStep(){
+      this.form1Visible = false
+      this.addOrUpdateHandle(0)
+
+    },
     reset() {
       this.keyword = ''
       this.category = ''
