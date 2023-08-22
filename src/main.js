@@ -11,7 +11,6 @@ import store from './store'
 import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
-const obpm = require('./utils/obpm').default
 import i18n from './lang' // internationalization
 
 // extn 组件引入
@@ -34,11 +33,12 @@ import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/
 import ListAgGrid from '@/components/obpm/grid/index.vue'
 
 Object.assign(Vue.prototype, {
-  define: require('./utils/define')
+  define: require('./utils/define'),
+  formValidate: require('./utils/formValidate').default,
+  obpm: require('./utils/obpm').default
 })
 
 // 全局方法挂载
-Vue.prototype.obpm = obpm // utils对象位置
 Vue.prototype.getDicts = getDicts
 Vue.prototype.getConfigKey = getConfigKey
 Vue.prototype.parseTime = parseTime

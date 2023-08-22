@@ -30,7 +30,7 @@
       </el-row>
       <div class="OBPM-common-layout-main OBPM-flex-main">
         <div class="OBPM-common-head">
-          <topOpts @add="dialogVisible=true" addText="新建门户">
+          <topOpts @add="addOrUpdateHandle(1)" addText="新建门户">
             <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
               @on-success="initData" />
           </topOpts>
