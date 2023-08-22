@@ -206,6 +206,7 @@ export default {
   common: {
     noData: 'no data',
     confirmButton: 'confirm',
+    confirmDesignButton: 'confirm&design',
     cancelButton: 'cancel',
     addButton: 'add',
     moreButton: 'more',

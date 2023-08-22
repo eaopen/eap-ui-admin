@@ -31,7 +31,7 @@
       <div class="OBPM-common-layout-main OBPM-flex-main">
         <div class="OBPM-common-head">
           <topOpts @add="addOrUpdateHandle(1)" addText="新建门户">
-            <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
+          <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
               @on-success="initData" />
           </topOpts>
           <div class="OBPM-common-head-right">

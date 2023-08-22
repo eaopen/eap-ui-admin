@@ -206,6 +206,7 @@ export default {
   common: {
     noData: '暂无内容',
     confirmButton: '确认',
+    confirmDesignButton: '确认并设计',
     cancelButton: '取消',
     addButton: '添加',
     moreButton: '更多',

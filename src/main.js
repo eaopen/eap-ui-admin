@@ -6,6 +6,10 @@ import './assets/styles/element-variables.scss'
 import '@/assets/styles/index.scss' // global css
 import '@/assets/styles/obpm.scss' // global css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
+import './assets/icons' // icon
+import './assets/obpm/font-awesome.min.css'
+import '@/styles/index.scss'
+
 import App from './App'
 import store from './store'
 import router from './router'
@@ -14,60 +18,43 @@ import plugins from './plugins' // plugins
 import i18n from './lang' // internationalization
 
 // extn 组件引入
-import topOperation from '@/components/extn/topOperation/index'
 
-import './assets/icons' // icon
-import './assets/obpm/font-awesome.min.css'
 import './permission' // permission control
-import { getDicts } from "@/api/system/dict/data";
-import { getConfigKey } from "@/api/infra/config";
 import { parseTime, resetForm, handleTree, addBeginAndEndTime, divide} from "@/utils/ruoyi";
-import Pagination from "@/components/Pagination";
-// 自定义表格工具扩展
-import RightToolbar from "@/components/RightToolbar"
-// 代码高亮插件
-// import hljs from 'highlight.js'
-// import 'highlight.js/styles/github-gist.css'
 import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/dict";
 
-import ListAgGrid from '@/components/obpm/grid/index.vue'
+
 
 Object.assign(Vue.prototype, {
   define: require('./utils/define'),
   formValidate: require('./utils/formValidate').default,
-  obpm: require('./utils/obpm').default
+  obpm: require('./utils/obpm').default,
+  getDicts: require('./utils/obpm').getDicts,
+  getConfigKey: require('@/api/infra/config').getConfigKey,
+  $axios: require('@/utils/request').request,
+  DICT_TYPE,
+  getDictDataLabel,
+  getDictDatas,
+  getDictDatas2,
+  parseTime, 
+  resetForm, 
+  handleTree, 
+  addBeginAndEndTime, 
+  divide
 })
 
-// 全局方法挂载
-Vue.prototype.getDicts = getDicts
-Vue.prototype.getConfigKey = getConfigKey
-Vue.prototype.parseTime = parseTime
-Vue.prototype.resetForm = resetForm
-Vue.prototype.getDictDatas = getDictDatas
-Vue.prototype.getDictDatas2 = getDictDatas2
-Vue.prototype.getDictDataLabel = getDictDataLabel
-Vue.prototype.DICT_TYPE = DICT_TYPE
-Vue.prototype.handleTree = handleTree
-Vue.prototype.addBeginAndEndTime = addBeginAndEndTime
-Vue.prototype.divide = divide
-
 // 全局组件挂载
-Vue.component('DictTag', DictTag)
-Vue.component('DocAlert', DocAlert)
-Vue.component('Pagination', Pagination)
-Vue.component('RightToolbar', RightToolbar)
-Vue.component('ListAgGrid', ListAgGrid)
-Vue.component('topOpts', topOperation)
 
-// 字典标签组件
-import DictTag from '@/components/DictTag'
-import DocAlert from '@/components/DocAlert'
-// 头部标签插件
+
 import VueMeta from 'vue-meta'
+import components from './components'
 
+Vue.use(components)
 Vue.use(directive)
 Vue.use(plugins)
 Vue.use(VueMeta)
+
+
 // Vue.use(hljs.vuePlugin);
 
 // bpm will change
@@ -81,12 +68,7 @@ Vue.use(VueMeta)
 // import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 
 // Form Generator 组件需要使用到 tinymce
-import Tinymce from '@/components/tinymce/index.vue'
-Vue.component('tinymce', Tinymce)
-import '@/assets/icons'
-import request from "@/utils/request" // 实现 form generator 使用自己定义的 axios request 对象
-Vue.prototype.$axios = request
-import '@/styles/index.scss'
+
 
 // 默认点击背景不关闭弹窗
 import ElementUI from 'element-ui'
@@ -102,7 +84,7 @@ ElementUI.Dialog.props.closeOnClickModal.default = false
  */
 
 Vue.use(Element, {
-  size: localStorage.getItem("size") || "medium", // set element-ui default size
+  size: localStorage.getItem("size") || "small", // set element-ui default size
 });
 
 Vue.config.productionTip = false

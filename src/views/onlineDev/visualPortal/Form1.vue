@@ -43,6 +43,8 @@
       <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
       <el-button type="primary" :loading="btnLoading" @click="dataFormSubmit()">
         {{$t('common.confirmButton')}}</el-button>
+      <el-button type="primary" :loading="btnLoading" @click="dataFormSubmitNext()">
+        {{$t('common.confirmDesignButton')}}</el-button>
     </span>
   </el-dialog>
 </template>
@@ -106,6 +108,26 @@ export default {
       })
     },
     dataFormSubmit() {
+      this.$refs['dataForm'].validate((valid) => {
+        if (!valid) return
+        this.btnLoading = true
+        const formMethod = this.dataForm.id ? Update : Create
+        formMethod(this.dataForm).then((res) => {
+          this.$message({
+            message: res.msg,
+            type: 'success',
+            duration: 1500,
+            onClose: () => {
+              this.visible = false
+              this.btnLoading = false
+              this.$emit('close', true)
+            }
+          })
+        }).catch(() => { this.btnLoading = false })
+      })
+    },
+    // 确认并设计
+    dataFormSubmitNext() {
       this.$refs['dataForm'].validate((valid) => {
         if (!valid) return
         this.btnLoading = true
