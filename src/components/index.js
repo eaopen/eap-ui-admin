@@ -6,6 +6,9 @@ import ListAgGrid from '@/components/obpm/grid/index.vue'
 import topOperation from '@/components/extn/topOperation/index'
 import Tinymce from '@/components/tinymce/index.vue'
 
+import JNPFTable from '@/components/extn/JNPF-table'
+import uploadBtn from '@/components/extn/JNPF-uploadBtn'
+
 export default {
   install(Vue, options) {
     Vue.component('DictTag', DictTag)
@@ -15,5 +18,7 @@ export default {
     Vue.component('ListAgGrid', ListAgGrid)
     Vue.component('topOpts', topOperation)
     Vue.component('tinymce', Tinymce)
+    Vue.component('JNPFTable', JNPFTable)
+    Vue.component('uploadBtn', uploadBtn)
   }
 }
