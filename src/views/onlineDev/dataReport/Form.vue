@@ -1,6 +1,6 @@
 <template>
   <el-dialog :visible.sync="visible" fullscreen lock-scroll :show-close="false" :modal="false"
-    class="JNPF-full-dialog jnpf-datav">
+    class="OBPM-full-dialog jnpf-datav">
     <iframe :src="src" ref="iframe" width="100%" height="100%" frameborder="0" class="frame" />
   </el-dialog>
 </template>

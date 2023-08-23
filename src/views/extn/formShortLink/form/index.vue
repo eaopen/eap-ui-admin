@@ -7,7 +7,7 @@
         </el-button>
       </el-input>
     </div>
-    <div class="JNPF-common-layout" v-show="formPassUse==0">
+    <div class="OBPM-common-layout" v-show="formPassUse==0">
       <div class="main">
         <div class="form-top">
           <p>{{config.fullName}}</p>

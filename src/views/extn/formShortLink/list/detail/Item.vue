@@ -96,7 +96,7 @@
               :formData="formValue"></jnpf-qrcode>
           </template>
           <template v-else>
-            <p class="jnpf-detail-text">
+            <p class="OBPM-detail-text">
               <span
                 v-if="item.__slot__&&item.__slot__.prepend">{{item.__slot__.prepend}}</span>{{getValue(item)}}<span
                 v-if="item.__slot__&&item.__slot__.append">{{item.__slot__.append}}</span>
@@ -120,7 +120,7 @@
       </template>
       <template v-if="item.__config__.jnpfKey==='table'">
         <el-form-item label-width="0" v-if="!item.__config__.noShow">
-          <div class="JNPF-common-title" v-if="item.__config__.showTitle">
+          <div class="OBPM-common-title" v-if="item.__config__.showTitle">
             <h2>{{item.__config__.label}}</h2>
           </div>
           <el-table :data="item.__config__.defaultValue"

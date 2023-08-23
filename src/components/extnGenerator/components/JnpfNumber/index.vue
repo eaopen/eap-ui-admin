@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="jnpf-detail-text">
+    <p class="OBPM-detail-text">
       <span v-if="addonBefore" class="addonBefore">{{ addonBefore }} </span>
       <span class="innerValue">{{ innerValue }}</span>
       <span v-if="addonAfter" class="addonAfter">{{ addonAfter }}</span>

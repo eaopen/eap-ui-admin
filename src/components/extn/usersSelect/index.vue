@@ -33,7 +33,7 @@
       </el-input>
     </div>
     <el-dialog :title="title" :close-on-click-modal="false" :visible.sync="visible"
-      class="JNPF-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
+      class="OBPM-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
       width="800px" :modal-append-to-body="false" @close="onClose">
       <div class="transfer__body">
         <div class="transfer-pane">
@@ -49,7 +49,7 @@
               <el-tab-pane label="部门" name="department">
                 <el-tree :data="treeData" :props="props" check-on-click-node
                   :expand-on-click-node="false" @node-click="handleNodeClick"
-                  class="JNPF-common-el-tree" node-key="id" v-loading="loading" lazy
+                  class="OBPM-common-el-tree" node-key="id" v-loading="loading" lazy
                   :load="loadNode" v-if="!this.isAsync">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
                     <i :class="data.icon"></i>
@@ -78,7 +78,7 @@
               <el-tab-pane label="角色" name="role" v-if="multiple">
                 <el-tree :data="treeData2" :props="props" :expand-on-click-node="false"
                   default-expand-all check-on-click-node @node-click="handleNodeClick"
-                  class="JNPF-common-el-tree" node-key="id" v-loading="roleLoading" ref="roleTree"
+                  class="OBPM-common-el-tree" node-key="id" v-loading="roleLoading" ref="roleTree"
                   :filter-node-method="filterNode">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
                     <i :class="data.icon"></i>
@@ -89,7 +89,7 @@
               <el-tab-pane label="岗位" name="position" v-if="multiple">
                 <el-tree :data="treeData3" :props="props" :expand-on-click-node="false"
                   default-expand-all check-on-click-node @node-click="handleNodeClick"
-                  class="JNPF-common-el-tree" node-key="id" v-loading="positionLoading"
+                  class="OBPM-common-el-tree" node-key="id" v-loading="positionLoading"
                   ref="positionTree" :filter-node-method="filterNode">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
                     <i :class="data.icon"></i>
@@ -100,7 +100,7 @@
               <el-tab-pane label="分组" name="group" v-if="multiple">
                 <el-tree :data="treeData4" :props="props" :expand-on-click-node="false"
                   default-expand-all check-on-click-node @node-click="handleNodeClick"
-                  class="JNPF-common-el-tree" node-key="id" v-loading="groupLoading" ref="groupTree"
+                  class="OBPM-common-el-tree" node-key="id" v-loading="groupLoading" ref="groupTree"
                   :filter-node-method="filterNode">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
                     <i :class="data.icon"></i>

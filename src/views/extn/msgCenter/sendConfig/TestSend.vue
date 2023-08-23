@@ -1,7 +1,7 @@
 <template>
   <transition name="el-zoom-in-center">
-    <div class="JNPF-preview-main flow-form-main">
-      <div class="JNPF-common-page-header">
+    <div class="OBPM-preview-main flow-form-main">
+      <div class="OBPM-common-page-header">
         <el-page-header @back="goBack" content="测试发送" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">

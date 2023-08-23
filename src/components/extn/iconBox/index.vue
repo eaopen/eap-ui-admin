@@ -1,12 +1,12 @@
 <template>
   <el-dialog title="图标选择" :close-on-click-modal="false"
-    class="JNPF-dialog JNPF-dialog_center icon-dialog" lock-scroll append-to-body v-bind="$attrs"
+    class="OBPM-dialog JNPF-dialog_center icon-dialog" lock-scroll append-to-body v-bind="$attrs"
     width="950px" :modal-append-to-body="false" v-on="$listeners" @open="onOpen" @close="onClose">
     <div slot="title" class="icon-dialog-title">
       图标选择
       <el-input v-model="keyword" placeholder="请输入图标名称" prefix-icon="el-icon-search" clearable />
     </div>
-    <el-tabs class="JNPF-el_tabs" v-model="activeName">
+    <el-tabs class="OBPM-el_tabs" v-model="activeName">
       <el-tab-pane label="ymIcon 图标">
         <div class="icon-box-list">
           <el-button v-for="(item, index) in ymIconsList" :key="index"

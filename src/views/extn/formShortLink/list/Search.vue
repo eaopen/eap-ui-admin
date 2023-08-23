@@ -1,5 +1,5 @@
 <template>
-  <el-row class="JNPF-common-search-box" :gutter="16" v-if="searchList.length">
+  <el-row class="OBPM-common-search-box" :gutter="16" v-if="searchList.length">
     <el-form @submit.native.prevent>
       <el-col :span="6" v-for="(item, index) in searchList" :key="index">
         <el-form-item :label="item.__config__.label" v-if="index<3 || (index>=3 && showAll)">

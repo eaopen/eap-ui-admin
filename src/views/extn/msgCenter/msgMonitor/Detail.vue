@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="查看" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body width='600px'>
+    class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body width='600px'>
     <el-form :model="detailForm" label-width="100px" v-loading="loading">
       <el-form-item label="账号名称" prop="accountName" v-if="detailForm.accountName">
         <p>{{detailForm.accountName}}</p>

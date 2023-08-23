@@ -32,7 +32,7 @@
       <el-switch v-model="activeData.__config__.noShow" />
     </el-form-item>
     <el-dialog title="编辑计算公式" custom-class="calc-dialog" :visible.sync="expDialogVisible"
-      width="600px" class="JNPF-dialog JNPF-dialog_center" @open="onOpen" append-to-body>
+      width="600px" class="OBPM-dialog JNPF-dialog_center" @open="onOpen" append-to-body>
       <div class="calc-box">
         <div class="calc-preview" :class="{error: !expValid}">
           计算公式 =

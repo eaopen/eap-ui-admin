@@ -582,7 +582,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限">
           <div class="form-auth-table">
-            <el-table :data="formOperatesList" class="JNPF-common-table" size="mini" height="100%">
+            <el-table :data="formOperatesList" class="OBPM-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column width="80">
                 <template slot="header" slot-scope="scope">
@@ -1633,7 +1633,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限" name="formAuth">
           <div class="form-auth-table">
-            <el-table :data="formOperatesList" class="JNPF-common-table" size="mini" height="100%">
+            <el-table :data="formOperatesList" class="OBPM-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column width="80">
                 <template slot="header" slot-scope="scope">
@@ -2343,8 +2343,8 @@
       <el-button size="small" type="primary" @click="confirm">确定</el-button>
     </div>
     <el-dialog title="数据传递" :close-on-click-modal="false" :visible.sync="ruleVisible"
-      class="JNPF-dialog JNPF-dialog_center rule-dialog" lock-scroll append-to-body width='700px'>
-      <el-tabs class="JNPF-el_tabs node-tabs">
+      class="OBPM-dialog JNPF-dialog_center rule-dialog" lock-scroll append-to-body width='700px'>
+      <el-tabs class="OBPM-el_tabs node-tabs">
         <el-tab-pane :label="item.title" v-for="(item,i) in assignList" :key="i">
           <div class="option-box-tip">当父流程流转到子流程时，将对应的上一节点表单字段赋值给子流程发起节点</div>
           <el-row :gutter="10" v-for="(child,cIndex) in item.ruleList" :key="cIndex" class="mb-10">
@@ -2380,9 +2380,9 @@
       </span>
     </el-dialog>
     <el-dialog title="数据传递" :close-on-click-modal="false"
-      :visible.sync="approverTransmitRuleVisible" class="JNPF-dialog JNPF-dialog_center rule-dialog"
+      :visible.sync="approverTransmitRuleVisible" class="OBPM-dialog JNPF-dialog_center rule-dialog"
       lock-scroll append-to-body width='700px'>
-      <el-tabs class="JNPF-el_tabs node-tabs">
+      <el-tabs class="OBPM-el_tabs node-tabs">
         <el-tab-pane :label="item.title" v-for="(item,i) in assignList" :key="i">
           <div class="option-box-tip">当节点流转到本节点时，将对应的上一节点的字段赋值给本节点</div>
           <el-row :gutter="10" v-for="(child,cIndex) in item.ruleList" :key="cIndex" class="mb-10">

@@ -2,7 +2,7 @@
   <div>
     <template v-if="formConf.popupType==='general'&&dialogLoading">
       <el-dialog :title="!dataForm.id ? '新建' : '编辑'" :close-on-click-modal="false"
-        :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll
+        :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll
         :width="formConf.generalWidth">
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />
@@ -20,8 +20,8 @@
     </template>
     <template v-if="formConf.popupType==='fullScreen'">
       <transition name="el-zoom-in-center">
-        <div class="JNPF-preview-main">
-          <div class="JNPF-common-page-header">
+        <div class="OBPM-preview-main">
+          <div class="OBPM-common-page-header">
             <el-page-header @back="goBack" :content="!dataForm.id ? '新建' : '编辑'" />
             <div class="options">
               <template v-if="formConf.hasPrintBtn && formConf.printId && dataForm.id && false">
@@ -44,8 +44,8 @@
     <template v-if="formConf.popupType==='drawer'">
       <el-drawer :title="!dataForm.id ? '新建' : '编辑'" :visible.sync="visible"
         :wrapperClosable="false" :size='formConf.drawerWidth' append-to-body
-        class="JNPF-common-drawer">
-        <div class="JNPF-flex-main">
+        class="OBPM-common-drawer">
+        <div class="OBPM-flex-main">
           <div class="dynamicForm">
             <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
               v-if="!loading" />

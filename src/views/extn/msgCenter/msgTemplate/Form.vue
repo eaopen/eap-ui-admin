@@ -1,7 +1,7 @@
 <template>
   <transition name="el-zoom-in-center">
-    <div class="JNPF-preview-main flow-form-main">
-      <div class="JNPF-common-page-header">
+    <div class="OBPM-preview-main flow-form-main">
+      <div class="OBPM-common-page-header">
         <el-page-header @back="goBack" :content="!dataForm.id ? '新建消息模板' : '编辑消息模板'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
@@ -96,7 +96,7 @@
                         <template slot-scope="scope" v-if="!getIsSystem(scope.row.field)">
                           <el-button type="text" @click="addEditParameter(scope.row,scope.$index)"
                             icon="el-icon-edit-outline"></el-button>
-                          <el-button type="text" class="JNPF-table-delBtn" icon="el-icon-delete"
+                          <el-button type="text" class="OBPM-table-delBtn" icon="el-icon-delete"
                             @click="removeParameter(scope.$index)"></el-button>
                         </template>
                       </el-table-column>
@@ -194,7 +194,7 @@
                       </el-table-column>
                       <el-table-column label="操作" width="70">
                         <template slot-scope="scope">
-                          <el-button type="text" class="JNPF-table-delBtn" icon="el-icon-delete"
+                          <el-button type="text" class="OBPM-table-delBtn" icon="el-icon-delete"
                             @click="removeSmsData(scope.$index)"></el-button>
                         </template>
                       </el-table-column>
@@ -210,7 +210,7 @@
         </el-form>
       </el-row>
       <el-dialog :title="isEdit?'编辑参数':'添加参数'" :visible.sync="dialogVisible"
-        :close-on-click-modal="false" class="JNPF-dialog JNPF-dialog_center" lock-scroll
+        :close-on-click-modal="false" class="OBPM-dialog JNPF-dialog_center" lock-scroll
         append-to-body width="600px">
         <el-form :model="fieldForm" :rules="fieldRule" ref="fieldForm" label-width="100px">
           <jnpf-form-tip-item label="参数名称" prop="field"

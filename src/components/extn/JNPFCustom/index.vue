@@ -2,7 +2,7 @@
   <div class="main">
     <template v-if="config.popupType==='dialog'">
       <el-dialog :title="config.popupTitle" :close-on-click-modal="false" :visible.sync="visible"
-        class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body :width='config.popupWidth'
+        class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body :width='config.popupWidth'
         @close="$emit('close')">
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />
@@ -15,9 +15,9 @@
     </template>
     <template v-if="config.popupType==='drawer'">
       <el-drawer :title="config.popupTitle" :visible.sync="visible" :wrapperClosable="false"
-        ref="drawer" :size='config.popupWidth' append-to-body class="JNPF-common-drawer"
+        ref="drawer" :size='config.popupWidth' append-to-body class="OBPM-common-drawer"
         @close="$emit('close')">
-        <div class="JNPF-flex-main">
+        <div class="OBPM-flex-main">
           <div class="dynamicForm">
             <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
               v-if="!loading" />

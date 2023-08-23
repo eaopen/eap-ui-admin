@@ -1,5 +1,5 @@
 <template>
-  <div class="jnpf-table-opts">
+  <div class="OBPM-table-opts">
     <!--左侧插槽-->
     <slot name="left" />
     <template v-if="isJudgePer">
@@ -13,12 +13,12 @@
     <!-- 中间插槽 -->
     <slot name="center" />
     <template v-if="isJudgePer">
-      <el-button size="mini" type="text" class="JNPF-table-delBtn" @click="del()" v-if="hasDel"
+      <el-button size="mini" type="text" class="OBPM-table-delBtn" @click="del()" v-if="hasDel"
         :disabled="delDisabled" v-has="delPerCode">
         {{ delText === '删除' ? $t(`common.delBtn`) : delText }}</el-button>
     </template>
     <template v-else>
-      <el-button size="mini" type="text" class="JNPF-table-delBtn" @click="del()" v-if="hasDel"
+      <el-button size="mini" type="text" class="OBPM-table-delBtn" @click="del()" v-if="hasDel"
         :disabled="delDisabled">{{ delText === '删除' ? $t(`common.delBtn`) : delText }}</el-button>
     </template>
     <!-- 默认右侧插槽 -->

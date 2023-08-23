@@ -1,10 +1,10 @@
 <template>
   <el-drawer title="常用字段管理" :visible.sync="drawer" :wrapperClosable="false" size="700px"
-    class="JNPF-common-drawer">
-    <div class="JNPF-flex-main">
-      <div class="JNPF-common-head">
+    class="OBPM-common-drawer">
+    <div class="OBPM-flex-main">
+      <div class="OBPM-common-head">
         <topOpts @add="addOrUpdateHandle()"></topOpts>
-        <div class="JNPF-common-head-right">
+        <div class="OBPM-common-head-right">
           <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
             <el-link icon="icon-ym icon-ym-Refresh
               JNPF-common-head-icon" :underline="false" @click="initData()" />

@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="配置表单" :close-on-click-modal="false" append-to-body :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center" lock-scroll width="600px">
+    class="OBPM-dialog JNPF-dialog_center" lock-scroll width="600px">
     <el-form ref="dataForm" :model="dataForm" :rules="dataRule" v-loading="formLoading"
       label-width="70px" label-position="left">
       <el-form-item label="弹窗标题">
@@ -57,7 +57,7 @@
         </el-table-column>
         <el-table-column label="操作" width="50">
           <template slot-scope="scope">
-            <el-button size="mini" type="text" class="JNPF-table-delBtn"
+            <el-button size="mini" type="text" class="OBPM-table-delBtn"
               @click="handleDel(scope.$index,'columnOptions')">删除
             </el-button>
           </template>
@@ -95,7 +95,7 @@
         </el-table-column>
         <el-table-column label="操作" width="50">
           <template slot-scope="scope">
-            <el-button size="mini" type="text" class="JNPF-table-delBtn"
+            <el-button size="mini" type="text" class="OBPM-table-delBtn"
               @click="handleDel(scope.$index,'relationOptions')">删除
             </el-button>
           </template>

@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="表单外链配置" :visible.sync="dialogVisible" :close-on-click-modal="false"
-    class="JNPF-dialog JNPF-dialog_center short_link_class" lock-scroll width="800px">
+    class="OBPM-dialog JNPF-dialog_center short_link_class" lock-scroll width="800px">
     <el-form ref="dataForm" :model="dataForm" :rules="dataRule" label-width="100px"
       v-loading="loading">
       <el-form-item label="外链填单">

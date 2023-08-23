@@ -1,6 +1,6 @@
 <template>
-  <div class="JNPF-preview-main flow-form-main">
-    <div class="JNPF-common-page-header">
+  <div class="OBPM-preview-main flow-form-main">
+    <div class="OBPM-common-page-header">
       <el-page-header @back="goBack" content="" />
       <el-steps :active="active" finish-status="success" simple class="steps" :key="key">
         <el-step v-for="item in stepList" :key="item" :title="item"></el-step>
@@ -187,7 +187,7 @@
                 <template slot-scope="scope">
                   <el-button type="text" @click="addOrUpdateHandle(scope.row)"
                     icon="el-icon-edit-outline"></el-button>
-                  <el-button type="text" class="JNPF-table-delBtn" icon="el-icon-delete"
+                  <el-button type="text" class="OBPM-table-delBtn" icon="el-icon-delete"
                     @click="removeParameter(scope.$index)"></el-button>
                 </template>
               </el-table-column>
@@ -264,7 +264,7 @@
                 <template slot-scope="scope">
                   <el-button type="text" @click="addOrUpdateHandle(scope.row)"
                     icon="el-icon-edit-outline"></el-button>
-                  <el-button type="text" class="JNPF-table-delBtn" icon="el-icon-delete"
+                  <el-button type="text" class="OBPM-table-delBtn" icon="el-icon-delete"
                     @click="removeParameter(scope.$index)"></el-button>
                 </template>
               </el-table-column>
@@ -351,7 +351,7 @@
                 <template slot-scope="scope">
                   <el-button type="text" @click="addOrUpdateHandle(scope.row,1)"
                     icon="el-icon-edit-outline"></el-button>
-                  <el-button type="text" class="JNPF-table-delBtn" icon="el-icon-delete"
+                  <el-button type="text" class="OBPM-table-delBtn" icon="el-icon-delete"
                     @click="removeParameter(scope.$index,1)"></el-button>
                 </template>
               </el-table-column>

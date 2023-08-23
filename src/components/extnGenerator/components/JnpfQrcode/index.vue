@@ -1,5 +1,5 @@
 <template>
-  <div class="jnpf-qrcode">
+  <div class="OBPM-qrcode">
     <div ref="qrcode" class="qrcode"></div>
   </div>
 </template>

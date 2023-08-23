@@ -1,8 +1,8 @@
 <template>
   <el-dialog title="数据选择" :close-on-click-modal="false" width="800px"
-    class="JNPF-dialog JNPF-dialog_center table-dialog" lock-scroll append-to-body v-bind="$attrs"
+    class="OBPM-dialog JNPF-dialog_center table-dialog" lock-scroll append-to-body v-bind="$attrs"
     v-on="$listeners" @open="onOpen">
-    <el-row class="JNPF-common-search-box" :gutter="16">
+    <el-row class="OBPM-common-search-box" :gutter="16">
       <el-form @submit.native.prevent>
         <el-col :span="10">
           <el-form-item label="关键词">
@@ -19,7 +19,7 @@
           </el-form-item>
         </el-col>
       </el-form>
-      <div class="JNPF-common-search-box-right">
+      <div class="OBPM-common-search-box-right">
         <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
           <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
             @click="initData()" />

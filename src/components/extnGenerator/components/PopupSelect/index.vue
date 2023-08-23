@@ -13,9 +13,9 @@
     </div>
     <template v-if="popupType==='dialog'">
       <el-dialog :title="popupTitle" :close-on-click-modal="false" :visible.sync="visible"
-        v-if="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body
+        v-if="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body
         :width='popupWidth'>
-        <el-row class="JNPF-common-search-box" :gutter="16">
+        <el-row class="OBPM-common-search-box" :gutter="16">
           <el-form @submit.native.prevent>
             <el-col :span="10">
               <el-form-item label="关键词">
@@ -33,7 +33,7 @@
               </el-form-item>
             </el-col>
           </el-form>
-          <div class="JNPF-common-search-box-right">
+          <div class="OBPM-common-search-box-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
               <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                 @click="initData()" />
@@ -62,9 +62,9 @@
     </template>
     <template v-if="popupType ==='drawer'">
       <el-drawer :title="popupTitle" :visible.sync="visible" :wrapperClosable="false" ref="drawer"
-        :size='popupWidth' append-to-body class="JNPF-common-drawer">
-        <div class="JNPF-flex-main">
-          <el-row class="JNPF-common-search-box" :gutter="16">
+        :size='popupWidth' append-to-body class="OBPM-common-drawer">
+        <div class="OBPM-flex-main">
+          <el-row class="OBPM-common-search-box" :gutter="16">
             <el-form @submit.native.prevent>
               <el-col :span="10">
                 <el-form-item label="关键词">
@@ -82,7 +82,7 @@
                 </el-form-item>
               </el-col>
             </el-form>
-            <div class="JNPF-common-search-box-right">
+            <div class="OBPM-common-search-box-right">
               <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
                 <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                   @click="initData()" />

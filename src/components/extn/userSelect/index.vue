@@ -33,7 +33,7 @@
       </el-input>
     </div>
     <el-dialog :title="title" :close-on-click-modal="false" :visible.sync="visible"
-      class="JNPF-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
+      class="OBPM-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
       width="800px" :modal-append-to-body="false" @close="onClose">
       <div class="transfer__body">
         <div class="transfer-pane">
@@ -48,7 +48,7 @@
               :class="{'hasSys-tab':hasSys}" v-if="selectType==='all'">
               <el-tab-pane label="全部数据" name="all">
                 <el-tree :data="treeData" :props="props" check-on-click-node
-                  @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
+                  @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
                   v-loading="loading" lazy :load="loadNode" v-if="!isAsync"
                   :default-expanded-keys="defaultExpandedKeys">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
@@ -115,7 +115,7 @@
               </el-tab-pane>
               <el-tab-pane label="系统变量" name="system">
                 <el-tree :data="treeData4" :props="props" :expand-on-click-node="false"
-                  check-on-click-node @node-click="handleNodeClick2" class="JNPF-common-el-tree"
+                  check-on-click-node @node-click="handleNodeClick2" class="OBPM-common-el-tree"
                   node-key="id" v-loading="loading">
                   <span class="custom-tree-node" slot-scope="{ node }">
                     <i class="icon-ym icon-ym-tree-user2"></i>

@@ -1,7 +1,7 @@
 <template>
-  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="JNPF-full-dialog"
+  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="OBPM-full-dialog"
     :show-close="false" :modal="false">
-    <div class="JNPF-full-dialog-header">
+    <div class="OBPM-full-dialog-header">
       <div class="header-title">
         <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt" v-if="activeStep==0"> · 在线开发</p>

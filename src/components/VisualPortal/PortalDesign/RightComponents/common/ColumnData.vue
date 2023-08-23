@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="选项设置" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center dialog_height" lock-scroll width="1000px" append-to-body>
+    class="OBPM-dialog JNPF-dialog_center dialog_height" lock-scroll width="1000px" append-to-body>
     <JNPF-table :data="list" ref="dragTable" :hasNO="false" row-key="id" v-if="type==1">
       <el-table-column align="center" label="拖动" width="50">
         <template>
@@ -51,7 +51,7 @@
       </template>
       <el-table-column label="操作" width="50">
         <template slot-scope="scope">
-          <el-button size="mini" type="text" class="JNPF-table-delBtn"
+          <el-button size="mini" type="text" class="OBPM-table-delBtn"
             @click="handleDel(scope.$index)">删除</el-button>
         </template>
       </el-table-column>

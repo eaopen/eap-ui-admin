@@ -1,6 +1,6 @@
 <template>
   <el-dialog :visible.sync="visible" append-to-body title="批量编辑" :closeOnClickModal="false"
-    class="JNPF-dialog JNPF-dialog_center update-dialog" lock-scroll width="700px">
+    class="OBPM-dialog JNPF-dialog_center update-dialog" lock-scroll width="700px">
     <el-alert title="注意：每行对应一个选项；选项名和选项值之间用英文 | 隔开。参考格式如下：" type="warning" :closable="false"
       show-icon />
     <div class="demo-box">

@@ -1,7 +1,7 @@
 <template>
-  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="JNPF-full-dialog"
+  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="OBPM-full-dialog"
     :show-close="false" :modal="false">
-    <div class="JNPF-full-dialog-header">
+    <div class="OBPM-full-dialog-header">
       <div class="header-title">
         <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt" v-if="activeStep==0"> · 在线开发</p>
@@ -71,7 +71,7 @@
                 </el-option-group>
               </el-select>
             </el-form-item>
-            <el-table :data="tables" class="JNPF-common-table"
+            <el-table :data="tables" class="OBPM-common-table"
               empty-text="点击“新增”可选择1条(单表)或2条以上(多表)，未选择数据表时系统将会自动创建数据表">
               <el-table-column type="index" label="序号" width="50" align="center" />
               <el-table-column prop="typeId" label="类别" width="65">
@@ -109,7 +109,7 @@
               </el-table-column>
               <el-table-column label="操作" fixed="right" width="50">
                 <template slot-scope="scope">
-                  <el-button size="mini" type="text" class="JNPF-table-delBtn"
+                  <el-button size="mini" type="text" class="OBPM-table-delBtn"
                     @click="delItem(scope.row,scope.$index)">移除
                   </el-button>
                 </template>

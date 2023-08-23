@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :close-on-click-modal="false" class="JNPF-dialog JNPF-dialog_center form-script-dialog"
+  <el-dialog :close-on-click-modal="false" class="OBPM-dialog JNPF-dialog_center form-script-dialog"
     lock-scroll append-to-body v-bind="$attrs" width="800px" :modal-append-to-body="false"
     v-on="$listeners" destroy-on-close :visible.sync="visible">
     <span slot="title" class="dialog-title">
@@ -64,7 +64,7 @@
           </el-table-column>
           <el-table-column label="操作" width="50">
             <template slot-scope="scope">
-              <el-button size="mini" type="text" class="JNPF-table-delBtn"
+              <el-button size="mini" type="text" class="OBPM-table-delBtn"
                 @click="handleDel(scope.$index)">删除
               </el-button>
             </template>

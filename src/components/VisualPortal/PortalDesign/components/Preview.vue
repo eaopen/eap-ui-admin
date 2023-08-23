@@ -1,8 +1,8 @@
 <template>
   <el-dialog v-bind="$attrs" :close-on-click-modal="false" :modal-append-to-body="false"
     v-on="$listeners" @open="onOpen" @close="showPortalLayout = false" fullscreen lock-scroll
-    class="JNPF-full-dialog" :show-close="false" :modal="false">
-    <div class="JNPF-full-dialog-header">
+    class="OBPM-full-dialog" :show-close="false" :modal="false">
+    <div class="OBPM-full-dialog-header">
       <div class="header-title">
         <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt"> · 门户预览</p>

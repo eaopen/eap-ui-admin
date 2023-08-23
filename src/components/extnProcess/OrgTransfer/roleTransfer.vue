@@ -11,7 +11,7 @@
           <el-tab-pane label="组织" name="organize">
             <el-tree :data="treeData2" :props="props" ref="tree2" default-expand-all
               :filter-node-method="filterNode" :expand-on-click-node="false" check-on-click-node
-              @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="onlyId"
+              @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="onlyId"
               v-loading="loading">
               <span class="custom-tree-node" slot-scope="{ node,data }">
                 <i :class="data.icon" />
@@ -22,7 +22,7 @@
           <el-tab-pane label="全局" name="all">
             <el-tree :data="treeData" :props="props" ref="tree1" default-expand-all
               :filter-node-method="filterNode" :expand-on-click-node="false" check-on-click-node
-              @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="onlyId"
+              @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="onlyId"
               v-loading="loading">
               <span class="custom-tree-node" slot-scope="{ node,data }">
                 <i :class="data.icon" />

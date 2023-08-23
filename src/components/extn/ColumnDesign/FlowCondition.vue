@@ -1,5 +1,5 @@
 <template>
-  <el-dialog class="JNPF-dialog JNPF-dialog_center" title="过滤规则配置" :visible.sync="dialogVisible"
+  <el-dialog class="OBPM-dialog JNPF-dialog_center" title="过滤规则配置" :visible.sync="dialogVisible"
     width="800px" append-to-body :before-close="handleClose">
     <Condition :value="pconditions" ref="base" :modelType="modelType" :columnDataMap="columnDataMap"
       :dataOptionMap="dataOptionMap" :columnOptions="columnOptions"></Condition>

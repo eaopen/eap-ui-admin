@@ -1,14 +1,14 @@
 <template>
   <transition name="el-zoom-in-center">
-    <div class="JNPF-preview-main">
-      <div class="JNPF-common-page-header">
+    <div class="OBPM-preview-main">
+      <div class="OBPM-common-page-header">
         <el-page-header @back="goBack" :content="title" />
         <div class="options">
           <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
         </div>
       </div>
       <div class="main">
-        <el-row class="JNPF-common-search-box" :gutter="16">
+        <el-row class="OBPM-common-search-box" :gutter="16">
           <el-form @submit.native.prevent>
             <el-col :span="6">
               <el-form-item label="关键词">

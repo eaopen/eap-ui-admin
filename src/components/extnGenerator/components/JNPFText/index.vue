@@ -1,5 +1,5 @@
 <template>
-  <p class="JNPF-Text" :style="_style">{{value}}</p>
+  <p class="OBPM-Text" :style="_style">{{value}}</p>
 </template>
 <script>
 export default {

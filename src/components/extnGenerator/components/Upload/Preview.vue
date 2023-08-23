@@ -5,9 +5,9 @@
       :preview-src-list="[define.comUrl+file.url]" ref="imageRef">
     </el-image>
     <el-dialog v-else v-bind="$attrs" :close-on-click-modal="false" :modal-append-to-body="false"
-      v-on="$listeners" fullscreen lock-scroll class="JNPF-full-dialog" append-to-body
+      v-on="$listeners" fullscreen lock-scroll class="OBPM-full-dialog" append-to-body
       :show-close="false" :modal="false">
-      <div class="JNPF-full-dialog-header">
+      <div class="OBPM-full-dialog-header">
         <div class="header-title">
           <p class="header-txt">{{title}}</p>
         </div>

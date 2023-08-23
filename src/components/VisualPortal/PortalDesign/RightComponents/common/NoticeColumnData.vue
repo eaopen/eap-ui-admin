@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="选项设置" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center dialog_height" lock-scroll width="1000px" append-to-body>
+    class="OBPM-dialog JNPF-dialog_center dialog_height" lock-scroll width="1000px" append-to-body>
     <JNPF-table :data="list" ref="dragNoticeTable" :hasNO="false" row-key="id">
       <el-table-column align="center" label="拖动" width="50" v-if="showType == 'pc' && type ==1">
         <template>

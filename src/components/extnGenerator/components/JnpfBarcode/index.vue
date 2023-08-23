@@ -1,5 +1,5 @@
 <template>
-  <div class="jnpf-barcode">
+  <div class="OBPM-barcode">
     <div v-if="barcode">
       <canvas :id="id" class="barcode"></canvas>
     </div>

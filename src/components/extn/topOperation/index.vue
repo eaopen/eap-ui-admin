@@ -1,5 +1,5 @@
 <template>
-  <div class="jnpf-opts">
+  <div class="OBPM-opts">
     <!--左侧插槽-->
     <slot name="left" />
     <template v-if="isJudgePer">

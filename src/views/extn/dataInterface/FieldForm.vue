@@ -1,7 +1,7 @@
 <template>
   <el-dialog :title="type==='add' ? '新建参数' : '编辑参数'" :close-on-click-modal="false"
     :close-on-press-escape="false" :visible.sync="visible" lock-scroll width="600px" append-to-body
-    class="JNPF-dialog JNPF-dialog_center">
+    class="OBPM-dialog JNPF-dialog_center">
     <el-form ref="fieldForm" :model="dataForm" :rules="dataRule" label-width="80px">
       <el-form-item label="参数名称" prop="field">
         <el-input v-model="dataForm.field" placeholder="参数名称" />

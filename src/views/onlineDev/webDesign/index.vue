@@ -1,7 +1,7 @@
 <template>
-  <div class="JNPF-common-layout">
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+  <div class="OBPM-common-layout">
+    <div class="OBPM-common-layout-center">
+      <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -28,13 +28,13 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
-        <div class="JNPF-common-head">
+      <div class="OBPM-common-layout-main JNPF-flex-main">
+        <div class="OBPM-common-head">
           <topOpts @add="openAddBox()">
             <upload-btn url="/api/visualdev/OnlineDev/Model/Actions/ImportData" accept=".vdd"
               @on-success="initData" />
           </topOpts>
-          <div class="JNPF-common-head-right">
+          <div class="OBPM-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
               <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                 @click="initData()" />
@@ -109,7 +109,7 @@
     <ViewForm v-if="viewFormVisible" ref="ViewForm" @close="closeForm" />
     <AddBox :visible.sync="addVisible" :webType="currWebType" @add="handleAdd" />
     <el-dialog title="同步菜单" :visible.sync="releaseDialogVisible"
-      class="JNPF-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
+      class="OBPM-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
       <el-alert title="将该功能的按钮、列表、表单及数据权限同步至系统菜单" type="warning" :closable="false" show-icon />
       <div class="dialog-main">
         <div class="item" :class="{'active':releaseQuery.pc===1}" @click="selectToggle('pc')">

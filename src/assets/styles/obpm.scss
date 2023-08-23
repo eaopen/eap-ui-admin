@@ -1,4 +1,3 @@
-// @import "./font.scss";
 
 .OBPM-common-head {
   display: flex;
@@ -515,7 +514,7 @@
 
 .OBPM-dialog-notice {
   .el-dialog__body {
-    padding: 0 20px !important;
+    padding: 0 60px !important;
   }
 
   .notice-wrapper {
@@ -536,7 +535,7 @@
     }
 
     .main {
-      margin: 10px 0;
+      margin: 8px 0;
       line-height: 22px;
       min-height: 300px;
       overflow: auto;
@@ -570,12 +569,19 @@
 
   .column-item.el-checkbox {
     width: calc(33.33% - 30px);
+
+    .el-checkbox__label {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
   }
 
   .export-label {
     font-size: 18px;
     font-weight: bold;
-
     width: 100%;
 
     span {
@@ -849,6 +855,12 @@
   }
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .mb-5 {
   margin-bottom: 5px;
 }
@@ -875,6 +887,14 @@
 
 .ml-8 {
   margin-left: 8px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.ml-50 {
+  margin-left: 50px;
 }
 
 .pd-10 {
@@ -1079,7 +1099,7 @@
   .approve-result {
     position: absolute;
     right: 10px;
-    top: 100px;
+    top: 135px;
     z-index: 100;
     width: 100px;
     height: 100px;
@@ -1670,14 +1690,6 @@
   }
 }
 
-.portal-common-title {
-  font-size: 16px;
-
-  span {
-    border-left: 4px solid #1890ff;
-    padding-left: 8px;
-  }
-}
 
 .portal-common-noData {
   text-align: center;
@@ -1726,6 +1738,7 @@
 .portal-todoList-box {
   .el-card__header {
     height: 55px;
+    padding: 0;
   }
 
   .el-card__body {
@@ -1774,14 +1787,18 @@
 }
 
 .portal-eChart-box {
+  display: flex;
+  flex-direction: column;
 
   .el-card__header {
     height: 55px;
+    padding: 0;
   }
 
   .el-card__body {
     width: 100%;
-    height: calc(100% - 55px);
+    overflow: hidden;
+    flex: 1;
   }
 
   .eChart-box-body,
@@ -1914,13 +1931,14 @@ textarea.el-textarea__inner {
 
 .el-form .el-form-item__content .el-alert__content {
   line-height: 20px;
+  min-height: 20px;
 }
 
 .el-input-number.el-input-number--small {
   width: 160px;
 }
 
-// 布局错位问题修正 
+// 布局错位问题修正
 .el-col {
   .el-form-item--small .el-form-item__label {
     line-height: 33px;
@@ -1948,6 +1966,14 @@ textarea.el-textarea__inner {
     margin-bottom: unset !important;
   }
 
+  .table-grid-box {
+    margin-bottom: 0;
+
+    td {
+      padding-top: 0;
+    }
+  }
+
   .el-card__header {
     border-right: 1px solid #dcdfe6;
   }
@@ -1964,6 +1990,10 @@ textarea.el-textarea__inner {
       .el-color-picker,
       .el-switch {
         padding-left: 0;
+      }
+
+      .amountChinese {
+        margin-left: 0;
       }
     }
 
@@ -2005,6 +2035,8 @@ textarea.el-textarea__inner {
   .el-input__inner {
     border: 0 !important;
   }
+
+
 
   textarea {
     border: 0 !important;
@@ -2067,8 +2099,26 @@ textarea.el-textarea__inner {
     padding: 0 15px;
   }
 
-  .el-input-number {
+  .input-number {
+    margin-left: 0px;
+  }
+
+
+  .amountChinese {
     margin-left: 15px;
+  }
+
+  .el-input-group--append,
+  .el-input-group--prepend {
+    padding: 0 15px;
+  }
+
+  .el-input-number {
+    margin-left: -15px !important;
+  }
+
+  .work-number {
+    margin-left: 15px !important;
   }
 
   .OBPMAmount {
@@ -2542,13 +2592,14 @@ textarea.el-textarea__inner {
   }
 }
 
-.jnpf-table__empty-text {
+.OBPM-table__empty-text {
   padding: 30px;
   line-height: 30px;
 }
 
-.jnpf-detail-text {
+.OBPM-detail-text {
   color: #999;
+
 }
 
 .sign-main {
@@ -2631,4 +2682,51 @@ textarea.el-textarea__inner {
     z-index: 9;
     opacity: 1;
   }
+}
+
+.table-grid {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  .table-cell {
+    min-height: 75px;
+    overflow: auto;
+    padding-top: 10px;
+  }
+
+  .drawing-row-item {
+    padding: 10px 2px;
+    text-align: left;
+  }
+}
+
+.table-grid-box {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 18px;
+
+  &>tbody {
+    &>tr {
+      &>td {
+        border: var(--borderWidth) var(--borderType) var(--borderColor);
+        overflow: hidden;
+        height: 50px;
+        padding: 18px 18px 0;
+
+      }
+    }
+  }
+}
+
+.el-autocomplete-suggestion {
+  min-width: 180px !important;
+}
+
+.tooltip-question {
+  color: #a0acb7 !important;
+  opacity: 0.8;
+
 }

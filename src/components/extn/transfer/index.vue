@@ -9,7 +9,7 @@
       </div>
       <div class="transfer-pane__body">
         <el-tree :data="treeData" :props="props" default-expand-all ref="treeBox"
-          :expand-on-click-node="false" class="JNPF-common-el-tree" node-key="id"
+          :expand-on-click-node="false" class="OBPM-common-el-tree" node-key="id"
           v-loading="loading" :filter-node-method="filterNode" @node-click="handleNodeClick">
           <span class="custom-tree-node" slot-scope="{ node, data }">
             <i :class="data.icon"></i>

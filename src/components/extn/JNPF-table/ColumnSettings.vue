@@ -1,7 +1,7 @@
 <template>
   <el-drawer title="列表显示设置" :visible.sync="drawerVisible" :wrapperClosable="false" size="320px"
-    append-to-body class="JNPF-common-drawer columnSettings-drawer">
-    <div class="JNPF-flex-main">
+    append-to-body class="OBPM-common-drawer columnSettings-drawer">
+    <div class="OBPM-flex-main">
       <el-scrollbar class="column-list" v-loading="loading">
         <template v-if="list.length">
           <draggable :list="list" :animation="340" handle=".column-item-icon">

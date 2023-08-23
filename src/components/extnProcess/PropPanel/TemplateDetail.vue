@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="查看模板" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body width='1000px'>
+    class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body width='1000px'>
     <el-row class="main" v-loading="loading">
       <el-form :model="dataForm" ref="dataForm" label-width="100px" @submit.native.prevent>
         <el-col :span="12">

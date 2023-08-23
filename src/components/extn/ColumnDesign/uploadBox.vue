@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="模板设置" :close-on-click-modal="false"
-    class="JNPF-dialog JNPF-dialog_center JNPF-dialog-export" lock-scroll append-to-body
+    class="OBPM-dialog JNPF-dialog_center JNPF-dialog-export" lock-scroll append-to-body
     v-bind="$attrs" width="600px" :modal-append-to-body="false" v-on="$listeners">
     <div class="dialog-main">
       <el-form ref="dataForm" :model="dataForm" label-width="100px" label-position="left">

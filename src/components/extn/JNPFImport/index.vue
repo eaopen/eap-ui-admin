@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="批量导入" :close-on-click-modal="false" :visible.sync="visible"
-    class="JNPF-dialog JNPF-dialog_center JNPF-dialog-import" lock-scroll width="1000px">
+    class="OBPM-dialog JNPF-dialog_center JNPF-dialog-import" lock-scroll width="1000px">
     <el-steps :active="active" align-center>
       <el-step title="上传文件"></el-step>
       <el-step title="数据预览"></el-step>
@@ -52,7 +52,7 @@
                     <td v-for="(obj,k) in item.children" :key="k"
                       :class="obj.id=='delete'?'delete':'td-flex-1 m-0-10'">
                       <el-input v-model="row[obj.id]" v-if="obj.id!='delete'" />
-                      <el-button v-else size="mini" type="text" class="JNPF-table-delBtn"
+                      <el-button v-else size="mini" type="text" class="OBPM-table-delBtn"
                         @click="handleTableDel(scope.$index,j,item)">删除</el-button>
                     </td>
                   </tr>
@@ -63,7 +63,7 @@
         </el-table-column>
         <el-table-column label="操作" fixed="right" width="50">
           <template slot-scope="scope">
-            <el-button size="mini" type="text" class="JNPF-table-delBtn"
+            <el-button size="mini" type="text" class="OBPM-table-delBtn"
               @click="handleDel(scope.$index)">删除</el-button>
           </template>
         </el-table-column>

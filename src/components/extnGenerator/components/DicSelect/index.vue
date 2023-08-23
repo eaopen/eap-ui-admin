@@ -1,6 +1,6 @@
 <template>
   <div class="comSelect-container">
-    <el-row class="jnpf-el-row">
+    <el-row class="OBPM-el-row">
       <el-col :span="18">
         <JNPF-TreeSelect :options="treeData" v-model="innerValue" :placeholder="placeholder"
           clearable :disabled="disabled" v-on="$listeners" lastLevel>
@@ -13,7 +13,7 @@
     </el-row>
     <div>
       <el-dialog :visible.sync="dicVisible" append-to-body
-        class="JNPF-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
+        class="OBPM-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
         @close="closeDic()">
         <dicIndex ref="dicIndex"></dicIndex>
       </el-dialog>

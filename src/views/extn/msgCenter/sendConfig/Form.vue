@@ -1,7 +1,7 @@
 <template>
   <transition name="el-zoom-in-center">
-    <div class="JNPF-preview-main flow-form-main">
-      <div class="JNPF-common-page-header">
+    <div class="OBPM-preview-main flow-form-main">
+      <div class="OBPM-common-page-header">
         <el-page-header @back="goBack" :content="!dataForm.id ? '新建发送配置' : '编辑发送配置'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">

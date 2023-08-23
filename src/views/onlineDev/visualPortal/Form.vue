@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-dialog :title="!dataForm.id ? '新建' : '编辑'" :close-on-click-modal="false"
-      :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll width="600px">
+      :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll width="600px">
       <el-alert title="新建成功后，前往【系统管理】>【系统菜单】中添加应用门户并授权。" type="warning" :closable="false" show-icon
         class="alert" v-if="!dataForm.id" />
       <el-form ref="dataForm" :model="dataForm" :rules="dataRule" v-loading="loading"

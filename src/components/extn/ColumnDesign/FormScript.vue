@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :close-on-click-modal="false" class="JNPF-dialog JNPF-dialog_center form-script-dialog"
+  <el-dialog :close-on-click-modal="false" class="OBPM-dialog JNPF-dialog_center form-script-dialog"
     lock-scroll append-to-body v-bind="$attrs" width="1000px" :modal-append-to-body="false"
     v-on="$listeners" destroy-on-close :visible.sync="dialogVisible">
     <span slot="title" class="dialog-title">

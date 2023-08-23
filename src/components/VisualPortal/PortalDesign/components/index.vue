@@ -1,5 +1,5 @@
 <template>
-  <el-container class="JNPF-Portal">
+  <el-container class="OBPM-Portal">
     <el-main class="center-box">
       <div class="action-bar">
         <div class="components-list">

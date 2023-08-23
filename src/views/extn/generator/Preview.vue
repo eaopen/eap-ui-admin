@@ -1,7 +1,7 @@
 <template>
-  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="JNPF-full-dialog"
+  <el-dialog :visible.sync="visible" fullscreen lock-scroll class="OBPM-full-dialog"
     :show-close="false" :modal="false">
-    <div class="JNPF-full-dialog-header">
+    <div class="OBPM-full-dialog-header">
       <div class="header-title">
         <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt"> · 代码预览</p>
@@ -10,11 +10,11 @@
         <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
       </div>
     </div>
-    <div class="JNPF-common-layout main" v-loading="loading">
-      <div class="JNPF-common-layout-left">
+    <div class="OBPM-common-layout main" v-loading="loading">
+      <div class="OBPM-common-layout-left">
         <el-tree :data="treeData" :props="defaultProps" default-expand-all highlight-current
           ref="treeBox" :expand-on-click-node="false" @node-click="handleNodeClick"
-          class="JNPF-common-el-tree" node-key="id">
+          class="OBPM-common-el-tree" node-key="id">
           <span class="custom-tree-node" slot-scope="{ node }">
             <el-tooltip :content="node.label" placement="right">
               <span class="text">{{node.label}}</span>
@@ -22,8 +22,8 @@
           </span>
         </el-tree>
       </div>
-      <div class="JNPF-common-layout-center">
-        <div class="JNPF-common-layout-main">
+      <div class="OBPM-common-layout-center">
+        <div class="OBPM-common-layout-main">
           <JNPFCodeEditor v-model="currentContent" :options="options" ref="CodeEditor" />
         </div>
       </div>

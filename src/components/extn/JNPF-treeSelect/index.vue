@@ -2,7 +2,7 @@
   <el-select v-model="valueTitle" :clearable="clearable" :disabled="disabled" @clear="clearHandle"
     ref='elSelect' :placeholder="placeholder" :popper-class="`JNPF-select-tree ${themeClass}`"
     @focus="selectFocus" :filterable="filterable" :filter-method="selectFilter"
-    class="JNPF-selectTree" @visible-change="visibleChange" :multiple="multiple"
+    class="OBPM-selectTree" @visible-change="visibleChange" :multiple="multiple"
     :collapse-tags="collapseTags" @remove-tag="removeTag" :key="key">
     <slot name="header"></slot>
     <el-option v-for="item in selectOptions" :key="item.id" :label="item[props.label]"

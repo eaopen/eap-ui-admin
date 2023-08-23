@@ -40,7 +40,7 @@
       </template>
       <template v-if="activeData.__config__.dataType === 'dictionary'">
         <el-form-item label="数据字典">
-          <el-row class="jnpf-el-row">
+          <el-row class="OBPM-el-row">
             <el-col :span="18">
               <JNPF-TreeSelect :options="dicOptions" v-model="activeData.__config__.dictionaryType"
                 placeholder="请选择数据字典" lastLevel clearable @change="dictionaryTypeChange"
@@ -119,7 +119,7 @@
       :currentNode="currentNode.id?currentNode:{}" @commit="addNode" />
     <div>
       <el-dialog :visible.sync="dicVisible" append-to-body
-        class="JNPF-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
+        class="OBPM-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
         @close="defaultValueChange">
         <dicIndex ref="dicIndex"></dicIndex>
       </el-dialog>

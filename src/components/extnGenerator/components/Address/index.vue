@@ -33,7 +33,7 @@
       </el-input>
     </div>
     <el-dialog title="省市区" :close-on-click-modal="false" :visible.sync="visible"
-      class="JNPF-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
+      class="OBPM-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
       width="800px" :modal-append-to-body="false" @close="onClose">
       <div class="transfer__body">
         <div class="transfer-pane">
@@ -42,7 +42,7 @@
           </div>
           <div class="transfer-pane__body">
             <el-tree :data="treeData" :props="props" check-on-click-node
-              @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
+              @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
               v-loading="loading" lazy :load="loadNode">
               <span class="custom-tree-node" slot-scope="{ node, data }">
                 <i :class="data.icon"></i>

@@ -1,6 +1,6 @@
 <template>
-  <div class="JNPF-preview-main">
-    <div class="JNPF-common-page-header">
+  <div class="OBPM-preview-main">
+    <div class="OBPM-common-page-header">
       <el-page-header @back="goBack" :content="'接口预览 - '+title" />
       <div class="options">
         <el-button @click="goBack">{{$t('common.cancelButton')}}</el-button>

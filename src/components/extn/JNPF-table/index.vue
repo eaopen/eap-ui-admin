@@ -1,6 +1,6 @@
 <template>
   <div class="tableContainer">
-    <el-table v-if="!refreshTable" :data="data" ref="JNPFTable" class="JNPF-common-table"
+    <el-table v-if="!refreshTable" :data="data" ref="JNPFTable" class="OBPM-common-table"
       :height="height" :element-loading-text="$t('common.loadingText')" v-bind="$attrs"
       v-on="$listeners" :border="border">
       <el-table-column prop="selection" type="selection" width="50" v-if="hasC" align="center"

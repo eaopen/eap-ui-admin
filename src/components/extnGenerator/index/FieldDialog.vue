@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="字段设置" :close-on-click-modal="false" width="1000px"
-    class="JNPF-dialog JNPF-dialog_center field-dialog" lock-scroll append-to-body
+    class="OBPM-dialog JNPF-dialog_center field-dialog" lock-scroll append-to-body
     :visible.sync="visible">
     <div class="main">
       <JNPF-table v-loading="listLoading" :data="list">
@@ -41,7 +41,7 @@
         </el-table-column>
         <el-table-column label="操作" width="50">
           <template slot-scope="scope">
-            <el-button class="JNPF-table-delBtn" size="mini" type="text" v-if="!scope.row.disabled"
+            <el-button class="OBPM-table-delBtn" size="mini" type="text" v-if="!scope.row.disabled"
               @click="handleDel(scope.$index)">删除
             </el-button>
           </template>

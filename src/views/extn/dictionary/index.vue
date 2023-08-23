@@ -1,7 +1,7 @@
 <template>
-  <div class="JNPF-common-layout">
-    <div class="JNPF-common-layout-left">
-      <div class="JNPF-common-title">
+  <div class="OBPM-common-layout">
+    <div class="OBPM-common-layout-left">
+      <div class="OBPM-common-title">
         <h2>字典分类</h2>
         <el-dropdown>
           <el-link icon="icon-ym icon-ym-mpMenu" :underline="false" />
@@ -13,13 +13,13 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <div class="JNPF-common-tree-search-box">
+      <div class="OBPM-common-tree-search-box">
         <el-input placeholder="输入关键字" v-model="filterText" suffix-icon="el-icon-search" clearable />
       </div>
-      <el-scrollbar class="JNPF-common-el-tree-scrollbar" v-loading="treeLoading">
+      <el-scrollbar class="OBPM-common-el-tree-scrollbar" v-loading="treeLoading">
         <el-tree ref="treeBox" :data="treeData" :props="defaultProps"
           :default-expand-all="expandsTree" highlight-current :expand-on-click-node="false"
-          node-key="id" @node-click="handleNodeClick" class="JNPF-common-el-tree"
+          node-key="id" @node-click="handleNodeClick" class="OBPM-common-el-tree"
           :filter-node-method="filterNode" v-if="refreshTree">
           <span class="custom-tree-node" slot-scope="{ node }">
             <i class="el-icon-notebook-2" />
@@ -28,8 +28,8 @@
         </el-tree>
       </el-scrollbar>
     </div>
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+    <div class="OBPM-common-layout-center">
+      <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -47,10 +47,10 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
-        <div class="JNPF-common-head">
+      <div class="OBPM-common-layout-main JNPF-flex-main">
+        <div class="OBPM-common-head">
           <topOpts @add="addOrUpdateHandle()" />
-          <div class="JNPF-common-head-right">
+          <div class="OBPM-common-head-right">
             <el-tooltip effect="dark" content="展开" placement="top"
               v-if="tableData.length&&tableData.every((item)=>{return item.hasChildren})">
               <el-link v-show="!expands" type="text"
