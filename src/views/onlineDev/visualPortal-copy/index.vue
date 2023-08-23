@@ -1,7 +1,7 @@
 <template>
-  <div class="JNPF-common-layout">
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+  <div class="OBPM-common-layout">
+    <div class="OBPM-common-layout-center">
+      <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -10,8 +10,8 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="分类">
-              <el-select v-model="category" placeholder="请选择分类" clearable filterable>
+            <el-form-item label="所属分类">
+              <el-select v-model="category" placeholder="请选择所属分类" clearable>
                 <el-option v-for="item in categoryList" :key="item.id" :label="item.fullName"
                   :value="item.id">
                 </el-option>
@@ -19,46 +19,24 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="类型">
-              <el-select v-model="type" placeholder="请选择类型" clearable>
-                <el-option label="配置路径" :value="1" />
-                <el-option label="门户设计" :value="0" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <template v-if="showAll">
-            <el-col :span="6">
-              <el-form-item label="锁定">
-                <el-select v-model="enabledLock" placeholder="请选择锁定类型" clearable>
-                  <el-option label="是" :value="1" />
-                  <el-option label="否" :value="0" />
-                </el-select>
-              </el-form-item>
-            </el-col>
-          </template>
-          <el-col :span="6">
             <el-form-item>
               <el-button type="primary" icon="el-icon-search" @click="search()">
                 {{$t('common.search')}}</el-button>
               <el-button icon="el-icon-refresh-right" @click="reset()">{{$t('common.reset')}}
               </el-button>
-              <el-button type="text" icon="el-icon-arrow-down" @click="showAll=true"
-                v-if="!showAll">展开</el-button>
-              <el-button type="text" icon="el-icon-arrow-up" @click="showAll=false" v-else>
-                收起</el-button>
             </el-form-item>
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
-        <div class="JNPF-common-head">
-          <topOpts @add="addOrUpdateHandle" addText="新建门户">
-            <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData" accept=".vp"
+      <div class="OBPM-common-layout-main OBPM-flex-main">
+        <div class="OBPM-common-head">
+          <topOpts @add="addOrUpdateHandle(1)" addText="新建门户">
+          <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
               @on-success="initData" />
           </topOpts>
-          <div class="JNPF-common-head-right">
+          <div class="OBPM-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
-              <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
+              <el-link icon="icon-ym icon-ym-Refresh OBPM-common-head-icon" :underline="false"
                 @click="initData()" />
             </el-tooltip>
           </div>
@@ -67,21 +45,11 @@
           <el-table-column prop="fullName" label="名称" show-overflow-tooltip min-width="200" />
           <el-table-column prop="enCode" label="编码" width="200" />
           <el-table-column prop="category" label="分类" width="150" />
-          <el-table-column prop="type" label="类型" width="100" align="center">
-            <template slot-scope="scope">
-              <p>{{scope.row.type==1?'配置路径':'门户设计'}}</p>
-            </template>
-          </el-table-column>
-          <el-table-column prop="enabledLock" label="锁定" width="70" align="center">
-            <template slot-scope="scope">
-              <p>{{scope.row.type==1?'':scope.row.enabledLock==1?'是':'否'}}</p>
-            </template>
-          </el-table-column>
           <el-table-column prop="creatorUser" label="创建人" width="120" />
-          <el-table-column prop="creatorTime" label="创建时间" :formatter="obpm.tableDateFormat"
-            width="120" />
-          <el-table-column prop="lastModifyTime" label="最后修改时间" :formatter="obpm.tableDateFormat"
-            width="120" />
+          <!-- <el-table-column prop="creatorTime" label="创建时间" :formatter="jnpf.tableDateFormat"
+            width="120" /> -->
+          <!-- <el-table-column prop="lastModifyTime" label="最后修改时间" :formatter="jnpf.tableDateFormat"
+            width="120" /> -->
           <el-table-column prop="sortCode" label="排序" width="70" align="center" />
           <el-table-column prop="enabledMark" label="状态" width="70" align="center">
             <template slot-scope="scope">
@@ -91,7 +59,8 @@
           </el-table-column>
           <el-table-column label="操作" fixed="right" width="150">
             <template slot-scope="scope">
-              <tableOpts @edit="addOrUpdateHandle(scope.row.id)" @del="handleDel(scope.row.id)">
+              <tableOpts @edit="addOrUpdateHandle(scope.row.type,scope.row.id)"
+                @del="handleDel(scope.row.id)">
                 <el-dropdown>
                   <span class="el-dropdown-link">
                     <el-button type="text" size="mini">{{$t('common.moreBtn')}}<i
@@ -99,15 +68,11 @@
                     </el-button>
                   </span>
                   <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item @click.native="openReleaseDialog(scope.row)">
-                      发布
-                    </el-dropdown-item>
-                    <el-dropdown-item v-if="scope.row.type==0" @click.native="design(scope.row)">设计
-                    </el-dropdown-item>
-                    <el-dropdown-item @click.native="preview(scope.row.id,2)">预览</el-dropdown-item>
+                    <el-dropdown-item @click.native="preview(scope.row.id)">预览</el-dropdown-item>
                     <el-dropdown-item @click.native="copy(scope.row.id)">复制</el-dropdown-item>
                     <el-dropdown-item @click.native="exportTemplate(scope.row.id)">导出
                     </el-dropdown-item>
+                    <el-dropdown-item @click.native="distribute(scope.row.id)">授权</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
               </tableOpts>
@@ -118,32 +83,46 @@
           :limit.sync="listQuery.pageSize" @pagination="initData" />
       </div>
     </div>
-    <Form v-if="formVisible" ref="form" @close="closeForm" @initPortalDesign="design" />
-    <PortalDesign v-if="portalDesignVisible" ref="portalDesign" @close="closeForm1" />
-    <Preview :visible.sync="previewVisible" :id="currId" />
-    <ReleaseDialog :visible.sync="releaseDialog" ref="release" @release="search()" />
-    <previewDialog :visible.sync="previewTypeVisible" :id="currId" :previewType="previewType"
-      type="portal" @previewPc='previewPc' />
+    <Form v-if="formVisible" ref="form" @close="closeForm" />
+    <Form1 v-if="form1Visible" ref="form1" @close="closeForm1" @nextStep="handleNextStep"/>
+    <Preview :visible.sync="previewVisible" :id="activeId" />
+    <Transfer ref="transfer" :visible.sync="transferShow" :id="transferId" />
+    <el-dialog title="新建门户" :visible.sync="dialogVisible"
+      class="OBPM-dialog OBPM-dialog-add OBPM-dialog_center" lock-scroll width="600px">
+      <div class="add-main">
+        <div class="add-item add-item-left" @click="addOrUpdateHandle(1)">
+          <i class="add-icon icon-ym icon-ym-customUrl"></i>
+          <div class="add-txt">
+            <p class="add-title">自定义路径</p>
+            <p class="add-desc">配置静态页面地址</p>
+          </div>
+        </div>
+        <div class="add-item" @click="addOrUpdateHandle(0)">
+          <i class="add-icon icon-ym icon-ym-pageDesign"></i>
+          <div class="add-txt">
+            <p class="add-title">页面设计</p>
+            <p class="add-desc">拖拽生成门户</p>
+          </div>
+        </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { getPortalList, Delete, Copy, exportTemplate } from '@/api/onlineDev/portal'
+import { getPortalList, Delete, Copy, exportTemplate } from '@/api/extn/cache'
 import Form from './Form'
-import PortalDesign from '@/components/VisualPortal/PortalDesign'
-import previewDialog from '@/components/extn/PreviewDialog'
+import Form1 from './Form1'
 import Preview from './IndexPreview'
-import ReleaseDialog from './releaseDialog'
+import Transfer from './Transfer'
 export default {
   name: 'onlineDev-visualPortal',
-  components: { Form, PortalDesign, previewDialog, Preview, ReleaseDialog },
+  components: { Form, Form1, Preview, Transfer },
   data() {
     return {
       list: [],
       keyword: '',
       category: '',
-      type: '',
-      enabledLock: '',
       listQuery: {
         currentPage: 1,
         pageSize: 20,
@@ -151,30 +130,30 @@ export default {
         sidx: ''
       },
       total: 0,
-      currId: '',
+      activeId: '',
       transferId: '',
       dialogVisible: false,
       previewVisible: false,
-      previewTypeVisible: false,
+      transferShow: false,
       listLoading: false,
-      formVisible: false,
-      portalDesignVisible: false,
-      categoryList: [],
-      showAll: false,
-      previewType: '',
-      releaseDialog: false
+      formVisible: true,
+      form1Visible: false,
+      categoryList: []
     }
   },
   created() {
-    // this.getDictionaryData()
+    this.getDictionaryData()
     this.initData()
   },
   methods: {
+    handleNextStep(){
+      this.form1Visible = false
+      this.addOrUpdateHandle(0)
+
+    },
     reset() {
       this.keyword = ''
       this.category = ''
-      this.type = ''
-      this.enabledLock = ''
       this.search()
     },
     search() {
@@ -187,7 +166,7 @@ export default {
       this.initData()
     },
     getDictionaryData() {
-      this.$store.dispatch('base/getDictionaryData', { sort: 'portalDesigner' }).then((res) => {
+      this.$store.dispatch('dict/loadDictDatas', { sort: 'portalDesigner' }).then((res) => {
         this.categoryList = res
       })
     },
@@ -196,9 +175,7 @@ export default {
       let query = {
         ...this.listQuery,
         keyword: this.keyword,
-        type: this.type,
-        category: this.category,
-        enabledLock: this.enabledLock
+        category: this.category
       }
       getPortalList(query).then(res => {
         this.list = res.data.list
@@ -238,21 +215,9 @@ export default {
         })
       }).catch(() => { });
     },
-    preview(id, type) {
+    preview(id) {
       if (!id) return
-      this.currId = id
-      this.previewType = type
-      this.$nextTick(() => {
-        this.previewTypeVisible = true
-      })
-    },
-    openReleaseDialog(row) {
-      this.$nextTick(() => {
-        this.releaseDialog = true
-        this.$refs.release.openRelease(row)
-      })
-    },
-    previewPc() {
+      this.activeId = id
       this.previewVisible = true
     },
     exportTemplate(id) {
@@ -260,26 +225,29 @@ export default {
         type: 'warning'
       }).then(() => {
         exportTemplate(id).then(res => {
-          this.obpm.downloadFile(res.data.url)
+          this.jnpf.downloadFile(res.data.url)
         })
       }).catch(() => { });
     },
-    design(row) {
-      this.dialogVisible = false
-      this.portalDesignVisible = true
-      this.$nextTick(() => {
-        this.$refs.portalDesign.init(row)
-      })
+    distribute(id) {
+      this.transferId = id
+      this.transferShow = true
     },
-    addOrUpdateHandle(id) {
+    addOrUpdateHandle(type, id) {
+      console.log(type, '--',id)
       this.dialogVisible = false
-      this.formVisible = true
-      this.$nextTick(() => {
-        this.$refs.form.init(this.categoryList, id)
-      })
+      const key = type === 1 ? 'form1' : 'form'
+      const time = type === 1 && !id ? 300 : 0
+      console.log(key)
+      setTimeout(() => {
+        this[key + 'Visible'] = true
+        this.$nextTick(() => {
+          this.$refs[key].init(this.categoryList, id)
+        })
+      }, time);
     },
     closeForm(isRefresh) {
-      this.formVisible = false
+      this.formVisible = true
       if (isRefresh) this.initData()
     },
     closeForm1(isRefresh) {

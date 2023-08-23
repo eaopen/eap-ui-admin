@@ -1,10 +1,10 @@
 <template>
   <el-dialog v-bind="$attrs" :close-on-click-modal="false" :modal-append-to-body="false"
-    v-on="$listeners" @open="onOpen" fullscreen lock-scroll class="JNPF-full-dialog"
+    v-on="$listeners" @open="onOpen" fullscreen lock-scroll class="OBPM-full-dialog"
     :show-close="false" :modal="false">
-    <div class="JNPF-full-dialog-header">
+    <div class="OBPM-full-dialog-header">
       <div class="header-title">
-        <img src="@/assets/logo/logo.png" class="header-logo" />
+        <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt"> · 门户预览</p>
       </div>
       <div class="options">
@@ -22,9 +22,8 @@
 </template>
 
 <script>
-import { getPortalInfo } from '@/api/onlineDev/portal'
+import { getPortalInfo } from '@/api/extn/cache'
 import PortalLayout from '@/components/VisualPortal/Layout'
-import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 export default {
   props: ['id'],
   components: { PortalLayout },
@@ -35,8 +34,7 @@ export default {
       linkType: null,
       currentView: null,
       url: '',
-      loading: false,
-      timerList: []
+      loading: false
     }
   },
   methods: {
@@ -47,40 +45,20 @@ export default {
         this.type = res.data.type || 0
         this.linkType = res.data.linkType || 0
         this.url = res.data.customUrl
-        this.refresh = res.data.refresh || {}
         if (!res.data) return this.loading = false
         if (res.data.type === 1) {
           if (!res.data.customUrl && this.linkType === 1) return
           this.currentView = (resolve) => require([`@/views/${res.data.customUrl}`], resolve)
         } else {
-          if (!res.data.formData) return this.loading = false
+          if (!res.data.formData) return
           let formData = JSON.parse(res.data.formData)
-          this.layout = this.filterList(JSON.parse(JSON.stringify(formData.layout)) || [])
+          this.layout = formData.layout || []
         }
         this.loading = false
       })
     },
-    filterList(layout) {
-      const loop = list => {
-        for (let i = 0; i < list.length; i++) {
-          const item = list[i];
-          if (!(Array.isArray(item.visibility) && item.visibility.includes('pc')) && item.jnpfKey) {
-            list.splice(i, 1)
-            i--
-          }
-          if (item.children && item.children.length) loop(item.children)
-        }
-      }
-      loop(layout)
-      return layout
-    },
     closeDialog() {
       this.$emit('update:visible', false)
-      if (this.timerList.length) {
-        this.timerList.forEach((ele) => {
-          if (ele) clearInterval(ele)
-        })
-      }
     }
   }
 }

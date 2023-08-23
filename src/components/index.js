@@ -7,7 +7,10 @@ import topOperation from '@/components/extn/topOperation/index'
 import Tinymce from '@/components/tinymce/index.vue'
 
 import JNPFTable from '@/components/extn/JNPF-table'
+import JNPFTreeSelect from '@/components/extn/JNPF-treeSelect'
 import uploadBtn from '@/components/extn/JNPF-uploadBtn'
+import jnpfFormTipItem from '@/components/extn/jnpf-form-tip-item'
+
 
 export default {
   install(Vue, options) {
@@ -19,6 +22,8 @@ export default {
     Vue.component('topOpts', topOperation)
     Vue.component('tinymce', Tinymce)
     Vue.component('JNPFTable', JNPFTable)
+    Vue.component('JNPFTreeSelect', JNPFTreeSelect)
     Vue.component('uploadBtn', uploadBtn)
+    Vue.component('jnpfFormTipItem', jnpfFormTipItem)
   }
 }

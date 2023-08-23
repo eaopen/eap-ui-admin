@@ -486,7 +486,7 @@ $lighterBlue: #409eff;
         }
 
         .outeripad {
-          background: url('extn/iphoneBg.png');
+          background: url('../../../../assets/images/iphoneBg.png');
           width: 389px;
           height: 711px;
           padding: 65px 40px;
