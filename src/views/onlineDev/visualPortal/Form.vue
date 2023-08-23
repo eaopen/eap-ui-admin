@@ -64,7 +64,7 @@
           {{$t('common.confirmButton')}}</el-button>
         <el-button type="primary" @click="dataFormSubmit(1)" v-if="dataForm.type==0"
           :disabled="btnLoading" :loading="designBtnLoading">
-          确定并设计</el-button>
+          {{ $t('common.confirmDesignButton') }}</el-button>
       </span>
     </el-dialog>
   </div>
@@ -158,6 +158,10 @@ export default {
       this.dataForm.customUrl = ''
     },
     dataFormSubmit(type) {
+      if (type == 1){
+        this.$emit('initPortalDesign', this.dataForm)
+        return
+      }
       this.$refs['dataForm'].validate((valid) => {
         if (!valid) return
         if (type) {

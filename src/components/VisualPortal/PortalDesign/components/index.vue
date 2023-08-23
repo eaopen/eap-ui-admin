@@ -368,7 +368,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $lighterBlue: #409eff;
-.JNPF-Portal {
+.OBPM-Portal {
   height: 100%;
   .el-aside,
   >>> .el-aside {
