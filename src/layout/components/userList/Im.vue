@@ -221,7 +221,6 @@ export default {
           dateTime: this.obpm.toDate(item.sendTime)
         })
       }
-      console.log(list)
       if (!this.showHistory) {
         this.list = list
         this.$nextTick(() => {
@@ -235,6 +234,7 @@ export default {
       this.ajaxing = false
     },
     addItem(item) {
+      console.log('添加聊天记录',item)
       if (item.messageType === "text") {
         item.message = this.replaceEmoji(item.message)
       } else if (item.messageType === "image") {

@@ -244,7 +244,9 @@ export default {
           }
           //显示自己发送的消息
           if (data.method == 'sendMessage') {
-            if (this.$refs.UserList.$refs.OBPMIm.info.id !== data.toUserId) return
+            console.log(data)
+            console.log('用户id',this.$refs.UserList.$refs.OBPMIm.info.id)
+            if (this.$refs.UserList.$refs.OBPMIm.info.id != data.toUserId) return
             //添加到客户端
             let messItem = {
               userId: data.UserId,

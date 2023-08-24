@@ -18,7 +18,7 @@
                   </p>
                   <p class="name">
                     <span class="content">{{getMsgText(item.latestMessage,item.messageType)}}</span>
-                    <span class="time">{{item.latestDate}}</span>
+                    <span class="time">{{obpm.toDateText(item.latestDate)}}</span>
                   </p>
                 </div>
                 <!-- <el-badge :value="item.unreadMessage" :hidden="!item.unreadMessage"></el-badge> -->
