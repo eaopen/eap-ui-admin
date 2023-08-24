@@ -4,44 +4,44 @@
     <div class="OBPM-full-dialog-header">
       <div class="header-title">
         <img src="@/assets/images/extn/logo.png" class="header-logo" />
-        <el-tooltip class="item" effect="dark" :content="fullName" placement="top">
-          <p class="header-txt"> · {{fullName}}</p>
+        <el-tooltip class="item" effect="dark" content="测试门户设计" placement="top">
+          <p class="header-txt"> · {{fullName || '测试门户设计'}}</p>
         </el-tooltip>
       </div>
       <el-radio-group v-model="showType" size="mini">
         <el-radio-button label="pc">
           <el-tooltip effect="dark" content="PC" placement="top">
-            <i class="icon-ym icon-ym-pc" />
+            <i class="icon-ym el-icon-monitor" />
           </el-tooltip>
         </el-radio-button>
         <el-radio-button label="app">
           <el-tooltip effect="dark" content="APP" placement="top">
-            <i class="icon-ym icon-ym-mobile" />
+            <i class="icon-ym el-icon-mobile" />
           </el-tooltip>
         </el-radio-button>
       </el-radio-group>
       <div class="options">
-        <el-tooltip effect="dark" content="撤销" placement="top">
-          <el-link icon="icon-ym icon-ym-report-icon-undo" :underline="false" class="active-btn"
+        <el-tooltip effect="dark" :content="$t('common.revoke')" placement="top">
+          <el-link icon="icon-ym el-icon-caret-left" :underline="false" class="active-btn"
             :disabled="!getCanUndo" @click="handleRedoAndUndo('handleUndo')" />
         </el-tooltip>
-        <el-tooltip effect="dark" content="重做" placement="top">
-          <el-link icon="icon-ym icon-ym-report-icon-restore" :underline="false" class="active-btn"
+        <el-tooltip effect="dark" :content="$t('common.reset')" placement="top">
+          <el-link icon="icon-ym el-icon-refresh-left" :underline="false" class="active-btn"
             :disabled="!getCanRedo" @click="handleRedoAndUndo('handleRedo')" />
         </el-tooltip>
-        <el-tooltip effect="dark" content="清空" placement="top">
-          <el-link icon="icon-ym icon-ym-clean" :underline="false" @click="empty"
+        <el-tooltip effect="dark" :content="$t('common.clear')" placement="top">
+          <el-link icon="icon-ym el-icon-close" :underline="false" @click="empty"
             class="active-btn" />
         </el-tooltip>
-        <el-tooltip effect="dark" content="预览" placement="top">
+        <el-tooltip effect="dark" :content="$t('common.preview')"  placement="top">
           <el-link icon="icon-ym el-icon-video-play" :underline="false" @click="preview()"
             class="active-btn" />
         </el-tooltip>
         <el-divider direction='vertical' class="divider"></el-divider>
         <el-button type="primary" @click="dataFormSubmit(1)" :loading="btnLoading">
-          保存并发布</el-button>
+          {{ $t('common.saveReleaseButton') }}</el-button>
         <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-          保 存</el-button>
+          {{ $t('common.saveButton') }}</el-button>
         <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
       </div>
     </div>
@@ -167,9 +167,11 @@ export default {
   background: #1890ff !important;
 }
 .active-btn {
-  >>> .icon-ym {
-    font-size: 20px;
-    margin-left: 15px;
+  :deep{ 
+    .icon-ym {
+      font-size: 20px;
+      margin-left: 8px;
+    }
   }
 }
 .divider {

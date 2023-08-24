@@ -61,7 +61,7 @@
 </template>
 <script>
 import draggable from 'vuedraggable'
-import { getSelectorAll } from '@/api/system/menu'
+import { getSelectorAll } from '@/api/extn/cache'
 import { getFeatureSelector } from '@/api/onlineDev/visualDev'
 import { getDataInterfaceSelector } from '@/api/extn/dataInterface'
 import iconBox from '@/components/extn/iconBox'

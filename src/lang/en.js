@@ -207,6 +207,8 @@ export default {
     noData: 'no data',
     confirmButton: 'confirm',
     confirmDesignButton: 'confirm&design',
+    saveButton: 'save',
+    saveReleaseButton: 'save&release',
     cancelButton: 'cancel',
     addButton: 'add',
     moreButton: 'more',
@@ -215,5 +217,10 @@ export default {
     search: 'search',
     reset: 'reset',
     refresh: 'refresh',
+    revoke: 'revoke',
+    clear: 'clear',
+    preview: 'preview',
+    PCVersion: 'PC',
+    MBVersion: 'mobile'
   }
 }

@@ -207,6 +207,8 @@ export default {
     noData: '暂无内容',
     confirmButton: '确认',
     confirmDesignButton: '确认并设计',
+    saveButton: '保存',
+    saveReleaseButton: '保存并发布',
     cancelButton: '取消',
     addButton: '添加',
     moreButton: '更多',
@@ -215,5 +217,10 @@ export default {
     search: '搜索',
     reset: '重置',
     refresh: '刷新',
+    revoke: '撤销',
+    clear: '清除',
+    preview: '预览',
+    PCVersion: 'PC版',
+    MBVersion: '手机版'
   }
 }
