@@ -3,7 +3,7 @@ import request from "@/utils/request";
 // 获取门户列表
 export function getPortalList(data) {
   return request({
-    url: "/api/visualdev/Portal",
+    url: "/api/visualdev/Portal/list",
     method: "get",
     data,
   });

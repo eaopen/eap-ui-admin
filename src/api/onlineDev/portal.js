@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 获取门户列表
 export function getPortalList(data) {
   return request({
-    url: '/api/visualdev/Portal',
+    url: '/api/visualdev/Portal/list',
     method: 'get',
     data
   })
@@ -33,7 +33,7 @@ export function Update(data) {
 // 新建门户
 export function Create(data) {
   return request({
-    url: '/api/visualdev/Portal',
+    url: '/api/visualdev/Portal/create',
     method: 'post',
     data
   })
