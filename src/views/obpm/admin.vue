@@ -19,6 +19,7 @@ export default {
     };
   },
   created() {
+    // save accessToken to obpm iframe
     // getConfigKey("url.obpm").then(response => {
     //   if (!response.data || response.data.length === 0) {
     //     return
