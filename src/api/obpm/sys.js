@@ -3,7 +3,7 @@ import request from "@/utils/request";
 
 export function getOperationTypeEnum(){
     return request({
-        url: '/sys/tools/getEnum',
+        url: '/obpm-api/sys/tools/getEnum',
         method: 'post',
         params:{
             path: 'com.sec.etech.bpm.constant.EtechOpinionStatus',
@@ -17,7 +17,7 @@ export function getOperationTypeEnum(){
 // 数据字典
 export function getDictData(key){
     return request({
-        url: '/sys/dataDict/getDictData?dictKey='+key,
+        url: '/obpm-api/sys/dataDict/getDictData?dictKey='+key,
         method: 'get',
     })
 }
