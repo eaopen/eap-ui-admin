@@ -11,13 +11,11 @@ export default {
   components: { iFrame },
   data() {
     return {
-      // TODO path => url
       // sso
-      // obpmWebBaseUrl = /obpm/  规避跨域问题
-      // obpmBaseUrl = http://localhost:3002/  dev only
+      // obpmWebBaseUrl = /obpm-web/  规避跨域问题
       // url = obpmBaseUrl + path + ssoAuth
-      url: "/obpm/"+this.$route.meta.urlAddr,
-      loading: true
+      url: "/obpm-web1/"+this.$route.meta.urlAddr,
+      //loading: true
     };
   },
   created() {

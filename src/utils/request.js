@@ -40,9 +40,9 @@ service.interceptors.request.use(config => {
   if (getAccessToken() && !isToken) {
     config.headers['Authorization'] = 'Bearer ' + getAccessToken() // 让每个请求携带自定义token 请根据实际情况自行修改
   }
-
   let language = getLanguage();
   config.headers['Accept-Language'] = language || 'en';
+  config.headers['eap-origin'] = 'pc'
   // 设置租户
   if (getTenantEnable()) {
     const tenantId = getTenantId();
@@ -71,16 +71,27 @@ service.interceptors.request.use(config => {
       }
     }
     url = url.slice(0, -1);
+
+    // timestamp
+    let timestamp = Date.parse(new Date()) / 1000
+    if (url.indexOf('?') > -1) {
+      url += `&n=${timestamp}`
+    } else {
+      url += `?n=${timestamp}`
+    }
+
     config.params = {};
     config.url = url;
   }
   return config
 }, error => {
-    console.log(error)
-    Promise.reject(error)
+  if (process.env.NODE_ENV === 'development') {
+    console.log(error) // for debug
+  }
+  return Promise.reject(error)
 })
 
-// 响应拦截器
+// response interceptor 响应拦截器
 service.interceptors.response.use(async res => {
   // 未设置状态码则默认成功状态
   res.data.code = res.data.code - 0
@@ -141,11 +152,7 @@ service.interceptors.response.use(async res => {
       type: 'error',
       duration: 0,
       dangerouslyUseHTMLString: true,
-      message: '<div>演示模式，无法进行写操作</div>'
-        + '<div> &nbsp; </div>'
-        + '<div>参考 https://doc.iocoder.cn/ 教程</div>'
-        + '<div> &nbsp; </div>'
-        + '<div>5 分钟搭建本地环境</div>',
+      message: '<div>演示模式，无法进行写操作</div>',
     })
     return Promise.reject(new Error(msg))
   } else if (code !== 200) {

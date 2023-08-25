@@ -39,8 +39,9 @@ const permission = {
       return new Promise(resolve => {
         // 将 menus 菜单，转换为 route 路由数组
         // console.log('menus', menus)
-        const sdata = JSON.parse(JSON.stringify(menus)) // 【重要】用于菜单中的数据
-        const rdata = JSON.parse(JSON.stringify(menus)) // 用于最后添加到 Router 中的数据
+        let strMenus = JSON.stringify(menus)
+        const sdata = JSON.parse(strMenus) // 【重要】用于菜单中的数据
+        const rdata = JSON.parse(strMenus) // 用于最后添加到 Router 中的数据
 
         const sidebarRoutes = filterAsyncRouter(sdata)
         const rewriteRoutes = filterAsyncRouter(rdata, false, true)
@@ -58,13 +59,12 @@ const permission = {
 // 遍历后台传来的路由字符串，转换为组件对象,add routes lastRouter=false, type=true
 function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
   return asyncRouterMap.filter(route => {
-    // 将 ruoyi 后端原有耦合前端的逻辑，迁移到此处
     // 处理 meta 属性
     route.meta = {
       title: route.name,
       icon: route.icon,
       noCache: !route.keepAlive,
-      urlAddr: route.path,
+      urlAddr: route.urlAddr || route.path,
     }
     route.hidden = !route.visible
     // 处理 name 属性
@@ -125,6 +125,7 @@ function filterChildren(childrenMap, lastRouter = false) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
           if(c.path){
+            c.urlAddr = c.path
             c.path = el.path + '/' + c.path
           }
           if (c.children && c.children.length) {

@@ -25,10 +25,10 @@ router.beforeEach((to, from, next) => {
         // 获取字典数据 add by 芋艿
         store.dispatch('dict/loadDictDatas')
         // 判断当前用户是否已拉取完 user_info 信息
-        store.dispatch('GetInfo').then(userInfo => {
+        store.dispatch('GetInfo').then(permInfo => {
           isRelogin.show = false
           // 触发 GenerateRoutes 事件时，将 menus 菜单树传递进去
-          store.dispatch('GenerateRoutes', userInfo.menus).then(accessRoutes => {
+          store.dispatch('GenerateRoutes', permInfo.menus).then(accessRoutes => {
             // 根据 roles 权限生成可访问的路由表
             // console.log('add routes', accessRoutes)
             router.addRoutes(accessRoutes) // 动态添加可访问路由表

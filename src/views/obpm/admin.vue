@@ -11,26 +11,23 @@ export default {
   components: { iFrame },
   data() {
     return {
-      // TODO path => url
-      // sso
-      // obpmAdminBaseUrl = /obpm/  规避跨域问题
+      // obpmAdminBaseUrl = /obpm-admin/  规避跨域问题
       // obpmBaseUrl = http://localhost:3002/  dev only
       // url = obpmBaseUrl + path + ssoAuth
-      url: "/obpm/"+this.$route.meta.urlAddr,
-      loading: true
+      url: "/obpm-admin/"+this.$route.meta.urlAddr,
+      //loading: true
     };
   },
   created() {
-    getConfigKey("url.obpm").then(response => {
-      if (!response.data || response.data.length === 0) {
-        return
-      }
-      this.obpmBaseUrl = response.data;
-      this.url = this.obpmBaseUrl +"/"+ this.$route.meta.urlAddr;
-    }).finally(() => {
-      this.loading = false;
-    })
-
+    // getConfigKey("url.obpm").then(response => {
+    //   if (!response.data || response.data.length === 0) {
+    //     return
+    //   }
+    //   this.obpmBaseUrl = response.data;
+    //   this.url = this.obpmBaseUrl +"/"+ this.$route.meta.urlAddr;
+    // }).finally(() => {
+    //   this.loading = false;
+    // })
     this.loading = false;
   }
 };
