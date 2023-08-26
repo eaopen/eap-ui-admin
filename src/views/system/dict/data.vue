@@ -198,6 +198,7 @@ export default {
         this.queryParams.dictType = response.data.type;
         this.defaultDictType = response.data.type;
         this.currentDataType = response.data.dataType || "data";
+        this.queryParams.dataType = this.currentDataType;
         this.getList();
       });
     },
@@ -242,12 +243,14 @@ export default {
       if (selectedItem) {
           this.currentDataType = selectedItem.dataType || "data";
       }
+      this.queryParams.dataType = this.currentDataType;
       this.getList();
     },
     /** 重置按钮操作 */
     resetQuery() {
       this.resetForm("queryForm");
       this.queryParams.dictType = this.defaultDictType;
+      //this.queryParams.dataType = "data";
       this.handleQuery();
     },
     /** 新增按钮操作 */
