@@ -21,7 +21,7 @@
     </el-form>
 
     <el-row :gutter="10" class="mb8">
-      <el-col :span="1.5" v-if="currentDataType !='json' && currentDataType !='sql'">
+      <el-col :span="1.5" v-if="currentDataType =='data'">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
                    v-hasPermi="['system:dict:create']">新增</el-button>
       </el-col>
@@ -50,8 +50,8 @@
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="扩展属性"  prop="extends" v-if="currentDataType =='json' || currentDataType =='sql'" align="left" :show-overflow-tooltip="true" />
-      <el-table-column label="操作" v-if="currentDataType !='json' && currentDataType !='sql'" align="center" class-name="small-padding fixed-width" >
+      <el-table-column label="扩展属性"  prop="extends" v-if="currentDataType !='data'" align="left" :show-overflow-tooltip="true" />
+      <el-table-column label="操作" v-if="currentDataType =='data'" align="center" class-name="small-padding fixed-width" >
         <template v-slot="scope">
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)"
                      v-hasPermi="['system:dict:update']">修改</el-button>
@@ -197,7 +197,7 @@ export default {
       getType(dictId).then(response => {
         this.queryParams.dictType = response.data.type;
         this.defaultDictType = response.data.type;
-        this.currentDataType = response.data.dataType;
+        this.currentDataType = response.data.dataType || "data";
         this.getList();
       });
     },
@@ -240,7 +240,7 @@ export default {
       this.queryParams.pageNo = 1;
       let selectedItem = this.typeOptions.find(item => item.type === this.queryParams.dictType);
       if (selectedItem) {
-          this.currentDataType = selectedItem.dataType;
+          this.currentDataType = selectedItem.dataType || "data";
       }
       this.getList();
     },

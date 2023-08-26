@@ -101,8 +101,8 @@
         <el-form-item label="查询SQL" prop="dataSql" v-if="form.dataType == 'sql'">
             <el-input v-model="form.dataSql" type="textarea" placeholder="请输入查询SQL" />
         </el-form-item>
-        <el-form-item label="数据源" prop="dataDs" v-if="form.dataType == 'sql'">
-            <el-input v-model="form.dataDs" placeholder="SQL数据源,默认不需填写" />
+        <el-form-item label="数据源" prop="dataDs" v-if="form.dataType == 'sql' || form.dataType == 'api'">
+            <el-input v-model="form.dataDs" placeholder="SQL数据源/API接口,默认不需填写" />
         </el-form-item>
 
         <el-form-item label="状态" prop="status">
