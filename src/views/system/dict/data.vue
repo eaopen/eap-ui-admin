@@ -3,7 +3,7 @@
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="字典名称" prop="dictType">
         <el-select v-model="queryParams.dictType">
-          <el-option v-for="item in typeOptions" :key="item.id" :label="item.name" :value="item.type"/>
+          <el-option v-for="item in typeOptions" :key="item.id" :label="item.name" :value="item.type" :dataType="item.dataType"/>
         </el-select>
       </el-form-item>
       <el-form-item label="字典标签" prop="label">
@@ -21,7 +21,7 @@
     </el-form>
 
     <el-row :gutter="10" class="mb8">
-      <el-col :span="1.5">
+      <el-col :span="1.5" v-if="currentDataType !='json' && currentDataType !='sql'">
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
                    v-hasPermi="['system:dict:create']">新增</el-button>
       </el-col>
@@ -36,13 +36,13 @@
       <el-table-column label="字典编码" align="center" prop="id" />
       <el-table-column label="字典标签" align="center" prop="label" />
       <el-table-column label="字典键值" align="center" prop="value" />
-      <el-table-column label="字典排序" align="center" prop="sort" />
-      <el-table-column label="状态" align="center" prop="status">
+      <el-table-column label="字典排序" align="center" prop="sort" width="80"/>
+      <el-table-column label="状态" align="center" prop="status" width="80">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
         </template>
       </el-table-column>
-      <el-table-column label="颜色类型" align="center" prop="colorType" />
+      <el-table-column label="颜色类型" align="center" prop="colorType"  width="100"/>
       <el-table-column label="CSS Class" align="center" prop="cssClass" />
       <el-table-column label="备注" align="center" prop="remark" :show-overflow-tooltip="true" />
       <el-table-column label="创建时间" align="center" prop="createTime" width="180">
@@ -50,7 +50,8 @@
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="扩展属性"  prop="extends" v-if="currentDataType =='json' || currentDataType =='sql'" align="left" :show-overflow-tooltip="true" />
+      <el-table-column label="操作" v-if="currentDataType !='json' && currentDataType !='sql'" align="center" class-name="small-padding fixed-width" >
         <template v-slot="scope">
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)"
                      v-hasPermi="['system:dict:update']">修改</el-button>
@@ -126,6 +127,8 @@ export default {
       dataList: [],
       // 默认字典类型
       defaultDictType: "",
+      // 当前数据类型 data/json/sql
+      currentDataType: "data",
       // 弹出层标题
       title: "",
       // 是否显示弹出层
@@ -179,7 +182,8 @@ export default {
       // 枚举
       CommonStatusEnum: CommonStatusEnum,
       // 数据字典
-      statusDictDatas: getDictDatas(DICT_TYPE.COMMON_STATUS)
+      statusDictDatas: getDictDatas(DICT_TYPE.COMMON_STATUS),
+      dataTypeDictDatas: getDictDatas(DICT_TYPE.DICT_DATA_TYPE)
     };
   },
   created() {
@@ -193,6 +197,7 @@ export default {
       getType(dictId).then(response => {
         this.queryParams.dictType = response.data.type;
         this.defaultDictType = response.data.type;
+        this.currentDataType = response.data.dataType;
         this.getList();
       });
     },
@@ -233,6 +238,10 @@ export default {
     /** 搜索按钮操作 */
     handleQuery() {
       this.queryParams.pageNo = 1;
+      let selectedItem = this.typeOptions.find(item => item.type === this.queryParams.dictType);
+      if (selectedItem) {
+          this.currentDataType = selectedItem.dataType;
+      }
       this.getList();
     },
     /** 重置按钮操作 */

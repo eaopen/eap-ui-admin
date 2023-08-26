@@ -6,6 +6,7 @@
 import store from '@/store'
 
 export const DICT_TYPE = {
+  DICT_DATA_TYPE: 'dict_data_type',
   USER_TYPE: 'user_type',
   COMMON_STATUS: 'common_status',
   TERMINAL: 'terminal',
