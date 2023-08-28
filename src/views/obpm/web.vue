@@ -5,7 +5,7 @@
 </template>
 <script>
 import iFrame from "@/components/iFrame/index";
-import { getConfigKey } from "@/api/infra/config";
+// import { getConfigKey } from "@/api/infra/config";
 export default {
   name: "ObpmWeb",
   components: { iFrame },
@@ -18,18 +18,6 @@ export default {
     };
   },
   created() {
-    // todo will change
-    // save accessToken to obpm iframe
-    // getConfigKey("url.obpm").then(response => {
-    //   if (!response.data || response.data.length === 0) {
-    //     return
-    //   }
-    //   this.obpmBaseUrl = response.data;
-    //   this.url = this.obpmBaseUrl +"/"+ this.$route.meta.urlAddr;
-    // }).finally(() => {
-    //   this.loading = false;
-    // })
-
     this.loading = false;
   }
 };
