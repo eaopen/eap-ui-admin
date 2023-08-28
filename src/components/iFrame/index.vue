@@ -35,21 +35,18 @@ export default {
     token: "load"
   },
   mounted: function () {
-    setTimeout(() => {
-      this.loading = false;
-    }, 300);
     const that = this;
     window.onresize = function temp() {
       that.height = document.documentElement.clientHeight - 94.5 + "px;";
     };
-    this.iframeWin = this.$refs.iframeRef.contentWindow
+    that.iframeWin = that.$refs.iframeRef.contentWindow
   },
   methods:{
     load(){
       let data = {
         token: this.token
       }
-      console.log('post token:', data)
+      this.loading = false
       this.iframeWin.postMessage(data)
     }
   }
