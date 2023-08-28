@@ -103,6 +103,7 @@
 import CardHeader from "../CardHeader"
 import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 export default {
+  name: 'HTable',
   components: { CardHeader },
   props: {
     showType: { type: String, default: 'pc' },

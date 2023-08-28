@@ -79,31 +79,28 @@
   </div>
 </template>
 <script>
-import {
-  HTodo,
-  HCommonFunc,
-  HTodoList,
-  HNotice,
-  HEmail,
-  HDataBoard,
-  HTable,
-  HText,
-  HImage,
-  HCarousel,
-  HVideo,
-  HSchedule,
-  HIframe,
-  HBarChart,
-  HRankList,
-  HLineChart,
-  HPieChart,
-  HMapChart,
-  HRadarChart,
-  HTimeAxis,
-} from "@/components/VisualPortal"
+
+import HTodo from "@/components/VisualPortal/HTodo"
+import HCommonFunc from "@/components/VisualPortal/HCommonFunc"
+import HTodoList from "@/components/VisualPortal/HTodoList"
+import HNotice from "@/components/VisualPortal/HNotice"
+import HEmail from "@/components/VisualPortal/HEmail"
+import HDataBoard from "@/components/VisualPortal/HDataBoard"
+import HTable from "@/components/VisualPortal/HTable"
+import HText from "@/components/VisualPortal/HText"
+import HCarousel from "@/components/VisualPortal/HCarousel"
+import HVideo from "@/components/VisualPortal/HVideo"
+import HSchedule from "@/components/VisualPortal/HSchedule"
+import HIframe from "@/components/VisualPortal/HIframe"
+import HBarChart from "@/components/VisualPortal/HBarChart"
+import HRankList from "@/components/VisualPortal/HRankList"
+import HLineChart from "@/components/VisualPortal/HLineChart"
+import HPieChart from "@/components/VisualPortal/HPieChart"
+import HMapChart from "@/components/VisualPortal/HMapChart"
+import HRadarChart from "@/components/VisualPortal/HRadarChart"
+import HTimeAxis from "@/components/VisualPortal/HTimeAxis"
 import CardHeader from "@/components/VisualPortal/CardHeader"
 import AddBtn from "./AddBtn"
-
 export default {
   name: 'parser',
   props: ['item', 'activeId', 'showType', 'detailed'],
@@ -144,6 +141,7 @@ export default {
     },
   },
   created() {
+    console.log(HImage)
     this.$watch(
       () => {
         return this.item['tab-position']

@@ -15,6 +15,7 @@
 <script>
 import echartMixin from '@/components/VisualPortal/mixins'
 export default {
+  name: 'HAnnularChart',
   mixins: [echartMixin]
 }
 </script>

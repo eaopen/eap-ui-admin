@@ -20,6 +20,7 @@
 import webLink from '../Link'
 import CardHeader from "../CardHeader"
 export default {
+  name: 'HCommonFunc',
   components: { webLink, CardHeader },
   props: {
     activeData: { type: Object, default: () => { } }

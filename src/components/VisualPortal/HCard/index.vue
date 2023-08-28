@@ -40,6 +40,7 @@ import {
 import CardHeader from "../CardHeader"
 import ParserItem from '@/components/VisualPortal/PortalDesign/components/parser'
 export default {
+  name: 'HCard',
   components: { ParserItem, CardHeader },
   props: {
     activeData: { type: Object, default: () => { } }

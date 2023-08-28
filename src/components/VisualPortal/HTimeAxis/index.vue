@@ -88,6 +88,7 @@
 <script>
 import commonMixins from '@/components/VisualPortal/mixins/common'
 export default {
+  name: 'HTimeAxis',
   mixins: [commonMixins],
 }
 </script>

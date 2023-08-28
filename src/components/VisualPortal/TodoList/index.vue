@@ -20,6 +20,7 @@
 <script>
 import { getFlowTodo } from '@/api/extn/cache'
 export default {
+  name: 'TodoList',
   props: {
     title: { type: String, default: '' }
   },

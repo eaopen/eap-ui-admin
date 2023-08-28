@@ -49,7 +49,7 @@
   </el-dialog>
 </template>
 <script>
-import { ScheduleDetail, ScheduleDelete } from '@/api/onlineDev/schedule'
+import { ScheduleDetail, ScheduleDelete } from '@/api/extn/schedule'
 export default {
   data() {
     return {

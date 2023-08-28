@@ -42,6 +42,12 @@
     "url": "https://github.com/eaopen/openea-eap"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.4",
+    "@fullcalendar/daygrid": "^6.1.4",
+    "@fullcalendar/interaction": "^6.1.4",
+    "@fullcalendar/timegrid": "^6.1.4",
+    "@fullcalendar/vue": "^6.1.4",
+    "@fullcalendar/bootstrap": "^4.4.0",
     "@babel/parser": "7.18.4",
     "@riophae/vue-treeselect": "0.4.0",
     "ag-grid-community": "^28.0.2",

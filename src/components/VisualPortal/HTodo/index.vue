@@ -24,9 +24,10 @@
   </el-card>
 </template>
 <script>
-import { getFlowTodoCount } from '@/api/home'
+import { getFlowTodoCount } from '@/api/extn/home'
 import CardHeader from "../CardHeader"
 export default {
+  name: 'HTodo',
   components: { CardHeader },
   props: {
     activeData: { type: Object, default: () => { } }

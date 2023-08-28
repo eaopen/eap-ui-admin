@@ -24,6 +24,7 @@ import CardHeader from "../CardHeader"
 import webLink from '../Link'
 import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 export default {
+  name: 'HText',
   components: { CardHeader, webLink },
   props: {
     activeData: { type: Object, default: () => { } }

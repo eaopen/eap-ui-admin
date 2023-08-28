@@ -32,6 +32,7 @@ import resize from '@/components/Charts/mixins/resize'
 import { mapChartData } from '@/components/VisualPortal/PortalDesign/components/data'
 import { debounce } from 'throttle-debounce'
 export default {
+  name: 'HMapChart',
   mixins: [resize],
   components: { CardHeader },
   props: {

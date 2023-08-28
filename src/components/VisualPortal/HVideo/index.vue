@@ -20,6 +20,7 @@
 import CardHeader from "../CardHeader"
 import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 export default {
+  name: 'HVideo',
   components: { CardHeader },
   props: {
     activeData: { type: Object, default: () => { } }

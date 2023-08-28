@@ -17,9 +17,10 @@
   </el-card>
 </template>
 <script>
-import { getFlowTodo } from '@/api/home'
+import { getFlowTodo } from '@/api/extn/home'
 import CardHeader from "../CardHeader"
 export default {
+  name: 'HTodoList',
   components: { CardHeader },
   props: {
     activeData: { type: Object, default: () => { } }

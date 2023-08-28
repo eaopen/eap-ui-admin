@@ -111,6 +111,7 @@
 <script>
 import commonMixins from '@/components/VisualPortal/mixins/common'
 export default {
+  name: 'HRankList',
   mixins: [commonMixins],
 }
 </script>

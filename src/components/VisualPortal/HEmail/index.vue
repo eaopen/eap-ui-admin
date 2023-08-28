@@ -21,6 +21,7 @@
 <script>
 import { getEmail } from '@/api/extn/cache'
 export default {
+  name: 'HEmail',
   props: {
     title: { type: String, default: '' }
   },

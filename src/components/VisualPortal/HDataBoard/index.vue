@@ -32,6 +32,7 @@ import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 import CardHeader from "../CardHeader"
 import webLink from '../Link'
 export default {
+  name: 'HDataBoard',
   components: { CardHeader, webLink },
   props: {
     activeData: { type: Object, default: () => { } }

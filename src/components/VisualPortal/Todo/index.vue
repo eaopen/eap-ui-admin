@@ -31,6 +31,7 @@
 <script>
 import { getFlowTodoCount } from '@/api/extn/cache'
 export default {
+  name: 'Todo',
   props: {
     title: { type: String, default: '' }
   },

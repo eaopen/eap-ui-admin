@@ -14,6 +14,7 @@
 <script>
 import commonMixins from '@/components/VisualPortal/mixins/common'
 export default {
+  name: 'HIframe',
   mixins: [commonMixins],
 }
 </script>

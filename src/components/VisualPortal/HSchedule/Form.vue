@@ -147,7 +147,7 @@
 <script>
 import { mapGetters } from "vuex";
 //import MsgDialog from "@/components/extnProcess/PropPanel/msgDialog";
-import { ScheduleInfo, ScheduleUpdate, ScheduleCreate, ScheduleDelete } from '@/api/onlineDev/schedule'
+import { ScheduleInfo, ScheduleUpdate, ScheduleCreate, ScheduleDelete } from '@/api/extn/schedule'
 export default {
   //components: { MsgDialog },
   data() {

@@ -8,6 +8,7 @@
 import { isExternal } from '@/utils/validate'
 import { getToken } from '@/utils/auth'
 export default {
+  name: 'Link',
   props: {
     linkType: {
       type: String,

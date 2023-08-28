@@ -19,13 +19,14 @@ import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import { List } from '@/api/onlineDev/schedule'
+import { List } from '@/api/extn/schedule'
 import Form from './Form'
 import { mapGetters } from "vuex";
 import ScheduleView from '@/components/extn/ScheduleView'
 // import listPlugin from '@fullcalendar/list'
 import { calendar } from "./calendar"
 export default {
+  name: 'HSchedule',
   components: {
     CardHeader, FullCalendar, Form, ScheduleView
   },

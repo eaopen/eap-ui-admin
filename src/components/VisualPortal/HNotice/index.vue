@@ -22,6 +22,7 @@
 import { getNotice } from '@/api/extn/cache'
 import Form from '@/views/extn/messageRecord/Form'
 export default {
+  name: 'HNotice',
   props: {
     title: { type: String, default: '' }
   },
