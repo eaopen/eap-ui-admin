@@ -48,6 +48,20 @@ module.exports = {
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
+      },
+      ['/obpm-admin']: {
+        target: 'http://localhost:8080/',
+        changeOrigin: true,
+        pathRewrite: {
+          ['^/obpm-admin']: ''
+        }
+      },
+      ['/obpm-web1']: {
+        target: 'http://localhost:8080/',
+            changeOrigin: true,
+            pathRewrite: {
+               ['^/obpm-web1']: ''
+            }
       }
     },
     disableHostCheck: true

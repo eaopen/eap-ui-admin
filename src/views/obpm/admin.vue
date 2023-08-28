@@ -14,11 +14,12 @@ export default {
       // obpmAdminBaseUrl = /obpm-admin/  规避跨域问题
       // obpmBaseUrl = http://localhost:3002/  dev only
       // url = obpmBaseUrl + path + ssoAuth
-      url: "/obpm-admin/"+this.$route.meta.urlAddr,
+      url: "/obpm-admin/" + this.$route.meta.urlAddr,
       //loading: true
     };
   },
   created() {
+    // save accessToken to obpm iframe
     // getConfigKey("url.obpm").then(response => {
     //   if (!response.data || response.data.length === 0) {
     //     return

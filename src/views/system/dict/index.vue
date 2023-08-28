@@ -8,8 +8,13 @@
         <el-input v-model="queryParams.type" placeholder="请输入字典类型" clearable style="width: 240px" @keyup.enter.native="handleQuery"/>
       </el-form-item>
       <el-form-item label="状态" prop="status">
-        <el-select v-model="queryParams.status" placeholder="字典状态" clearable style="width: 240px">
+        <el-select v-model="queryParams.status" placeholder="字典状态" clearable style="width: 120px">
           <el-option v-for="dict in statusDictDatas" :key="parseInt(dict.value)" :label="dict.label" :value="parseInt(dict.value)"/>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="数据类型" prop="dataType">
+        <el-select v-model="queryParams.dataType" placeholder="数据类型" clearable style="width: 120px">
+          <el-option v-for="dict in dataTypeDictDatas" :key="dict.value" :label="dict.label" :value="dict.value"/>
         </el-select>
       </el-form-item>
       <el-form-item label="创建时间" prop="createTime">
@@ -44,7 +49,12 @@
           </router-link>
         </template>
       </el-table-column>
-      <el-table-column label="状态" align="center" prop="status">
+      <el-table-column label="数据类型" align="center" prop="dataType" width="80">
+         <template v-slot="scope">
+            <dict-tag :type="DICT_TYPE.DICT_DATA_TYPE" :value="scope.row.dataType"/>
+         </template>
+      </el-table-column>
+      <el-table-column label="状态" align="center" prop="status"  width="80">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
         </template>
@@ -77,6 +87,24 @@
         <el-form-item label="字典类型" prop="type">
           <el-input :disabled="typeof form.id !== 'undefined'" v-model="form.type" placeholder="请输入字典类型" />
         </el-form-item>
+
+        <el-form-item label="数据类型" prop="dataType">
+          <el-radio-group v-model="form.dataType">
+            <el-radio v-for="dict in dataTypeDictDatas" :key="dict.value" :label="dict.value">{{dict.label}}</el-radio>
+          </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="JSON数组" prop="dataJson" v-if="form.dataType == 'json'">
+            <el-input v-model="form.dataJson" type="textarea" placeholder="请输入JSONArray" />
+        </el-form-item>
+
+        <el-form-item label="查询SQL" prop="dataSql" v-if="form.dataType == 'sql'">
+            <el-input v-model="form.dataSql" type="textarea" placeholder="请输入查询SQL" />
+        </el-form-item>
+        <el-form-item label="数据源" prop="dataDs" v-if="form.dataType == 'sql' || form.dataType == 'api'">
+            <el-input v-model="form.dataDs" placeholder="SQL数据源/API接口,默认不需填写" />
+        </el-form-item>
+
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio v-for="dict in statusDictDatas" :key="parseInt(dict.value)" :label="parseInt(dict.value)">{{dict.label}}</el-radio>
@@ -124,6 +152,7 @@ export default {
         pageSize: 10,
         name: undefined,
         type: undefined,
+        dataType: undefined,
         status: undefined,
         createTime: []
       },
@@ -142,7 +171,8 @@ export default {
       // 枚举
       CommonStatusEnum: CommonStatusEnum,
       // 数据字典
-      statusDictDatas: getDictDatas(DICT_TYPE.COMMON_STATUS)
+      statusDictDatas: getDictDatas(DICT_TYPE.COMMON_STATUS),
+      dataTypeDictDatas: getDictDatas(DICT_TYPE.DICT_DATA_TYPE)
     };
   },
   created() {
@@ -171,6 +201,10 @@ export default {
         name: undefined,
         type: undefined,
         status: CommonStatusEnum.ENABLE,
+        dataType: undefined,
+        dataJson: undefined,
+        dataSql: undefined,
+        dataDs: undefined,
         remark: undefined
       };
       this.resetForm("form");

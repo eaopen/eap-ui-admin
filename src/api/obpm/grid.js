@@ -3,14 +3,14 @@ import request from "@/utils/request";
 // 获取列表配置
 export function getListConfig(code) {
     return request({
-        url: '/form/formCustSql/view/vo_' + code,
+        url: '/obpm-api/form/formCustSql/view/vo_' + code,
         method: 'post'
     })
 }
 // 获取列表数据
 export function getListData(code, data) {
     return request({
-        url: '/form/formCustSql/view/list_' + code,
+        url: '/obpm-api/form/formCustSql/view/list_' + code,
         method: 'post',
         data:{
             curPage: data.curPage,

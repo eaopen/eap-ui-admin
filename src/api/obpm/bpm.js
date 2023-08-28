@@ -4,7 +4,7 @@ import request from "@/utils/request";
 // 获取任务ID
 export function getInstanceId(id){
     return request({
-        url: '/bpm/form/getBpmInstanceId/'+ id,
+        url:  '/obpm-api/bpm/form/getBpmInstanceId/'+ id,
         method: 'get'
     })
 }
@@ -12,7 +12,7 @@ export function getInstanceId(id){
 // 获取节点审批记录
 export function getInstanceData2(row){
     return request({
-        url: '/bpm/instance/getInstanceData2',
+        url: '/obpm-api/bpm/instance/getInstanceData2',
         method: 'post',
         params:{
             instanceId: row.instId,
@@ -25,7 +25,7 @@ export function getInstanceData2(row){
 // 获取任务详情
 export function getTaskDetail(taskid){
     return request({
-        url: '/bpm/task/getTaskData',
+        url: '/obpm-api/bpm/task/getTaskData',
         method: 'post',
         params:{
             taskId: taskid
@@ -36,7 +36,7 @@ export function getTaskDetail(taskid){
 // 获取审批历史
 export function getHistory(instId){
     return request({
-        url: '/bpm/instance/getOpinionEx',
+        url: '/obpm-api/bpm/instance/getOpinionEx',
         method: 'post',
         params:{
             instId: instId
@@ -47,7 +47,7 @@ export function getHistory(instId){
 // 获取当前节点
 export function getInstance(instId){
     return request({
-        url: '/bpm/instance/getInstanceAndChildren',
+        url: '/obpm-api/bpm/instance/getInstanceAndChildren',
         method: 'post',
         params:{
             id: instId
@@ -58,7 +58,7 @@ export function getInstance(instId){
 // 获取流程图 instanceId defId taskId
 export function getFlowImage(params){
     return request({
-        url: '/bpm/instance/getFlowImageInfoEx',
+        url: '/obpm-api/bpm/instance/getFlowImageInfoEx',
         method: 'post',
         params: params
     })
