@@ -90,6 +90,7 @@ import HTable from "@/components/VisualPortal/HTable"
 import HText from "@/components/VisualPortal/HText"
 import HCarousel from "@/components/VisualPortal/HCarousel"
 import HVideo from "@/components/VisualPortal/HVideo"
+import HImage from "@/components/VisualPortal/HImage"
 import HSchedule from "@/components/VisualPortal/HSchedule"
 import HIframe from "@/components/VisualPortal/HIframe"
 import HBarChart from "@/components/VisualPortal/HBarChart"
@@ -141,7 +142,6 @@ export default {
     },
   },
   created() {
-    console.log(HImage)
     this.$watch(
       () => {
         return this.item['tab-position']
