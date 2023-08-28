@@ -13,7 +13,8 @@ export default {
     return {
       // obpmWebBaseUrl = /obpm-web1/  规避跨域问题
       // url = obpmBaseUrl + path + ssoAuth
-      url: process.env.VUE_APP_BASE_API + "/admin-api/obpm-web1/" + this.$route.meta.urlAddr,
+      url: "/obpm-web1/" + this.$route.meta.urlAddr,
+      //url: process.env.VUE_APP_BASE_API + "/admin-api/obpm-web1/" + this.$route.meta.urlAddr,
       //loading: true
     };
   },
