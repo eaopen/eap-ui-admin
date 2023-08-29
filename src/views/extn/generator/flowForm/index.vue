@@ -1,5 +1,23 @@
 <template>
   <div class="OBPM-common-layout">
+    <el-form :model="query" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+      <el-form-item label="关键词" prop="keyword">
+        <el-input v-model="query.keyword" placeholder="请输入关键词查询" clearable style="width: 240px" @keyup.enter.native="search"/>
+      </el-form-item>
+      <el-form-item label="分类" prop="category">
+        <el-select v-model="query.category" placeholder="分类" clearable style="width: 120px">
+          <el-option v-for="dict in dataTypeDictDatas" :key="dict.value" :label="dict.label" :value="dict.value"/>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="创建时间" prop="createTime">
+        <el-date-picker v-model="queryParams.createTime" style="width: 240px" value-format="yyyy-MM-dd HH:mm:ss" type="daterange"
+                        range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期" :default-time="['00:00:00', '23:59:59']" />
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" icon="el-icon-search" @click="handleQuery">搜索</el-button>
+        <el-button icon="el-icon-refresh" @click="resetQuery">重置</el-button>
+      </el-form-item>
+    </el-form>
     <div class="OBPM-common-layout-center">
       <el-row class="OBPM-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
@@ -52,7 +70,7 @@
               <tableOpts @edit="addOrUpdateHandle(scope.row.id)" @del="handleDel(scope.row.id)">
                 <el-dropdown>
                   <span class="el-dropdown-link">
-                    <el-button type="text" size="mini">{{$t('common.moreBtn')}}<i
+                    <el-button type="text" size="mini">{{$t('common.moreButton')}}<i
                         class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                   </span>

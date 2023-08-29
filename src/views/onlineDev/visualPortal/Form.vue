@@ -16,8 +16,8 @@
         </jnpf-form-tip-item>
         <jnpf-form-tip-item label="分类" prop="category">
           <el-select v-model="dataForm.category" placeholder="选择分类" filterable>
-            <el-option :key="item.id" :label="item.fullName" :value="item.id"
-              v-for="item in categoryList" />
+            <el-option :key="item.value" :label="item.label" :value="item.value"
+              v-for="item in getDictDatas(DICT_TYPE.INFRA_FILE_STORAGE)" />
           </el-select>
         </jnpf-form-tip-item>
         <jnpf-form-tip-item label="类型" prop="type">
@@ -126,8 +126,7 @@ export default {
     }
   },
   methods: {
-    init(categoryList, id) {
-      this.categoryList = categoryList
+    init(id) {
       this.dataForm.id = id || ''
       this.visible = true
       this.btnLoading = false

@@ -65,7 +65,7 @@
                 <el-dropdown hide-on-click>
                   <span class="el-dropdown-link">
                     <el-button type="text" size="mini">
-                      {{$t('common.moreBtn')}}<i class="el-icon-arrow-down el-icon--right"></i>
+                      {{$t('common.moreButton')}}<i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                   </span>
                   <el-dropdown-menu slot="dropdown">

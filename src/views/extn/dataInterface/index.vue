@@ -75,7 +75,7 @@
               <tableOpts @edit="addOrUpdateHandle(scope.row.id)" @del="handleDel(scope.row.id)">
                 <el-dropdown hide-on-click>
                   <span class="el-dropdown-link">
-                    <el-button type="text" size="mini">{{$t('common.moreBtn')}}<i
+                    <el-button type="text" size="mini">{{$t('common.moreButton')}}<i
                         class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                   </span>

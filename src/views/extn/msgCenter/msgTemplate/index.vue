@@ -101,7 +101,7 @@
                 :delDisabled="scope.row.templateType == '1'">
                 <el-dropdown>
                   <el-button type="text" size="mini">
-                    {{$t('common.moreBtn')}}<i class="el-icon-arrow-down el-icon--right" />
+                    {{$t('common.moreButton')}}<i class="el-icon-arrow-down el-icon--right" />
                   </el-button>
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item @click.native="handleCopy(scope.row.id)">

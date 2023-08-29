@@ -47,7 +47,7 @@ export default {
         token: this.token
       }
       this.loading = false
-      this.iframeWin.postMessage(data)
+      this.iframeWin.postMessage(data,'http://localhost:1024/')
     }
   }
 };
