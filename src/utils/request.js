@@ -53,6 +53,9 @@ service.interceptors.request.use(config => {
 
   // console.log(config)
   // get请求映射params参数
+  if (config.method == 'get') {
+    config.params = config.data
+  }
   if (config.method === 'get' && config.params) {
     let url = config.url + '?';
     for (const propName of Object.keys(config.params)) {
