@@ -150,9 +150,9 @@ SOFTWARE.
 </template>
 
 <script>
-import WxReplySelect from '@/views/mp/components/wx-reply/main.vue'
-import WxNews from '@/views/mp/components/wx-news/main.vue';
-import WxMaterialSelect from '@/views/mp/components/wx-material-select/main.vue'
+import WxReplySelect from '@/views/extend/mp/components/wx-reply/main.vue'
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue';
+import WxMaterialSelect from '@/views/extend/mp/components/wx-material-select/main.vue'
 import { deleteMenu, getMenuList, saveMenu } from "@/api/extend/mp/menu";
 import { getSimpleAccounts } from "@/api/extend/mp/account";
 

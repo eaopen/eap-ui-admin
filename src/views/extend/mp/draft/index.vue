@@ -158,9 +158,9 @@ SOFTWARE.
 </template>
 
 <script>
-import WxEditor from '@/views/mp/components/wx-editor/WxEditor.vue';
-import WxNews from '@/views/mp/components/wx-news/main.vue';
-import WxMaterialSelect from '@/views/mp/components/wx-material-select/main.vue'
+import WxEditor from '@/views/extend/mp/components/wx-editor/WxEditor.vue';
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue';
+import WxMaterialSelect from '@/views/extend/mp/components/wx-material-select/main.vue'
 import { getAccessToken } from '@/utils/auth'
 import {createDraft, deleteDraft, getDraftPage, updateDraft} from "@/api/extend/mp/draft";
 import { getSimpleAccounts } from "@/api/extend/mp/account";

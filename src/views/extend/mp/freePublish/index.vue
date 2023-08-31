@@ -61,7 +61,7 @@ SOFTWARE.
 <script>
 import { getFreePublishPage, deleteFreePublish } from "@/api/extend/mp/freePublish";
 import { getSimpleAccounts } from "@/api/extend/mp/account";
-import WxNews from '@/views/mp/components/wx-news/main.vue';
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue';
 
 export default {
   name: 'MpFreePublish',

@@ -151,13 +151,13 @@ SOFTWARE.
 </template>
 
 <script>
-import WxVideoPlayer from '@/views/mp/components/wx-video-play/main.vue';
-import WxVoicePlayer from '@/views/mp/components/wx-voice-play/main.vue';
-import WxMsg from '@/views/mp/components/wx-msg/main.vue';
-import WxLocation from '@/views/mp/components/wx-location/main.vue';
-import WxMusic from '@/views/mp/components/wx-music/main.vue';
-import WxNews from '@/views/mp/components/wx-news/main.vue';
-import WxReplySelect from '@/views/mp/components/wx-reply/main.vue'
+import WxVideoPlayer from '@/views/extend/mp/components/wx-video-play/main.vue';
+import WxVoicePlayer from '@/views/extend/mp/components/wx-voice-play/main.vue';
+import WxMsg from '@/views/extend/mp/components/wx-msg/main.vue';
+import WxLocation from '@/views/extend/mp/components/wx-location/main.vue';
+import WxMusic from '@/views/extend/mp/components/wx-music/main.vue';
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue';
+import WxReplySelect from '@/views/extend/mp/components/wx-reply/main.vue'
 import { getSimpleAccounts } from "@/api/extend/mp/account";
 import { createAutoReply, deleteAutoReply, getAutoReply, getAutoReplyPage, updateAutoReply } from "@/api/extend/mp/autoReply";
 

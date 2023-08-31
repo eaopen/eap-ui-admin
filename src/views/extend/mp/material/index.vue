@@ -171,8 +171,8 @@ SOFTWARE.
 </template>
 
 <script>
-import WxVoicePlayer from '@/views/mp/components/wx-voice-play/main.vue';
-import WxVideoPlayer from '@/views/mp/components/wx-video-play/main.vue';
+import WxVoicePlayer from '@/views/extend/mp/components/wx-voice-play/main.vue';
+import WxVideoPlayer from '@/views/extend/mp/components/wx-video-play/main.vue';
 import { getSimpleAccounts } from "@/api/extend/mp/account";
 import { getMaterialPage, deletePermanentMaterial } from "@/api/extend/mp/material";
 import { getAccessToken } from '@/utils/auth'

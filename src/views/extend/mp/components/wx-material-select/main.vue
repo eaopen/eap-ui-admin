@@ -95,9 +95,9 @@
 </template>
 
 <script>
-import WxNews from '@/views/mp/components/wx-news/main.vue';
-import WxVoicePlayer from '@/views/mp/components/wx-voice-play/main.vue';
-import WxVideoPlayer from '@/views/mp/components/wx-video-play/main.vue';
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue';
+import WxVoicePlayer from '@/views/extend/mp/components/wx-voice-play/main.vue';
+import WxVideoPlayer from '@/views/extend/mp/components/wx-video-play/main.vue';
 import { getMaterialPage } from "@/api/extend/mp/material";
 import { getFreePublishPage } from "@/api/extend/mp/freePublish";
 import { getDraftPage } from "@/api/extend/mp/draft";

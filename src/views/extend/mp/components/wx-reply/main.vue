@@ -176,10 +176,10 @@
 </template>
 
 <script>
-import WxNews from '@/views/mp/components/wx-news/main.vue'
-import WxMaterialSelect from '@/views/mp/components/wx-material-select/main.vue'
-import WxVoicePlayer from '@/views/mp/components/wx-voice-play/main.vue';
-import WxVideoPlayer from '@/views/mp/components/wx-video-play/main.vue';
+import WxNews from '@/views/extend/mp/components/wx-news/main.vue'
+import WxMaterialSelect from '@/views/extend/mp/components/wx-material-select/main.vue'
+import WxVoicePlayer from '@/views/extend/mp/components/wx-voice-play/main.vue';
+import WxVideoPlayer from '@/views/extend/mp/components/wx-video-play/main.vue';
 
 import { getAccessToken } from '@/utils/auth'
 
