@@ -98,9 +98,9 @@
 import WxNews from '@/views/mp/components/wx-news/main.vue';
 import WxVoicePlayer from '@/views/mp/components/wx-voice-play/main.vue';
 import WxVideoPlayer from '@/views/mp/components/wx-video-play/main.vue';
-import { getMaterialPage } from "@/api/mp/material";
-import { getFreePublishPage } from "@/api/mp/freePublish";
-import { getDraftPage } from "@/api/mp/draft";
+import { getMaterialPage } from "@/api/extend/mp/material";
+import { getFreePublishPage } from "@/api/extend/mp/freePublish";
+import { getDraftPage } from "@/api/extend/mp/draft";
 
 export default {
   name: "wxMaterialSelect",

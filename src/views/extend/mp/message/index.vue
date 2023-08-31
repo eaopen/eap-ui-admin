@@ -144,8 +144,8 @@ import WxMsg from '@/views/mp/components/wx-msg/main.vue';
 import WxLocation from '@/views/mp/components/wx-location/main.vue';
 import WxMusic from '@/views/mp/components/wx-music/main.vue';
 import WxNews from '@/views/mp/components/wx-news/main.vue';
-import { getMessagePage } from "@/api/mp/message";
-import { getSimpleAccounts } from "@/api/mp/account";
+import { getMessagePage } from "@/api/extend/mp/message";
+import { getSimpleAccounts } from "@/api/extend/mp/account";
 
 export default {
   name: "MpMessage",

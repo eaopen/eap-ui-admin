@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import { updateUser, getUser, getUserPage, syncUser } from "@/api/mp/mpuser";
-import { getSimpleAccounts } from "@/api/mp/account";
-import { getSimpleTags } from "@/api/mp/tag";
+import { updateUser, getUser, getUserPage, syncUser } from "@/api/extend/mp/mpuser";
+import { getSimpleAccounts } from "@/api/extend/mp/account";
+import { getSimpleTags } from "@/api/extend/mp/tag";
 
 export default {
   name: "MpUser",

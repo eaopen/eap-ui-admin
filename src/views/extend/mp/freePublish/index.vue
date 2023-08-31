@@ -59,8 +59,8 @@ SOFTWARE.
 </template>
 
 <script>
-import { getFreePublishPage, deleteFreePublish } from "@/api/mp/freePublish";
-import { getSimpleAccounts } from "@/api/mp/account";
+import { getFreePublishPage, deleteFreePublish } from "@/api/extend/mp/freePublish";
+import { getSimpleAccounts } from "@/api/extend/mp/account";
 import WxNews from '@/views/mp/components/wx-news/main.vue';
 
 export default {

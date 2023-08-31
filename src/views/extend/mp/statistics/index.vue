@@ -76,10 +76,10 @@ require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
 require('echarts/lib/component/legend')
 
-import { getInterfaceSummary, getUserSummary, getUserCumulate, getUpstreamMessage} from '@/api/mp/statistics'
+import { getInterfaceSummary, getUserSummary, getUserCumulate, getUpstreamMessage} from '@/api/extend/mp/statistics'
 import { datePickerOptions } from "@/utils/constants";
 import {addTime, beginOfDay, betweenDay, endOfDay, formatDate} from "@/utils/dateUtils";
-import { getSimpleAccounts } from "@/api/mp/account";
+import { getSimpleAccounts } from "@/api/extend/mp/account";
 
 export default {
   name: 'MpStatistics',

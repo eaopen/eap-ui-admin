@@ -129,7 +129,7 @@ import {
   getAccount,
   getAccountPage,
   updateAccount
-} from '@/api/mp/account'
+} from '@/api/extend/mp/account'
 
 export default {
   name: 'MpAccount',

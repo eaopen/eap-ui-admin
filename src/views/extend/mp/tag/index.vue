@@ -81,8 +81,8 @@ import {
   getTag,
   getTagPage,
   syncTag,
-} from '@/api/mp/tag'
-import { getSimpleAccounts} from '@/api/mp/account'
+} from '@/api/extend/mp/tag'
+import { getSimpleAccounts} from '@/api/extend/mp/account'
 
 export default {
   name: 'MpTag',

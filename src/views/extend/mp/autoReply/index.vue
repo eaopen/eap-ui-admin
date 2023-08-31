@@ -158,8 +158,8 @@ import WxLocation from '@/views/mp/components/wx-location/main.vue';
 import WxMusic from '@/views/mp/components/wx-music/main.vue';
 import WxNews from '@/views/mp/components/wx-news/main.vue';
 import WxReplySelect from '@/views/mp/components/wx-reply/main.vue'
-import { getSimpleAccounts } from "@/api/mp/account";
-import { createAutoReply, deleteAutoReply, getAutoReply, getAutoReplyPage, updateAutoReply } from "@/api/mp/autoReply";
+import { getSimpleAccounts } from "@/api/extend/mp/account";
+import { createAutoReply, deleteAutoReply, getAutoReply, getAutoReplyPage, updateAutoReply } from "@/api/extend/mp/autoReply";
 
 export default {
   name: 'MpAutoReply',
