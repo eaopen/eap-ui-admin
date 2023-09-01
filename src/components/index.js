@@ -2,14 +2,18 @@ import DictTag from '@/components/DictTag'
 import DocAlert from '@/components/DocAlert'
 import Pagination from "@/components/Pagination";
 import RightToolbar from "@/components/RightToolbar"
-import ListAgGrid from '@/components/obpm/grid/index.vue'
-import topOperation from '@/components/extn/topOperation/index'
 import Tinymce from '@/components/tinymce/index.vue'
 
-import JNPFTable from '@/components/extn/JNPF-table'
-import JNPFTreeSelect from '@/components/extn/JNPF-treeSelect'
-import uploadBtn from '@/components/extn/JNPF-uploadBtn'
-import jnpfFormTipItem from '@/components/extn/jnpf-form-tip-item'
+// obpm
+import ListAgGrid from '@/components/obpm/grid/index.vue'
+
+// extn
+import topOperation from '@/components/extn/topOperation/index'
+import tableOperation from '@/components/extn/tableOperation'
+import uploadBtn from '@/components/extn/uploadBtn'
+import JNPFTable from '@/components/extn/table'
+import JNPFTreeSelect from '@/components/extn/treeSelect'
+import jnpfFormTipItem from '@/components/extn/form-tip-item'
 
 
 export default {
@@ -20,6 +24,7 @@ export default {
     Vue.component('RightToolbar', RightToolbar)
     Vue.component('ListAgGrid', ListAgGrid)
     Vue.component('topOpts', topOperation)
+    Vue.component('tableOpts', tableOperation)
     Vue.component('tinymce', Tinymce)
     Vue.component('JNPFTable', JNPFTable)
     Vue.component('JNPFTreeSelect', JNPFTreeSelect)
