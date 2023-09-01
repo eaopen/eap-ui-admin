@@ -163,7 +163,7 @@ export default {
       this.initData()
     },
     getDictionaryData() {
-      this.$store.dispatch('dict/loadDictDatas').then((res) => {
+      this.$store.dispatch('dict/getDictionaryData').then((res) => {
         this.categoryList = res
       })
     },

@@ -84,7 +84,7 @@ export default {
       })
     },
     getDictionaryData() {
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'createModule' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'createModule' }).then((res) => {
         this.moduleList = res
         if (this.moduleList.length) this.dataForm.module = this.moduleList[0].id
       })

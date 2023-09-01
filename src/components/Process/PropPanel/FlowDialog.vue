@@ -140,7 +140,7 @@ export default {
     }
   },
   created() {
-    // this.$store.dispatch('dict/loadDictDatas', { sort: 'WorkFlowCategory' }).then((res) => {
+    // this.$store.dispatch('dict/getDictionaryData', { sort: 'WorkFlowCategory' }).then((res) => {
     //   this.treeData = [{ fullName: '全部流程', id: '', enCode: '' }, ...res]
     // })
     this.reset()

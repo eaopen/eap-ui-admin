@@ -195,7 +195,7 @@ export default {
       this.list = option ? JSON.parse(JSON.stringify(option)) : []
       this.visible = true
       // 获取公告类型
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'NoticeType' }).then(res => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'NoticeType' }).then(res => {
         this.classifyOptions = res
       })
       this.$nextTick(() => {

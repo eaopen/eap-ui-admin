@@ -168,7 +168,7 @@ export default {
       })
     },
     getDictionaryData() {
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'ReportSort' }).then(res => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'ReportSort' }).then(res => {
         this.categoryList = JSON.parse(JSON.stringify(res))
         this.initData()
       })

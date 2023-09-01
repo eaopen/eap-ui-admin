@@ -106,7 +106,7 @@ export default {
       this.initData()
     },
     getDictionaryData() {
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'dbType' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'dbType' }).then((res) => {
         this.categoryList = res
       })
     },

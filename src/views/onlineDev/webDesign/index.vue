@@ -294,7 +294,7 @@ export default {
       })
     },
     getEnginCategoryList() {
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'WorkFlowCategory' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'WorkFlowCategory' }).then((res) => {
         this.enginCategoryList = res
       })
     },

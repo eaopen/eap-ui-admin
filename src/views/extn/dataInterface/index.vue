@@ -145,7 +145,7 @@ export default {
   methods: {
     initData(isInit) {
       this.treeLoading = true
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'DataInterfaceType' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'DataInterfaceType' }).then((res) => {
         this.treeData = res
         if (!this.treeData.length) return this.treeLoading = false
         this.$nextTick(() => {

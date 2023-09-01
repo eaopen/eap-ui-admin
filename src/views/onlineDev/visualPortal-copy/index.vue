@@ -166,7 +166,7 @@ export default {
       this.initData()
     },
     getDictionaryData() {
-      this.$store.dispatch('dict/loadDictDatas', { sort: 'portalDesigner' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'portalDesigner' }).then((res) => {
         this.categoryList = res
       })
     },
