@@ -4,7 +4,8 @@ import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
 import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
-import obpm from "@/utils/obpm"
+import extn from "@/utils/extn"
+import obpm from "@/utils/extn"
 
 const permission = {
   state: {

@@ -2,7 +2,7 @@ import { getOrganizeTree } from "@/api/extn/permission";
 import { getDepartmentSelector } from "@/api/permission/department";
 import { getDictionaryType } from "@/api/extn/dictionary";
 import { getGroupSelector } from "@/api/permission/group";
-import jnpf from '@/utils/obpm';
+import jnpf from '@/utils/extn';
 const state = {
   companyTree: [],
   depTree: [],

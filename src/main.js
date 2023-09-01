@@ -28,8 +28,9 @@ import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/
 Object.assign(Vue.prototype, {
   define: require('./utils/define'),
   formValidate: require('./utils/formValidate').default,
-  obpm: require('./utils/obpm').default,
-  getDicts: require('./utils/obpm').getDicts,
+  obpm: require('./utils/extn').obpm,
+  jnpf: require('./utils/extn').jnpf,
+  getDicts: require('./utils/extn').getDicts,
   getConfigKey: require('@/api/infra/config').getConfigKey,
   $axios: require('@/utils/request').request,
   DICT_TYPE,

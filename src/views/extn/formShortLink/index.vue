@@ -10,7 +10,7 @@ import Form from './form/index.vue'
 import List from './list/index.vue'
 import { message } from '@/utils/message'
 import CryptoJS from 'crypto-js'
-import jnpf from '@/utils/obpm'
+import jnpf from '@/utils/extn'
 import { Base64 } from 'js-base64'
 export default {
   name: 'formShortLink',

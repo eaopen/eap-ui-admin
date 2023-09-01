@@ -4,7 +4,7 @@ import { UserListAll, getUserSelector } from '@/api/extn/permission'
 import { getPositionListAll, getPositionSelector } from '@/api/permission/position'
 import { getRoleSelector } from '@/api/extn/permission'
 import { getPrintDevSelector } from '@/api/extn/printDev'
-import jnpf from '@/utils/obpm';
+import jnpf from '@/utils/extn';
 
 const state = {
   dictionaryList: [],
