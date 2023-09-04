@@ -428,7 +428,7 @@ export function isNumberStr(str) {
 
 // -转驼峰
 export function toCamelCase(str, upperCaseFirst) {
-  str = (str || '').toLowerCase().replace(/-(.)/g, function (match, group1) {
+  str = (str || '').toLowerCase().replace(/[-_?&=\.\/](.)/g, function (match, group1) {
     return group1.toUpperCase();
   });
 

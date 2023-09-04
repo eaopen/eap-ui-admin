@@ -71,13 +71,16 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
     if (route.componentName && route.componentName.length > 0) {
       route.name = route.componentName
     } else {
-      // 路由地址转首字母大写驼峰，作为路由名称，适配 keepAlive
-      route.name = toCamelCase(route.path, true)
+      // 路由地址转首字母小写驼峰，作为路由名称，适配 keepAlive
+      // toCamelCase转换 -_?&=./
+      route.name = toCamelCase(route.path, false)
+      //console.log("route:"+route.name+",component="+route.component+",path="+route.path+",urlAddr="+route.urlAddr)
+      // 如name过长可md5签名后取6位
       // 处理三级及以上菜单路由缓存问题，将 path 名字赋值给 name
-      if (route.path &&route.path.indexOf("/") !== -1) {
-        const pathArr = route.path.split("/");
-        route.name = toCamelCase(pathArr[pathArr.length - 1], true)
-      }
+      // if (route.path && route.path.indexOf("/") !== -1) {
+      //   const pathArr = route.path.split("/");
+      //   route.name = toCamelCase(pathArr[pathArr.length - 1], true)
+      // }
     }
     // 处理 component 属性
     if (route.children) { // 父节点
@@ -88,13 +91,20 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       }
     } 
     else if(route.component) { // 根节点
+      // for obpm
       if(route.path.indexOf('listGrid/')>-1 || route.component.indexOf('obpm/agGrid')>-1){
         route.name = extn.getParams(route.path).code
         route.path = '/' + extn.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
         route.component = agListCache
-      }else if(route.component.indexOf('/easyForm')>-1){
+      }else if(route.component.indexOf('/easyForm')>-1) {
         route.component = import("@/components/obpm/easyForm/index.vue")
+      }else if(route.component.indexOf('obpm/admin')>-1 || route.component.indexOf('obpm/web')>-1){
+        if(!!route.path && route.path.indexOf('?')>0){
+          let [path1, queryString] = route.path.split('?');
+          route.path = path1
+        }
+        route.component = loadView(route.component)
       }else {
         route.component = loadView(route.component)
       }
@@ -122,7 +132,7 @@ function filterChildren(childrenMap, lastRouter = false) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
           if(c.path){
-            c.urlAddr = c.path
+            if(!c.urlAddr) c.urlAddr = c.path
             c.path = el.path + '/' + c.path
           }
           if (c.children && c.children.length) {
