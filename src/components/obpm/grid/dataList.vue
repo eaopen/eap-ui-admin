@@ -1,34 +1,18 @@
 <template>
-    <ag-grid-vue
-      :style="{height: tableHeight + 'px', width: tableWidth}"
-      class="ag-theme-alpine"
-      :rowModelType="rowModelType"
-      :serverSideFilterOnServer="true"
-      :rowSelection="rowSelection"
-      :isRowSelectable="selectAble"
-      :getRowId="getRowId"
-      :suppressCellFocus="true"
-      :enableCellTextSelection = "true"
-      :columnDefs="columnDefs"
-      :enableBrowserTooltips="true"
-      :getContextMenuItems="false"
-      :suppressCellSelection="false"
-      :suppressContextMenu="true"
-      :defaultColDef="defaultColDef"
-      @gridReady="onGridReady"
-      @columnResized="onColumnResized"
-      @firstDataRendered="onFirstDataRendered"
-      @filterChanged="onFilterChanged"
-      @rowSelected="rowSelected"
-    ></ag-grid-vue>
-    <!-- paging -->
+  <ag-grid-vue :style="{ height: tableHeight + 'px', width: tableWidth }" class="ag-theme-alpine"
+    :rowModelType="rowModelType" :serverSideFilterOnServer="true" :rowSelection="rowSelection"
+    :isRowSelectable="selectAble" :getRowId="getRowId" :suppressCellFocus="true" :enableCellTextSelection="true"
+    :columnDefs="columnDefs" :enableBrowserTooltips="true" :getContextMenuItems="false" :suppressCellSelection="false"
+    :suppressContextMenu="true" :defaultColDef="defaultColDef" @gridReady="onGridReady" @columnResized="onColumnResized"
+    @firstDataRendered="onFirstDataRendered" @filterChanged="onFilterChanged" @rowSelected="rowSelected"></ag-grid-vue>
+  <!-- paging -->
 </template>
 <script>
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import './components/ag-grid-enterprise.auto.esm'
-import {listBaseConfig} from './listBaseConfig'
+import { listBaseConfig } from './listBaseConfig'
 import { AgGridVue } from 'ag-grid-vue'
 import basicRender from './components/agGridBasic'
 import datePicker from './components/agDatePicker'
@@ -36,23 +20,23 @@ import setFilter from './components/agGridSetFilter'
 import agImage from './components/agGridImage'
 import agOperations from './components/agGridOperations'
 import { getListData } from '@/api/obpm/grid.js'
-window.agGridMapList = {}
+
 // 数据源
 window.createDatasource = (server) => {
   return {
     getRows: (params) => {
       let filterModel = {}
       let filterCache = params.request.filterModel
-      Object.keys(filterCache).forEach(k=>{
-        if(filterCache[k].filterType == 'set'){
+      Object.keys(filterCache).forEach(k => {
+        if (filterCache[k].filterType == 'set') {
           let itemCache = {
             filterType: 'set',
             filter: ''
           }
-          let filterList = agGridMapList[k].filter(i=>filterCache[k].values.indexOf(i.label) !== -1)
-          itemCache.filter = filterList.map(i=>i.value).join(',')
+          let filterList = agGridMapList[k].filter(i => filterCache[k].values.indexOf(i.label) !== -1)
+          itemCache.filter = filterList.map(i => i.value).join(',')
           filterModel[k] = itemCache
-        }else if(filterCache[k].filterType == 'text' || filterCache[k].filterType == 'number'){
+        } else if (filterCache[k].filterType == 'text' || filterCache[k].filterType == 'number') {
           filterModel[k] = filterCache[k]
         }
       })
@@ -61,18 +45,18 @@ window.createDatasource = (server) => {
         {
           curPage: server.page || server.curPage,
           pageSize: server.size || server.pageSize,
-          params:{
-            filterModel:filterModel,
+          params: {
+            filterModel: filterModel,
             sortModel: []
           }
         }
-      ).then(res=>{
-        if(res.code == 200){
+      ).then(res => {
+        if (res.code == 200) {
           params.successCallback(res.data.list, res.data.count)
           server.$emit('changeTotal', res.data.count)
-        }else {
+        } else {
           params.fail()
-            server.$emit('changeTotal', 0)
+          server.$emit('changeTotal', 0)
         }
       })
     },
@@ -80,7 +64,7 @@ window.createDatasource = (server) => {
 }
 export default {
   name: 'dataList',
-  components: { AgGridVue, basicRender, datePicker,setFilter, agImage, agOperations },
+  components: { AgGridVue, basicRender, datePicker, setFilter, agImage, agOperations },
   props: [
     'listFields',
     'code',
@@ -101,7 +85,7 @@ export default {
     return {
       listBaseConfig,
       listConfig: {
-        
+
       }, // 
       serverSideInfiniteScroll: true,
       page: 1,
@@ -147,37 +131,36 @@ export default {
       }
       return state
     },
-    localConfigs(){
-      if(this.code && this.$store.state.list.configs){
+    localConfigs() {
+      if (this.code && this.$store.state.list.configs) {
         return this.$store.state.list.configs[this.code]
-      }else {
+      } else {
         return null
       }
     }
   },
-  created(){
-    if(this.expand.userLocal == 1){
-      if(this.localConfigs){
-        if(this.expand.version != this.localConfigs.version){
-          this.$store.dispatch('list/removeListConfigs', this.code)
-        }
-      }else {
-        this.$store.dispatch('list/setListConfigs', {
-          code: this.code,
-          version: this.expand.version || '0.0.0'
-        })
-      }
-    }else {
-      this.$store.dispatch('list/removeListConfigs', this.code)
-    }
+  created() {
+    // if(this.expand.userLocal == 1){
+    //   if(this.localConfigs){
+    //     if(this.expand.version != this.localConfigs.version){
+    //       this.$store.dispatch('list/removeListConfigs', this.code)
+    //     }
+    //   }else {
+    //     this.$store.dispatch('list/setListConfigs', {
+    //       code: this.code,
+    //       version: this.expand.version || '0.0.0'
+    //     })
+    //   }
+    // }else {
+    //   this.$store.dispatch('list/removeListConfigs', this.code)
+    // }
 
   },
   methods: {
-    refreshData(){
+    refreshData() {
       this.gridApi.refreshServerSide({ purge: true })
     },
-    resetFilter(){
-      console.log('this.localConfigs.filter:',this.localConfigs.filter)
+    resetFilter() {
       this.gridApi.setFilterModel(this.localConfigs.filter)
     },
     onGridReady(params) {
@@ -193,20 +176,19 @@ export default {
       this.gridApi.setServerSideDatasource(datasource)
     },
     // 调整宽度后保存至local
-    onColumnResized(params){
-      if(this.expand.userLocal == 1){
-        console.log('调整宽度保存')
-          this.saveColWidth()
+    onColumnResized(params) {
+      if (this.expand.userLocal == 1) {
+        // this.saveColWidth()
       }
     },
     // 保存列信息
-    saveColWidth(){
+    saveColWidth() {
       let cols = this.gridApi.getColumnDefs()
       let obj = {
         code: this.code,
         columns: []
       }
-      cols.forEach(item=>{
+      cols.forEach(item => {
         obj.columns.push({
           colId: item.colId,
           width: item.width,
@@ -217,14 +199,14 @@ export default {
       this.$store.dispatch('list/setListConfigs', obj)
     },
     onFirstDataRendered(params) {
-      if(!this.userLocalCols){
+      if (!this.userLocalCols) {
         const allColumnIds = []
         this.gridColumnApi.getColumns().forEach((column) => {
           allColumnIds.push(column.getId())
         })
         this.gridColumnApi.autoSizeColumns(allColumnIds, true)
-        if(this.expand.userLocal == 1){
-            this.saveColWidth()
+        if (this.expand.userLocal == 1) {
+          this.saveColWidth()
         }
       }
 
@@ -239,9 +221,9 @@ export default {
     },
     onFilterChanged(params) {
       var filter = this.gridApi.getFilterModel()
-      Object.keys(filter).forEach(k=>{
-        let col = this.columnDefs.find(i=>i.field == k)
-        if(col) filter[k]['name'] = col.headerName
+      Object.keys(filter).forEach(k => {
+        let col = this.columnDefs.find(i => i.field == k)
+        if (col) filter[k]['name'] = col.headerName
       })
       this.$store.dispatch('list/setListConfigs', {
         code: this.code,
@@ -249,10 +231,10 @@ export default {
       })
     },
     changePage(data) {
-      if(data.curPage){
+      if (data.curPage) {
         this.page = data.curPage
       }
-      if(data.pageSize){
+      if (data.pageSize) {
         this.size = data.pageSize
       }
       if (this.gridApi) {
@@ -277,7 +259,7 @@ export default {
         arr = m.split(',')
       arr.forEach((item) => {
         let [value, label, className] = item.split('-')
-        if(className == 'tdred'){className = 'bg-red'}else if(className == 'tdgreen'){className = 'bg-green'}
+        if (className == 'tdred') { className = 'bg-red' } else if (className == 'tdgreen') { className = 'bg-green' }
         list.push({
           value: value,
           label: label,
@@ -300,8 +282,8 @@ export default {
           return list
         } else if (m.startsWith('[')) {
           return JSON.parse(m)
-        } else if (this.dicMap['a_'+m]) {
-          return this.dicMap['a_'+m]
+        } else if (this.dicMap['a_' + m]) {
+          return this.dicMap['a_' + m]
         }
       } else {
         return []
@@ -314,7 +296,7 @@ export default {
         field: item.fieldName,
         headerName: item.fieldDesc,
         hide: item.hidden == 1,
-        minWidth: item.fieldDesc.length * 16 + 40,
+        minWidth: item.fieldDesc.length * 16 + 50,
         resizable: true,
         cellRendererParams: {},
         filterParams: {
@@ -323,19 +305,19 @@ export default {
         }
       }
       // 全局的组件样式
-      if(item.expand && item.expand.styleFormat){
+      if (item.expand && item.expand.styleFormat) {
         let cache = item.expand.styleFormat
-        if(cache.startsWith('{')){
+        if (cache.startsWith('{')) {
           obj.cellClassRules = {}
           cache = JSON.parse(cache)
-          Object.keys(cache).forEach(k=>{
-            obj.cellClassRules[cache[k]] = (params)=>{
+          Object.keys(cache).forEach(k => {
+            obj.cellClassRules[cache[k]] = (params) => {
               let rule = 'params.value ==' + k
               return eval(rule)
             }
             console.log(obj.cellClassRules)
           })
-        }else{
+        } else {
           obj.cellClass = cache
         }
       }
@@ -343,9 +325,9 @@ export default {
       switch (item.controlType) {
         case 1:
           // 普通文本
-          if(item.dataType == 'number'){
+          if (item.dataType == 'number') {
             obj.filter = 'agNumberColumnFilter'
-          }else {
+          } else {
             obj.filter = 'agTextColumnFilter'
           }
           obj.cellEditor = 'agTextCellEditor'
@@ -384,18 +366,14 @@ export default {
           // 单选控件
           obj.filter = 'agSetColumnFilter'
           obj.cellEditor = 'datePicker'
-          if(item.dateFormat.indexOf('-')!= -1){
+          if (item.dateFormat.indexOf('-') != -1) {
             // 兼容之前的颜色格式化，待修改
-            window.agGridMapList[item.fieldName] = obj.cellRendererParams.list = this.color2List(
-            item.dateFormat
-          )
-          }else {
-            window.agGridMapList[item.fieldName] = obj.cellRendererParams.list = this.getColList(
-            item.dateFormat
-          )
+
+          } else {
+
           }
 
-          obj.filterParams.values = obj.cellRendererParams.list.map(i=>i.label)
+          obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
           obj.valueFormatter = (params) => {
             if (!params.value) {
               return ''
@@ -498,7 +476,7 @@ export default {
           window.agGridMapList[item.fieldName] = obj.cellRendererParams.list = this.color2List(
             item.dateFormat
           )
-          obj.filterParams.values = obj.cellRendererParams.list.map(i=>i.label)
+          obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
           obj.valueFormatter = (params) => {
             if (params.value === undefined) {
               return ''
@@ -510,9 +488,9 @@ export default {
             }
           }
           obj.cellClassRules = {}
-          obj.cellRendererParams.list.forEach(i=>{
-            if(i.class){
-              obj.cellClassRules[i.class] = (params)=>{
+          obj.cellRendererParams.list.forEach(i => {
+            if (i.class) {
+              obj.cellClassRules[i.class] = (params) => {
                 let rule = 'params.value ==' + i.value
                 return eval(rule)
               }
@@ -542,96 +520,34 @@ export default {
     getColumnDefs() {
       // 项目机组，测试右边操作， 测试列分组, 列分组不能移动列
       let columnDefs = []
-      let groupRules = []
-      if(this.code == 'projectOrdersList'){
-        groupRules = [
-          {
-            headerName: '分组测试2-5',
-            min: 1,
-            max: 6,
-            marryChildren: true,
-            children: []
-          },
-          {
-            headerName: '分组测试6-9',
-            min: 5,
-            max: 12,
-            marryChildren: true,
-            children: []
-          },
-          {
-            headerName: '分组测试13-',
-            min: 18,
-            marryChildren: true,
-            suppressStickyLabel: true,
-            openByDefault: false,
-            children: []
-          },
-        ]
-      }
-      if(groupRules.length){
-        this.listFields.forEach((item) => {
-          columnDefs.push(this.transferItem(item))
-        })
-        for(let i = groupRules.length - 1; i > -1; i--){
-          if(groupRules[i].min && groupRules[i].max){
-            groupRules[i].children = columnDefs.filter((c, index)=> {
-              return index > groupRules[i].min && index < groupRules[i].max
-            })
-            let minArr = columnDefs.filter((c, index)=>{
-              return index < groupRules[i].min || index === groupRules[i].min
-            })
-            let maxArr = columnDefs.filter((c, index)=>{
-              return index > groupRules[i].max || index === groupRules[i].max
-            })
-            columnDefs = [...minArr,groupRules[i],...maxArr]
-          }else if(groupRules[i].min){
-            groupRules[i].children = columnDefs.filter((c, index)=> {
-              return index > groupRules[i].min
-            })
-            let minArr = columnDefs.filter((c, index)=>{
-              return index < groupRules[i].min || index === groupRules[i].min
-            })
-            columnDefs = [...minArr,groupRules[i]]
-          }else if(groupRules[i].max){
-            groupRules[i].children = columnDefs.filter((c, index)=> {
-              return index < groupRules[i].max
-            })
-            let maxArr = columnDefs.filter((c, index)=>{
-              return index > groupRules[i].max || index === groupRules[i].min
-            })
-            columnDefs = [groupRules[i], ...maxArr]
+
+      this.listFields.forEach((item) => {
+        columnDefs.push(this.transferItem(item))
+      })
+      // 列分组，不锁定列
+      if (this.lockColumnCount) {
+        columnDefs.forEach((c, i) => {
+          if (i < this.lockColumnCount) {
+            c.pinned = 'left'
           }
-        }
-      }else {
-        this.listFields.forEach((item) => {
-          columnDefs.push(this.transferItem(item))
         })
-        // 列分组，不锁定列
-        if (this.lockColumnCount) {
-          columnDefs.forEach((c, i) => {
-            if (i < this.lockColumnCount) {
-              c.pinned = 'left'
-            }
-          })
-        }
       }
       if (this.showNo == 1) {
-          columnDefs.unshift({
-            headerName: '序号',
-            colId: 'rowNum',
-            field: 'rowNum',
-            valueGetter: 'Number(node.rowIndex) + 1',
-            width: 40,
-            minWidth: 40,
-            pinned: this.lockColumnCount && !groupRules.length ? 'left' : false,
-            suppressMenu: true,
-          })
-        }
+        columnDefs.unshift({
+          headerName: '序号',
+          colId: 'rowNum',
+          field: 'rowNum',
+          valueGetter: 'Number(node.rowIndex) + 1',
+          width: 60,
+          minWidth: 60,
+          pinned: this.lockColumnCount && !groupRules.length ? 'left' : false,
+          suppressMenu: true,
+        })
+      }
       // 右侧添加固定操作按钮
-      if(this.innerButtons && this.innerButtons.length){
+      if (this.innerButtons && this.innerButtons.length) {
         let width = 0
-        this.innerButtons.forEach(b=>{
+        this.innerButtons.forEach(b => {
           width += b.name.length * 14
         })
         width += (this.innerButtons.length - 1) * 6
@@ -647,35 +563,15 @@ export default {
           cellRenderer: 'agOperations'
         })
       }
-      if(groupRules.length){
-        this.columnDefs = columnDefs
-        console.log('分组columnDefs',columnDefs)
-        return
-      }
-      setTimeout(()=>{
-        if(this.localConfigs && this.localConfigs.columns && this.localConfigs.columns.length && this.expand.userLocal == 1){
-          let cols = []
-          this.localConfigs.columns.forEach(item=>{
-            let temp = columnDefs.find(i=>i.field == item.colId)
-            if(!!temp){
-              let cache = Object.assign({}, temp, item)
-              cols.push(cache)
-            }
-          })
-          this.columnDefs = cols
-          this.userLocalCols = true
-        }else {
-          this.columnDefs = columnDefs
-        }
-      },50)
+      this.columnDefs = columnDefs
     },
     init() {
       this.getColumnDefs()
-      if(!this.height || this.height == 'auto'){
+      if (!this.height || this.height == 'auto') {
         let a = document.body.clientHeight
         let b = document.getElementById('top-buttons').scrollHeight
-        this.tableHeight =  a - b - 70 - 36 - 60
-      }else {
+        this.tableHeight = a - b - 70 - 36 - 60
+      } else {
         this.tableHeight = this.height
       }
       this.getRowId = (params) => {

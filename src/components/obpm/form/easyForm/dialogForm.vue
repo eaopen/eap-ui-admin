@@ -1,6 +1,6 @@
 <template>
     <div style="position: relative; padding-bottom: 30px;">
-        <abCustomForm v-if="loaded" style="padding: 0 15px" ref="abCustomForm"></abCustomForm>333
+        <abCustomForm v-if="loaded" style="padding: 0 15px" ref="abCustomForm"></abCustomForm>
         <div style="width: 100%; text-align: right; padding:10px 15px 0 ; border-top: 1px #eee solid; position: absolute; bottom: 0">
           <el-button type="default" size="mini" @click="cancelDialog">取消</el-button>
           <el-button type="primary" size="mini" @click="save">提交</el-button>
@@ -163,8 +163,6 @@ export default {
     },
   },
   created: function () {
-    // params.type == async
-    console.log(this.params)
     if(this.params.async && this.params){
       if(!this.params.key){
         return

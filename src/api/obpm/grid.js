@@ -9,6 +9,7 @@ export function getListConfig(code) {
 }
 // 获取列表数据
 export function getListData(code, data) {
+    console.log('data:',data)
     return request({
         url: '/obpm-api/form/formCustSql/view/list_' + code,
         method: 'post',

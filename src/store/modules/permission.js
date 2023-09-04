@@ -88,9 +88,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       }
     } 
     else if(route.component) { // 根节点
-      console.log('route:', route)
       if(route.path.indexOf('listGrid/')>-1 || route.component.indexOf('obpm/agGrid')>-1){
-        console.log('route.name:', route.name)
         route.name = extn.getParams(route.path).code
         route.path = '/' + extn.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
@@ -136,7 +134,7 @@ function filterChildren(childrenMap, lastRouter = false) {
         return
       }
     }
-    if (lastRouter) {
+    if (lastRouter && !el.path.startsWith('obpm/list')) {
       el.path = lastRouter.path + '/' + el.path
     }
     children = children.concat(el)

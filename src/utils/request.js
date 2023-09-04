@@ -183,7 +183,8 @@ service.interceptors.response.use(async res => {
     Message({
       message: message,
       type: 'error',
-      duration: 5 * 1000
+      duration: 5 * 1000,
+      showClose: true,
     })
     return Promise.reject(error)
   }

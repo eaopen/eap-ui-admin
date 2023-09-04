@@ -13,7 +13,7 @@ export const filterHtml = function(str){
       customScript = eval(custScriptStr.substring(custScriptStr.indexOf("window.custFormComponentMixin")))
     }
 		html = html.replace(reg, "");
-    customScript.created = ()=>{}
+    	customScript.created = ()=>{}
   }
   return {
     html,

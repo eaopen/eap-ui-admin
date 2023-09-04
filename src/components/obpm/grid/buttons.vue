@@ -104,7 +104,7 @@
       clickAction(btn, selects){
         if(btn.alias === 'preProject:editBasic'){
           this.$tab.openPage(btn.name, "/taskDetail/441327614131699713").then(res=>{
-            console.log('res:',res)
+
           })
         }else if(btn.clickType === '3' || btn.clickType === '4'){
           const { hrefSetting } = btn.expand?JSON.parse(btn.expand):{}
