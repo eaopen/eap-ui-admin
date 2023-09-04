@@ -127,6 +127,7 @@ export default {
   },
   methods: {
     init(id) {
+      console.log(id)
       this.dataForm.id = id || ''
       this.visible = true
       this.btnLoading = false

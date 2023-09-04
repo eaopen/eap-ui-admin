@@ -4,8 +4,7 @@ import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
 import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
-import extn from "@/utils/extn"
-import obpm from "@/utils/extn"
+import { extn } from "@/utils/extn"
 
 const permission = {
   state: {
@@ -88,13 +87,12 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         route.component = ParentView
       }
     } 
-    // else if(!!route.component){
-    //   route.component = loadView(route.component)
-    // }
     else if(route.component) { // 根节点
-      if(route.component.indexOf('listGrid/')>-1 || route.component.indexOf('/obpm/agList/')>-1){
-        route.name = obpm.getParams(route.path).code
-        route.path = '/' + obpm.formatListGridPath(route.path)
+      console.log('route:', route)
+      if(route.path.indexOf('listGrid/')>-1 || route.component.indexOf('obpm/agGrid')>-1){
+        console.log('route.name:', route.name)
+        route.name = extn.getParams(route.path).code
+        route.path = '/' + extn.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})
         route.component = agListCache
       }else if(route.component.indexOf('/easyForm')>-1){
