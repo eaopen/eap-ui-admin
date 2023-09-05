@@ -79,7 +79,7 @@ export function getDictionaryDataTypeSelector(dictionaryTypeId, isTree, id) {
 // 获取字典数据下拉框列表
 export function getDictionaryDataSelector(dictionaryTypeId) {
   return request({
-    url: `/api/system/DictionaryData/${dictionaryTypeId}/Data/Selector`,
+    url: `/system/dict-type/${dictionaryTypeId}/Data/Selector`,
     method: 'GET'
   })
 }

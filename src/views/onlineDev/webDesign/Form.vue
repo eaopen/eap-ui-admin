@@ -43,7 +43,7 @@
             </el-form-item>
             <el-form-item label="功能分类" prop="category">
               <el-select v-model="dataForm.category" placeholder="选择分类" filterable>
-                <el-option :key="item.id" :label="item.fullName" :value="item.id"
+                <el-option :key="item.value" :label="item.fullName" :value="item.value"
                   v-for="item in categoryList" />
               </el-select>
             </el-form-item>
