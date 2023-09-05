@@ -348,7 +348,7 @@ export const setModelData = (id, data) => {
 // 获取菜单列表（下拉框）
 export const getSelectorAll = data => {
   return request({
-    url: '/api/system/Menu/Selector/All',
+    url: '/api/visualdev/Portal/Selector/All',
     method: 'GET',
     data
   })

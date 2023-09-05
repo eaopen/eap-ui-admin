@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 获取菜单列表
 export const getSystem = (data) => {
   return request({
-    url: '/api/system/System',
+    url: '/api/visualdev/Portal/Selector/All',
     method: 'GET',
     data
   })
