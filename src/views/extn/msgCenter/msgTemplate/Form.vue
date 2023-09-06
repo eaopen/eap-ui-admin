@@ -358,7 +358,7 @@ export default {
       })
     },
     getConfig() {
-      this.$store.dispatch('base/getMsgTypeList').then((res) => {
+      this.$store.dispatch('extnBase/getMsgTypeList').then((res) => {
         this.messageTypeList = res
         if (this.messageTypeList.length) this.dataForm.messageType = this.messageTypeList[0].enCode
       })

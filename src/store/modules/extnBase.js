@@ -1,7 +1,7 @@
 import { getDictionaryAll } from '@/api/extn/dictionary'
 import { getMsgTypeList } from '@/api/extn/msgTemplate'
 import { UserListAll, getUserSelector } from '@/api/extn/permission'
-import { getPositionListAll, getPositionSelector } from '@/api/permission/position'
+import { getPositionListAll, getPositionSelector } from '@/api/extn/permission'
 import { getRoleSelector } from '@/api/extn/permission'
 import { getPrintDevSelector } from '@/api/extn/printDev'
 import jnpf from '@/utils/extn';

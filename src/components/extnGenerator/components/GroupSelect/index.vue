@@ -217,7 +217,7 @@ export default {
   },
   methods: {
     async getData() {
-      this.treeData = await this.$store.dispatch('generator/getGroupTree')
+      this.treeData = await this.$store.dispatch('extnGenerator/getGroupTree')
       this.allList = await this.$store.getters.groupList
     },
     onClose() { },

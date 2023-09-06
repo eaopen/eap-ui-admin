@@ -93,7 +93,7 @@ export default {
       })
     },
     getConfig() {
-      this.$store.dispatch('base/getMsgTypeList').then((res) => {
+      this.$store.dispatch('extnBase/getMsgTypeList').then((res) => {
         this.msgTypeList = res
       })
     },

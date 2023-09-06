@@ -231,7 +231,7 @@ export default {
   },
   methods: {
     async getData() {
-      const treeData = await this.$store.dispatch('generator/getDepTree')
+      const treeData = await this.$store.dispatch('extnGenerator/getDepTree')
       const topItem = {
         fullName: "顶级节点",
         hasChildren: true,

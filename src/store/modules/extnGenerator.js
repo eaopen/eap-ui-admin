@@ -1,7 +1,7 @@
 import { getOrganizeTree } from "@/api/extn/permission";
-import { getDepartmentSelector } from "@/api/permission/department";
+import { getDepartmentSelector } from "@/api/extn/permission";
 import { getDictionaryType } from "@/api/extn/dictionary";
-import { getGroupSelector } from "@/api/permission/group";
+import { getGroupSelector } from "@/api/extn/permission";
 import jnpf from '@/utils/extn';
 const state = {
   companyTree: [],

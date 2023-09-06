@@ -230,9 +230,9 @@ export default {
   },
   methods: {
     async getData() {
-      this.allList = await this.$store.dispatch('base/getPositionList')
+      this.allList = await this.$store.dispatch('extnBase/getPositionList')
       if (this.selectType === 'all') {
-        this.treeData = await this.$store.dispatch('base/getPositionTree')
+        this.treeData = await this.$store.dispatch('extnBase/getPositionTree')
       }
       if (this.selectType === 'custom') {
         this.getAbleList()

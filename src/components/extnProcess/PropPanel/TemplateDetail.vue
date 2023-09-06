@@ -200,7 +200,7 @@ export default {
     },
     getConfig() {
       this.loading = true
-      this.$store.dispatch('base/getMsgTypeList').then((res) => {
+      this.$store.dispatch('extnBase/getMsgTypeList').then((res) => {
         this.messageTypeList = res
         getMsgTypeList(4).then(res => {
           this.messageSourceList = res.data

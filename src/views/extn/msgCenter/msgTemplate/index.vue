@@ -177,7 +177,7 @@ export default {
       })
     },
     getMsgTypeList() {
-      this.$store.dispatch('base/getMsgTypeList').then((res) => {
+      this.$store.dispatch('extnBase/getMsgTypeList').then((res) => {
         this.msgTypeList = res
       })
       getMsgTypeList(4).then(res => {

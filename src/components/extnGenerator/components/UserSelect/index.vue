@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     async getData() {
-      this.treeData = await this.$store.dispatch('base/getUserTree')
+      this.treeData = await this.$store.dispatch('extnBase/getUserTree')
     }
   },
   created() {

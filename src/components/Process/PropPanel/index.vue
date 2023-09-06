@@ -3639,7 +3639,7 @@ export default {
       return isOk;
     },
     getPrintTplList() {
-      this.$store.dispatch('base/getPrintFlowTree').then(res => {
+      this.$store.dispatch('extnBase/getPrintFlowTree').then(res => {
         let list = res.filter(o => o.children && o.children.length)
         this.printTplList = list.map(o => ({
           ...o,

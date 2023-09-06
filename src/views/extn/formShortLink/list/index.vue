@@ -398,13 +398,13 @@ export default {
         })
       }
       if (this.columnData.treeDataSource === "organize") {
-        this.$store.dispatch('generator/getDepTree').then(res => {
+        this.$store.dispatch('extnGenerator/getDepTree').then(res => {
           this.treeData = res
           this.initData()
         })
       }
       if (this.columnData.treeDataSource === "department") {
-        this.$store.dispatch('generator/getDepTree').then(res => {
+        this.$store.dispatch('extnGenerator/getDepTree').then(res => {
           this.treeData = res
           this.initData()
         })

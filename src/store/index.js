@@ -8,6 +8,8 @@ import settings from './modules/settings'
 import dict from './modules/dict'
 import customDialog from './modules/customDialog'
 import list from './modules/list'
+import extnBase from './modules/extnBase'
+import extnGenerator from './modules/extnGenerator'
 import getters from './getters'
 
 Vue.use(Vuex)

@@ -80,13 +80,13 @@ export default {
         } else {
           let res = []
           if (this.type === 'department') {
-            res = await this.$store.dispatch('generator/getDepTree')
+            res = await this.$store.dispatch('extnGenerator/getDepTree')
           }
           if (this.type === 'group') {
-            res = await this.$store.dispatch('generator/getGroupTree')
+            res = await this.$store.dispatch('extnGenerator/getGroupTree')
           }
           if (this.type === 'position') {
-            res = await this.$store.dispatch('base/getPositionTree')
+            res = await this.$store.dispatch('extnBase/getPositionTree')
           }
           this.$refs.JNPFTransfer && (this.$refs.JNPFTransfer.filterText = '')
           this.treeData = res

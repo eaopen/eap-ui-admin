@@ -1219,7 +1219,7 @@ export default {
       })
     },
     getPrintTplList() {
-      this.$store.dispatch('base/getPrintFormTree').then(res => {
+      this.$store.dispatch('extnBase/getPrintFormTree').then(res => {
         let list = res.filter(o => o.children && o.children.length)
         this.printTplList = list.map(o => ({
           ...o,

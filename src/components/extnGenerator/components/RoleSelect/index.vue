@@ -246,10 +246,10 @@ export default {
     },
     getList() {
       this.loading = true
-      this.$store.dispatch('base/getRoleTree').then(res => {
+      this.$store.dispatch('extnBase/getRoleTree').then(res => {
         this.treeData = res.filter(o => o.id === '1')
         this.treeData2 = res.filter(o => o.id !== '1')
-        this.$store.dispatch('base/getRoleList').then(res => {
+        this.$store.dispatch('extnBase/getRoleList').then(res => {
           this.allList = res
           this.loading = false
         })

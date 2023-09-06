@@ -134,17 +134,17 @@ export default {
           let list = res.data.list
           this.treeData = list.filter(o => o.id === '1')
           this.treeData2 = list.filter(o => o.id !== '1')
-          this.$store.dispatch('base/getRoleList').then(res => {
+          this.$store.dispatch('extnBase/getRoleList').then(res => {
             this.allList = res
             this.getSelectList()
             this.loading = false
           })
         })
       } else {
-        this.$store.dispatch('base/getRoleTree').then(res => {
+        this.$store.dispatch('extnBase/getRoleTree').then(res => {
           this.treeData = res.filter(o => o.id === '1')
           this.treeData2 = res.filter(o => o.id !== '1')
-          this.$store.dispatch('base/getRoleList').then(res => {
+          this.$store.dispatch('extnBase/getRoleList').then(res => {
             this.allList = res
             this.getSelectList()
             this.loading = false

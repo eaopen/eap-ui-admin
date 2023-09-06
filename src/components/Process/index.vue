@@ -95,10 +95,10 @@ export default {
     draggable
   },
   created() {
-    this.$store.dispatch('base/getPositionList')
-    this.$store.dispatch('base/getRoleList')
-    this.$store.dispatch('generator/getDepTree')
-    this.$store.dispatch('generator/getGroupTree')
+    this.$store.dispatch('extnBase/getPositionList')
+    this.$store.dispatch('extnBase/getRoleList')
+    this.$store.dispatch('extnGenerator/getDepTree')
+    this.$store.dispatch('extnGenerator/getGroupTree')
     this.loading = true
     if (this.formInfo.onlineDev && this.formInfo.onlineFormId) {
       getFormInfo(this.formInfo.onlineFormId).then(res => {

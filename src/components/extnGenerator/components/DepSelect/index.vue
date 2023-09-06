@@ -226,7 +226,7 @@ export default {
   },
   methods: {
     async getData() {
-      const treeData = await this.$store.dispatch('generator/getDepTree')
+      const treeData = await this.$store.dispatch('extnGenerator/getDepTree')
       this.allList = await this.$store.getters.departmentList
       if (this.selectType === 'all') {
         this.treeData = treeData
