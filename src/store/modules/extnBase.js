@@ -53,62 +53,10 @@ const mutations = {
 }
 
 const actions = {
-  getDictionaryAll({ commit }) {
-    return new Promise((resolve, reject) => {
-      getDictionaryAll().then(res => {
-        commit('SET_DICTIONARY_LIST', res.data.list)
-        resolve(res.data.list)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  },
+  // getDictionaryAll/getDictionaryData remove, function move to dict
   getDictionaryData({ state, dispatch }, info) {
     return new Promise(async resolve => {
-      let list = [],
-        data = [],
-        json = []
-      if (!state.dictionaryList.length) {
-        list = await dispatch('getDictionaryAll')
-      } else {
-        list = state.dictionaryList
-      }
-      if (info.sort) {
-        let arr = list.filter(o => o.enCode === info.sort)
-        if (!arr.length) return resolve([])
-        data = arr[0]
-        if (!info.id) {
-          json = data.dictionaryList
-        } else {
-          let rowData = [];
-          if (!data.isTree) {
-            rowData = data.dictionaryList.filter(o => o.id == info.id)
-          } else {
-            function findData(list) {
-              for (let i = 0; i < list.length; i++) {
-                const e = list[i];
-                if (e.id == info.id) {
-                  rowData[0] = e
-                  break
-                }
-                if (e.children && e.children.length) {
-                  findData(e.children)
-                }
-              }
-            }
-            findData(data.dictionaryList)
-          }
-          if (rowData.length) {
-            json = rowData[0];
-          } else {
-            json = {
-              id: "",
-              fullName: ""
-            };
-          }
-        }
-      }
-      resolve(json)
+        return await dispatch('dict/getDictionaryData', info)
     })
   },
   getPositionList({ state, commit }) {
