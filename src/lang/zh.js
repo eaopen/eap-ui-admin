@@ -204,7 +204,10 @@ export default {
     noFilter: '无筛选条件'
   },
   common: {
-    noData: '暂无内容',
+    addBtn: '新建',
+    editBtn: '编辑',
+    delBtn: '删除',
+    moreBtn: '更多',
     confirmButton: '确认',
     confirmDesignButton: '确认并设计',
     saveButton: '保存',
@@ -220,6 +223,15 @@ export default {
     revoke: '撤销',
     clear: '清除',
     preview: '预览',
+    tipTitle: '提示',
+    keyword: '关键词',
+    enterKeyword: '请输入关键词查询',
+    noData: '暂无内容',
+    noPerTip: '暂无权限',
+    delTip: '此操作将永久删除该数据, 是否继续？',
+    loadingText: '数据加载中',
+    fullScreen: '全屏',
+    outFullScreen: '退出全屏',
     PCVersion: 'PC版',
     MBVersion: '手机版'
   }

@@ -204,7 +204,10 @@ export default {
     noFilter: 'no filter'
   },
   common: {
-    noData: 'no data',
+    addBtn: 'Add',
+    editBtn: 'Edit',
+    delBtn: 'Del',
+    moreBtn: 'More',
     confirmButton: 'confirm',
     confirmDesignButton: 'confirm&design',
     saveButton: 'save',
@@ -220,6 +223,15 @@ export default {
     revoke: 'revoke',
     clear: 'clear',
     preview: 'preview',
+    noData: 'no data',
+    noPerTip: 'Permission Denied',
+    tipTitle: 'Tips',
+    delTip: 'This operation will permanently delete the data. Do you want to continue?',
+    loadingText: 'Data Loading',
+    keyword: 'Keyword',
+    enterKeyword: 'Please Enter',
+    fullScreen: 'Full Screen',
+    outFullScreen: 'Out Full Screen',
     PCVersion: 'PC',
     MBVersion: 'mobile'
   }
