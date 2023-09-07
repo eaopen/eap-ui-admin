@@ -113,17 +113,17 @@
       </el-drawer>
     </template>
     <el-form v-if="detailVisible">
-      <Detail v-if="detailVisible" ref="Detail" @close="detailVisible = false" />
+      <!-- <Detail v-if="detailVisible" ref="Detail" @close="detailVisible = false" /> -->
     </el-form>
   </div>
 </template>
-
+<!-- detail 暂时隐藏 -->
 <script>
 import { getFieldDataSelect, getDataChange, getConfigData } from '@/api/onlineDev/visualDev'
-import Detail from '@/views/basic/dynamicModel/list/detail'
+// import Detail from '@/views/basic/dynamicModel/list/detail'
 export default {
   name: 'PopupSelect',
-  components: { Detail },
+  // components: { Detail },
   props: {
     value: {
       default: ''

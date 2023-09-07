@@ -9497,6 +9497,11 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+simple-uploader.js@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.npmmirror.com/simple-uploader.js/-/simple-uploader.js-0.5.6.tgz"
+  integrity sha512-ukjL0wZhK1dNMaQa6sd+UpCSmnUjblaUGbAd/B8f5IFrChMzDsC/7eFSK4bs4BS5NPJFSZVLI+l6Ri7THTkQtw==
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/slash/-/slash-1.0.0.tgz"
@@ -9657,6 +9662,11 @@ sourcemap-codec@^1.4.8:
   version "1.4.8"
   resolved "https://registry.npmmirror.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
+
+spark-md5@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/spark-md5/-/spark-md5-3.0.2.tgz"
+  integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
 spdx-correct@^3.0.0:
   version "3.1.1"
@@ -10849,6 +10859,13 @@ vue-router@3.4.9:
   version "3.4.9"
   resolved "https://registry.npmmirror.com/vue-router/-/vue-router-3.4.9.tgz"
   integrity sha512-CGAKWN44RqXW06oC+u4mPgHLQQi2t6vLD/JbGRDAXm0YpMv0bgpKuU5bBd7AvMgfTz9kXVRIWKHqRwGEb8xFkA==
+
+vue-simple-uploader@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.npmmirror.com/vue-simple-uploader/-/vue-simple-uploader-0.7.6.tgz"
+  integrity sha512-DYddedNi+ZZzqxmKgW2t4lBN3aiB66oKOxgAfS9Hz9J1FHv7Xt+u1Pq8F48BFS4vG0+MFHCNzjzS2xaEUOIcHQ==
+  dependencies:
+    simple-uploader.js "^0.5.6"
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.3"

@@ -70,19 +70,19 @@
         <el-button type="primary" @click="select()">{{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
-    <Form ref="Form" @refreshDataList="initData" />
+    <!-- <Form ref="Form" @refreshDataList="initData" /> -->
   </div>
 </template>
 
 <script>
 import {
   getBillRuleSelector
-} from '@/api/system/billRule'
-import Form from '@/views/system/billRule/Form.vue'
+} from '@/api/extn/system'
+// import Form from '@/views/system/billRule/Form.vue'
 export default {
-  components: {
-    Form
-  },
+  // components: {
+  //   Form
+  // },
   props: {
     value: {
       default: ''

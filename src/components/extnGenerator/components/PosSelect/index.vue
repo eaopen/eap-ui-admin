@@ -80,7 +80,7 @@
 
 <script>
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
-import { getPositionByPositionCondition } from '@/api/permission/position'
+import { getPositionByPositionCondition } from '@/api/extn/permission'
 
 export default {
   name: 'groupSelect',

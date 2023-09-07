@@ -80,8 +80,7 @@
 
 <script>
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
-import { getDepartmentSelectorByAuth } from "@/api/permission/department";
-import { getOrganizeSelectorByAuth } from '@/api/extn/permission'
+import { getDepartmentSelectorByAuth,getOrganizeSelectorByAuth } from "@/api/extn/permission";
 export default {
   name: 'comSelect',
   inject: {

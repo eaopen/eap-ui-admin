@@ -70,6 +70,8 @@
     "js-beautify": "1.13.0",
     "js-cookie": "2.2.0",
     "js-md5": "^0.7.3",
+    "spark-md5": "^3.0.2",
+    "vue-simple-uploader": "^0.7.6",
     "jsbarcode": "^3.11.0",
     "jsencrypt": "3.3.1",
     "jsonlint": "1.6.3",
