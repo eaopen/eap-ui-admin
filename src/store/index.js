@@ -23,6 +23,8 @@ const store = new Vuex.Store({
     settings,
     dict,
     list,
+    extnBase,
+    extnGenerator,
     customDialog
   },
   getters

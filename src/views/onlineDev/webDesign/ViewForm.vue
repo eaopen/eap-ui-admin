@@ -20,7 +20,7 @@
         <el-button @click="next" :disabled="activeStep>=maxStep || loading">{{$t('common.next')}}
         </el-button>
         <el-button type="primary" @click="dataFormSubmit()" :disabled="loading"
-          :loading="btnLoading">{{$t('common.saveButton')}}</el-button>
+          :loading="btnLoading">{{$t('common.saveBtn')}}</el-button>
         <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>

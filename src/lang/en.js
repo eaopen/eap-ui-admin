@@ -207,7 +207,7 @@ export default {
     noData: 'no data',
     confirmBtn: 'confirm',
     confirmDesignButton: 'confirm&design',
-    saveButton: 'save',
+    saveBtn: 'save',
     saveReleaseButton: 'save&release',
     cancelBtn: 'cancel',
     addBtn: 'add',

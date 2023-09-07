@@ -109,7 +109,7 @@
     <ViewForm v-if="viewFormVisible" ref="ViewForm" @close="closeForm" />
     <AddBox :visible.sync="addVisible" :webType="currWebType" @add="handleAdd" />
     <el-dialog title="同步菜单" :visible.sync="releaseDialogVisible"
-      class="OBPM-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
+      class="JNPF-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
       <el-alert title="将该功能的按钮、列表、表单及数据权限同步至系统菜单" type="warning" :closable="false" show-icon />
       <div class="dialog-main">
         <div class="item" :class="{'active':releaseQuery.pc===1}" @click="selectToggle('pc')">

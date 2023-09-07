@@ -207,7 +207,7 @@ export default {
     noData: '暂无内容',
     confirmBtn: '确认',
     confirmDesignButton: '确认并设计',
-    saveButton: '保存',
+    saveBtn: '保存',
     saveReleaseButton: '保存并发布',
     cancelBtn: '取消',
     addButton: '添加',

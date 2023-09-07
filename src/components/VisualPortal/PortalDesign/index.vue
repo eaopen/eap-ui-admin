@@ -41,7 +41,7 @@
         <el-button type="primary" @click="dataFormSubmit(1)" :loading="btnLoading">
           {{ $t('common.saveReleaseButton') }}</el-button>
         <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-          {{ $t('common.saveButton') }}</el-button>
+          {{ $t('common.saveBtn') }}</el-button>
         <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>

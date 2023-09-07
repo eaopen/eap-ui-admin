@@ -123,3 +123,19 @@ export const getGroupSelector = () => {
         method: 'GET'
     })
 }
+
+// 获取全部岗位管理信息列表
+export const getPositionListAll = () => {
+    return request({
+      url: '/api/permission/Position/All',
+      method: 'GET'
+    })
+  }
+
+// 获取部门下拉框列表(公司+部门)
+export const getDepartmentSelector = (id) => {
+    return request({
+      url: '/api/permission/Organize/Department/Selector/' + (!!id ? id : 0),
+      method: 'GET'
+    })
+  }
