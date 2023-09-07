@@ -100,7 +100,7 @@ export default {
         this.dataForm.columnData = this.columnData ? JSON.stringify(this.columnData) : null
         this.dataForm.appColumnData = this.appColumnData ? JSON.stringify(this.appColumnData) : null
         this.dataForm.interfaceParam = this.interfaceParam ? JSON.stringify(this.interfaceParam) : null
-        this.$store.state.ruleData = []
+        this.$store.state.extnGenerator.ruleData = []
       }
       if (!this.activeStep) {
         this.$refs['dataForm'].validate((valid) => {
