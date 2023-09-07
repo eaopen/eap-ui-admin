@@ -204,16 +204,8 @@ export default {
     noFilter: 'no filter'
   },
   common: {
-<<<<<<< Updated upstream
-    addBtn: 'Add',
-    editBtn: 'Edit',
-    delBtn: 'Del',
-    moreBtn: 'More',
-    confirmButton: 'confirm',
-=======
     noData: 'no data',
     confirmBtn: 'confirm',
->>>>>>> Stashed changes
     confirmDesignButton: 'confirm&design',
     saveButton: 'save',
     saveReleaseButton: 'save&release',

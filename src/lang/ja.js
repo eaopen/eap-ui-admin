@@ -211,15 +211,7 @@ export default {
     saveReleaseButton: '保存并发布',
     cancelBtn: '取消',
     addButton: '添加',
-<<<<<<< Updated upstream
-    moreButton: '更多',
-    addBtn: 'Add',
-    editBtn: 'Edit',
-    delBtn: 'Del',
-    moreBtn: 'More',
-=======
     moreBtn: '更多',
->>>>>>> Stashed changes
     prev: '前一个',
     next: '后一个',
     search: '搜索',

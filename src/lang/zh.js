@@ -204,16 +204,8 @@ export default {
     noFilter: '无筛选条件'
   },
   common: {
-<<<<<<< Updated upstream
-    addBtn: '新建',
-    editBtn: '编辑',
-    delBtn: '删除',
-    moreBtn: '更多',
-    confirmButton: '确认',
-=======
     noData: '暂无内容',
     confirmBtn: '确认',
->>>>>>> Stashed changes
     confirmDesignButton: '确认并设计',
     saveBtn: '保存',
     saveReleaseButton: '保存并发布',
