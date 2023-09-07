@@ -119,7 +119,6 @@ export const inputComponents = [
     style: { width: "100%" },
     maxlength: null,
     "show-word-limit": true,
-    readonly: false,
     disabled: false,
     readonly: false,
   },
@@ -448,7 +447,6 @@ export const inputComponents = [
         "({ data, formData, setFormData, setShowOrHide, setRequired, setDisabled, request }) => {\n    // 在此编写代码\n    \n}"
     },
     placeholder: "请选择",
-    type: "date",
     style: { width: "100%" },
     disabled: false,
     clearable: true,
