@@ -329,7 +329,7 @@ export default {
           const data = res.data && res.data.length ? res.data[0] : {}
           this.innerValue = data[this.relationField]
           if (!this.field) return
-          let relationData = this.$store.state.generator.relationData
+          let relationData = this.$store.state.extnGenerator.relationData
           this.$set(relationData, this.field, data)
           this.$eventBus.$emit('popupAttrEventBus', relationData, this.field)
           this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
@@ -337,7 +337,7 @@ export default {
       } else {
         this.innerValue = ''
         if (!this.field) return
-        let relationData = this.$store.state.generator.relationData
+        let relationData = this.$store.state.extnGenerator.relationData
         this.$set(relationData, this.field, {})
         this.$eventBus.$emit('popupAttrEventBus', relationData, this.field)
         this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)

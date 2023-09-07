@@ -819,7 +819,7 @@ export default {
     },
     formItemList: {
       get() {
-        return this.$store.state.generator.formItemList
+        return this.$store.state.extnGenerator.formItemList
       },
       set(val) {
         this.$store.commit('generator/UPDATE_FORMITEM_LIST', val)
@@ -827,7 +827,7 @@ export default {
     },
     subTable: {
       get() {
-        return this.$store.state.generator.subTable || []
+        return this.$store.state.extnGenerator.subTable || []
       },
       set(val) {
         this.$store.commit('generator/UPDATE_SUB_TABLE', val)
@@ -835,14 +835,14 @@ export default {
     },
     allTable: {
       get() {
-        return this.$store.state.generator.allTable || []
+        return this.$store.state.extnGenerator.allTable || []
       },
       set(val) {
-        this.$store.commit('generator/SET_ALL_TABLE', val)
+        this.$store.commit('extnGenerator/SET_ALL_TABLE', val)
       }
     },
     mainTable() {
-      let allTable = this.$store.state.generator.allTable
+      let allTable = this.$store.state.extnGenerator.allTable
       let item = allTable.filter(o => o.typeId == '1')[0]
       if (!item || !item.table) return ''
       return item.table
@@ -1269,7 +1269,7 @@ export default {
       } else {
         tableName = this.activeData.__config__.relationTable
       }
-      let dataBase = this.$store.state.generator.dataBase || '0'
+      let dataBase = this.$store.state.extnGenerator.dataBase || '0'
       this.fieldDialogVisible = true
       this.$nextTick(() => {
         this.$refs.fieldDialog.init(dataBase, tableName)

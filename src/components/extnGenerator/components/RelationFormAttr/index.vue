@@ -29,7 +29,7 @@ export default {
         this.$emit('input', this.defaultValue)
         return this.innerValue = this.defaultValue
       }
-      return this.$store.state.generator.relationData
+      return this.$store.state.extnGenerator.relationData
     }
   },
   created() {

@@ -54,7 +54,7 @@ export default {
   methods: {
     currentTabChange(tab){
       this.currentTab = tab
-      this.$store.state.generator.ruleData = []
+      this.$store.state.extnGenerator.ruleData = []
     },
     /**
       * 供父组件使用 获取列表JSON

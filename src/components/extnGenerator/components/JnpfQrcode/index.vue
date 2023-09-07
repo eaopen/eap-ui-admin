@@ -65,7 +65,7 @@ export default {
       }
     },
     dynamicModelExtra() {
-      return this.$store.state.generator.dynamicModelExtra || null
+      return this.$store.state.extnGenerator.dynamicModelExtra || null
     }
   },
   watch: {

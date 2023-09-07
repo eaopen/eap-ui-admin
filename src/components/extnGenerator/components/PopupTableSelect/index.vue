@@ -383,7 +383,7 @@ export default {
         this.selectedData = []
         this.tagsList = []
         // if (!this.field) return
-        // let relationData = this.$store.state.generator.relationData
+        // let relationData = this.$store.state.extnGenerator.relationData
         // this.$set(relationData, this.field, [])
         // this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
         return
@@ -414,7 +414,7 @@ export default {
           this.checkedRow = this.selectedData[0]
         }
         // if (!this.field) return
-        // let relationData = this.$store.state.generator.relationData
+        // let relationData = this.$store.state.extnGenerator.relationData
         // this.$set(relationData, this.field, res.data)
         // this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
         this.$nextTick(() => {

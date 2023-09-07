@@ -19,8 +19,8 @@ export default {
     closeDialog(isRefresh) {
       this.visible = false
       this.$emit('close', isRefresh)
-      this.$store.state.generator.allTable = []
-      this.$store.state.generator.ruleData = []
+      this.$store.state.extnGenerator.allTable = []
+      this.$store.state.extnGenerator.ruleData = []
     },
     prev() {
       this.activeStep -= 1
@@ -32,8 +32,8 @@ export default {
       if (this.activeStep == 0) this.updateTables()
     },
     updateTables() {
-      this.tables = this.$store.state.generator.allTable || []
-      this.mainTableFields = this.$store.state.generator.formItemList || []
+      this.tables = this.$store.state.extnGenerator.allTable || []
+      this.mainTableFields = this.$store.state.extnGenerator.formItemList || []
     },
     onDbChange() {
       this.tables = []

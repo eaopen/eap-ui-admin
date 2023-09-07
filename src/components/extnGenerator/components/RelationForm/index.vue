@@ -303,7 +303,7 @@ export default {
           this.innerValue = data[this.relationField]
           this.checkedTxt = data[this.relationField]
           if (!this.field) return
-          let relationData = this.$store.state.generator.relationData
+          let relationData = this.$store.state.extnGenerator.relationData
           this.$set(relationData, this.field, data)
           this.$eventBus.$emit('eventBus', relationData, this.field)
           this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
@@ -312,7 +312,7 @@ export default {
         this.innerValue = ''
         this.checkedTxt = ''
         if (!this.field) return
-        let relationData = this.$store.state.generator.relationData
+        let relationData = this.$store.state.extnGenerator.relationData
         this.$set(relationData, this.field, {})
         this.$eventBus.$emit('eventBus', relationData, this.field)
         this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)

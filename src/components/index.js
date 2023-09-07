@@ -14,6 +14,7 @@ import uploadBtn from '@/components/extn/uploadBtn'
 import JNPFTable from '@/components/extn/table'
 import JNPFTreeSelect from '@/components/extn/treeSelect'
 import jnpfFormTipItem from '@/components/extn/form-tip-item'
+import JnpfDatePicker from '@/components/extnGenerator/components/JnpfDatePicker'
 
 
 export default {
@@ -30,5 +31,6 @@ export default {
     Vue.component('JNPFTreeSelect', JNPFTreeSelect)
     Vue.component('uploadBtn', uploadBtn)
     Vue.component('jnpfFormTipItem', jnpfFormTipItem)
+    Vue.component('JnpfDatePicker', JnpfDatePicker)
   }
 }
