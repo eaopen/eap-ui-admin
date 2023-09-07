@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import SignImgDialog from '@/components/SignImgDialog'
+import SignImgDialog from '@/components/extn/SignImgDialog'
 import { mapGetters } from "vuex"
 import CandidateUserSelect from './CandidateUserSelect'
 import CommonWordsDialog from './CommonWordsDialog'

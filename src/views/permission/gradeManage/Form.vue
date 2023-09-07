@@ -124,7 +124,7 @@
 <script>
 import gradeUserSelect from "./GradeUserSelect"
 import { mapGetters } from "vuex";
-import { getSelectorOrgList, saveGradeManage } from '@/api/permission/gradeManage'
+import { getSelectorOrgList, saveGradeManage } from '@/api/extn/gradeManage'
 export default {
   components: { gradeUserSelect },
   data() {

@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { getGradeManageList, delGradeManage } from '@/api/permission/gradeManage'
+import { getGradeManageList, delGradeManage } from '@/api/extn/gradeManage'
 import Form from './Form'
 
 export default {

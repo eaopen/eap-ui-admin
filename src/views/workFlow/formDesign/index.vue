@@ -117,7 +117,7 @@
 <script>
 import Form from './Form'
 import preview from './Preview'
-import previewDialog from '@/components/PreviewDialog'
+import previewDialog from '@/components/extn/PreviewDialog'
 import { getFormList, release, del, copyForm, exportData } from '@/api/workFlow/FormDesign'
 export default {
   name: 'workFlow-flowEngine',

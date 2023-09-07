@@ -231,8 +231,8 @@
 </template>
 
 <script>
-import PrintDialog from '@/components/PrintDialog'
-import SignImgDialog from '@/components/SignImgDialog'
+import PrintDialog from '@/components/extn/PrintDialog'
+import SignImgDialog from '@/components/extn/SignImgDialog'
 import { FlowBeforeInfo, Audit, Reject, Transfer, Recall, Cancel, Assign, SaveAudit, Candidates, CandidateUser, Resurgence, ResurgenceList, RejectList, suspend, restore, subFlowInfo } from '@/api/workFlow/FlowBefore'
 import { Revoke, Press } from '@/api/workFlow/FlowLaunch'
 import { Create, Update } from '@/api/workFlow/workFlowForm'
@@ -243,7 +243,7 @@ import CandidateForm from './CandidateForm'
 import ErrorForm from './ErrorForm'
 import CandidateUserSelect from './CandidateUserSelect'
 import Process from '@/components/Process/Preview'
-import PrintBrowse from '@/components/PrintBrowse'
+import PrintBrowse from '@/components/extn/PrintBrowse'
 import ActionDialog from '@/views/workFlow/components/ActionDialog'
 import HasFreeApprover from './HasFreeApprover'
 import SuspendDialog from './SuspendDialog'

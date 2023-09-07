@@ -3,7 +3,7 @@
     :show-close="false" :modal="false" append-to-body>
     <div class="JNPF-full-dialog-header">
       <div class="header-title">
-        <img src="@/assets/images/jnpf.png" class="header-logo" />
+        <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt" v-if="activeStep==0"> · 表单设计</p>
         <el-tooltip effect="dark" :content="dataForm.fullName" placement="bottom" v-else>
           <p class="header-txt"> · {{dataForm.fullName}}</p>
@@ -151,10 +151,10 @@
 </template>
 
 <script>
-import Generator from '@/components/Generator/index/Home'
+import Generator from '@/components/extnGenerator/index/Home'
 import FieldForm from './FieldForm'
-import TableForm from '@/views/generator/TableForm'
-import mixin from '@/mixins/generator/common'
+import TableForm from '@/views/extn/generator/TableForm'
+import mixin from '@/mixins/extn-generator/common'
 import { getFormInfo, Create, Update } from '@/api/workFlow/FormDesign'
 
 export default {

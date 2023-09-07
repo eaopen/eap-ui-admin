@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { chunkMerge } from '@/api/common'
-import uploadMixin from '@/components/Generator/components/Upload/vue-simple-uploader/mixin'
+import { chunkMerge } from '@/api/extn/common'
+import uploadMixin from '@/components/extnGenerator/components/Upload/vue-simple-uploader/mixin'
 
 const units = {
   KB: 1024,

@@ -1,5 +1,5 @@
 import { mapGetters } from "vuex"
-import { BillNumber } from '@/api/system/billRule'
+// import { BillNumber } from '@/api/system/billRule'
 const includeList = ['crmOrder', 'salesOrder', 'leaveApply']
 export default {
   computed: {
@@ -45,14 +45,14 @@ export default {
           this.dataForm.flowId = data.flowId
           if (this.selfInit) this.selfInit(data)
           if (!this.billEnCode) return this.$emit('setPageLoad')
-          BillNumber(this.billEnCode).then(res => {
-            if (this.billEnCode === 'OrderNumber') {
-              this.dataForm.orderCode = res.data
-            } else {
-              this.dataForm.billNo = res.data
-            }
-            this.$emit('setPageLoad')
-          })
+          // BillNumber(this.billEnCode).then(res => {
+          //   if (this.billEnCode === 'OrderNumber') {
+          //     this.dataForm.orderCode = res.data
+          //   } else {
+          //     this.dataForm.billNo = res.data
+          //   }
+          //   this.$emit('setPageLoad')
+          // })
         }
       })
     },

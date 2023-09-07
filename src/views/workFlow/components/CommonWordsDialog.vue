@@ -64,7 +64,7 @@ import {
   Create,
   getCommonWordsInfo,
   deleteCommonWords
-} from '@/api/system/commonWords'
+} from '@/api/extn/commonWords'
 export default {
   components: {},
   props: {

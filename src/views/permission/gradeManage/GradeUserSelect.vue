@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { getUserInfoList, getListByAuthorize } from '@/api/permission/user'
+import { getUserInfoList, getListByAuthorize } from '@/api/extn/permission'
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 export default {
   name: 'useSelect',

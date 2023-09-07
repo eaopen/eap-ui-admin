@@ -11,7 +11,7 @@
 <script>
 import { createModel, updateModel, getModelInfo } from '@/api/onlineDev/visualDev'
 import { Candidates } from '@/api/workFlow/FlowBefore'
-import Parser from '@/components/Generator/parser/Parser'
+import Parser from '@/components/extnGenerator/parser/Parser'
 import CandidateForm from '@/views/workFlow/components/CandidateForm'
 import ErrorForm from '@/views/workFlow/components/ErrorForm'
 import { mapGetters } from "vuex";

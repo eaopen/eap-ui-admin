@@ -99,7 +99,7 @@
 
 <script>
 import { CandidateUser } from '@/api/workFlow/FlowBefore'
-import { getUserInfoList } from '@/api/permission/user'
+import { getUserInfoList } from '@/api/extn/permission'
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 export default {
   name: 'CandidateUser',

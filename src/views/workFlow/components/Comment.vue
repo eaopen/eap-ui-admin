@@ -87,8 +87,8 @@
 
 <script>
 import { getCommentList, createComment, delComment } from '@/api/workFlow/FlowEngine'
-import { getDownloadUrl } from '@/api/common'
-import Preview from '@/components/Generator/components/Upload/Preview'
+import { getDownloadUrl } from '@/api/extn/common'
+import Preview from '@/components/extnGenerator/components/Upload/Preview'
 import FileUploader from './FileUploader'
 
 export default {

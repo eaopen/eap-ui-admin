@@ -64,7 +64,7 @@
 <script>
 
 import { Candidates, FreeApprover } from '@/api/workFlow/FlowBefore'
-import SignImgDialog from '@/components/SignImgDialog'
+import SignImgDialog from '@/components/extn/SignImgDialog'
 import CandidateUserSelect from './CandidateUserSelect'
 import { mapGetters } from "vuex"
 export default {

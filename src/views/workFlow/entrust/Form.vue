@@ -54,7 +54,7 @@ import { FlowEngineListAll } from '@/api/workFlow/FlowEngine'
 import FlowSelect from '../components/FlowSelect.vue'
 import { mapGetters } from "vuex";
 import gradeUserSelect from "../../permission/gradeManage/GradeUserSelect"
-import { getListByAuthorize } from '@/api/permission/user'
+import { getListByAuthorize } from '@/api/extn/permission'
 
 export default {
   components: { FlowSelect, gradeUserSelect },

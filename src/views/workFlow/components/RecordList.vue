@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import Preview from '@/components/Generator/components/Upload/Preview'
+import Preview from '@/components/extnGenerator/components/Upload/Preview'
 import FormBox from '../components/FormBox'
 export default {
   components: { Preview, FormBox },

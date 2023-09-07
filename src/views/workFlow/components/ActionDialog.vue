@@ -66,7 +66,7 @@
   </el-dialog>
 </template>
 <script>
-import SignImgDialog from '@/components/SignImgDialog'
+import SignImgDialog from '@/components/extn/SignImgDialog'
 import { mapGetters } from "vuex"
 export default {
   components: { SignImgDialog },

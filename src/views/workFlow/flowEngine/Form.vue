@@ -3,7 +3,7 @@
     :show-close="false" :modal="false" append-to-body>
     <div class="JNPF-full-dialog-header">
       <div class="header-title">
-        <img src="@/assets/images/jnpf.png" class="header-logo" />
+        <img src="@/assets/images/extn/logo.png" class="header-logo" />
         <p class="header-txt"> · 流程设计</p>
       </div>
       <el-steps :active="activeStep" finish-status="success" simple class="steps steps2">
@@ -74,7 +74,7 @@
 
 <script>
 import { FlowEngineInfo, Update, Create, mainVersion } from '@/api/workFlow/FlowEngine'
-import iconBox from '@/components/JNPF-iconBox'
+import iconBox from '@/components/extn/iconBox'
 import Process from "@/components/Process"
 
 export default {
