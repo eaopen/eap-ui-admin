@@ -7,15 +7,15 @@
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />
         <span slot="footer" class="dialog-footer">
-          <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
           <el-button type="primary" @click="dataFormSubmit" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
         </span>
       </el-dialog>
     </template>
     <template v-if="config.popupType==='drawer'">
       <el-drawer :title="config.popupTitle" :visible.sync="visible" :wrapperClosable="false"
-        ref="drawer" :size='config.popupWidth' append-to-body class="OBPM-common-drawer"
+        ref="drawer" :size='config.popupWidth' append-to-body class="JNPF-common-drawer"
         @close="$emit('close')">
         <div class="OBPM-flex-main">
           <div class="dynamicForm">
@@ -23,9 +23,9 @@
               v-if="!loading" />
           </div>
           <div class="drawer-footer">
-            <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+            <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
             <el-button type="primary" @click="dataFormSubmit" :loading="btnLoading">
-              {{$t('common.confirmButton')}}</el-button>
+              {{$t('common.confirmBtn')}}</el-button>
           </div>
         </div>
       </el-drawer>

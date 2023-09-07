@@ -8,7 +8,7 @@
         <p class="header-txt"> · 门户预览</p>
       </div>
       <div class="options">
-        <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <div class="main" style="padding:0" v-loading="loading">

@@ -497,7 +497,7 @@ export default {
       // 提示，针对多图文
       if (articles.length > 1) {
         this.$alert('您选择的是多图文，将默认跳转第一篇', '提示', {
-          confirmButtonText: '确定'
+          confirmBtnText: '确定'
         })
       }
       this.dialogNewsVisible = false

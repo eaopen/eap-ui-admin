@@ -35,8 +35,8 @@
       </el-tab-pane>
     </el-tabs>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="closeDialog">{{$t('common.cancelButton')}}</el-button>
-      <el-button type="primary" @click="choiceIcon()">{{$t('common.confirmButton')}}</el-button>
+      <el-button @click="closeDialog">{{$t('common.cancelBtn')}}</el-button>
+      <el-button type="primary" @click="choiceIcon()">{{$t('common.confirmBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

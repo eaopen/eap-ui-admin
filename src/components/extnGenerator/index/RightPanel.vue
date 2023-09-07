@@ -540,11 +540,11 @@
             <el-divider>表单按钮</el-divider>
             <div class="per-cell">
               <el-checkbox v-model="formConf.hasConfirmBtn" disabled>确定</el-checkbox>
-              <el-input v-model="formConf.confirmButtonText" />
+              <el-input v-model="formConf.confirmBtnText" />
             </div>
             <div class="per-cell">
               <el-checkbox v-model="formConf.hasCancelBtn" disabled>取消</el-checkbox>
-              <el-input v-model="formConf.cancelButtonText" />
+              <el-input v-model="formConf.cancelBtnText" />
             </div>
             <template v-if="webType==2">
               <div class="per-cell" :class="{'last':!formConf.hasPrintBtn}">

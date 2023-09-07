@@ -6,7 +6,7 @@
       <el-button slot="append" icon="el-icon-search" @click="getList"></el-button>
     </el-input>
     <el-tree :data="treeData" :props="props" highlight-current :expand-on-click-node="false"
-      check-on-click-node @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
+      check-on-click-node @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
       v-loading="loading" lazy :load="loadNode">
       <span class="custom-tree-node" slot-scope="{ node, data }">
         <i :class="data.icon"></i>
@@ -14,8 +14,8 @@
       </span>
     </el-tree>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
-      <el-button type="primary" @click="dataFormSubmit()">{{$t('common.confirmButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
+      <el-button type="primary" @click="dataFormSubmit()">{{$t('common.confirmBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

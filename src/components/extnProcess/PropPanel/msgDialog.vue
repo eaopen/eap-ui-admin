@@ -16,9 +16,9 @@
     <el-dialog title="消息发送配置" :close-on-click-modal="false" :visible.sync="visible"
       class="OBPM-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll append-to-body
       width='800px'>
-      <div class="OBPM-common-layout">
-        <div class="OBPM-common-layout-center">
-          <el-row class="OBPM-common-search-box" :gutter="16">
+      <div class="JNPF-common-layout">
+        <div class="JNPF-common-layout-center">
+          <el-row class="JNPF-common-search-box" :gutter="16">
             <el-form @submit.native.prevent>
               <el-col :span="10">
                 <el-form-item label="关键词">
@@ -33,14 +33,14 @@
                 </el-form-item>
               </el-col>
             </el-form>
-            <div class="OBPM-common-search-box-right">
+            <div class="JNPF-common-search-box-right">
               <el-tooltip effect="dark" content="刷新" placement="top">
                 <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                   @click="initData()" />
               </el-tooltip>
             </div>
           </el-row>
-          <div class="OBPM-common-layout-main JNPF-flex-main">
+          <div class="JNPF-common-layout-main JNPF-flex-main">
             <JNPF-table v-loading="listLoading" :data="list" :border="false" highlight-current-row
               @row-click="rowClick" :hasNO="false">
               <el-table-column width="35">
@@ -58,8 +58,8 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="visible = false" size="small">{{$t('common.cancelButton')}}</el-button>
-        <el-button type="primary" @click="select()" size="small">{{$t('common.confirmButton')}}
+        <el-button @click="visible = false" size="small">{{$t('common.cancelBtn')}}</el-button>
+        <el-button type="primary" @click="select()" size="small">{{$t('common.confirmBtn')}}
         </el-button>
       </span>
     </el-dialog>

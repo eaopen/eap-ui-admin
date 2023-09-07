@@ -7,14 +7,14 @@
         <p class="header-txt"> · 代码预览</p>
       </div>
       <div class="options">
-        <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
-    <div class="OBPM-common-layout main" v-loading="loading">
-      <div class="OBPM-common-layout-left">
+    <div class="JNPF-common-layout main" v-loading="loading">
+      <div class="JNPF-common-layout-left">
         <el-tree :data="treeData" :props="defaultProps" default-expand-all highlight-current
           ref="treeBox" :expand-on-click-node="false" @node-click="handleNodeClick"
-          class="OBPM-common-el-tree" node-key="id">
+          class="JNPF-common-el-tree" node-key="id">
           <span class="custom-tree-node" slot-scope="{ node }">
             <el-tooltip :content="node.label" placement="right">
               <span class="text">{{node.label}}</span>
@@ -22,8 +22,8 @@
           </span>
         </el-tree>
       </div>
-      <div class="OBPM-common-layout-center">
-        <div class="OBPM-common-layout-main">
+      <div class="JNPF-common-layout-center">
+        <div class="JNPF-common-layout-main">
           <JNPFCodeEditor v-model="currentContent" :options="options" ref="CodeEditor" />
         </div>
       </div>

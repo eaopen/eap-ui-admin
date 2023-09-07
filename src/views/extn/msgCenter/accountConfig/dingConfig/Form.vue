@@ -35,10 +35,10 @@
     <span slot="footer" class="dialog-footer">
       <!-- <el-button type="primary" :loading="testBtnLoading" :disabled="btnLoading"
         @click="sendTest()">测试</el-button> -->
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
       <el-button type="primary" :loading="btnLoading" :disabled="testBtnLoading"
         @click="dataFormSubmit()">
-        {{$t('common.confirmButton')}}</el-button>
+        {{$t('common.confirmBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

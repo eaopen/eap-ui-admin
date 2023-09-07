@@ -4,7 +4,7 @@
       <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" :content="table+'表的数据'" />
         <div class="options">
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <el-row class="JNPF-common-search-box" :gutter="16">

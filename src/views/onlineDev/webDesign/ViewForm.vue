@@ -21,7 +21,7 @@
         </el-button>
         <el-button type="primary" @click="dataFormSubmit()" :disabled="loading"
           :loading="btnLoading">{{$t('common.saveButton')}}</el-button>
-        <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <div class="main" v-loading="loading">

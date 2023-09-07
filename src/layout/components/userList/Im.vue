@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="historyBox" v-if="showHistory">
-        <el-input v-model="keyword" placeholder="搜索：请输入关键词" class="OBPM-common-head-input" clearable
+        <el-input v-model="keyword" placeholder="搜索：请输入关键词" class="JNPF-common-head-input" clearable
           @change="searchHistory">
           <i slot="suffix" class="el-input__icon el-icon-search" @click="searchHistory()" />
         </el-input>

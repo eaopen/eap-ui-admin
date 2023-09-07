@@ -1,7 +1,7 @@
 <template>
-  <div class="OBPM-common-layout">
-    <div class="OBPM-common-layout-center">
-      <el-row class="OBPM-common-search-box" :gutter="16">
+  <div class="JNPF-common-layout">
+    <div class="JNPF-common-layout-center">
+      <el-row class="JNPF-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -19,10 +19,10 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="OBPM-common-layout-main JNPF-flex-main">
-        <div class="OBPM-common-head">
+      <div class="JNPF-common-layout-main JNPF-flex-main">
+        <div class="JNPF-common-head">
           <topOpts @add="addOrUpdateHandle()"></topOpts>
-          <div class="OBPM-common-head-right">
+          <div class="JNPF-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
               <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                 @click="getDictionaryList()" />

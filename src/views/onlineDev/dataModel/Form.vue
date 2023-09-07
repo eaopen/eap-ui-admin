@@ -5,8 +5,8 @@
         <el-page-header @back="goBack" :content="!dataForm.table ? '新建表名' : '编辑表名'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <div class="main">

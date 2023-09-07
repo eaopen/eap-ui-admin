@@ -30,7 +30,7 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button type="danger" @click="handleDel()" v-if="type==1">删 除</el-button>
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
     </span>
     <el-dialog title="删除确认" :close-on-click-modal="false" :visible.sync="delVisible"
       class="OBPM-dialog JNPF-dialog_center dialog-form" lock-scroll width="380px" append-to-body>
@@ -41,9 +41,9 @@
         </div>
       </template>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="delVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="delVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleDel()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </el-dialog>

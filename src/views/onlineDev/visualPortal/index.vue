@@ -73,7 +73,7 @@
             v-hasPermi="['system:dict:delete']">预览</el-button>
           <el-dropdown>
             <span class="el-dropdown-link">
-              <el-button type="text" size="mini">{{ $t('common.moreButton') }}<i
+              <el-button type="text" size="mini">{{ $t('common.moreBtn') }}<i
                   class="el-icon-arrow-down el-icon--right"></i>
               </el-button>
             </span>

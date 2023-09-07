@@ -48,7 +48,7 @@
               <el-tab-pane label="组织" name="organize">
                 <el-tree :data="treeData2" :props="props" ref="tree2" default-expand-all
                   :filter-node-method="filterNode" :expand-on-click-node="false" check-on-click-node
-                  @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="onlyId"
+                  @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="onlyId"
                   v-loading="loading">
                   <span class="custom-tree-node" slot-scope="{ node,data }">
                     <i :class="data.icon" />
@@ -59,7 +59,7 @@
               <el-tab-pane label="全局" name="all">
                 <el-tree :data="treeData" :props="props" ref="tree1" default-expand-all
                   :filter-node-method="filterNode" :expand-on-click-node="false" check-on-click-node
-                  @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="onlyId"
+                  @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="onlyId"
                   v-loading="loading">
                   <span class="custom-tree-node" slot-scope="{ node,data }">
                     <i :class="data.icon" />
@@ -86,8 +86,8 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="setDefault(),visible=false">{{$t('common.cancelButton')}}</el-button>
-        <el-button type="primary" @click="confirm">{{$t('common.confirmButton')}}</el-button>
+        <el-button @click="setDefault(),visible=false">{{$t('common.cancelBtn')}}</el-button>
+        <el-button type="primary" @click="confirm">{{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </div>

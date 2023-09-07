@@ -1,12 +1,12 @@
 
-.OBPM-common-head {
+.JNPF-common-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 10px;
   flex-shrink: 0;
 
-  .OBPM-common-head-right {
+  .JNPF-common-head-right {
     flex-shrink: 0;
     font-size: 0;
 
@@ -14,24 +14,24 @@
       margin-left: 12px;
     }
 
-    .OBPM-common-head-icon {
+    .JNPF-common-head-icon {
       color: #606266;
     }
   }
 }
 
-.OBPM-common-el-tree {
+.JNPF-common-el-tree {
   margin: 10px 0;
 }
 
-.OBPM-common-layout {
+.JNPF-common-layout {
   height: 100%;
   width: 100%;
   display: flex;
   position: relative;
   background: #EBEEF5;
 
-  .OBPM-common-layout-left {
+  .JNPF-common-layout-left {
     width: 220px;
     background-color: #fff;
     flex-shrink: 0;
@@ -40,16 +40,16 @@
     flex-direction: column;
     margin-right: 10px;
 
-    .OBPM-common-title {
+    .JNPF-common-title {
       flex-shrink: 0;
       padding: 0 10px;
     }
 
-    .OBPM-common-tree-search-box {
+    .JNPF-common-tree-search-box {
       padding: 10px 10px 0;
     }
 
-    .OBPM-common-el-tree-scrollbar {
+    .JNPF-common-el-tree-scrollbar {
       flex: 1;
 
       .el-scrollbar__wrap {
@@ -61,7 +61,7 @@
       width: calc(100% - 30px) !important;
     }
 
-    .OBPM-common-el-tree {
+    .JNPF-common-el-tree {
       flex: 1;
       overflow: auto;
       overflow-x: hidden;
@@ -78,14 +78,14 @@
   }
 }
 
-.OBPM-common-layout-center {
+.JNPF-common-layout-center {
   flex: 1;
   height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 
-  .OBPM-common-layout-main {
+  .JNPF-common-layout-main {
     flex: 1;
     padding: 0 0 10px;
     background-color: #fff;
@@ -98,7 +98,7 @@
   }
 }
 
-.OBPM-common-search-box {
+.JNPF-common-search-box {
   background: #fff;
   flex-shrink: 0;
   margin-bottom: 10px;
@@ -129,7 +129,7 @@
     }
   }
 
-  .OBPM-common-search-box-right {
+  .JNPF-common-search-box-right {
     position: absolute;
     right: 10px;
     top: 15px;
@@ -440,7 +440,7 @@
             padding: 10px;
             overflow: auto;
 
-            .OBPM-common-el-tree {
+            .JNPF-common-el-tree {
               margin: 0;
             }
           }
@@ -456,14 +456,14 @@
         flex-direction: column;
         overflow: hidden;
 
-        .OBPM-common-layout-left {
+        .JNPF-common-layout-left {
           margin-right: 1px;
         }
 
-        .OBPM-common-search-box {
+        .JNPF-common-search-box {
           margin-bottom: 0;
 
-          .OBPM-common-search-box-right {
+          .JNPF-common-search-box-right {
             padding: 6px 10px 0 0;
           }
         }
@@ -715,7 +715,7 @@
   }
 }
 
-.OBPM-common-title {
+.JNPF-common-title {
   border-bottom: 1px solid #ebeef5;
   display: flex;
   justify-content: space-between;
@@ -751,7 +751,7 @@
   }
 }
 
-.OBPM-dialog-add {
+.JNPF-dialog-add {
   .el-dialog__body {
     padding: 20px !important;
   }
@@ -909,7 +909,7 @@
   margin: 0 10px
 }
 
-.OBPM-common-page-header {
+.JNPF-common-page-header {
   padding: 14px 10px;
   display: flex;
   justify-content: flex-start;
@@ -945,7 +945,7 @@
   }
 }
 
-.OBPM-preview-main {
+.JNPF-preview-main {
   position: absolute;
   background-color: #fff;
   left: 0;
@@ -977,7 +977,7 @@
     flex: 1;
   }
 
-  .OBPM-common-search-box {
+  .JNPF-common-search-box {
     margin-bottom: 0;
   }
 
@@ -1648,7 +1648,7 @@
   text-align: center;
 }
 
-.OBPM-common-drawer {
+.JNPF-common-drawer {
   .el-drawer__header {
     height: 60px;
     border-bottom: 1px solid #dcdfe6;
@@ -1681,10 +1681,10 @@
     }
   }
 
-  .OBPM-common-search-box {
+  .JNPF-common-search-box {
     margin-bottom: 0;
 
-    .OBPM-common-search-box-right {
+    .JNPF-common-search-box-right {
       padding: 6px 10px 0 0;
     }
   }
@@ -2163,7 +2163,7 @@ textarea.el-textarea__inner {
     border-right: none !important;
   }
 
-  .OBPM-common-title {
+  .JNPF-common-title {
     border-bottom: 1px solid #dcdfe6 !important;
   }
 }

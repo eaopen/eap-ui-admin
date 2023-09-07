@@ -1,12 +1,12 @@
 <template>
   <transition name="el-zoom-in-center">
     <div class="OBPM-preview-main flow-form-main">
-      <div class="OBPM-common-page-header">
+      <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" :content="!dataForm.id ? '新建消息模板' : '编辑消息模板'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <el-row class="main" v-loading="loading">
@@ -222,10 +222,10 @@
           </jnpf-form-tip-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible=false">{{$t('common.cancelButton')}}
+          <el-button @click="dialogVisible=false">{{$t('common.cancelBtn')}}
           </el-button>
           <el-button type="primary" @click="addParameter()">
-            {{$t('common.confirmButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
         </span>
       </el-dialog>
     </div>

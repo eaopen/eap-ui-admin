@@ -7,7 +7,7 @@
         </el-button>
       </el-input>
     </div>
-    <div class="OBPM-common-layout" v-show="formPassUse==0">
+    <div class="JNPF-common-layout" v-show="formPassUse==0">
       <div class="main">
         <div class="form-top">
           <p>{{config.fullName}}</p>
@@ -27,7 +27,7 @@
           </div>
           <div slot="footer" class="dialog-footer">
             <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-              {{formConf.confirmButtonText||'确 定'}}</el-button>
+              {{formConf.confirmBtnText||'确 定'}}</el-button>
             <el-button type="warning" @click="resetForm()">重置</el-button>
           </div>
         </div>

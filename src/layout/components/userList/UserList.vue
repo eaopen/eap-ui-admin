@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-drawer title="内部聊天" :visible.sync="drawer" direction="rtl"
-      class="contacts-drawer OBPM-common-drawer" size="280px" :modal="true" :wrapperClosable="false"
+      class="contacts-drawer JNPF-common-drawer" size="280px" :modal="true" :wrapperClosable="false"
       :before-close="handleClose" ref="drawer">
       <el-tabs v-model="activeTab">
         <el-tab-pane label="消息" name="reply">

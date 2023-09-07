@@ -48,7 +48,7 @@
               :class="{'hasSys-tab':hasSys}" v-if="selectType==='all'">
               <el-tab-pane label="全部数据" name="all">
                 <el-tree :data="treeData" :props="props" check-on-click-node
-                  @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
+                  @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
                   v-loading="loading" lazy :load="loadNode" v-if="!isAsync"
                   :default-expanded-keys="defaultExpandedKeys">
                   <span class="custom-tree-node" slot-scope="{ node, data }">
@@ -115,7 +115,7 @@
               </el-tab-pane>
               <el-tab-pane label="系统变量" name="system">
                 <el-tree :data="treeData4" :props="props" :expand-on-click-node="false"
-                  check-on-click-node @node-click="handleNodeClick2" class="OBPM-common-el-tree"
+                  check-on-click-node @node-click="handleNodeClick2" class="JNPF-common-el-tree"
                   node-key="id" v-loading="loading">
                   <span class="custom-tree-node" slot-scope="{ node }">
                     <i class="icon-ym icon-ym-tree-user2"></i>
@@ -171,8 +171,8 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="setDefault(),visible=false">{{$t('common.cancelButton')}}</el-button>
-        <el-button type="primary" @click="confirm">{{$t('common.confirmButton')}}</el-button>
+        <el-button @click="setDefault(),visible=false">{{$t('common.cancelBtn')}}</el-button>
+        <el-button type="primary" @click="confirm">{{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </div>

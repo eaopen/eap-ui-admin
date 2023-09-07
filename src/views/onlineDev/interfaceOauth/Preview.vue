@@ -3,7 +3,7 @@
     <div class="JNPF-common-page-header">
       <el-page-header @back="goBack()" :content="dataForm.appName" />
       <div class="options">
-        <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <el-row class="main">

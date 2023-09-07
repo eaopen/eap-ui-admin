@@ -1,9 +1,9 @@
 <template>
   <div class="OBPM-preview-main">
-    <div class="OBPM-common-page-header">
+    <div class="JNPF-common-page-header">
       <el-page-header @back="goBack" :content="'接口预览 - '+title" />
       <div class="options">
-        <el-button @click="goBack">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="goBack">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <el-form ref="dataForm" class="main" label-position="top" v-loading="formLoading">

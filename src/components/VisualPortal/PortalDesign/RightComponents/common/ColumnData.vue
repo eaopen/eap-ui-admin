@@ -90,8 +90,8 @@
       <el-button type="text" icon="el-icon-plus">添加</el-button>
     </div>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
-      <el-button type="primary" @click="closeDialog()">{{$t('common.confirmButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
+      <el-button type="primary" @click="closeDialog()">{{$t('common.confirmBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

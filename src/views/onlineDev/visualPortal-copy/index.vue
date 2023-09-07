@@ -1,7 +1,7 @@
 <template>
-  <div class="OBPM-common-layout">
-    <div class="OBPM-common-layout-center">
-      <el-row class="OBPM-common-search-box" :gutter="16">
+  <div class="JNPF-common-layout">
+    <div class="JNPF-common-layout-center">
+      <el-row class="JNPF-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -28,15 +28,15 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="OBPM-common-layout-main OBPM-flex-main">
-        <div class="OBPM-common-head">
+      <div class="JNPF-common-layout-main OBPM-flex-main">
+        <div class="JNPF-common-head">
           <topOpts @add="addOrUpdateHandle(1)" addText="新建门户">
           <upload-btn url="/api/visualdev/Portal/Model/Actions/ImportData"
               @on-success="initData" />
           </topOpts>
-          <div class="OBPM-common-head-right">
+          <div class="JNPF-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
-              <el-link icon="icon-ym icon-ym-Refresh OBPM-common-head-icon" :underline="false"
+              <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                 @click="initData()" />
             </el-tooltip>
           </div>
@@ -63,7 +63,7 @@
                 @del="handleDel(scope.row.id)">
                 <el-dropdown>
                   <span class="el-dropdown-link">
-                    <el-button type="text" size="mini">{{$t('common.moreButton')}}<i
+                    <el-button type="text" size="mini">{{$t('common.moreBtn')}}<i
                         class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                   </span>

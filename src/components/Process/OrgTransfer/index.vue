@@ -9,8 +9,8 @@
     <JNPFTransfer :loading="loading" :treeData="treeData" v-model="selectedData" :type="type"
       ref="JNPFTransfer" multiple v-else />
     <span slot="footer" class="dialog-footer">
-      <el-button @click="closeTransfer">{{$t('common.cancelButton')}}</el-button>
-      <el-button type="primary" @click="confirm">{{$t('common.confirmButton')}}</el-button>
+      <el-button @click="closeTransfer">{{$t('common.cancelBtn')}}</el-button>
+      <el-button type="primary" @click="confirm">{{$t('common.confirmBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

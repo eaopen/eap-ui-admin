@@ -287,8 +287,8 @@ export default {
       let tenant = false;
       if (this.tenantEnable) {
         await this.$prompt('请输入租户名称', "提示", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消"
+          confirmBtnText: "确定",
+          cancelBtnText: "取消"
         }).then(async ({value}) => {
           await getTenantIdByName(value).then(res => {
             const tenantId = res.data;

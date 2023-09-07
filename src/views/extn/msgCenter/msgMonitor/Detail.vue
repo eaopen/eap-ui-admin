@@ -28,7 +28,7 @@
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false" size="small">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false" size="small">{{$t('common.cancelBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

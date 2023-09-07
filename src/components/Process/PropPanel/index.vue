@@ -1,6 +1,6 @@
 
 <template>
-  <el-drawer :size="value && isConditionNode() ?'750px':'600px'" class="drawer OBPM-common-drawer"
+  <el-drawer :size="value && isConditionNode() ?'750px':'600px'" class="drawer JNPF-common-drawer"
     :visible.sync="visible" @close="cancel" v-if="properties" append-to-body
     :wrapperClosable="false">
     <!-- 标题 -->
@@ -576,7 +576,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限">
           <div class="form-auth-table">
-            <el-table :data="getFormOperates()" class="OBPM-common-table" size="mini" height="100%">
+            <el-table :data="getFormOperates()" class="JNPF-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column prop="write" label="操作" align="center" width="250">
                 <template slot-scope="scope">
@@ -1602,7 +1602,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限" name="formAuth">
           <div class="form-auth-table">
-            <el-table :data="getFormOperates()" class="OBPM-common-table" size="mini" height="100%">
+            <el-table :data="getFormOperates()" class="JNPF-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column prop="write" label="操作" align="center" width="250">
                 <template slot-scope="scope">

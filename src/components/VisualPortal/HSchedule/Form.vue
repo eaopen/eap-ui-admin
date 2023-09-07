@@ -108,9 +108,9 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button type="danger" @click="handleDel()" v-if="dataForm.id">删 除</el-button>
-        <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
     <el-dialog title="删除确认" :close-on-click-modal="false" :visible.sync="delVisible"
@@ -122,9 +122,9 @@
         </div>
       </template>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="delVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="delVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleDel()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
     <el-dialog title="编辑确认" :close-on-click-modal="false" :visible.sync="updateVisible"
@@ -136,9 +136,9 @@
         </div>
       </template>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="updateVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="updateVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="dataFormSubmit(1)" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </div>

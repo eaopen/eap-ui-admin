@@ -7,7 +7,7 @@
         </el-button>
       </el-input>
     </div>
-    <div class="OBPM-common-layout" v-show="columnPassUse==0">
+    <div class="JNPF-common-layout" v-show="columnPassUse==0">
       <div class="main">
         <div class="form-top">
           <p>{{config.fullName}}</p>
@@ -20,13 +20,13 @@
           <div slot="reference" class="form-use-icon float-left ym-custom ym-custom-qrcode "
             @mouseover="getQRimg"></div>
         </el-popover>
-        <div class="OBPM-common-layout-center">
+        <div class="JNPF-common-layout-center">
           <Search ref="Search" :list="searchList" @reset="reset" @search="searchData"
             :initDataJson="listQuery.queryJson" />
-          <div class="OBPM-common-layout-main JNPF-flex-main">
-            <div class="OBPM-common-head">
+          <div class="JNPF-common-layout-main JNPF-flex-main">
+            <div class="JNPF-common-head">
               <div></div>
-              <div class="OBPM-common-head-right">
+              <div class="JNPF-common-head-right">
                 <el-tooltip effect="dark" content="刷新" placement="top">
                   <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                     @click="reset()" />

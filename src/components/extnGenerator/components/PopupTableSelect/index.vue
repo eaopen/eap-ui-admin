@@ -75,9 +75,9 @@
         <pagination :total="total" :page.sync="listQuery.currentPage" :pager-count="5"
           :limit.sync="listQuery.pageSize" @pagination="initData" v-if="hasPage" class="mb-10" />
         <div class="fr">
-          <el-button @click="closePopover" size="small">{{$t('common.cancelButton')}}
+          <el-button @click="closePopover" size="small">{{$t('common.cancelBtn')}}
           </el-button>
-          <el-button type="primary" @click="confirm()" size="small">{{$t('common.confirmButton')}}
+          <el-button type="primary" @click="confirm()" size="small">{{$t('common.confirmBtn')}}
           </el-button>
         </div>
       </template>

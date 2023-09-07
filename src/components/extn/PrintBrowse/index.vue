@@ -10,7 +10,7 @@
       <div class="options">
         <el-button type="primary" size="small" @click="word">下 载</el-button>
         <el-button type="primary" size="small" @click="print">打 印</el-button>
-        <el-button @click="closeDialog()">{{ $t("common.cancelButton") }}</el-button>
+        <el-button @click="closeDialog()">{{ $t("common.cancelBtn") }}</el-button>
       </div>
     </div>
     <div v-if="showContainer">

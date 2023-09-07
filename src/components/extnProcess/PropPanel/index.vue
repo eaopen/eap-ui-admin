@@ -582,7 +582,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限">
           <div class="form-auth-table">
-            <el-table :data="formOperatesList" class="OBPM-common-table" size="mini" height="100%">
+            <el-table :data="formOperatesList" class="JNPF-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column width="80">
                 <template slot="header" slot-scope="scope">
@@ -1633,7 +1633,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单权限" name="formAuth">
           <div class="form-auth-table">
-            <el-table :data="formOperatesList" class="OBPM-common-table" size="mini" height="100%">
+            <el-table :data="formOperatesList" class="JNPF-common-table" size="mini" height="100%">
               <el-table-column prop="name" label="表单字段" align="left"></el-table-column>
               <el-table-column width="80">
                 <template slot="header" slot-scope="scope">

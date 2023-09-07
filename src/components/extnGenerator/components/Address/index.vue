@@ -42,7 +42,7 @@
           </div>
           <div class="transfer-pane__body">
             <el-tree :data="treeData" :props="props" check-on-click-node
-              @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
+              @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
               v-loading="loading" lazy :load="loadNode">
               <span class="custom-tree-node" slot-scope="{ node, data }">
                 <i :class="data.icon"></i>
@@ -67,8 +67,8 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="visible=false">{{$t('common.cancelButton')}}</el-button>
-        <el-button type="primary" @click="confirm">{{$t('common.confirmButton')}}</el-button>
+        <el-button @click="visible=false">{{$t('common.cancelBtn')}}</el-button>
+        <el-button type="primary" @click="confirm">{{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </div>

@@ -57,8 +57,8 @@ export default {
         return
       }
       this.$confirm('删除后不能撤销，确定要删除吗?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        confirmBtnText: '确定',
+        cancelBtnText: '取消',
         type: 'warning'
       }).then(() => {
         this.activeData.__config__.children.splice(index, 1)

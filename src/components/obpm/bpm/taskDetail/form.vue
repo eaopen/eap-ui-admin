@@ -2,7 +2,7 @@
      <div>
         <div class="ibox-title" style="padding: 10px 15px;border: none">
             <button class="btn btn-primary fa-save" v-on:click="saveData" :disabled="btnLoading">提交</button>
-            <button v-if="showCancelButton" class="btn btn-primary fa-reply" @click="closeDialog">关闭</button>
+            <button v-if="showcancelBtn" class="btn btn-primary fa-reply" @click="closeDialog">关闭</button>
         </div>
         <div v-if="loaded">
             <ab-custom-form style="padding: 0 15px"></ab-custom-form>
@@ -20,7 +20,7 @@ export default {
         loaded: false,
         btnLoading: false,
         isDefaultUrl: true,//是否是默认的请求地址,
-        showCancelButton: true
+        showcancelBtn: true
     }
   },
   methods: {

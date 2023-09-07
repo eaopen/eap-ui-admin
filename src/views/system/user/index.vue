@@ -496,8 +496,8 @@ export default {
     /** 重置密码按钮操作 */
     handleResetPwd(row) {
       this.$prompt('请输入"' + row.username + '"的新密码', "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消"
+        confirmBtnText: "确定",
+        cancelBtnText: "取消"
       }).then(({ value }) => {
           resetUserPwd(row.id, value).then(response => {
             this.$modal.msgSuccess("修改成功，新密码是：" + value);

@@ -372,8 +372,8 @@ export default {
           } else {
 
           }
-
-          obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
+          console.log(obj)
+          // obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
           obj.valueFormatter = (params) => {
             if (!params.value) {
               return ''

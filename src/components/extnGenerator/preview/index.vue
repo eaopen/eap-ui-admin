@@ -4,8 +4,8 @@
     class="OBPM-dialog JNPF-dialog_center" title="预览" :width="formConf.generalWidth">
     <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm" />
     <div slot="footer">
-      <el-button @click="close">{{formConf.cancelButtonText||'取 消'}}</el-button>
-      <el-button type="primary" @click="handelConfirm">{{formConf.confirmButtonText||'确 定'}}
+      <el-button @click="close">{{formConf.cancelBtnText||'取 消'}}</el-button>
+      <el-button type="primary" @click="handelConfirm">{{formConf.confirmBtnText||'确 定'}}
       </el-button>
     </div>
   </el-dialog>

@@ -18,7 +18,7 @@
       </el-table-column>
     </el-table>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible=false">{{$t('common.cancelButton')}}
+      <el-button @click="visible=false">{{$t('common.cancelBtn')}}
       </el-button>
     </span>
   </el-dialog>

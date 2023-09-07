@@ -14,7 +14,7 @@ export default {
         loaded: false,
         btnLoading: false,
         isDefaultUrl: true,//是否是默认的请求地址,
-        showCancelButton: true
+        showcancelBtn: true
     }
   },
   methods: {

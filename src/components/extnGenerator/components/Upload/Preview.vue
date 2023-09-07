@@ -14,7 +14,7 @@
         <div class="options">
           <el-form>
             <el-button v-if="showDownload" type="primary" @click="handleDownload">下载</el-button>
-            <el-button @click="goBack()" :disabled="false">{{$t('common.cancelButton')}}</el-button>
+            <el-button @click="goBack()" :disabled="false">{{$t('common.cancelBtn')}}</el-button>
           </el-form>
         </div>
       </div>

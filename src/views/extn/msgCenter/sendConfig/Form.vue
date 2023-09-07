@@ -1,12 +1,12 @@
 <template>
   <transition name="el-zoom-in-center">
     <div class="OBPM-preview-main flow-form-main">
-      <div class="OBPM-common-page-header">
+      <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" :content="!dataForm.id ? '新建发送配置' : '编辑发送配置'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <el-row class="main" v-loading="loading">
@@ -80,7 +80,7 @@
                         @del="handleDel(scope.$index)">
                         <el-dropdown>
                           <el-button type="text" size="mini">
-                            {{$t('common.moreButton')}}<i class="el-icon-arrow-down el-icon--right" />
+                            {{$t('common.moreBtn')}}<i class="el-icon-arrow-down el-icon--right" />
                           </el-button>
                           <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item @click.native="handleView(scope.row.templateId)">查看模板

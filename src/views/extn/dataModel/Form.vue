@@ -1,12 +1,12 @@
 <template>
   <transition name="el-zoom-in-center">
     <div class="OBPM-preview-main">
-      <div class="OBPM-common-page-header">
+      <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" :content="!dataForm.table ? '新建表名' : '编辑表名'" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <div class="main">
@@ -19,7 +19,7 @@
             <el-input v-model="dataForm.tableName" placeholder="表说明"></el-input>
           </el-form-item>
         </el-form>
-        <div class="OBPM-common-title" style="padding:0 10px;">
+        <div class="JNPF-common-title" style="padding:0 10px;">
           <h2>字段设置</h2>
           <div class="options">
             <el-dropdown :disabled="!fieldList.length">

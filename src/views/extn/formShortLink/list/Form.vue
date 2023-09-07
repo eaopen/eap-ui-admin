@@ -12,16 +12,16 @@
               {{formConf.printButtonText||'打 印'}}
             </el-button>
           </template>
-          <el-button @click="visible = false">{{formConf.cancelButtonText||'取 消'}}</el-button>
+          <el-button @click="visible = false">{{formConf.cancelBtnText||'取 消'}}</el-button>
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{formConf.confirmButtonText||'确 定'}}</el-button>
+            {{formConf.confirmBtnText||'确 定'}}</el-button>
         </span>
       </el-dialog>
     </template>
     <template v-if="formConf.popupType==='fullScreen'">
       <transition name="el-zoom-in-center">
         <div class="OBPM-preview-main">
-          <div class="OBPM-common-page-header">
+          <div class="JNPF-common-page-header">
             <el-page-header @back="goBack" :content="!dataForm.id ? '新建' : '编辑'" />
             <div class="options">
               <template v-if="formConf.hasPrintBtn && formConf.printId && dataForm.id && false">
@@ -30,8 +30,8 @@
                 </el-button>
               </template>
               <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-                {{formConf.confirmButtonText||'确 定'}}</el-button>
-              <el-button @click="goBack">{{formConf.cancelButtonText||'取 消'}}</el-button>
+                {{formConf.confirmBtnText||'确 定'}}</el-button>
+              <el-button @click="goBack">{{formConf.cancelBtnText||'取 消'}}</el-button>
             </div>
           </div>
           <div class="dynamic-form-main" v-if="!loading"
@@ -44,7 +44,7 @@
     <template v-if="formConf.popupType==='drawer'">
       <el-drawer :title="!dataForm.id ? '新建' : '编辑'" :visible.sync="visible"
         :wrapperClosable="false" :size='formConf.drawerWidth' append-to-body
-        class="OBPM-common-drawer">
+        class="JNPF-common-drawer">
         <div class="OBPM-flex-main">
           <div class="dynamicForm">
             <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
@@ -56,9 +56,9 @@
                 {{formConf.printButtonText||'打 印'}}
               </el-button>
             </template>
-            <el-button @click="visible = false">{{formConf.cancelButtonText||'取 消'}}</el-button>
+            <el-button @click="visible = false">{{formConf.cancelBtnText||'取 消'}}</el-button>
             <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-              {{formConf.confirmButtonText||'确 定'}}</el-button>
+              {{formConf.confirmBtnText||'确 定'}}</el-button>
           </div>
         </div>
       </el-drawer>

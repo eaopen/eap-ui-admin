@@ -1,6 +1,6 @@
 <template>
   <div class="OBPM-preview-main flow-form-main">
-    <div class="OBPM-common-page-header">
+    <div class="JNPF-common-page-header">
       <el-page-header @back="goBack" content="" />
       <el-steps :active="active" finish-status="success" simple class="steps" :key="key">
         <el-step v-for="item in stepList" :key="item" :title="item"></el-step>
@@ -10,8 +10,8 @@
         <el-button :disabled="active >= stepList.length-1"
           @click="handleNextStep">{{$t('common.next')}}</el-button>
         <el-button type="primary" :loading="btnLoading" :disabled="active < stepList.length-1"
-          @click="dataFormSubmit()">{{$t('common.confirmButton')}}</el-button>
-        <el-button @click="goBack">{{$t('common.cancelButton')}}</el-button>
+          @click="dataFormSubmit()">{{$t('common.confirmBtn')}}</el-button>
+        <el-button @click="goBack">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <!-- 基本信息 -->

@@ -15,8 +15,8 @@
         <el-button @click="next" :disabled="activeStep>=1 || loading">{{$t('common.next')}}
         </el-button>
         <el-button type="primary" @click="dataFormSubmit()" :disabled="activeStep!=1"
-          :loading="btnLoading">{{$t('common.confirmButton')}}</el-button>
-        <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
+          :loading="btnLoading">{{$t('common.confirmBtn')}}</el-button>
+        <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <div class="main" v-loading="loading">

@@ -180,7 +180,7 @@
           <div class="noData-txt" v-else>暂无数据</div>
         </el-popover>
       </div>
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
       <el-button type="primary" :loading="btnLoading" @click="query()">查 询</el-button>
     </span>
     <el-dialog title="保存方案" :visible.sync="addPlanVisible" width="600px" append-to-body lock-scroll
@@ -191,9 +191,9 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="addPlanVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="addPlanVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" :loading="saveBtnLoading" @click="savePlan()">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </el-dialog>

@@ -1,7 +1,7 @@
 <template>
-  <div class="OBPM-common-layout">
-    <div class="OBPM-common-layout-center">
-      <el-row class="OBPM-common-search-box" :gutter="16">
+  <div class="JNPF-common-layout">
+    <div class="JNPF-common-layout-center">
+      <el-row class="JNPF-common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="关键词">
@@ -30,15 +30,15 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="OBPM-common-layout-main JNPF-flex-main">
-        <div class="OBPM-common-head">
+      <div class="JNPF-common-layout-main JNPF-flex-main">
+        <div class="JNPF-common-head">
           <topOpts @add="addOrUpdateHandle()" addText="新建表名">
             <upload-btn :url="'/api/system/DataModel/'+dataBase+'/Action/Import'"
               @on-success="getTableData" accept=".bdb" />
             <el-button type="text" icon="el-icon-menu" @click="handleFieldsManage()">常用字段
             </el-button>
           </topOpts>
-          <div class="OBPM-common-head-right">
+          <div class="JNPF-common-head-right">
             <el-tooltip effect="dark" :content="$t('common.refresh')" placement="top">
               <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                 @click="getTableData()" />
@@ -74,7 +74,7 @@
                 <el-dropdown hide-on-click>
                   <span class="el-dropdown-link">
                     <el-button size="mini" type="text">
-                      {{$t('common.moreButton')}}<i class="el-icon-arrow-down el-icon--right"></i>
+                      {{$t('common.moreBtn')}}<i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                   </span>
                   <el-dropdown-menu slot="dropdown">

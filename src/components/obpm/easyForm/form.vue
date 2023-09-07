@@ -4,6 +4,8 @@
     </div>
 </template>
 <script>
+
+import("../../../assets/styles/bootstrap.css")
 import Vue from "vue"
 import { filterHtml } from '@/utils/easyForm'
 export default {
@@ -14,7 +16,7 @@ export default {
         loaded: false,
         btnLoading: false,
         isDefaultUrl: true,//是否是默认的请求地址,
-        showCancelButton: true
+        showcancelBtn: true
     }
   },
   methods: {
@@ -157,4 +159,5 @@ export default {
   },
 }
 </script>
+
 

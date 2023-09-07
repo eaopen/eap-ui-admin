@@ -3,7 +3,7 @@
     <div class="main-board">
       <div class="search-box">
         <h4 class="cap">查询字段</h4>
-        <el-table :data="columnData.searchList" class="OBPM-common-table" ref="dragTableSearch"
+        <el-table :data="columnData.searchList" class="JNPF-common-table" ref="dragTableSearch"
           :row-key="row=>row.prop">
           <el-table-column align="center" label="拖动" width="50">
             <template>
@@ -41,7 +41,7 @@
       <el-divider></el-divider>
       <div class="sort-box">
         <h4 class="cap">排序字段</h4>
-        <el-table :data="columnData.sortList" class="OBPM-common-table" ref="dragTableSort"
+        <el-table :data="columnData.sortList" class="JNPF-common-table" ref="dragTableSort"
           :row-key="row=>row.prop">
           <el-table-column align="center" label="拖动" width="50">
             <template>
@@ -61,7 +61,7 @@
       <el-divider></el-divider>
       <div class="column-box">
         <h4 class="cap">列表字段</h4>
-        <el-table :data="columnData.columnList" class="OBPM-common-table" ref="dragTable"
+        <el-table :data="columnData.columnList" class="JNPF-common-table" ref="dragTable"
           :row-key="row=>row.prop">
           <el-table-column align="center" label="拖动" width="50">
             <template>
@@ -88,7 +88,7 @@
       </el-tabs>
       <div class="field-box">
         <div class="columnList" v-if="currentTab==='sort'">
-          <el-table :data="sortOptions" class="OBPM-common-table" height="100%"
+          <el-table :data="sortOptions" class="JNPF-common-table" height="100%"
             @selection-change="sortSelectionChange" ref="sortTable">
             <el-table-column prop="label" label="排序字段" v-if="webType!=4" />
             <el-table-column prop="prop" label="排序字段" v-else />
@@ -96,7 +96,7 @@
           </el-table>
         </div>
         <div class="columnList" v-if="currentTab==='search'">
-          <el-table :data="searchOptions" class="OBPM-common-table" height="100%"
+          <el-table :data="searchOptions" class="JNPF-common-table" height="100%"
             @selection-change="searchSelectionChange" ref="searchTable">
             <el-table-column prop="label" label="查询字段" v-if="webType!=4" />
             <el-table-column prop="prop" label="查询字段" v-else />
@@ -104,7 +104,7 @@
           </el-table>
         </div>
         <div class="columnList" v-if="currentTab==='column'">
-          <el-table :data="columnOptions" class="OBPM-common-table" height="100%"
+          <el-table :data="columnOptions" class="JNPF-common-table" height="100%"
             @selection-change="columnSelectionChange" ref="columnTable">
             <el-table-column prop="label" label="列表字段" v-if="webType!=4" />
             <el-table-column prop="prop" label="列表字段" v-else />

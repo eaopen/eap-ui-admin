@@ -10,8 +10,8 @@
         <el-button :disabled="active >= stepList.length-1"
           @click="handleNextStep">{{$t('common.next')}}</el-button>
         <el-button type="primary" :loading="btnLoading" :disabled="active < stepList.length-1"
-          @click="dataFormSubmit()">{{$t('common.confirmButton')}}</el-button>
-        <el-button @click="goBack">{{$t('common.cancelButton')}}</el-button>
+          @click="dataFormSubmit()">{{$t('common.confirmBtn')}}</el-button>
+        <el-button @click="goBack">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <!-- 基本信息 -->

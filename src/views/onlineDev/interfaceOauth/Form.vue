@@ -4,8 +4,8 @@
       <el-page-header @back="goBack()" content="接口认证" />
       <div class="options">
         <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
-        <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
+        <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <el-row class="main">

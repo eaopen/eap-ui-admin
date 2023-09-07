@@ -1,12 +1,12 @@
 <template>
   <transition name="el-zoom-in-center">
     <div class="OBPM-preview-main flow-form-main">
-      <div class="OBPM-common-page-header">
+      <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" content="测试发送" />
         <div class="options">
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <el-alert title="注意：测试发送的消息通知链接不支持跳转" type="warning" :closable="false" show-icon />

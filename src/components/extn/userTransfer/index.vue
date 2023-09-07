@@ -11,7 +11,7 @@
         <el-tabs v-model="activeName" class="transfer-pane__body-tab">
           <el-tab-pane label="全部数据" name="all">
             <el-tree :data="treeData" :props="props" check-on-click-node
-              @node-click="handleNodeClick" class="OBPM-common-el-tree" node-key="id"
+              @node-click="handleNodeClick" class="JNPF-common-el-tree" node-key="id"
               v-loading="loading" lazy :load="loadNode" v-if="!this.isAsync">
               <span class="custom-tree-node" slot-scope="{ node, data }">
                 <i :class="data.icon"></i>

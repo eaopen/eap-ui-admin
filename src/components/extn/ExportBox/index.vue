@@ -22,7 +22,7 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <p class="footer-tip">提示:系统将导出列表中选中的数据</p>
-      <el-button @click="visible=false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible=false">{{$t('common.cancelBtn')}}</el-button>
       <el-button type="primary" @click="downLoad">导 出</el-button>
     </span>
   </el-dialog>
