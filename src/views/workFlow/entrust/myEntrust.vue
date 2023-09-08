@@ -150,7 +150,7 @@ export default {
       })
     },
     getDictionaryData() {
-      this.$store.dispatch('base/getDictionaryData', { sort: 'WorkFlowCategory' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'WorkFlowCategory' }).then((res) => {
         this.categoryList = res
       })
     },

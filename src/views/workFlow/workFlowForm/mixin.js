@@ -57,7 +57,7 @@ export default {
       })
     },
     getPaymentMethodOptions() {
-      this.$store.dispatch('base/getDictionaryData', { sort: 'WFSettlementMethod' }).then((res) => {
+      this.$store.dispatch('dict/getDictionaryData', { sort: 'WFSettlementMethod' }).then((res) => {
         this.paymentMethodOptions = res
       })
     },
