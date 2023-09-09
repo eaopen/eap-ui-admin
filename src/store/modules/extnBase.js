@@ -1,10 +1,10 @@
-import { getDictionaryAll } from '@/api/extn/dictionary'
 import { getMsgTypeList } from '@/api/extn/msgTemplate'
 import { UserListAll, getUserSelector } from '@/api/extn/permission'
-import { getPositionListAll, getPositionSelector } from '@/api/extn/permission'
-import { getRoleSelector } from '@/api/extn/permission'
 import { getPrintDevSelector } from '@/api/extn/printDev'
-import jnpf from '@/utils/extn';
+import {listSimpleRoles} from "@/api/system/role";
+import {listSimplePosts} from "@/api/system/post";
+//import {listSimpleUsers} from "@/api/system/user";
+//import {listSimpleUserGroups} from "@/api/bpm/userGroup";
 
 const state = {
   dictionaryList: [],
@@ -62,9 +62,18 @@ const actions = {
   getPositionList({ state, commit }) {
     return new Promise((resolve, reject) => {
       if (!state.positionList.length) {
-        getPositionListAll().then(res => {
-          commit('SET_POSITION_LIST', res.data.list)
-          resolve(res.data.list)
+        listSimplePosts().then(res => {
+          let list = []
+          for (const item of res.data) {
+            list.push({
+              id: item.id,
+              code: item.code,
+              encode: item.code || item.id,
+              fullName: item.name
+            })
+          }
+          commit('SET_POSITION_LIST', list)
+          resolve(list)
         }).catch(error => {
           reject(error)
         })
@@ -73,12 +82,12 @@ const actions = {
       }
     })
   },
-  getPositionTree({ state, commit }) {
+  getPositionTree({ state, commit, dispatch }) {
     return new Promise((resolve, reject) => {
       if (!state.positionTree.length) {
-        getPositionSelector().then(res => {
-          commit('SET_POSITION_TREE', res.data.list)
-          resolve(res.data.list)
+        dispatch('getPositionList').then(res => {
+          commit('SET_POSITION_TREE', state.positionList)
+          resolve(state.positionList)
         }).catch(error => {
           reject(error)
         })
@@ -87,13 +96,21 @@ const actions = {
       }
     })
   },
-  getRoleList({ state, commit, dispatch }) {
+  getRoleList({ state, commit}) {
     return new Promise((resolve, reject) => {
       if (!state.roleList.length) {
-        dispatch('getRoleTree').then(res => {
-          let data = jnpf.treeToArray(res, 'role')
-          commit('SET_ROLE_LIST', data)
-          resolve(data)
+        listSimpleRoles().then(res => {
+          let list = []
+          for (const item of res.data) {
+            list.push({
+              id: item.id,
+              code: item.code,
+              encode: item.code || item.id,
+              fullName: item.name
+            })
+          }
+          commit('SET_ROLE_LIST', list)
+          resolve(list)
         }).catch(error => {
           reject(error)
         })
@@ -102,12 +119,12 @@ const actions = {
       }
     })
   },
-  getRoleTree({ state, commit }) {
+  getRoleTree({ state, commit, dispatch }) {
     return new Promise((resolve, reject) => {
       if (!state.roleTree.length) {
-        getRoleSelector().then(res => {
-          commit('SET_ROLE_TREE', res.data.list)
-          resolve(res.data.list)
+        dispatch().then(res => {
+          commit('SET_ROLE_TREE', state.roleList)
+          resolve(state.roleList)
         }).catch(error => {
           reject(error)
         })
@@ -119,7 +136,7 @@ const actions = {
   getUserTree({ state, commit }) {
     return new Promise((resolve, reject) => {
       if (!state.userTree.length) {
-        getUserSelector().then(res => {
+        getUserSelector('getRoleList').then(res => {
           commit('SET_USER_TREE', res.data.list)
           resolve(res.data.list)
         }).catch(error => {

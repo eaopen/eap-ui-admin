@@ -1,14 +1,13 @@
 import { getOrganizeTree } from "@/api/extn/permission";
-import { getDepartmentSelector } from "@/api/extn/permission";
 import { getDictionaryType } from "@/api/extn/dictionary";
-import { getGroupSelector } from "@/api/extn/permission";
-import jnpf from '@/utils/extn';
+import {listSimpleDepts} from "@/api/system/dept";
+import extn from '@/utils/extn';
 const state = {
   companyTree: [],
   depTree: [],
   departmentList: [],
   groupTree: [],
-  groupList: [],
+  // groupList: [],
   dicTree: [],
   formItemList: [],
   subTable: [],
@@ -36,9 +35,9 @@ const mutations = {
   SET_GROUP_TREE: (state, groupTree) => {
     state.groupTree = groupTree;
   },
-  SET_GROUP_LIST: (state, data) => {
-    state.groupList = data;
-  },
+  // SET_GROUP_LIST: (state, data) => {
+  //   state.groupList = data;
+  // },
   SET_DIC_TREE: (state, dicTree) => {
     state.dicTree = dicTree;
   },
@@ -83,11 +82,12 @@ const actions = {
   getDepTree({ state, commit }) {
     return new Promise((resolve, reject) => {
       if (!state.depTree.length) {
-        getDepartmentSelector().then(res => {
-          commit("SET_DEP_TREE", res.data.list);
-          let data = jnpf.treeToArray(res.data.list)
-          commit("SET_DEP_LIST", data);
-          resolve(res.data.list);
+        listSimpleDepts().then(res => {
+          let list = res.data
+          commit("SET_DEP_LIST", list);
+          let tree = extn.arrayToTree(list)
+          commit("SET_DEP_TREE", tree);
+          resolve(tree);
         }).catch(error => {
           reject(error);
         });
@@ -97,20 +97,7 @@ const actions = {
     });
   },
   getGroupTree({ state, commit }) {
-    return new Promise((resolve, reject) => {
-      if (!state.groupTree.length) {
-        getGroupSelector().then(res => {
-          commit("SET_GROUP_TREE", res.data);
-          let data = jnpf.treeToArray(res.data, 'group')
-          commit("SET_GROUP_LIST", data);
-          resolve(res.data);
-        }).catch(error => {
-          reject(error);
-        });
-      } else {
-        resolve(state.groupTree);
-      }
-    });
+    return state.groupTree;
   },
   getDicTree({ state, commit }) {
     return new Promise((resolve, reject) => {
