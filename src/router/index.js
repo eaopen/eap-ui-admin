@@ -99,6 +99,17 @@ export const constantRoutes = [
     }]
   },
   {
+    path: '/previewModel',
+    component: (resolve) => require(['@/views/extn/dynamicModel'], resolve),
+    name: 'previewModel',
+    meta: {
+      title: 'previewModel',
+      affix: false,
+      zhTitle: '功能预览',
+      icon: 'icon-ym icon-ym-btn-preview',
+    }
+  },
+  {
     path: '/components',
     component: Layout,
     hidden: true,
