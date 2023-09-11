@@ -10,6 +10,8 @@ export const DICT_TYPE = {
   USER_TYPE: 'user_type',
   COMMON_STATUS: 'common_status',
   TERMINAL: 'terminal',
+  // ========== design 设计模块 ==========
+  DESIGN_PORTAL_DESIGNER: 'portalDesigner',
 
   // ========== SYSTEM 模块 ==========
   SYSTEM_USER_SEX: 'system_user_sex',

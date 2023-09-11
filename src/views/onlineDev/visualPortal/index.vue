@@ -7,7 +7,7 @@
       </el-form-item>
       <el-form-item label="分类" prop="category">
         <el-select v-model="category" placeholder="请选择分类" clearable filterable style="width: 120px">
-          <el-option v-for="item in getDictDatas(DICT_TYPE.INFRA_FILE_STORAGE)" :key="item.value" :label="item.label"
+          <el-option v-for="item in getDictDatas(DICT_TYPE.DESIGN_PORTAL_DESIGNER)" :key="item.value" :label="item.label"
             :value="item.value">
           </el-option>
         </el-select>
@@ -31,7 +31,7 @@
     </el-form>
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="addOrUpdateHandle"
+        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="addOrUpdateHandle(0)"
           v-hasPermi="['system:dict:create']">新建门户</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -251,6 +251,8 @@ export default {
       })
     },
     addOrUpdateHandle(id) {
+      console.log(id)
+      // return
       this.dialogVisible = false
       this.formVisible = true
       this.$nextTick(() => {
