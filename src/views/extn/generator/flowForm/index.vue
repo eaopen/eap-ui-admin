@@ -61,9 +61,9 @@
           <el-table-column prop="enCode" label="编码" width="200" />
           <el-table-column prop="category" label="分类" width="150" />
           <el-table-column prop="creatorUser" label="创建人" width="120" />
-          <el-table-column prop="creatorTime" label="创建时间" :formatter="jnpf.tableDateFormat"
+          <el-table-column prop="creatorTime" label="创建时间" :formatter="extn.tableDateFormat"
             width="120" />
-          <el-table-column prop="lastModifyTime" label="最后修改时间" :formatter="jnpf.tableDateFormat"
+          <el-table-column prop="lastModifyTime" label="最后修改时间" :formatter="extn.tableDateFormat"
             width="120" />
           <el-table-column label="操作" fixed="right" width="150">
             <template slot-scope="scope">
@@ -100,6 +100,7 @@ import Form from './Form.vue'
 import DownloadForm from '../DownloadForm.vue'
 import Preview from '../Preview.vue'
 import mixin from '@/mixins/extn-generator/index'
+import extn from "@/utils/extn";
 export default {
   name: 'generator-flowForm',
   mixins: [mixin],

@@ -26,14 +26,14 @@ export function PreviewFile(data) {
 // 获取列设置
 export const getColumnsByModuleId = (moduleId) => {
   return request({
-    url: `/api/permission/Authority/GetColumnsByModuleId/${moduleId}`,
+    url: `/permission/Authority/GetColumnsByModuleId/${moduleId}`,
     method: 'GET'
   })
 }
 // 设置列设置
 export const setColumnsByModuleId = (data) => {
   return request({
-    url: `/api/permission/Authority/SetColumnsByModuleId`,
+    url: `/permission/Authority/SetColumnsByModuleId`,
     method: 'PUT',
     data
   })
