@@ -1,7 +1,7 @@
 import { getOrganizeTree } from "@/api/extn/permission";
 import { getDictionaryType } from "@/api/extn/dictionary";
 import {listSimpleDepts} from "@/api/system/dept";
-import extn from '@/utils/extn';
+import {extn} from '@/utils/extn';
 const state = {
   companyTree: [],
   depTree: [],
