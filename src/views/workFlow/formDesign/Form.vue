@@ -279,16 +279,16 @@ export default {
                 this.$message.warning('请至少选择一个数据表')
                 return
               }
-              this.$store.commit('generator/SET_TABLE', false)
+              this.$store.commit('extnGenerator/SET_TABLE', false)
               this.activeStep += 1
             } else {
               if (!this.exist()) return
               let subTable = this.tables.filter(o => o.typeId == '0')
-              this.$store.commit('generator/UPDATE_SUB_TABLE', subTable)
-              this.$store.commit('generator/SET_ALL_TABLE', this.tables)
-              this.$store.commit('generator/SET_TABLE', true)
-              this.$store.commit('generator/SET_DATABASE', this.dataForm.dbLinkId)
-              this.$store.commit('generator/UPDATE_FORMITEM_LIST', this.mainTableFields)
+              this.$store.commit('extnGenerator/UPDATE_SUB_TABLE', subTable)
+              this.$store.commit('extnGenerator/SET_ALL_TABLE', this.tables)
+              this.$store.commit('extnGenerator/SET_TABLE', true)
+              this.$store.commit('extnGenerator/SET_DATABASE', this.dataForm.dbLinkId)
+              this.$store.commit('extnGenerator/UPDATE_FORMITEM_LIST', this.mainTableFields)
               this.activeStep += 1
             }
           }

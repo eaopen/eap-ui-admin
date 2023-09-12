@@ -45,7 +45,7 @@ export default {
       this.treeData = await this.$store.dispatch('extnGenerator/getDicTree')
     },
     async getNewData() {
-      this.$store.commit('generator/SET_DIC_TREE', [])
+      this.$store.commit('extnGenerator/SET_DIC_TREE', [])
       this.treeData = await this.$store.dispatch('extnGenerator/getDicTree')
     },
     closeDic() {

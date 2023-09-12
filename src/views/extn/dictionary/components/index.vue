@@ -91,7 +91,7 @@ export default {
             message: res.msg,
             duration: 1500,
             onClose: () => {
-              this.$store.commit('base/SET_DICTIONARY_LIST', [])
+              this.$store.commit('extBase/SET_DICTIONARY_LIST', [])
               this.getDictionaryTypeList()
             }
           })

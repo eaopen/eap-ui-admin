@@ -306,7 +306,7 @@ export default {
           let relationData = this.$store.state.extnGenerator.relationData
           this.$set(relationData, this.field, data)
           this.$eventBus.$emit('eventBus', relationData, this.field)
-          this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
+          this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', relationData)
         })
       } else {
         this.innerValue = ''
@@ -315,7 +315,7 @@ export default {
         let relationData = this.$store.state.extnGenerator.relationData
         this.$set(relationData, this.field, {})
         this.$eventBus.$emit('eventBus', relationData, this.field)
-        this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
+        this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', relationData)
       }
     }
   }

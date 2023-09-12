@@ -822,7 +822,7 @@ export default {
         return this.$store.state.extnGenerator.formItemList
       },
       set(val) {
-        this.$store.commit('generator/UPDATE_FORMITEM_LIST', val)
+        this.$store.commit('extnGenerator/UPDATE_FORMITEM_LIST', val)
       }
     },
     subTable: {
@@ -830,7 +830,7 @@ export default {
         return this.$store.state.extnGenerator.subTable || []
       },
       set(val) {
-        this.$store.commit('generator/UPDATE_SUB_TABLE', val)
+        this.$store.commit('extnGenerator/UPDATE_SUB_TABLE', val)
       }
     },
     allTable: {

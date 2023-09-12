@@ -385,7 +385,7 @@ export default {
         // if (!this.field) return
         // let relationData = this.$store.state.extnGenerator.relationData
         // this.$set(relationData, this.field, [])
-        // this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
+        // this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', relationData)
         return
       }
       if (!this.interfaceId) return
@@ -416,7 +416,7 @@ export default {
         // if (!this.field) return
         // let relationData = this.$store.state.extnGenerator.relationData
         // this.$set(relationData, this.field, res.data)
-        // this.$store.commit('generator/UPDATE_RELATION_DATA', relationData)
+        // this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', relationData)
         this.$nextTick(() => {
           if (this.multiple) {
             this.resetInputHeight();

@@ -376,7 +376,7 @@ export default {
       head.appendChild(style)
     },
     initFormData(componentList, formData) {
-      this.$store.commit('generator/UPDATE_RELATION_DATA', {})
+      this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', {})
       componentList.forEach(cur => {
         const config = cur.__config__
         if (cur.__vModel__) formData[cur.__vModel__] = config.defaultValue
@@ -888,7 +888,7 @@ export default {
       onLoadFunc(this.parameter)
     },
     resetForm() {
-      this.$store.commit('generator/UPDATE_RELATION_DATA', {})
+      this.$store.commit('extnGenerator/UPDATE_RELATION_DATA', {})
       this.formConfCopy = deepClone(this.formConf)
       this.$refs[this.formConf.formRef].resetFields()
       Object.keys(this.tableRefs).forEach(vModel => {

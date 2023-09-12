@@ -112,7 +112,7 @@ export default {
             message: res.msg,
             duration: 1000,
             onClose: () => {
-              this.$store.commit('base/SET_DICTIONARY_LIST', [])
+              this.$store.commit('extBase/SET_DICTIONARY_LIST', [])
               row.enabledMark = row.enabledMark ? 0 : 1
             }
           })
@@ -135,7 +135,7 @@ export default {
             message: res.msg,
             duration: 1500,
             onClose: () => {
-              this.$store.commit('base/SET_DICTIONARY_LIST', [])
+              this.$store.commit('extBase/SET_DICTIONARY_LIST', [])
               this.getDictionaryList()
             }
           })

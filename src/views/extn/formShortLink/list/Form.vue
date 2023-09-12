@@ -118,7 +118,7 @@ export default {
             id,
             type: 2
           }
-          this.$store.commit('generator/SET_DYNAMIC_MODEL_EXTRA', extra)
+          this.$store.commit('extnGenerator/SET_DYNAMIC_MODEL_EXTRA', extra)
           getModelInfo(modelId, this.dataForm.id).then(res => {
             this.dataForm = res.data
             if (!this.dataForm.data) return
@@ -131,7 +131,7 @@ export default {
             })
           })
         } else {
-          this.$store.commit('generator/SET_DYNAMIC_MODEL_EXTRA', {})
+          this.$store.commit('extnGenerator/SET_DYNAMIC_MODEL_EXTRA', {})
           this.formData = {}
           this.fillFormData(this.formConf, this.formData)
           this.dialogLoading = true

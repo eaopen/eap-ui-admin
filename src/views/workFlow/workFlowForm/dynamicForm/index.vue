@@ -70,7 +70,7 @@ export default {
         } else {
           this.isAdd = true;
         }
-        this.$store.commit('generator/SET_DYNAMIC_MODEL_EXTRA', extra)
+        this.$store.commit('extnGenerator/SET_DYNAMIC_MODEL_EXTRA', extra)
         this.fillFormData(this.formConf, this.formData)
         this.$nextTick(() => {
           this.loading = false

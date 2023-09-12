@@ -133,7 +133,7 @@ export default {
             id,
             type: 2
           }
-          this.$store.commit('generator/SET_DYNAMIC_MODEL_EXTRA', extra)
+          this.$store.commit('extnGenerator/SET_DYNAMIC_MODEL_EXTRA', extra)
           getDataChange(modelId, this.dataForm.id).then(res => {
             this.dataForm = res.data
             if (!this.dataForm.data) return

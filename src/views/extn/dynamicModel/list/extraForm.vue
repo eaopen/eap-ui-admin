@@ -58,7 +58,7 @@ export default {
       this.loading = true
       this.dialogLoading = false
       this.$nextTick(() => {
-        this.$store.commit('generator/SET_DYNAMIC_MODEL_EXTRA', {})
+        this.$store.commit('extnGenerator/SET_DYNAMIC_MODEL_EXTRA', {})
         this.formData = {}
         if (formData) {
           this.formData = formData
