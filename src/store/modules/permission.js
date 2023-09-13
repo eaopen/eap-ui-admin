@@ -144,7 +144,8 @@ function filterChildren(childrenMap, lastRouter = false) {
         return
       }
     }
-    if (lastRouter && !el.path.startsWith('obpm/list')) {
+    console.log(el.path, el)
+    if (lastRouter && el.path && !el.path.startsWith('obpm/list')) {
       el.path = lastRouter.path + '/' + el.path
     }
     children = children.concat(el)

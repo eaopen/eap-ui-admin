@@ -41,7 +41,7 @@
             </el-tooltip>
           </div>
         </div>
-        <JNPF-table v-loading="listLoading" :data="list">
+        <JNPF-table v-loading="listLoading" :data="list" style="height: 500px">
           <el-table-column prop="fullName" label="名称" show-overflow-tooltip min-width="200" />
           <el-table-column prop="enCode" label="编码" width="200" />
           <el-table-column prop="category" label="分类" width="150" />
@@ -54,9 +54,9 @@
           </el-table-column>
           <el-table-column prop="creatorUser" label="创建人" width="120" />
           <el-table-column prop="creatorTime" label="创建时间" :formatter="jnpf.tableDateFormat"
-            width="120" />
+            width="130" />
           <el-table-column prop="lastModifyTime" label="最后修改时间" :formatter="jnpf.tableDateFormat"
-            width="120" />
+            width="130" />
           <el-table-column prop="sortCode" label="排序" width="70" align="center" />
           <el-table-column prop="state" label="状态" width="80" align="center">
             <template slot-scope="scope">
