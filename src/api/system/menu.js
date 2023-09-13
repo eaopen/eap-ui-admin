@@ -16,7 +16,16 @@ export function listSimpleMenus() {
     method: 'get'
   })
 }
+// 获取上级菜单下拉框
+export const getMenuSelector = (data, type, systemId) => {
 
+  return request({
+    url: '/api/visualdev/Portal/Selector/All?type=1',
+    method: 'GET',
+    params: data, type: 0
+
+  })
+}
 // 查询菜单详细
 export function getMenu(id) {
   return request({
