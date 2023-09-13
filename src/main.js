@@ -9,6 +9,7 @@ import '@/assets/styles/ruoyi.scss' // ruoyi css
 import './assets/icons' // icon
 import './assets/obpm/font-awesome.min.css'
 import '@/styles/index.scss'
+import "@/assets/icons/ym/iconfont.css"
 
 import App from './App'
 import store from './store'
