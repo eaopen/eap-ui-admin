@@ -46,9 +46,10 @@
         </template>
       </el-table-column>
       <el-table-column prop="sort" label="排序" width="60"></el-table-column>
-      <el-table-column prop="permission" label="权限标识" :show-overflow-tooltip="true" />
+      <el-table-column prop="path" label="路径" :show-overflow-tooltip="true" />
       <el-table-column prop="component" label="组件路径" :show-overflow-tooltip="true" />
-      <el-table-column prop="componentName" label="组件名称" :show-overflow-tooltip="true" />
+<!--      <el-table-column prop="componentName" label="组件名称" :show-overflow-tooltip="true" />-->
+      <el-table-column prop="permission" label="权限标识" :show-overflow-tooltip="true" />
       <el-table-column prop="status" label="状态" width="80">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
