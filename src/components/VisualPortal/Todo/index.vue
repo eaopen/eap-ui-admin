@@ -29,7 +29,7 @@
   </el-card>
 </template>
 <script>
-import { getFlowTodoCount } from '@/api/extn/cache'
+import { getFlowTodoCount } from '@/api/extn/home'
 export default {
   name: 'Todo',
   props: {

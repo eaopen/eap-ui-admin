@@ -415,7 +415,7 @@ export function getFlowTodo() {
 export function getFlowTodoCount() {
   return request({
     url: '/api/visualdev/Dashboard/FlowTodoCount',
-    method: 'get'
+    method: 'post'
   })
 }
 

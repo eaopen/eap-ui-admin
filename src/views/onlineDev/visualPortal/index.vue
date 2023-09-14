@@ -67,9 +67,9 @@
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width" width="200">
         <template v-slot="scope">
-          <el-button size="mini" type="text" icon="el-icon-edit" @click="design(scope.row)"
+          <el-button size="mini" type="text" icon="el-icon-edit" @click="design(scope.row.id)"
             v-hasPermi="['system:dict:update']">设计</el-button>
-          <el-button size="mini" type="text" icon="el-icon-delete" @click="preview(scope.row)"
+          <el-button size="mini" type="text" icon="el-icon-delete" @click="preview(scope.row.id)"
             v-hasPermi="['system:dict:delete']">预览</el-button>
           <el-dropdown>
             <span class="el-dropdown-link">
@@ -218,6 +218,7 @@ export default {
       }).catch(() => { });
     },
     preview(id, type) {
+      console.log(id)
       if (!id) return
       this.currId = id
       this.previewType = type

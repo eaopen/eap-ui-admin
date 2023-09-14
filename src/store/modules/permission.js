@@ -6,6 +6,7 @@ import agList from '@/views/obpm/agList.vue'
 import {toCamelCase} from "@/utils";
 import { extn } from "@/utils/extn"
 
+const unJoinList = ['obpm/listGrid','model/']
 const permission = {
   state: {
     routes: [],
@@ -144,7 +145,6 @@ function filterChildren(childrenMap, lastRouter = false) {
         return
       }
     }
-    console.log(el.path, el)
     if (lastRouter && el.path && !el.path.startsWith('obpm/list')) {
       el.path = lastRouter.path + '/' + el.path
     }

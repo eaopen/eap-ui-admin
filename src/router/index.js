@@ -78,7 +78,18 @@ export const constantRoutes = [
         component: (resolve) => require(['@/views/index'], resolve),
         name: 'Home',
         meta: {title: 'home', icon: 'dashboard', affix: true, zhTitle: '首页'}
-      }
+      },
+      {
+        path: 'previewModel',
+        component: (resolve) => require(['@/views/extn/dynamicModel'], resolve),
+        name: 'previewModel',
+        meta: {
+          title: '功能预览',
+          affix: false,
+          zhTitle: '功能预览',
+          icon: 'icon-ym icon-ym-btn-preview',
+        }
+      },
     ]
   },
   {
@@ -97,17 +108,6 @@ export const constantRoutes = [
         name: 'MyNotifyMessage',
         meta: { title: 'myNotifyMessage', icon: 'message' },
     }]
-  },
-  {
-    path: '/previewModel',
-    component: (resolve) => require(['@/views/extn/dynamicModel'], resolve),
-    name: 'previewModel',
-    meta: {
-      title: 'previewModel',
-      affix: false,
-      zhTitle: '功能预览',
-      icon: 'icon-ym icon-ym-btn-preview',
-    }
   },
   {
     path: '/components',
