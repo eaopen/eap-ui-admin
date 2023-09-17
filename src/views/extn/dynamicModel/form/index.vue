@@ -31,8 +31,8 @@
 <script>
 import { createModel } from '@/api/onlineDev/visualDev'
 import Parser from '@/components/extnGenerator/parser/Parser'
-import FlowBox from '@/views/workFlow/components/FlowBox'
-import { getFlowList } from '@/api/workFlow/FlowEngine'
+import FlowBox from '@/views/simpleflow/components/FlowBox'
+import { getFlowList } from '@/api/bpm/simpleflow/FlowEngine'
 import { mapGetters } from "vuex";
 export default {
   components: { Parser, FlowBox },

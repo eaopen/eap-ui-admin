@@ -74,11 +74,11 @@
 
 <script>
 import { getModelList, getModelSubList, deleteModel, batchDelete, exportModel, createModel, updateModel, getConfigData } from '@/api/onlineDev/visualDev'
-import { Create, Update } from '@/api/workFlow/workFlowForm'
+import { Create, Update } from '@/api/bpm/simpleflow/workFlowForm'
 import { getDictionaryDataSelector } from '@/api/extn/dictionary'
 import { getDataInterfaceRes } from '@/api/extn/dataInterface'
 import { getColumnsByModuleId } from '@/api/extn/common'
-import { Candidates } from '@/api/workFlow/FlowBefore'
+import { Candidates } from '@/api/bpm/simpleflow/FlowBefore'
 import request from '@/utils/request'
 import Search from '../list/Search'
 import ExportBox from '@/components/extn/ExportBox'

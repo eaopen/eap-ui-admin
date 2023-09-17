@@ -7,7 +7,7 @@ import Tinymce from '@/components/tinymce/index.vue'
 // obpm
 import ListAgGrid from '@/components/obpm/grid/index.vue'
 
-// extn
+// extend common
 import topOperation from '@/components/extn/topOperation/index'
 import tableOperation from '@/components/extn/tableOperation'
 
@@ -16,6 +16,9 @@ import JNPFTable from '@/components/extn/table'
 import JNPFTreeSelect from '@/components/extn/treeSelect'
 import JnpfFormTipItem from '@/components/extn/form-tip-item'
 
+
+
+// extend generator
 // 暂时隐藏
 // import UserSelect from '@/components/extnGenerator/components/JNPF-userSelect'
 // import UsersSelect from '@/components/extnGenerator/components/JNPF-usersSelect'

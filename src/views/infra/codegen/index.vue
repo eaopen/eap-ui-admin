@@ -89,8 +89,8 @@ import { getCodegenTablePage, previewCodegen, downloadCodegen, deleteCodegen,
 
 import importTable from "./importTable";
 // 代码高亮插件
-import hljs from "highlight.js/lib/highlight";
-import "highlight.js/styles/github-gist.css";
+import hljs from "highlight.js/lib/core";
+import "highlight.js/styles/github.css";
 import {getDataSourceConfigList} from "@/api/infra/dataSourceConfig";
 hljs.registerLanguage("java", require("highlight.js/lib/languages/java"));
 hljs.registerLanguage("xml", require("highlight.js/lib/languages/xml"));
