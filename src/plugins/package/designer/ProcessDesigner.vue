@@ -4,7 +4,7 @@
       <slot name="control-header"></slot>
       <template v-if="!$slots['control-header']">
         <el-button-group key="file-control">
-          <el-button :size="headerButtonSize" :type="headerButtonType" icon="el-icon-edit-outline" @click="onSave">保存流程</el-button>
+<!--          <el-button :size="headerButtonSize" :type="headerButtonType" icon="el-icon-edit-outline" @click="onSave">保存流程</el-button>-->
           <el-button :size="headerButtonSize" :type="headerButtonType" icon="el-icon-folder-opened" @click="$refs.refFile.click()">打开文件</el-button>
           <el-tooltip effect="light">
             <div slot="content">
@@ -73,6 +73,7 @@
             <el-button :size="headerButtonSize" icon="el-icon-refresh" @click="processRestart" />
           </el-tooltip>
         </el-button-group>
+        <el-button :size="headerButtonSize" :type="headerButtonType" icon="el-icon-plus" @click="processSave" :disabled = "simulationStatus">保存模型</el-button>
       </template>
       <!-- 用于打开本地文件-->
       <input type="file" id="files" ref="refFile" style="display: none" accept=".xml, .bpmn" @change="importLocalFile" />
@@ -459,7 +460,23 @@ export default {
         this.previewType = "json";
         this.previewModelVisible = true;
       });
-    }
+    },
+
+    async processSave() {
+      const { err, xml } = await this.bpmnModeler.saveXML();
+      // 读取异常时抛出异常
+      if (err) {
+        this.$modal.msgError('保存模型失败，请重试！')
+        return
+      }
+      // 触发 save 事件
+      this.$emit('save', xml)
+    },
+    /** 高亮显示 */
+    highlightedCode(previewType, previewResult) {
+      const result = hljs.highlight(previewType, previewResult || "", true);
+      return result.value || '&nbsp;';
+    },
   }
 };
 </script>
