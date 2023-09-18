@@ -17,7 +17,6 @@ const extn = {
     },
     getParams: (str)=> {
         let json = {};
-        str = str.split("?")[1];
         if(!str){
             return json;
         }
@@ -27,6 +26,7 @@ const extn = {
                 code: arr[arr.length-1]
             }
         }
+        str = str.split("?")[1];
         let aryParams = str.split("&");
         for (var i = 0; i < aryParams.length; i++) {
             var pair = aryParams[i];
