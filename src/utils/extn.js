@@ -16,9 +16,12 @@ const extn = {
         return eval(string);
     },
     getParams: (str)=> {
-        str = str.split("?")[1];
-        let aryParams = str.split("&");
         let json = {};
+        str = str.split("?")[1];
+        if(!str){
+            return json;
+        }
+        let aryParams = str.split("&");
         for (var i = 0; i < aryParams.length; i++) {
             var pair = aryParams[i];
             var aryEnt = pair.split("=");
