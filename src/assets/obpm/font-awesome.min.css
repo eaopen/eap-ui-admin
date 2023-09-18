@@ -15,7 +15,7 @@
 }
 .btn{
   display: inline-block;
-  font-family: FontAwesome !important;
+  /* font-family: FontAwesome !important; */
   font-style: normal;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
