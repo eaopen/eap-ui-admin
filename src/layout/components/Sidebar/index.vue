@@ -34,7 +34,6 @@ export default {
   components: { SidebarItem, Logo },
   created(){
     console.log('sidebarRouters', this.sidebarRouters)
-    // console.log('activeMenu', this.activeMenu)
   },
   computed: {
     ...mapState(["settings"]),

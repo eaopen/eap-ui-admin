@@ -237,6 +237,10 @@ export default {
       })
     },
     preview(row, dataSource, type) {
+      let tables = JSON.parse(row.tables)
+      if(!tables || !tables.length){
+        this.$message.error('请配置好表格模板后再进行此操作')
+      }
       this.previewType = type
       this.currRow = row
       this.currRow.dataSource = dataSource

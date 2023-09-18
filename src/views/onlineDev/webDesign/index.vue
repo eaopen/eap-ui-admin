@@ -82,12 +82,12 @@
                     <el-dropdown-item @click.native="showManage(scope.row.id,scope.row.fullName)"
                       v-if="scope.row.enableFlow">流程版本
                     </el-dropdown-item>
-                    <el-dropdown-item @click.native="preview(scope.row.id,0)">设计预览
+                    <el-dropdown-item @click.native="preview(scope.row,0)">设计预览
                     </el-dropdown-item>
                     <el-dropdown-item @click.native="openReleaseDialog(scope.row)">发布表单
                     </el-dropdown-item>
                     <el-dropdown-item v-if="scope.row.isRelease==1"
-                      @click.native="preview(scope.row.id,1)">发布预览
+                      @click.native="preview(scope.row,1)">发布预览
                     </el-dropdown-item>
                     <el-dropdown-item @click.native="copy(scope.row.id)">复制表单</el-dropdown-item>
                     <el-dropdown-item @click.native="exportModel(scope.row.id)">导出表单
@@ -214,8 +214,13 @@ export default {
     this.getEnginCategoryList()
   },
   methods: {
-    preview(id, type) {
-      this.currId = id
+    preview(row, type) {
+      let tables = row.tables
+      if(!tables || !JSON.parse(tables).length){
+        this.$message.error('请先配置列表模板，再进行此操作')
+        return
+      }
+      this.currId = row.id
       this.previewType = type
       this.$nextTick(() => {
         this.previewDialogVisible = true
@@ -234,6 +239,11 @@ export default {
       })
     },
     openReleaseDialog(row) {
+      let tables = row.tables
+      if(!tables || !JSON.parse(tables).length){
+        this.$message.error('请先配置列表模板，再进行此操作')
+        return
+      }
       this.currRow = row
       this.releaseDialogVisible = true
       this.pcSystemId = ""
