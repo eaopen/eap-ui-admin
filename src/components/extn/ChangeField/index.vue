@@ -2,7 +2,7 @@
   <div class="popupSelect-container">
     <div class="el-select">
       <el-dialog :title="type==1?'查询条件选择':'显示内容选择'" :close-on-click-modal="false"
-        :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center table-dialog" lock-scroll
+        :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center table-dialog" lock-scroll
         append-to-body width="600px" :modal-append-to-body="false" @close="onClose">
         <JNPF-table v-loading="listLoading" :data="list" :border="false" highlight-current-row
           row-key="__vModel__" ref="multipleTable" @selection-change="handleSelectionChange"

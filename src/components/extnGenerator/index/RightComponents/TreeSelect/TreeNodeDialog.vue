@@ -2,7 +2,7 @@
   <div>
     <el-dialog v-bind="$attrs" :close-on-click-modal="false" :modal-append-to-body="false"
       v-on="$listeners" @open="onOpen" @close="onClose" width="660px"
-      class="OBPM-dialog JNPF-dialog_center">
+      class="JNPF-dialog JNPF-dialog_center">
       <el-row :gutter="0">
         <el-form ref="elForm" :model="formData" :rules="rules" size="small" label-width="100px">
           <el-col :span="24">

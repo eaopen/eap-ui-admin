@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="字段设置" :close-on-click-modal="false" width="1000px"
-    class="OBPM-dialog JNPF-dialog_center field-dialog" lock-scroll append-to-body
+    class="JNPF-dialog JNPF-dialog_center field-dialog" lock-scroll append-to-body
     :visible.sync="visible">
     <div class="main">
       <JNPF-table v-loading="listLoading" :data="list">

@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :close-on-click-modal="false" class="OBPM-dialog JNPF-dialog_center form-script-dialog"
+  <el-dialog :close-on-click-modal="false" class="JNPF-dialog JNPF-dialog_center form-script-dialog"
     lock-scroll append-to-body v-bind="$attrs" width="1000px" :modal-append-to-body="false"
     title="表单样式" v-on="$listeners" @open="onOpen">
     <div class="form-script-dialog-body">

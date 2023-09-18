@@ -1,6 +1,6 @@
 <template>
   <el-dialog :title="dataForm.id?'编辑模板':'添加模板'" :close-on-click-modal="false"
-    :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body
+    :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body
     width='600px'>
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" label-width="100px">
       <el-form-item label="消息类型" prop="messageType">

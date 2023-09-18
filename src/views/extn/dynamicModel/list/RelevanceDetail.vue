@@ -13,7 +13,7 @@
             {{formData.printButtonText||'打 印'}}
           </el-button>
         </template>
-        <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
       </span>
     </el-dialog>
     <print-browse :visible.sync="printBrowseVisible" :id="printId" :formId="dataForm.id" />

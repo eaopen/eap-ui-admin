@@ -14,7 +14,7 @@
       </el-input>
     </div>
     <el-dialog :title="popupTitle" :close-on-click-modal="false" :visible.sync="visible"
-      class="OBPM-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll append-to-body
+      class="JNPF-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll append-to-body
       width="1000px">
       <div class="JNPF-common-layout">
         <div class="JNPF-common-layout-left">

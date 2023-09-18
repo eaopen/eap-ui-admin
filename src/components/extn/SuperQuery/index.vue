@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="高级查询" :close-on-click-modal="false" :visible.sync="visible"
-    class="OBPM-dialog JNPF-dialog_center superQuery-dialog" lock-scroll width="800px">
+    class="JNPF-dialog JNPF-dialog_center superQuery-dialog" lock-scroll width="800px">
     <div class="superQuery-main" v-loading="loading">
       <template v-if="conditionList.length">
         <div class="matchLogic">
@@ -184,7 +184,7 @@
       <el-button type="primary" :loading="btnLoading" @click="query()">查 询</el-button>
     </span>
     <el-dialog title="保存方案" :visible.sync="addPlanVisible" width="600px" append-to-body lock-scroll
-      class="OBPM-dialog JNPF-dialog_center">
+      class="JNPF-dialog JNPF-dialog_center">
       <el-form ref="dataForm" :model="dataForm" :rules="dataRule" label-width="80px">
         <el-form-item label="方案名称" prop="fullName">
           <el-input v-model="dataForm.fullName" placeholder="请输入保存的方案名称" />

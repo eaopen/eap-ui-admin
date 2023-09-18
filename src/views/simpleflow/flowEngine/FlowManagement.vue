@@ -4,7 +4,7 @@
       <div class="JNPF-common-page-header">
         <el-page-header @back="goBack" :content="!flowVisible?title+'的版本管理':'流程图'" />
         <div class="options">
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <div class="main" v-if="!flowVisible">

@@ -14,7 +14,7 @@
       </el-input>
     </div>
     <el-dialog title="消息发送配置" :close-on-click-modal="false" :visible.sync="visible"
-      class="OBPM-dialog OBPM-dialog_center OBPM-dialog-tree-select" lock-scroll append-to-body
+      class="JNPF-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll append-to-body
       width='800px'>
       <div class="JNPF-common-layout">
         <div class="JNPF-common-layout-center">

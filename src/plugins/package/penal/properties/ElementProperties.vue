@@ -88,7 +88,7 @@ export default {
     removeAttributes(attr, index) {
       this.$confirm("确认移除该属性吗？", "提示", {
         confirmButtonText: "确 认",
-        cancelButtonText: "取 消"
+        cancelBtnText: "取 消"
       })
         .then(() => {
           this.elementPropertyList.splice(index, 1);

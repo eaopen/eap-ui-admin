@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="分页使用说明" :close-on-click-modal="false" :visible.sync="visible"
-    :append-to-body="true" class="OBPM-dialog JNPF-dialog_center page-explain-box" lock-scroll
+    :append-to-body="true" class="JNPF-dialog JNPF-dialog_center page-explain-box" lock-scroll
     width="600px">
     <div class="content">
       <p>1. 适用控件 </p>

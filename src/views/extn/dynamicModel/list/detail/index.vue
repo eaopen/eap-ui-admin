@@ -14,7 +14,7 @@
               {{formData.printButtonText||'打 印'}}
             </el-button>
           </template>
-          <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         </span>
       </el-dialog>
     </template>
@@ -29,7 +29,7 @@
                   {{formData.printButtonText||'打 印'}}
                 </el-button>
               </template>
-              <el-button @click="goBack">{{$t('common.cancelButton')}}</el-button>
+              <el-button @click="goBack">{{$t('common.cancelBtn')}}</el-button>
             </div>
           </div>
           <div class="dynamic-form-main dynamicDetail"
@@ -55,7 +55,7 @@
                 {{formData.printButtonText||'打 印'}}
               </el-button>
             </template>
-            <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+            <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
           </div>
         </div>
       </el-drawer>

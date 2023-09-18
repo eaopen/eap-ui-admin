@@ -20,7 +20,7 @@
               {{formConf.printButtonText||'打 印'}}
             </el-button>
           </template>
-          <el-button @click="goBack">{{formConf.cancelButtonText||'取 消'}}</el-button>
+          <el-button @click="goBack">{{formConf.cancelBtnText||'取 消'}}</el-button>
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading"
             :disabled='continueBtnLoading'>
             {{formConf.confirmButtonText||'确 定'}}</el-button>
@@ -64,7 +64,7 @@
                 :disabled='continueBtnLoading'>
                 {{formConf.confirmButtonText||'确 定'}}</el-button>
               <el-button @click="goBack" :disabled='continueBtnLoading'>
-                {{formConf.cancelButtonText||'取 消'}}</el-button>
+                {{formConf.cancelBtnText||'取 消'}}</el-button>
             </div>
           </div>
           <div class="dynamic-form-main" v-if="!loading"
@@ -97,7 +97,7 @@
                 {{formConf.printButtonText||'打 印'}}
               </el-button>
             </template>
-            <el-button @click="goBack()">{{formConf.cancelButtonText||'取 消'}}</el-button>
+            <el-button @click="goBack()">{{formConf.cancelBtnText||'取 消'}}</el-button>
             <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading"
               :disabled='continueBtnLoading'>
               {{formConf.confirmButtonText||'确 定'}}</el-button>

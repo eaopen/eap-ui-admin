@@ -13,7 +13,7 @@
     </el-row>
     <div>
       <el-dialog :visible.sync="dicVisible" append-to-body
-        class="OBPM-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
+        class="JNPF-dialog JNPF-dialog_center JNPF-dialog-tree-select" lock-scroll width="80%"
         @close="closeDic()">
         <dicIndex ref="dicIndex"></dicIndex>
       </el-dialog>

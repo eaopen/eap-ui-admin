@@ -238,12 +238,12 @@
   }
 }
 
-.OBPM-dialog {
+.JNPF-dialog {
   .el-input__validateIcon {
     display: none !important;
   }
 
-  &.OBPM-dialog_center {
+  &.JNPF-dialog_center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -448,7 +448,7 @@
       }
     }
 
-    &.OBPM-dialog-tree-select {
+    &.JNPF-dialog-tree-select {
       .el-dialog__body {
         height: 60vh;
         padding: 0 0 10px !important;
@@ -512,7 +512,105 @@
   }
 }
 
-.OBPM-dialog-notice {
+.JNPF-full-dialog {
+  .el-dialog__header {
+    padding: 0;
+  }
+
+  .el-dialog__body {
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .JNPF-full-dialog-header {
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-title {
+      height: 60px;
+      width: 410px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo {
+      width: auto;
+      height: 60px;
+      vertical-align: top;
+      margin-right: 3px;
+      font-size: 30px;
+      color: #fff;
+    }
+
+    .header-txt {
+      display: inline-block;
+      margin: 0;
+      color: #333;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+      cursor: pointer;
+    }
+
+    .steps {
+      width: 450px;
+      padding: 6px 20px;
+      background: #fff;
+      justify-items: flex-start;
+      flex-shrink: 0;
+
+      &.steps2 {
+        width: 300px;
+      }
+
+      &.steps4 {
+        width: 600px;
+      }
+
+      .el-step__title {
+        cursor: pointer;
+      }
+    }
+
+    .options {
+      width: 410px;
+      text-align: right;
+    }
+  }
+
+  .main {
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    background: #EBEEF5;
+    padding: 10px;
+
+    .basic-box {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .basicForm {
+      background: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      height: 100%;
+      overflow: auto;
+      overflow-x: hidden;
+
+      .el-select {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.JNPF-dialog-notice {
   .el-dialog__body {
     padding: 0 60px !important;
   }
@@ -548,7 +646,7 @@
   }
 }
 
-.OBPM-dialog-tree {
+.JNPF-dialog-tree {
   .el-dialog {
     .el-dialog__body {
       .el-tree {
@@ -560,7 +658,7 @@
   }
 }
 
-.OBPM-dialog-export {
+.JNPF-dialog-export {
   .el-dialog {
     .el-dialog__body {
       padding: 20px 20px 0 !important;
@@ -609,7 +707,7 @@
   }
 }
 
-.OBPM-dialog-import {
+.JNPF-dialog-import {
   .el-dialog__body {
     padding: 20px 40px 2px !important;
   }

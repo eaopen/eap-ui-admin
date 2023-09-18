@@ -32,7 +32,7 @@
           :limit.sync="listQuery.pageSize" @pagination="initData" v-if="config.hasPage"
           :pager-count="5" />
         <span slot="footer" class="dialog-footer">
-          <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
           <el-button type="primary" @click="select()" :loading="btnLoading">
             {{$t('common.confirmButton')}}</el-button>
         </span>
@@ -70,7 +70,7 @@
           <pagination :total="total" :page.sync="listQuery.currentPage"
             :limit.sync="listQuery.pageSize" @pagination="initData" v-if="config.hasPage" />
           <div class="drawer-footer">
-            <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+            <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
             <el-button type="primary" @click="select()" :loading="btnLoading">
               {{$t('common.confirmButton')}}</el-button>
           </div>

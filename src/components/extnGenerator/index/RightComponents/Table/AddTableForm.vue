@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="配置表单" :close-on-click-modal="false" append-to-body :visible.sync="visible"
-    class="OBPM-dialog JNPF-dialog_center" lock-scroll width="600px">
+    class="JNPF-dialog JNPF-dialog_center" lock-scroll width="600px">
     <el-form ref="dataForm" :model="dataForm" :rules="dataRule" v-loading="formLoading"
       label-width="70px" label-position="left">
       <el-form-item label="弹窗标题">

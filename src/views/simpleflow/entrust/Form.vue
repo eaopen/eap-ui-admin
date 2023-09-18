@@ -41,7 +41,7 @@
       </jnpf-form-tip-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
       <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
         {{$t('common.confirmButton')}}</el-button>
     </span>

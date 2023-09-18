@@ -1,7 +1,7 @@
 
 <template>
   <el-dialog title="选择角色" :close-on-click-modal="false"
-    class="OBPM-dialog OBPM-dialog_center transfer-dialog" lock-scroll append-to-body
+    class="JNPF-dialog JNPF-dialog_center transfer-dialog" lock-scroll append-to-body
     v-bind="$attrs" width="800px" :modal-append-to-body="false" v-on="$listeners" @open="onOpen">
     <roleTransfer v-model="selectedData" ref="roleTransfer" multiple auth />
     <span slot="footer" class="dialog-footer">

@@ -3,8 +3,11 @@ import request from "@/utils/request";
 // 获取列表配置
 export function getListConfig(code) {
     return request({
-        url: '/obpm-api/form/formCustSql/view/vo_' + code,
-        method: 'post'
+        url: '/obpm-api/form/formCustSql/view/vo3_' + code,
+        method: 'post',
+        data:{
+            code
+        }
     })
 }
 // 获取列表数据

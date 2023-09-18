@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="图标选择" :close-on-click-modal="false"
-    class="OBPM-dialog JNPF-dialog_center icon-dialog" lock-scroll append-to-body v-bind="$attrs"
+    class="JNPF-dialog JNPF-dialog_center icon-dialog" lock-scroll append-to-body v-bind="$attrs"
     width="950px" :modal-append-to-body="false" v-on="$listeners" @open="onOpen" @close="onClose">
     <div slot="title" class="icon-dialog-title">
       图标选择

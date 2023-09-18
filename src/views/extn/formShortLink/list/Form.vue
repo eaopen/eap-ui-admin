@@ -2,7 +2,7 @@
   <div>
     <template v-if="formConf.popupType==='general'&&dialogLoading">
       <el-dialog :title="!dataForm.id ? '新建' : '编辑'" :close-on-click-modal="false"
-        :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll
+        :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll
         :width="formConf.generalWidth">
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />

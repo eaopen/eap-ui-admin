@@ -18,7 +18,7 @@
         </el-button>
         <el-button type="primary" @click="dataFormSubmit()" :disabled="loading"
           :loading="btnLoading">保 存</el-button>
-        <el-button @click="closeDialog()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="closeDialog()">{{$t('common.cancelBtn')}}</el-button>
       </div>
     </div>
     <div class="main" v-loading="loading">
@@ -193,7 +193,7 @@ export default {
     setMainVersion(id, msg) {
       this.$confirm('流程已被使用，此版本是否覆盖线上流程。覆盖后，新发起的流程按此版本流转?', '提示', {
         confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        cancelBtnText: '取消',
         type: 'warning'
       }).then(() => {
         mainVersion(id).then(res => {

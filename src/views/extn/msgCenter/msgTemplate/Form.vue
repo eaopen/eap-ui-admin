@@ -210,7 +210,7 @@
         </el-form>
       </el-row>
       <el-dialog :title="isEdit?'编辑参数':'添加参数'" :visible.sync="dialogVisible"
-        :close-on-click-modal="false" class="OBPM-dialog JNPF-dialog_center" lock-scroll
+        :close-on-click-modal="false" class="JNPF-dialog JNPF-dialog_center" lock-scroll
         append-to-body width="600px">
         <el-form :model="fieldForm" :rules="fieldRule" ref="fieldForm" label-width="100px">
           <jnpf-form-tip-item label="参数名称" prop="field"

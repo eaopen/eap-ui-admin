@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="发送测试" :close-on-click-modal="false" :append-to-body="true"
-    :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll width="500px">
+    :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll width="500px">
     <el-form ref="testForm" label-width="100px" :model="testForm" :rules="dataRule">
       <el-form-item label="收件邮箱" prop="testSendEmail">
         <user-select v-model="testForm.testSendEmail" placeholder="收件人" :multiple="false" />

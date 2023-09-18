@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :title="title" class="OBPM-dialog JNPF-dialog_center previewDialog" lock-scroll
+  <el-dialog :title="title" class="JNPF-dialog JNPF-dialog_center previewDialog" lock-scroll
     v-bind="$attrs" v-on="$listeners" width="600px">
     <div class="preview-main">
       <div class="preview-item preview-item-pc" @click="previewPc()">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <el-dialog :close-on-click-modal="false" :modal-append-to-body="false" append-to-body
-      :visible.sync="previewAppVisible" class="OBPM-dialog JNPF-dialog_center code-dialog"
+      :visible.sync="previewAppVisible" class="JNPF-dialog JNPF-dialog_center code-dialog"
       :title="title" width="400px" @opened="getQRimg">
       <div class="qrcode-img">
         <div id="qrcode" ref="qrCode"></div>

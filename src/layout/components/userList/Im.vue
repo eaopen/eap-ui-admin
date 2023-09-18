@@ -107,7 +107,7 @@
       </div>
     </div>
     <el-dialog :visible.sync="show" width="40%" :before-close="handleClose"
-      class="OBPM-dialog OBPM-dialog_center" lock-scroll style="z-index:3000">
+      class="JNPF-dialog JNPF-dialog_center" lock-scroll style="z-index:3000">
       <video :src="videoSrc" v-if="videoSrc" style="width:100%;object-fit: cover;"
         controls="controls"></video>
       <audio :src="audioSrc" v-if="audioSrc" style="width:100%;object-fit: cover;"

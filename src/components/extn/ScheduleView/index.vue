@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="查看日程" :close-on-press-escape="false" :close-on-click-modal="false"
-    :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll width="600px"
+    :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll width="600px"
     append-to-body>
     <el-form ref="dataForm" :model="dataForm" label-width="100px">
       <el-form-item label="类型" prop="type">
@@ -33,7 +33,7 @@
       <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
     </span>
     <el-dialog title="删除确认" :close-on-click-modal="false" :visible.sync="delVisible"
-      class="OBPM-dialog JNPF-dialog_center dialog-form" lock-scroll width="380px" append-to-body>
+      class="JNPF-dialog JNPF-dialog_center dialog-form" lock-scroll width="380px" append-to-body>
       <div style="margin-bottom: 10px;">此为重复日程，将删除应用于</div>
       <template v-for="(item, i) in tableList">
         <div :key="i" style="margin-bottom: 10px;">

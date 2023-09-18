@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="批量导入" :close-on-click-modal="false" :visible.sync="visible"
-    class="OBPM-dialog JNPF-dialog_center JNPF-dialog-import" lock-scroll width="1000px">
+    class="JNPF-dialog JNPF-dialog_center JNPF-dialog-import" lock-scroll width="1000px">
     <el-steps :active="active" align-center>
       <el-step title="上传文件"></el-step>
       <el-step title="数据预览"></el-step>

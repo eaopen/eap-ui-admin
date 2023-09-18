@@ -126,7 +126,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="managementVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="managementVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleApproval()" :loading="btnLoading">
           {{$t('common.confirmButton')}}
         </el-button>

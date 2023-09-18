@@ -7,7 +7,7 @@
         @setCandidateLoad="setCandidateLoad" @setPageLoad="setPageLoad" />
     </div>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+      <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
     </span>
   </el-dialog>
 </template>

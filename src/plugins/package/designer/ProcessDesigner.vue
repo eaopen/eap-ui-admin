@@ -442,7 +442,7 @@ export default {
       }
       this.$confirm("自动对齐可能造成图形变形，是否继续？", "警告", {
         confirmButtonText: "确定",
-        cancelButtonText: "取消",
+        cancelBtnText: "取消",
         type: "warning"
       }).then(() => Align.trigger(SelectedElements, align));
     },

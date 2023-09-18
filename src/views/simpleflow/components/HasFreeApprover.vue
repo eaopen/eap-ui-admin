@@ -50,7 +50,7 @@
       </el-form-item>
     </el-form>
     <div slot="footer">
-      <el-button @click="close">{{formConf.cancelButtonText||'取 消'}}</el-button>
+      <el-button @click="close">{{formConf.cancelBtnText||'取 消'}}</el-button>
       <el-button type="primary" :loading="btnLoading" @click="dataFormSubmit()">
         {{$t('common.confirmButton')}}</el-button>
     </div>

@@ -2343,7 +2343,7 @@
       <el-button size="small" type="primary" @click="confirm">确定</el-button>
     </div>
     <el-dialog title="数据传递" :close-on-click-modal="false" :visible.sync="ruleVisible"
-      class="OBPM-dialog JNPF-dialog_center rule-dialog" lock-scroll append-to-body width='700px'>
+      class="JNPF-dialog JNPF-dialog_center rule-dialog" lock-scroll append-to-body width='700px'>
       <el-tabs class="OBPM-el_tabs node-tabs">
         <el-tab-pane :label="item.title" v-for="(item,i) in assignList" :key="i">
           <div class="option-box-tip">当父流程流转到子流程时，将对应的上一节点表单字段赋值给子流程发起节点</div>
@@ -2380,7 +2380,7 @@
       </span>
     </el-dialog>
     <el-dialog title="数据传递" :close-on-click-modal="false"
-      :visible.sync="approverTransmitRuleVisible" class="OBPM-dialog JNPF-dialog_center rule-dialog"
+      :visible.sync="approverTransmitRuleVisible" class="JNPF-dialog JNPF-dialog_center rule-dialog"
       lock-scroll append-to-body width='700px'>
       <el-tabs class="OBPM-el_tabs node-tabs">
         <el-tab-pane :label="item.title" v-for="(item,i) in assignList" :key="i">

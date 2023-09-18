@@ -59,7 +59,7 @@
           @click="actionLauncher('cancel')">
           终 止</el-button>
         <el-button @click="goBack()" v-if="!setting.hideCancelBtn" :disabled="allBtnDisabled">
-          {{$t('common.cancelButton')}}
+          {{$t('common.cancelBtn')}}
         </el-button>
       </div>
     </div>
@@ -171,7 +171,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleApproval()" :loading="approvalBtnLoading">
           {{$t('common.confirmButton')}}
         </el-button>
@@ -204,7 +204,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="resurgenceVisible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="resurgenceVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleResurgence()" :loading="resurgenceBtnLoading">
           {{$t('common.confirmButton')}}
         </el-button>

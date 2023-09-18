@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="发送测试" :close-on-click-modal="false" :visible.sync="visible"
-    class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body width='800px'>
+    class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body width='800px'>
     <el-table :data="resultList" :border="false" highlight-current-row>
       <el-table-column prop="messageType" label="任务" show-overflow-tooltip>
         <template slot-scope="scope">

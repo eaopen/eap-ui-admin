@@ -17,13 +17,13 @@
         </el-table-column>
       </JNPF-table>
       <div class="actions">
-        <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="addOrUpdateHandle()">
           新 增
         </el-button>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="visible = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="select()" :loading="btnLoading">
           {{$t('common.confirmButton')}}
         </el-button>
@@ -45,7 +45,7 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="cancel()">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="cancel()">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" :loading="dataFormBtnLoading" @click="dataFormSubmit(1)"
           :disabled='commonBtnLoading'>
           {{$t('common.confirmButton')}}</el-button>

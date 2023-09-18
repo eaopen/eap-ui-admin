@@ -2,7 +2,7 @@
   <div>
     <template>
       <el-dialog title="详情" :close-on-click-modal="false" :visible.sync="visible"
-        class="OBPM-dialog JNPF-dialog_center" lock-scroll :width="formData.generalWidth"
+        class="JNPF-dialog JNPF-dialog_center" lock-scroll :width="formData.generalWidth"
         append-to-body>
         <div class="dynamicDetail" v-loading="loading || mainLoading">
           <Parser :formConf="formData" :relationData="relationData" v-if="!loading"

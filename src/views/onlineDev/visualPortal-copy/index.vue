@@ -88,7 +88,7 @@
     <Preview :visible.sync="previewVisible" :id="activeId" />
     <Transfer ref="transfer" :visible.sync="transferShow" :id="transferId" />
     <el-dialog title="新建门户" :visible.sync="dialogVisible"
-      class="OBPM-dialog OBPM-dialog-add OBPM-dialog_center" lock-scroll width="600px">
+      class="JNPF-dialog JNPF-dialog-add JNPF-dialog_center" lock-scroll width="600px">
       <div class="add-main">
         <div class="add-item add-item-left" @click="addOrUpdateHandle(1)">
           <i class="add-icon icon-ym icon-ym-customUrl"></i>

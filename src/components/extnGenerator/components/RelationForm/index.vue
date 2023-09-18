@@ -14,7 +14,7 @@
     </div>
     <template v-if="popupType==='dialog'">
       <el-dialog :title="popupTitle" :close-on-click-modal="false" :visible.sync="visible"
-        v-if="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body
+        v-if="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body
         :width='popupWidth'>
         <el-row class="JNPF-common-search-box" :gutter="16">
           <el-form @submit.native.prevent>

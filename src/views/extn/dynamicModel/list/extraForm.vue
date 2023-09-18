@@ -7,7 +7,7 @@
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />
         <span slot="footer" class="dialog-footer">
-          <el-button @click="goBack">{{formConf.cancelButtonText||'取 消'}}</el-button>
+          <el-button @click="goBack">{{formConf.cancelBtnText||'取 消'}}</el-button>
           <el-button type="primary" @click="dataFormSubmit()" :loading="btnLoading">
             {{formConf.confirmButtonText||'确 定'}}</el-button>
         </span>

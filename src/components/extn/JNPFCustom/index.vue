@@ -2,7 +2,7 @@
   <div class="main">
     <template v-if="config.popupType==='dialog'">
       <el-dialog :title="config.popupTitle" :close-on-click-modal="false" :visible.sync="visible"
-        class="OBPM-dialog JNPF-dialog_center" lock-scroll append-to-body :width='config.popupWidth'
+        class="JNPF-dialog JNPF-dialog_center" lock-scroll append-to-body :width='config.popupWidth'
         @close="$emit('close')">
         <parser :form-conf="formConf" @submit="submitForm" :key="key" ref="dynamicForm"
           v-if="!loading" />

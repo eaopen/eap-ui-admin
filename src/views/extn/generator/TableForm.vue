@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="数据选择" :close-on-click-modal="false" width="800px"
-    class="OBPM-dialog JNPF-dialog_center table-dialog" lock-scroll append-to-body v-bind="$attrs"
+    class="JNPF-dialog JNPF-dialog_center table-dialog" lock-scroll append-to-body v-bind="$attrs"
     v-on="$listeners" @open="onOpen">
     <el-row class="JNPF-common-search-box" :gutter="16">
       <el-form @submit.native.prevent>

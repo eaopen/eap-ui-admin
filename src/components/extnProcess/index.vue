@@ -28,7 +28,7 @@
         v-if="activeConf && activeConf.flowTemplateJson" :verifyMode="verifyMode" :key="key" />
     </div>
     <el-dialog :title="handleType === 'add' ? '新建流程' : '编辑流程'" :close-on-click-modal="false"
-      append-to-body :visible.sync="visible" class="OBPM-dialog JNPF-dialog_center" lock-scroll
+      append-to-body :visible.sync="visible" class="JNPF-dialog JNPF-dialog_center" lock-scroll
       width="600px">
       <el-form ref="dataForm" :model="dataForm" :rules="dataRule" label-width="100px">
         <el-form-item label="流程名称" prop="fullName">

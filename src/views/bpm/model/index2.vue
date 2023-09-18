@@ -437,7 +437,7 @@ export default {
       this.$confirm("是否将此模型保存为新版本？", "提示", {
         distinguishCancelAndClose: true,
         confirmButtonText: '是',
-        cancelButtonText: '否'
+        cancelBtnText: '否'
       }).then(() => {
         this.confirmSave(dataBody, true)
       }).catch(action => {

@@ -16,7 +16,17 @@ const extn = {
         return eval(string);
     },
     getParams: (str)=> {
+        if(!str){
+            return {}
+        }
+        if(str.indexOf('?')== -1){
+            let arr = str.split('/')
+            return {
+                code: arr[arr.length-1]
+            }
+        }
         str = str.split("?")[1];
+        console.log(str)
         let aryParams = str.split("&");
         let json = {};
         for (var i = 0; i < aryParams.length; i++) {

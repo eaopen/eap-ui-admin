@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="文本内容" :close-on-click-modal="false" :visible.sync="visible"
-    class="OBPM-dialog JNPF-dialog_center" lock-scroll width="600px" append-to-body>
+    class="JNPF-dialog JNPF-dialog_center" lock-scroll width="600px" append-to-body>
     <JNPFQuill v-model="content" ref="myQuillEditor" />
     <span slot="footer" class="dialog-footer">
       <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>

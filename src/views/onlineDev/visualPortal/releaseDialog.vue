@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="同步门户" :visible.sync="releaseDialogVisible" append-to-body
-    class="OBPM-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
+    class="JNPF-dialog JNPF-dialog_center release-dialog" lock-scroll width="600px">
     <el-alert title="将该门户同步至应用门户，是否继续？" type="warning" :closable="false" show-icon />
     <div class="dialog-main">
       <div class="item" :class="{'active':releaseQuery.pc===1}" @click="selectToggle('pc')">

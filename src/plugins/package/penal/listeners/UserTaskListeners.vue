@@ -251,7 +251,7 @@ export default {
     removeListener(listener, index) {
       this.$confirm("确认移除该监听器吗？", "提示", {
         confirmButtonText: "确 认",
-        cancelButtonText: "取 消"
+        cancelBtnText: "取 消"
       })
         .then(() => {
           this.bpmnElementListeners.splice(index, 1);
@@ -306,7 +306,7 @@ export default {
     removeListenerField(field, index) {
       this.$confirm("确认移除该字段吗？", "提示", {
         confirmButtonText: "确 认",
-        cancelButtonText: "取 消"
+        cancelBtnText: "取 消"
       })
         .then(() => {
           this.fieldsListOfListener.splice(index, 1);

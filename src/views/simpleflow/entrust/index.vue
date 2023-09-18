@@ -175,7 +175,7 @@
         </el-row>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="visibleUsers = false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="visibleUsers = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="dataFormSubmit()">
           {{$t('common.confirmButton')}}</el-button>
       </span>

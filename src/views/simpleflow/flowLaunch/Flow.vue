@@ -4,7 +4,7 @@
       <div class="JNPF-common-page-header" v-if="showTitle">
         <el-page-header @back="goBack" content="新建流程" />
         <div class="options">
-          <el-button @click="goBack()">{{$t('common.cancelButton')}}</el-button>
+          <el-button @click="goBack()">{{$t('common.cancelBtn')}}</el-button>
         </div>
       </div>
       <div class="main">

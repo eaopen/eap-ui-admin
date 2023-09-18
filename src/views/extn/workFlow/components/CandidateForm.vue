@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="提交审核" :close-on-click-modal="false"
-    class="OBPM-dialog JNPF-dialog_center form-script-dialog" lock-scroll append-to-body
+    class="JNPF-dialog JNPF-dialog_center form-script-dialog" lock-scroll append-to-body
     v-bind="$attrs" width="600px" :modal-append-to-body="false" v-on="$listeners" @open="onOpen">
     <el-form ref="candidateForm" :model="candidateForm"
       :label-width="candidateForm.candidateList.length||branchList.length?'130px':'80px'">

@@ -181,7 +181,7 @@
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="setDefault(),visible=false">{{$t('common.cancelButton')}}</el-button>
+        <el-button @click="setDefault(),visible=false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="confirm">{{$t('common.confirmButton')}}</el-button>
       </span>
     </el-dialog>
