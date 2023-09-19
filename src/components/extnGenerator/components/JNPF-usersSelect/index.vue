@@ -189,11 +189,8 @@
 </template>
 
 <script>
-import { getImUserSelector, getSelectedList, getSelectedUserList } from '@/api/permission/user'
+import { getImUserSelector,getRoleSelector,getPositionSelector, getGroupSelector, getSelectedList, getSelectedUserList } from '@/api/extn/permission'
 import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
-import { getPositionSelector } from '@/api/permission/position'
-import { getRoleSelector } from '@/api/permission/role'
-import { getGroupSelector } from '@/api/permission/group'
 const defaultSelectedList = [
   {
     id: "department",

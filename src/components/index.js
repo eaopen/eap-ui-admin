@@ -19,13 +19,12 @@ import JnpfFormTipItem from '@/components/extn/form-tip-item'
 
 
 // extend generator
-// 暂时隐藏
 import UserSelect from '@/components/extnGenerator/components/JNPF-userSelect'
-// import UsersSelect from '@/components/extnGenerator/components/JNPF-usersSelect'
+import UsersSelect from '@/components/extnGenerator/components/JNPF-usersSelect'
 
 import JNPFQuill from '@/components/extnGenerator/components/JNPFEditor/quill'
 // import UserSelect from '@/components/extnGenerator/components/JNPFText'
-import UsersSelect from '@/components/extnGenerator/components/JNPFText'
+// import UsersSelect from '@/components/extnGenerator/components/JNPFText'
 
 import JnpfDatePicker from '@/components/extnGenerator/components/JnpfDatePicker'
 import JNPFText from '@/components/extnGenerator/components/JNPFText'
