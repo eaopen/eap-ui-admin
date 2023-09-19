@@ -78,7 +78,7 @@
         <el-button @click="dialogVisible=false">{{$t('common.cancelBtn')}}
         </el-button>
         <el-button type="primary" @click="addComment()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
     <Preview :visible.sync="previewVisible" :file="activeFile" />

@@ -34,7 +34,7 @@
         <span slot="footer" class="dialog-footer">
           <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
           <el-button type="primary" @click="select()" :loading="btnLoading">
-            {{$t('common.confirmButton')}}</el-button>
+            {{$t('common.confirmBtn')}}</el-button>
         </span>
       </el-dialog>
     </template>
@@ -72,7 +72,7 @@
           <div class="drawer-footer">
             <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
             <el-button type="primary" @click="select()" :loading="btnLoading">
-              {{$t('common.confirmButton')}}</el-button>
+              {{$t('common.confirmBtn')}}</el-button>
           </div>
         </div>
       </el-drawer>

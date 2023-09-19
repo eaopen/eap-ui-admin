@@ -177,7 +177,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="visibleUsers = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="dataFormSubmit()">
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
     <el-dialog title="新建流程" :visible.sync="dialogVisible"

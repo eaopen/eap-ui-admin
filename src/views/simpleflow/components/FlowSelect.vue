@@ -84,7 +84,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button @click="cancelConfirm()">{{$t('common.cancelBtn')}}</el-button>
-        <el-button type="primary" @click="confirm()">{{$t('common.confirmButton')}}</el-button>
+        <el-button type="primary" @click="confirm()">{{$t('common.confirmBtn')}}</el-button>
       </span>
     </el-dialog>
   </div>

@@ -26,7 +26,7 @@
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialog">{{$t('common.cancelBtn')}}</el-button>
       <el-button type="primary" @click="submitCandidate()" :loading="btnLoading">
-        {{$t('common.confirmButton')}}
+        {{$t('common.confirmBtn')}}
       </el-button>
     </span>
   </el-dialog>

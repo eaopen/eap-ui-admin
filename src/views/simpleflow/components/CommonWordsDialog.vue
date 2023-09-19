@@ -25,7 +25,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="select()" :loading="btnLoading">
-          {{$t('common.confirmButton')}}
+          {{$t('common.confirmBtn')}}
         </el-button>
       </span>
       <el-button slot="reference" type="text" @click="openDialog"
@@ -48,7 +48,7 @@
         <el-button @click="cancel()">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" :loading="dataFormBtnLoading" @click="dataFormSubmit(1)"
           :disabled='commonBtnLoading'>
-          {{$t('common.confirmButton')}}</el-button>
+          {{$t('common.confirmBtn')}}</el-button>
         <el-button @click="dataFormSubmit(2)" type="primary" v-if="!this.dataForm.id"
           :loading="commonBtnLoading" :disabled='dataFormBtnLoading'>
           保存并新增

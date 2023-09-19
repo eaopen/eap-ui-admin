@@ -10,7 +10,7 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialog">{{$t('common.cancelBtn')}}</el-button>
-      <el-button type="primary" @click="submit()">{{$t('common.confirmButton')}}
+      <el-button type="primary" @click="submit()">{{$t('common.confirmBtn')}}
       </el-button>
     </span>
   </el-dialog>

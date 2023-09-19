@@ -173,7 +173,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="visible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleApproval()" :loading="approvalBtnLoading">
-          {{$t('common.confirmButton')}}
+          {{$t('common.confirmBtn')}}
         </el-button>
       </span>
 
@@ -206,7 +206,7 @@
       <span slot="footer" class="dialog-footer">
         <el-button @click="resurgenceVisible = false">{{$t('common.cancelBtn')}}</el-button>
         <el-button type="primary" @click="handleResurgence()" :loading="resurgenceBtnLoading">
-          {{$t('common.confirmButton')}}
+          {{$t('common.confirmBtn')}}
         </el-button>
       </span>
     </el-dialog>

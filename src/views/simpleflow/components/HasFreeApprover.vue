@@ -52,7 +52,7 @@
     <div slot="footer">
       <el-button @click="close">{{formConf.cancelBtnText||'取 消'}}</el-button>
       <el-button type="primary" :loading="btnLoading" @click="dataFormSubmit()">
-        {{$t('common.confirmButton')}}</el-button>
+        {{$t('common.confirmBtn')}}</el-button>
     </div>
 
     <SignImgDialog v-if="signVisible" ref="SignImg" :lineWidth='3' :userInfo='userInfo'
