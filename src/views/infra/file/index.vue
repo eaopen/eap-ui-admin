@@ -66,7 +66,7 @@
 
     <!-- 对话框(添加 / 修改) -->
     <el-dialog :title="upload.title" :visible.sync="upload.open" width="400px" append-to-body>
-      <el-upload ref="upload" :limit="1" accept=".jpg, .png, .gif" :auto-upload="false" drag
+      <el-upload ref="upload" :limit="1" accept=".jpg, .png, .gif, .pdf, .zip" :auto-upload="false" drag
                  :headers="upload.headers" :action="upload.url" :data="upload.data" :disabled="upload.isUploading"
                  :on-change="handleFileChange"
                  :on-progress="handleFileUploadProgress"
@@ -75,7 +75,7 @@
         <div class="el-upload__text">
           将文件拖到此处，或 <em>点击上传</em>
         </div>
-        <div class="el-upload__tip" style="color:red" slot="tip">提示：仅允许导入 jpg、png、gif 格式文件！</div>
+        <div class="el-upload__tip" style="color:red" slot="tip">提示：仅允许导入 jpg、png、gif、pdf、zip 格式文件！</div>
       </el-upload>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitFileForm">确 定</el-button>
