@@ -3959,7 +3959,7 @@ export default {
 .approver-pane {
   height: 100%;
   overflow: hidden;
-  >>> .el-tabs__content {
+  :deep(.el-tabs__content) {
     height: calc(100% - 40px);
     .el-tab-pane {
       height: 100%;
