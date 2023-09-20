@@ -48,7 +48,7 @@ export const getUserInfoList = userId => {
 // 获取用户下拉框列表
 export const getImUserSelector = (organizeId, data = {}) => {
     return request({
-        url: `/api/permission/Users/ImUser/Selector/${organizeId}`,
+        url: `/permission/Users/ImUser/Selector/SimpleUser/${organizeId}`,
         method: 'post',
         data
     })
