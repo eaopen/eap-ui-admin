@@ -50,7 +50,7 @@
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="扩展属性"  prop="extends" v-if="currentDataType !='data'" align="left" :show-overflow-tooltip="true" />
+      <el-table-column label="扩展属性"  prop="extendStrJson" v-if="currentDataType !='data'" align="left" :show-overflow-tooltip="true" />
       <el-table-column label="操作" v-if="currentDataType =='data'" align="center" class-name="small-padding fixed-width" >
         <template v-slot="scope">
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)"
@@ -214,6 +214,16 @@ export default {
       listData(this.queryParams).then(response => {
         this.dataList = response.data.list;
         this.total = response.data.total;
+        if(this.dataList){
+          // extendProps => extendStrJson
+          for(let i=0; i<this.total; i++){
+            if(this.dataList[i].extendProps){
+              this.dataList[i].extendStrJson = JSON.stringify(this.dataList[i].extendProps)
+            }else{
+              this.dataList[i].extendStrJson = ''
+            }
+          }
+        }
         this.loading = false;
       });
     },
@@ -232,6 +242,8 @@ export default {
         status: CommonStatusEnum.ENABLE,
         colorType: 'default',
         cssClass: undefined,
+        extendStrJson: '',
+        extendProps: {},
         remark: undefined
       };
       this.resetForm("form");

@@ -53,7 +53,7 @@ service.interceptors.request.use(config => {
 
   // console.log(config)
   // get请求映射params参数
-  if (config.method == 'get') {
+  if (config.method == 'get' && !config.params) {
     config.params = config.data
   }
   if (config.method === 'get' && config.params) {
