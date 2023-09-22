@@ -59,7 +59,7 @@ export default {
     $route() {
       this.addTags()
       this.moveToCurrentTag()
-      console.log(this.visitedViews)
+      //console.log(this.visitedViews)
     },
     visible(value) {
       if (value) {

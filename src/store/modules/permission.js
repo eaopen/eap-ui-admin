@@ -94,7 +94,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
     else if(route.component) { // 根节点
       // for obpm
       if(route.path.indexOf('listGrid/')>-1 || route.component.indexOf('obpm/agGrid')>-1){
-        console.log(route.path)
+        //console.log(route.path)
         route.name = extn.getParams(route.path).code
         route.path = '/' + extn.formatListGridPath(route.path)
         let agListCache = Object.assign({}, agList, {name: route.name})

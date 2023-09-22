@@ -204,7 +204,6 @@ export default {
     noFilter: 'no filter'
   },
   common: {
-    noData: 'no data',
     confirmBtn: 'confirm',
     confirmDesignButton: 'confirm&design',
     saveBtn: 'save',
