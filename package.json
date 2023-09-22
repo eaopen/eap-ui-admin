@@ -49,7 +49,6 @@
     "@fullcalendar/interaction": "^6.1.4",
     "@fullcalendar/timegrid": "^6.1.4",
     "@fullcalendar/vue": "^6.1.4",
-    "@highlightjs/vue-plugin": "highlightjs/vue-plugin",
     "@riophae/vue-treeselect": "0.4.0",
     "ag-grid-community": "^28.0.2",
     "ag-grid-enterprise": "^28.0.2",

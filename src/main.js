@@ -71,8 +71,8 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 
 import '@/plugins/package/highlight';
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
-import vuePlugin from "@highlightjs/vue-plugin";
-Vue.use(vuePlugin);
+// import vuePlugin from "@highlightjs/vue-plugin";
+// Vue.use(vuePlugin);
 
 // Form Generator 组件需要使用到 tinymce
 
