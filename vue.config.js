@@ -95,8 +95,8 @@ module.exports = {
   },
   chainWebpack(config) {
     config.externals({
-      // 'monaco-editor': 'monaco-editor',
-      //'echarts': 'echarts'
+      'monaco-editor': 'monaco-editor',
+      'echarts': 'echarts'
     })
 
     // config.plugins.delete('preload') // TODO: need test

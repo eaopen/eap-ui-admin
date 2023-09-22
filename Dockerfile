@@ -3,6 +3,7 @@ FROM node:16-alpine as build-stage
 WORKDIR /web
 
 COPY .npmrc package.json yarn.lock ./
+RUN apk add git
 RUN --mount=type=cache,id=yarn-store,target=/root/.yarn-store \
     yarn install
 
