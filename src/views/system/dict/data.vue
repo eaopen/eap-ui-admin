@@ -214,21 +214,18 @@ export default {
       listData(this.queryParams).then(response => {
         this.dataList = response.data.list;
         this.total = response.data.total;
-        if(!response.data.pagination){
-          this.total = 0;
-        }
         if(this.dataList){
           // extendProps => extendStrJson
           for(let i=0; i<this.total; i++){
-            if(!this.dataList[i]){
-              break;
-            }
-            if(this.dataList[i]['extendProps']){
+            if(this.dataList[i].extendProps){
               this.dataList[i].extendStrJson = JSON.stringify(this.dataList[i].extendProps)
             }else{
               this.dataList[i].extendStrJson = ''
             }
           }
+        }
+        if(!response.data.pagination){
+          this.total = 0;
         }
         this.loading = false;
       });
