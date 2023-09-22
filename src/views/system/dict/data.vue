@@ -33,7 +33,7 @@
     </el-row>
 
     <el-table v-loading="loading" :data="dataList" >
-      <el-table-column label="字典编码" v-if="currentDataType =='data'" align="center" prop="id" />
+      <el-table-column label="字典编码" align="center" prop="id" />
       <el-table-column label="字典标签" align="center" prop="label"  width="150" />
       <el-table-column label="字典键值" align="center" prop="value"  width="100" />
       <el-table-column label="字典排序" align="center" prop="sort" width="80"/>
@@ -214,6 +214,9 @@ export default {
       listData(this.queryParams).then(response => {
         this.dataList = response.data.list;
         this.total = response.data.total;
+        if(!response.data.pagination){
+          this.total = 0;
+        }
         if(this.dataList){
           // extendProps => extendStrJson
           for(let i=0; i<this.total; i++){
