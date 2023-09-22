@@ -75,6 +75,7 @@
     "jsonlint": "1.6.3",
     "min-dash": "3.5.2",
     "monaco-editor": "^0.20.0",
+    "monaco-editor-webpack-plugin": "^7.1.0",
     "nprogress": "0.2.0",
     "qrcode.vue": "^1.7.0",
     "qrcodejs2": "0.0.2",

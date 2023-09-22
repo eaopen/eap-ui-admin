@@ -1,6 +1,7 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -83,6 +84,10 @@ module.exports = {
       }
     },
     plugins: [
+      // new MonacoWebpackPlugin({
+      //   // available options are documented at https://github.com/Microsoft/monaco-editor-webpack-plugin#options
+      //   languages: ['javascript', 'css', 'html', 'typescript', 'json', 'java', 'sql']
+      // }),
       // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
       new CompressionPlugin({
         cache: false,                   // 不启用文件缓存
@@ -95,8 +100,8 @@ module.exports = {
   },
   chainWebpack(config) {
     config.externals({
-      'monaco-editor': 'monaco-editor',
-      'echarts': 'echarts'
+      //'monaco-editor': 'monaco-editor',
+      //'echarts': 'echarts'
     })
 
     // config.plugins.delete('preload') // TODO: need test
