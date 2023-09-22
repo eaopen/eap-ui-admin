@@ -33,19 +33,19 @@
     </el-row>
 
     <el-table v-loading="loading" :data="dataList" >
-      <el-table-column label="字典编码" align="center" prop="id" />
-      <el-table-column label="字典标签" align="center" prop="label" />
-      <el-table-column label="字典键值" align="center" prop="value" />
+      <el-table-column label="字典编码" v-if="currentDataType =='data'" align="center" prop="id" />
+      <el-table-column label="字典标签" align="center" prop="label"  width="150" />
+      <el-table-column label="字典键值" align="center" prop="value"  width="100" />
       <el-table-column label="字典排序" align="center" prop="sort" width="80"/>
       <el-table-column label="状态" align="center" prop="status" width="80">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
         </template>
       </el-table-column>
-      <el-table-column label="颜色类型" align="center" prop="colorType"  width="100"/>
-      <el-table-column label="CSS Class" align="center" prop="cssClass" />
-      <el-table-column label="备注" align="center" prop="remark" :show-overflow-tooltip="true" />
-      <el-table-column label="创建时间" align="center" prop="createTime" width="180">
+      <el-table-column label="颜色类型" align="center" prop="colorType" width="80"/>
+      <el-table-column label="CSS Class" align="center" prop="cssClass" width="100" />
+      <el-table-column label="备注" v-if="currentDataType =='data'" align="center" prop="remark" :show-overflow-tooltip="true" />
+      <el-table-column label="创建时间" v-if="currentDataType =='data'" align="center" prop="createTime" width="180">
         <template v-slot="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
@@ -217,7 +217,10 @@ export default {
         if(this.dataList){
           // extendProps => extendStrJson
           for(let i=0; i<this.total; i++){
-            if(this.dataList[i].extendProps){
+            if(!this.dataList[i]){
+              break;
+            }
+            if(this.dataList[i]['extendProps']){
               this.dataList[i].extendStrJson = JSON.stringify(this.dataList[i].extendProps)
             }else{
               this.dataList[i].extendStrJson = ''
