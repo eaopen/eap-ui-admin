@@ -18,11 +18,11 @@ export function listSimpleMenus() {
 }
 // 获取上级菜单下拉框
 export const getMenuSelector = (data, type, systemId) => {
-
+  data.type=1
   return request({
-    url: '/api/visualdev/Portal/Selector/All?type=1',
+    url: '/api/visualdev/Portal/Selector/All',
     method: 'GET',
-    params: data, type: 0
+    params: data
 
   })
 }
