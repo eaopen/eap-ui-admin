@@ -30,7 +30,8 @@ router.beforeEach((to, from, next) => {
           // 触发 GenerateRoutes 事件时，将 menus 菜单树传递进去
           store.dispatch('GenerateRoutes', permInfo.menus).then(accessRoutes => {
             // 根据 roles 权限生成可访问的路由表
-            // console.log('add routes', accessRoutes)
+            console.log('add routes', accessRoutes)
+            accessRoutes.splice(5,1)
             router.addRoutes(accessRoutes) // 动态添加可访问路由表
             //console.log('full routers', router)
             next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
