@@ -114,8 +114,7 @@ export default {
 
       for (const router of routes) {
         // skip hidden router
-        if (router.hidden) { continue }
-
+        if (router.hidden || !router.path) { continue }
         const data = {
           path: !this.ishttp(router.path) ? path.resolve(basePath, router.path) : router.path,
           title: [...prefixTitle]

@@ -54,6 +54,7 @@ const extn = {
     },
     formatListGridPath:(path)=> {
         if (!path) return "";
+        path = ''+path
         if(path.indexOf('?')== -1) return path
         let paramsObj = extn.getParams(path);
         const keys = Object.keys(paramsObj);

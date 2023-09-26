@@ -8,7 +8,6 @@ import {refreshToken} from "@/api/login";
 import { getLanguage } from '@/lang/index';
 
 // todo i18n
-
 // 需要忽略的提示。忽略后，自动 Promise.reject('error')
 const ignoreMsgs = [
   "无效的刷新令牌", // 刷新令牌被删除时，不用提示
@@ -36,6 +35,14 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   // 是否需要设置 token
+  const apiPathMap = {
+    listConfig: '/etech/formCustSql/view/vo3_',
+    listData: '/etech/formCustSql/view/list_'
+  }
+  if(config.url && config.url.indexOf('${')!==-1){
+    config.url = '`'+config.url+'`'
+    config.url = eval(config.url)
+  }
   const isToken = (config.headers || {}).isToken === false
   if (getAccessToken() && !isToken) {
     config.headers['Authorization'] = 'Bearer ' + getAccessToken() // 让每个请求携带自定义token 请根据实际情况自行修改
@@ -51,8 +58,8 @@ service.interceptors.request.use(config => {
     }
   }
 
-  // console.log(config)
   // get请求映射params参数
+
   if (config.method == 'get' && !config.params) {
     config.params = config.data
   }

@@ -106,7 +106,9 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
           let [path1, queryString] = route.path.split('?');
           route.path = path1
         }
+        console.log('iframe1:', route.component)
         route.component = loadView(route.component)
+        console.log('iframe2:', route)
       }else {
         route.component = loadView(route.component)
       }
