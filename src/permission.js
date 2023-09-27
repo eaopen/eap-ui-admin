@@ -12,7 +12,6 @@ NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/social-login',  '/auth-redirect', '/bind', '/register', '/oauthLogin/gitee']
 
 router.beforeEach((to, from, next) => {
-  console.log(router)
   NProgress.start()
   if (getAccessToken()) {
     to.meta.title && store.dispatch('settings/setTitle', to.meta.title)
@@ -21,7 +20,6 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      console.log(to)
       if (store.getters.roles.length === 0) {
         isRelogin.show = true
         // 获取字典数据 add by 芋艿
@@ -35,7 +33,6 @@ router.beforeEach((to, from, next) => {
             console.log('add routes', accessRoutes)
             accessRoutes.splice(5,1)
             router.addRoutes(accessRoutes) // 动态添加可访问路由表
-            //console.log('full routers', router)
             next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
           })
         }).catch(err => {

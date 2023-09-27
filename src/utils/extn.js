@@ -9,10 +9,13 @@ const STORAGETYPE = window.localStorage
 const extn = {
     isJoinPath:(str)=>{
         if(!str)return false
-        const unJoinList = ['obpm/listGrid','model/','/form/formDef/vueFormDetail.html']
+        const unJoinList = ['obpm/listGrid','model/','/form/formDef/vueFormDetail.html','/viewPage/', 'http:', '_blank']
         let flag = true
         unJoinList.forEach(item=>{
             if(str.startsWith(item)){
+                flag = false
+            }
+            if(str.endsWith('.html')){
                 flag = false
             }
         })

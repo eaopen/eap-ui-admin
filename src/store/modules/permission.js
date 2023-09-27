@@ -3,6 +3,7 @@ import {constantRoutes} from '@/router'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
 import agList from '@/views/obpm/agList.vue'
+import webComponent from '@/views/obpm/web.vue'
 import {toCamelCase} from "@/utils";
 import { extn } from "@/utils/extn"
 
@@ -106,9 +107,17 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
           let [path1, queryString] = route.path.split('?');
           route.path = path1
         }
-        console.log('iframe1:', route.component)
-        route.component = loadView(route.component)
-        console.log('iframe2:', route)
+        if(route.path.startsWith('_blank')){
+          route.path = route.path.slice(7)
+          route.component = webComponent
+          setTimeout(()=>{
+            console.log(route)
+          }, 1000)
+        }else {
+          route.path = '/viewPage'+route.path
+          route.component = webComponent
+        }
+        
       }else {
         route.component = loadView(route.component)
       }
