@@ -25,6 +25,7 @@ import { getListData } from '@/api/obpm/grid.js'
 window.createDatasource = (server) => {
   return {
     getRows: (params) => {
+      console.log('server params', server)
       let filterModel = {}
       let filterCache = params.request.filterModel
       Object.keys(filterCache).forEach(k => {
@@ -40,6 +41,7 @@ window.createDatasource = (server) => {
           filterModel[k] = filterCache[k]
         }
       })
+      
       server.getListData(
         server.code,
         {
@@ -52,7 +54,8 @@ window.createDatasource = (server) => {
         }
       ).then(res => {
         if (res.code == 200) {
-          params.successCallback(res.data.list, res.data.count)
+          console.log('res', res)
+          params.success({rowData:res.data.list})
           server.$emit('changeTotal', res.data.count)
         } else {
           params.fail()
@@ -351,8 +354,8 @@ export default {
           obj.cellEditor = 'datePicker'
           obj.cellRendererParams.dateFormat = item.dateFormat || 'yyyy-MM-DD'
           obj.valueFormatter = (params) => {
-            // var day = this.parseTime(params.value)
-            return this.parseTime(params.value, params.colDef.cellRendererParams.dateFormat)
+            console.log(params.colDef.cellRendererParams.dateFormat)
+            return this.obpm.toDate(params.value, params.colDef.cellRendererParams.dateFormat)
           }
           if (item.icon) {
             obj.cellRendererParams.icon = item.icon
@@ -373,6 +376,7 @@ export default {
 
           }
           console.log(obj)
+          obj.cellRendererParams.list = this.getColList(item.dateFormat)
           // obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
           obj.valueFormatter = (params) => {
             if (!params.value) {
@@ -381,7 +385,7 @@ export default {
               let obj = params.colDef.cellRendererParams.list.find(
                 (i) => i.value == params.value
               )
-              return obj ? obj.label : ''
+              return  obj?obj.label: ''
             }
           }
           break

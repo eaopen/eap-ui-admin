@@ -110,9 +110,6 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         if(route.path.startsWith('_blank')){
           route.path = route.path.slice(7)
           route.component = webComponent
-          setTimeout(()=>{
-            console.log(route)
-          }, 1000)
         }else {
           route.path = '/viewPage'+route.path
           route.component = webComponent

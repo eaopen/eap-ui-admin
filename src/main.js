@@ -17,9 +17,9 @@ import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
 import i18n from './lang' // internationalization
+import '../static/notify'
 
 // extn 组件引入
-
 import './permission' // permission control
 import { parseTime, resetForm, handleTree, addBeginAndEndTime, divide} from "@/utils/ruoyi";
 import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/dict";

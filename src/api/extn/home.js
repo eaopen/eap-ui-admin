@@ -1,6 +1,14 @@
 import request from '@/utils/request'
 
 // 获取我的待办
+export function getTodoTaskList(data) {
+  return request({
+    url: '/bpm/my2/todoTaskList',
+    method: 'post',
+    data
+  })
+}
+// 获取我的待办
 export function getFlowTodoCount(data) {
   return request({
     url: '/api/visualdev/Dashboard/FlowTodoCount',

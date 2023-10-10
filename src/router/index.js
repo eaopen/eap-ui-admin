@@ -124,7 +124,13 @@ export const constantRoutes = [
         component: (resolve) => require(['@/views/onlineDev/visualPortal/index'], resolve),
         name: 'VisualPortal',
         meta: {title: 'visualPortal', icon: 'icon'}
-      }
+      },
+      {
+        path: 'notification',
+        component: (resolve) => require(['@/views/components/notification/index'], resolve),
+        name: 'Notification',
+        meta: {title: 'Icons', icon: 'icon'}
+      },
     ]
   },
   {

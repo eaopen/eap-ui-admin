@@ -14,7 +14,7 @@ export function getListConfig(code) {
 // 获取列表数据
 export function getListData(code, data) {
     return request({
-        url: '/obpm-api${apiPathMap.listConfig}' + code,
+        url: '/obpm-api${apiPathMap.listData}' + code,
         method: 'post',
         data:{
             curPage: data.curPage,

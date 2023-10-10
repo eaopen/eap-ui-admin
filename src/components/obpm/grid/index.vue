@@ -161,10 +161,11 @@
             this.$baseAlert('列表未开启，如有疑问请联系管理员')
             return
           }
+          const buttons = data.data.buttons && typeof data.data.buttons === 'string'?JSON.parse(data.data.buttons):data.data.buttons
           this.status = data.data.status
           this.fields = data.data.fieldsList
-          this.buttons = data.data.buttons.filter(i=>i.type == 2)
-          this.innerButtons = data.data.buttons.filter(i=>i.type == 1)
+          this.buttons = buttons.filter(i=>i.type == 2)
+          this.innerButtons = buttons.filter(i=>i.type == 1)
           this.listId = data.data.pkName
           this.dicMap = data.data.dicMap // dicMap 存入window 对象，方便使用
           this.expand = Object.assign(this.expand, data.data.expand)
@@ -174,7 +175,6 @@
           }
           this.showTable = true
           setTimeout(() => {
-            console.log("ref init")
             this.$refs.dataList.init()
           }, 100)
         })
