@@ -95,7 +95,7 @@ Vue.use(Element, {
 });
 
 Vue.config.productionTip = false
-
+console.log('测试编译')
 new Vue({
   router,
   store,

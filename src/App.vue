@@ -37,11 +37,6 @@ export default {
       return this.$store.state.customDialog.params
     }
   },
-  watch:{
-    'dialogInfo.visible'(val){
-      console.log(val)
-    }
-  },
   metaInfo() {
     return {
       title: this.$store.state.settings.dynamicTitle && this.$store.state.settings.title,
