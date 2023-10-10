@@ -262,7 +262,7 @@ export default {
         arr = m.split(',')
       arr.forEach((item) => {
         let [value, label, className] = item.split('-')
-        if (className == 'tdred') { className = 'bg-red' } else if (className == 'tdgreen') { className = 'bg-green' }
+        if (className == 'tdred') { className = 'bg-red' } else if (className == 'tdgreen') { className = 'bg-green' }else if (className == 'tdyellow') { className = 'bg-yellow' }else if (className == 'tdorange') { className = 'td-orange' }else { className = ''}
         list.push({
           value: value,
           label: label,
@@ -480,6 +480,7 @@ export default {
           obj.cellRendererParams.list = this.color2List(
             item.dateFormat
           )
+          console.log('color',  obj.cellRendererParams.list)
           obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
           obj.valueFormatter = (params) => {
             if (params.value === undefined) {

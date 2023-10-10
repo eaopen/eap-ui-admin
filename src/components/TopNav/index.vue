@@ -169,7 +169,7 @@ export default {
 <style lang="scss">
 .topmenu-container.el-menu--horizontal > .el-menu-item {
   float: left;
-  height: 50px !important;
+  height: 48px !important;
   line-height: 50px !important;
   color: #999093 !important;
   padding: 0 5px !important;
