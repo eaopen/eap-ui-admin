@@ -477,7 +477,7 @@ export default {
           // 之前的颜色格式化兼容
           obj.filter = 'agSetColumnFilter'
           obj.cellEditor = 'datePicker'
-          window.agGridMapList[item.fieldName] = obj.cellRendererParams.list = this.color2List(
+          obj.cellRendererParams.list = this.color2List(
             item.dateFormat
           )
           obj.filterParams.values = obj.cellRendererParams.list.map(i => i.label)
