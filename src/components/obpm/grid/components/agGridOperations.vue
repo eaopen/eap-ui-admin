@@ -74,7 +74,7 @@ export default {
           let newUrl = formatString(btn.url, selects)
           let params = getParams(newUrl)
           params.async = true
-          this.$store.dispatch('dialog/showd1', {
+          this.$store.dispatch('customDialog/show', {
             component,
             width: hrefSetting.width + hrefSetting.widthUnit,
             height: hrefSetting.height + hrefSetting.heightUnit,

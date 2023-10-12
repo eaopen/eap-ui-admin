@@ -27,14 +27,15 @@ import {
 import {
   getOperationTypeEnum,
 } from "@/api/obpm/sys.js";
-// import { mapActions } from "vuex";
+import { mapActions } from "vuex";
+import {getAccessToken} from "@/utils/auth";
 import taskButton from "./components/taskButton.vue";
 import approveHistory from "./components/approveHistory.vue";
 import flowImage from "./components/flowImage.vue";
 import easyForm from "@/components/obpm/easyForm/form.vue"
 import carbonCopyAction from "./components/carbonCopyAction.vue";
 export default {
-  name: "taskDetail",
+  name: "TaskDetailComponent",
   props: ["taskid"],
   components: { taskButton, approveHistory, flowImage, easyForm, carbonCopyAction },
   data() {
@@ -141,7 +142,7 @@ export default {
   methods: {
     openDialog(name){
       let component = carbonCopyAction
-      this.$store.dispatch('dialog/showd1',{
+      this.$store.dispatch('customDialog/show',{
         component: component,
         width: '50%'
       })
@@ -168,7 +169,7 @@ export default {
           "/api/bpm/instance/flowImage?instId=" +
           res.data +
           "&defId=&taskId=" +
-          this.taskid;
+          this.taskid +"&token="+getAccessToken();
         this._getFlowImage({
           instanceId: res.data,
           defId: "",

@@ -41,7 +41,7 @@ export default {
       if(this.params.key){
         url = `${url}?key=${this.params.key}&sql=${this.params.sql||''}`
       }
-      this.$axios.post(url, this.$refs.abCustomForm.data).then(res=>{
+      this.$axios({method: 'post', url, data:this.$refs.abCustomForm.data}).then(res=>{
         console.log(res)
         if(res.isOk){
           this.$store.dispatch('customDialog/hideDialog')

@@ -35,12 +35,13 @@ export default {
       this.$store.dispatch('customDialog/hideDialog')
     },
     save(){
+      console.log(this, this.$axios)
       let url = '/form/formDefData/saveData'
       // console.log(this.$refs.save)
       if(this.params.key){
         url = `${url}?key=${this.params.key}&sql=${this.params.sql||''}`
       }
-      this.$axios.post(url, this.$refs.abCustomForm.data).then(res=>{
+      this.$axios({method: 'post', url, data:this.$refs.abCustomForm.data}).then(res=>{
         console.log(res)
         if(res.isOk){
           this.$store.dispatch('customDialog/hideDialog')
@@ -52,6 +53,7 @@ export default {
 
     },
     saveData: async function () {
+      console.log(this, this.$axios)
         var errorMsg = Vue.formService.getValidateMsg(this.$children[0]);
         if (errorMsg) {
             top.$.Dialog.alert("表单校验不通过！" + errorMsg, 7);

@@ -64,7 +64,7 @@ export default {
     },
     showDialog(row){
       getInstanceData2(row).then(res=>{
-        this.$store.dispatch('dialog/showd1',{
+        this.$store.dispatch('customDialog/show',{
           component: easyForm,
           width: '50%',
           params: {

@@ -4,7 +4,7 @@ import request from "@/utils/request";
 // 获取任务ID
 export function getInstanceId(id){
     return request({
-        url:  '/obpm-api/bpm/form/getBpmInstanceId/'+ id,
+        url:  '/obpm-api/common/bpm/form/getBpmInstanceId/'+ id,
         method: 'get'
     })
 }
@@ -58,7 +58,7 @@ export function getInstance(instId){
 // 获取流程图 instanceId defId taskId
 export function getFlowImage(params){
     return request({
-        url: '/obpm-api/bpm/instance/getFlowImageInfoEx',
+        url: '/obpm-api/etech/instance/getFlowImageInfoEx',
         method: 'post',
         params: params
     })

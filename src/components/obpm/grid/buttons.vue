@@ -117,7 +117,7 @@
             let dialogHeight = hrefSetting&&hrefSetting.height?hrefSetting.height: 500
             let dialogWidthUnit = hrefSetting&&hrefSetting.widthUnit?hrefSetting.widthUnit: 'px'
             let dialogHeightUnit = hrefSetting&&hrefSetting.heightUnit?hrefSetting.heightUnit: 'px'
-            this.$store.dispatch('customDialog/showCustomDialog', {
+            this.$store.dispatch('customDialog/show', {
               component,
               width: dialogWidth + dialogWidthUnit,
               height: dialogHeight + dialogHeightUnit,
