@@ -103,7 +103,7 @@
       // 确定生效
       clickAction(btn, selects){
         if(btn.alias === 'preProject:editBasic'){
-          this.$tab.openPage(btn.name, "/taskDetail/441327614131699713").then(res=>{
+          this.$tab.openPage(btn.name, "/demo/first/taskDetail").then(res=>{
 
           })
         }else if(btn.clickType === '3' || btn.clickType === '4'){
@@ -113,6 +113,9 @@
             let newUrl = this.obpm.formatString(btn.url, selects)
             let params = this.obpm.getParams(newUrl)
             params.async = true
+            console.log('newUrl', newUrl)
+            console.log(selects)
+            console.log('params',params)
             let dialogWidth = hrefSetting&&hrefSetting.width?hrefSetting.width: 600
             let dialogHeight = hrefSetting&&hrefSetting.height?hrefSetting.height: 500
             let dialogWidthUnit = hrefSetting&&hrefSetting.widthUnit?hrefSetting.widthUnit: 'px'

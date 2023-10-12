@@ -21,13 +21,17 @@
           <i class="el-icon-chat-line-round" style="font-size: 20px;" @click="openUserList()"
             :class="{'twinkle':isTwinkle}"></i>
         </div>
-        <div class="right-menu-item hover-effect">
+        <!-- <div class="right-menu-item hover-effect">
           <i class="el-icon-lock" style="font-size: 20px;" @click="setLock()"
             :class="{'twinkle':isTwinkle}"></i>
         </div>
         <template v-if="showLanguage">
           <lang-select class="right-menu-item hover-effect" />
-        </template>
+        </template> -->
+        <div class="right-menu-item hover-effect">
+          <i class="el-icon-lock" style="font-size: 20px;" @click="setLock()"
+            :class="{'twinkle':isTwinkle}"></i>
+        </div>
 
       </template>
 

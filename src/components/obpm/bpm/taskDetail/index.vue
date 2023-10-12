@@ -166,7 +166,7 @@ export default {
         this.bpmFlowUrl = `/bpm/instance/instanceImageDialog.html?openedFlag=true&instanceId=${this.instanceId}`;
         this.bpmHistoryUrl = `/bpm/instance/taskOpinionHistoryDialog.html?openedFlag=true&instanceId=${this.instanceId}`;
         this.flowImageSrc =
-          "/api/bpm/instance/flowImage?instId=" +
+          "http://192.168.8.106:7080/prod-api/admin-api/obpm-api/bpm/instance/flowImage?instId=" +
           res.data +
           "&defId=&taskId=" +
           this.taskid +"&token="+getAccessToken();
@@ -178,6 +178,7 @@ export default {
       });
     },
     _getFlowImage(id) {
+      this.showImage = true;
       getFlowImage(id).then((res) => {
         if (res.code == 200) {
           this.imageInfo = this.formatFlowNodes(res.data);

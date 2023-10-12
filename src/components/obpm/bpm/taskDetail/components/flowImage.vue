@@ -30,7 +30,7 @@
         <div class="node-name"><i :class="item.icon"></i>{{ item.name }}</div>
       </div>
     </el-popover>
-    <img class="image-bg" :src="imageSrc"/>
+    <img class="image-bg" :src="imageSrc" id="flowImageBg"/>
    </div>
 </template>
 <script>
@@ -46,8 +46,14 @@ export default {
   methods:{
 
   },
-  created(){
-    console.log(this.imageInfo)
+  mounted(){
+    let vm = this
+    setTimeout(()=>{
+      if(vm.imageSrc){
+        console.log('替换图片')
+        document.querySelector('#flowImageBg').setAttribute('src', vm.imageSrc)
+      }
+    },1000)
   }
 }
 </script>
