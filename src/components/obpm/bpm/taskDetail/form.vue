@@ -42,8 +42,8 @@ export default {
         let formActionUrl = this.$children[0].formActionUrl;
         let logType = this.$children[0].logType;
         //是否调用的默认的保存接口，默认保存有处理文件的保存和删除，如果不是默认的下面手动调用一次
-        this.isDefaultUrl = formActionUrl && formActionUrl.indexOf("/form/formDefData/saveData?") === -1 ? false : true;
-        formActionUrl = formActionUrl || "/form/formDefData/saveData?key=" + $.getParam("key") + "&sql=" + $.getParam("sql") + (logType ? `&log_type=${logType}` : '');
+        this.isDefaultUrl = formActionUrl && formActionUrl.indexOf("/etech/formDefData/saveData?") === -1 ? false : true;
+        formActionUrl = formActionUrl || "/etech/formDefData/saveData?key=" + $.getParam("key") + "&sql=" + $.getParam("sql") + (logType ? `&log_type=${logType}` : '');
         let formActionData = this.$children[0].formActionUrl ? (this.$children[0].formActionData || this.$children[0].$data.data) : this.$children[0].$data.data;
         var url = Vue.__ctx + formActionUrl;
         let that = this

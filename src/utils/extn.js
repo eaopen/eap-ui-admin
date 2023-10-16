@@ -34,6 +34,12 @@ const extn = {
         if(!str){
             return json;
         }
+        if(str.indexOf('#')!==-1){
+            let [s,t] = str.split('#')
+            str = s
+            json.asyncTitle = t
+        }
+
         if(str.indexOf('?')== -1){
             let arr = str.split('/')
             return {
