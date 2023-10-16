@@ -24,7 +24,10 @@ import './permission' // permission control
 import { parseTime, resetForm, handleTree, addBeginAndEndTime, divide} from "@/utils/ruoyi";
 import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/dict";
 
+import request from "@/utils/request" // 实现 form generator 使用自己定义的 axios request 对象
 
+Vue.prototype.$axios = request
+console.log(request)
 
 Object.assign(Vue.prototype, {
   define: require('./utils/define'),
@@ -33,7 +36,6 @@ Object.assign(Vue.prototype, {
   jnpf: require('./utils/extn').jnpf,
   getDicts: require('./utils/extn').getDicts,
   getConfigKey: require('@/api/infra/config').getConfigKey,
-  $axios: require('@/utils/request').request,
   DICT_TYPE,
   getDictDataLabel,
   getDictDatas,

@@ -108,16 +108,16 @@
           })
         }else if(btn.clickType === '3' || btn.clickType === '4'){
           const { hrefSetting } = btn.expand?JSON.parse(btn.expand):{}
-          if(btn.url.startsWith('/form/formDef/vueFormDefPreview.html')){
+          if(btn.url.startsWith('/form/formDef/vueFormDefPreview.html') ||btn.url.startsWith('/form/formDef/vueFormDetail.html')){
             const component = easyForm
             let newUrl = this.obpm.formatString(btn.url, selects)
             let params = this.obpm.getParams(newUrl)
             params.async = true
-            console.log('newUrl', newUrl)
-            console.log(selects)
-            console.log('params',params)
-            let dialogWidth = hrefSetting&&hrefSetting.width?hrefSetting.width: 600
-            let dialogHeight = hrefSetting&&hrefSetting.height?hrefSetting.height: 500
+            if(params.asyncTitle){
+              params.asyncTitle = this.obpm.formatString(params.asyncTitle, selects)
+            }
+            let dialogWidth = hrefSetting&&hrefSetting.width?hrefSetting.width: 450
+            let dialogHeight = hrefSetting&&hrefSetting.height?hrefSetting.height: 420
             let dialogWidthUnit = hrefSetting&&hrefSetting.widthUnit?hrefSetting.widthUnit: 'px'
             let dialogHeightUnit = hrefSetting&&hrefSetting.heightUnit?hrefSetting.heightUnit: 'px'
             this.$store.dispatch('customDialog/show', {
