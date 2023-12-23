@@ -50,3 +50,11 @@ export function delMenu(id) {
     method: 'delete'
   })
 }
+
+// 检查更新菜单国际化数据
+export function checkMenuI18n(){
+  return request({
+    url:'/system/menu/checkI18n',
+    method: 'get'
+  })
+}
