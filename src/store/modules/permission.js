@@ -59,6 +59,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       title: route.name,
       icon: route.icon,
       noCache: !route.keepAlive,
+      urlAddr: route.urlAddr || route.path,
     }
     route.hidden = !route.visible
     // 处理 name 属性
@@ -105,7 +106,11 @@ function filterChildren(childrenMap, lastRouter = false) {
     if (el.children && el.children.length) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
-          c.path = el.path + '/' + c.path
+          //c.path = el.path + '/' + c.path
+          if(c.path){
+            if(!c.urlAddr) c.urlAddr = c.path
+            c.path = el.path + '/' + c.path
+          }
           if (c.children && c.children.length) {
             children = children.concat(filterChildren(c.children, c))
             return
