@@ -1,21 +1,47 @@
 import store from '@/store'
 
 /**
- * @param {Array} value
+ * 字符权限校验
+ * @param {Array} value 校验值
  * @returns {Boolean}
- * @example see @/views/permission/directive.vue
  */
-export default function checkPermission(value) {
+export function checkPermi(value) {
+  if (value && value instanceof Array && value.length > 0) {
+    const permissions = store.getters && store.getters.permissions
+    const permissionDatas = value
+    const all_permission = "*:*:*";
+
+    const hasPermission = permissions.some(permission => {
+      return all_permission === permission || permissionDatas.includes(permission)
+    })
+
+    return hasPermission;
+
+  } else {
+    console.error(`need roles! Like checkPermi="['system:user:add','system:user:edit']"`)
+    return false
+  }
+}
+
+/**
+ * 角色权限校验
+ * @param {Array} value 校验值
+ * @returns {Boolean}
+ */
+export function checkRole(value) {
   if (value && value instanceof Array && value.length > 0) {
     const roles = store.getters && store.getters.roles
     const permissionRoles = value
+    const super_admin = "admin";
 
-    const hasPermission = roles.some(role => {
-      return permissionRoles.includes(role)
+    const hasRole = roles.some(role => {
+      return super_admin === role || permissionRoles.includes(role)
     })
-    return hasPermission
+
+    return hasRole;
+
   } else {
-    console.error(`need roles! Like v-permission="['admin','editor']"`)
+    console.error(`need roles! Like checkRole="['admin','editor']"`)
     return false
   }
 }
