@@ -1,8 +1,0 @@
-dev:
-  push:
-    - stages:
-        - name: test-jk
-          script: npm run jkhook
-
-
-# 想了解配置文件更多用法请移步 【配置文件】（https://ci.coding.net/docs/configuration.html）
