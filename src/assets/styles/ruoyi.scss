@@ -75,7 +75,7 @@
   padding: 10px 20px 0;
 }
 
-.el-dialog:not(.is-fullscreen) {
+.el-dialog{
   display: flex;
   flex-direction: column;
   max-width: calc(100% - 30px);
@@ -95,7 +95,7 @@
       font-size: 13px;
     }
   }
-  .el-table__body-wrapper {
+  .el-table__body-wrapper,.el-table__fixed-body-wrapper {
     .el-button [class*="el-icon-"] + span {
       margin-left: 1px;
     }

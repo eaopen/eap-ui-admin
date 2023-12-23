@@ -1,12 +1,12 @@
 <template>
   <div class="icons-container">
     <aside>
-      <el-input size="mini" v-model="searchKey" style="width: 250px" placeholder="输入icon名字搜索" clearable></el-input>
-      <span style="display: inline-block; font-size: 14px; color:#67C23A; margin-left: 20px;">点击图标复制图标代码</span>
+      <a href="#" target="_blank">Add and use
+      </a>
     </aside>
     <el-tabs type="border-card">
       <el-tab-pane label="Icons">
-        <div v-for="item of svgIconsPool" :key="item" v-clipboard:copy="generateIconCode(item)" v-clipboard:success="clipboardSuccess">
+        <div v-for="item of svgIcons" :key="item">
           <el-tooltip placement="top">
             <div slot="content">
               {{ generateIconCode(item) }}
@@ -19,7 +19,7 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="Element-UI Icons">
-        <div v-for="item of elementIconsPool" :key="item" v-clipboard:copy="generateElementIconCode(item)" v-clipboard:success="clipboardSuccess">
+        <div v-for="item of elementIcons" :key="item">
           <el-tooltip placement="top">
             <div slot="content">
               {{ generateElementIconCode(item) }}
@@ -31,32 +31,6 @@
           </el-tooltip>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="ymIcon 图标">
-        <div v-for="item of ymIconsPool" :key="item" v-clipboard:copy="generateYmIconCode(item.font_class)" v-clipboard:success="clipboardSuccess">
-          <el-tooltip placement="top">
-            <div slot="content">
-              icon-ym-{{item.font_class}}
-            </div>
-            <div class="icon-item">
-              <i :class="generateYmIconCode(item.font_class)" />
-              <span>icon-ym-{{item.font_class}} </span>
-            </div>
-          </el-tooltip>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="FA Icons">
-        <div v-for="item of faIconsPool" :key="item.alias" v-clipboard:copy="generateEtechIconCode(item.alias)" v-clipboard:success="clipboardSuccess">
-          <el-tooltip placement="top">
-            <div slot="content">
-              {{ generateEtechIconCode(item.alias) }}
-            </div>
-            <div class="icon-item">
-              <i :class="'fa ' + item.alias" />
-              <span>{{ item.alias }}</span>
-            </div>
-          </el-tooltip>
-        </div>
-      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -64,69 +38,22 @@
 <script>
 import svgIcons from './svg-icons'
 import elementIcons from './element-icons'
-import faIcons from './fa-icons'
-import ymIcons from './ymIcons'
 
 export default {
   name: 'Icons',
   data() {
     return {
       svgIcons,
-      elementIcons,
-      faIcons,
-      ymIcons,
-      searchKey: '',
+      elementIcons
     }
   },
-  computed:{
-    svgIconsPool(){
-      if(this.searchKey){
-        return this.svgIcons.filter(i=>i.indexOf(this.searchKey)!=-1)
-      }else {
-        return this.svgIcons
-      }
-    },
-    elementIconsPool(){
-      if(this.searchKey){
-        return this.elementIcons.filter(i=>i.indexOf(this.searchKey)!=-1)
-      }else {
-        return this.elementIcons
-      }
-    },
-    ymIconsPool(){
-      if(this.searchKey){
-        return this.ymIcons.filter(i=>i.name.indexOf(this.searchKey)!=-1)
-      }else {
-        return this.ymIcons
-      }
-    },
-    faIconsPool(){
-      if(this.searchKey){
-        return this.faIcons.filter(i=>i.alias.indexOf(this.searchKey)!=-1)
-      }else {
-        return this.faIcons
-      }
-    },
-  },
   methods: {
-    clipboardSuccess() {
-      this.$modal.msgSuccess("复制成功");
-    },
     generateIconCode(symbol) {
       return `<svg-icon icon-class="${symbol}" />`
     },
     generateElementIconCode(symbol) {
       return `<i class="el-icon-${symbol}" />`
-    },
-    generateEtechIconCode(symbol){
-      return `<i class="fa ${symbol}" />`
-    },
-    generateYmIconCode(symbol) {
-      return `icon-ym icon-ym-${symbol}`
-    },
-  },
-  created(){
-    console.log(this.faIcons)
+    }
   }
 }
 </script>
@@ -156,8 +83,5 @@ export default {
   .disabled {
     pointer-events: none;
   }
-}
-.icon-ym {
-  font-size: 32px !important
 }
 </style>

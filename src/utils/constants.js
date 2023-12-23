@@ -1,4 +1,6 @@
 /**
+ * Created by 芋道源码
+ *
  * 枚举类
  */
 import {beginOfDay, endOfDay} from "@/utils/dateUtils";
@@ -100,18 +102,18 @@ export const InfraApiErrorLogProcessStatusEnum = {
  * 用户的社交平台的类型枚举
  */
 export const SystemUserSocialTypeEnum = {
-  // DINGTALK: {
-  //   title: "钉钉",
-  //   type: 20,
-  //   source: "dingtalk",
-  //   img: "https://s1.ax1x.com/2022/05/22/OzMDRs.png",
-  // },
-  // WECHAT_ENTERPRISE: {
-  //   title: "企业微信",
-  //   type: 30,
-  //   source: "wechat_enterprise",
-  //   img: "https://s1.ax1x.com/2022/05/22/OzMrzn.png",
-  // }
+  DINGTALK: {
+    title: "钉钉",
+    type: 20,
+    source: "dingtalk",
+    img: "https://s1.ax1x.com/2022/05/22/OzMDRs.png",
+  },
+  WECHAT_ENTERPRISE: {
+    title: "企业微信",
+    type: 30,
+    source: "wechat_enterprise",
+    img: "https://s1.ax1x.com/2022/05/22/OzMrzn.png",
+  }
 }
 
 /**
@@ -129,6 +131,14 @@ export const PayChannelEnum = {
   WX_APP: {
     "code": "wx_app",
     "name": "微信 APP 支付"
+  },
+  WX_NATIVE: {
+    "code": "wx_native",
+    "name": "微信扫码支付"
+  },
+  WX_BAR: {
+    "code": "wx_bar",
+    "name": "微信条码支付"
   },
   ALIPAY_PC: {
     "code": "alipay_pc",
@@ -150,6 +160,14 @@ export const PayChannelEnum = {
     "code": "alipay_bar",
     "name": "支付宝条码支付"
   },
+  MOCK : {
+    "code": "mock",
+    "name": "模拟支付"
+  },
+  WALLET : {
+    "code": "wallet",
+    "name": "钱包支付"
+  }
 }
 
 /**
@@ -167,15 +185,10 @@ export const PayDisplayModeEnum = {
   },
   QR_CODE: {
     "mode": "qr_code"
+  },
+  APP: {
+    "mode": "app"
   }
-}
-
-/**
- * 支付类型枚举
- */
-export const PayType = {
-  WECHAT: "WECHAT",
-  ALIPAY: "ALIPAY"
 }
 
 /**
@@ -193,42 +206,6 @@ export const PayOrderStatusEnum = {
   CLOSED: {
     status: 20,
     name: '支付关闭'
-  }
-}
-
-/**
- * 支付订单回调状态枚举
- */
-export const PayOrderNotifyStatusEnum = {
-  NO: {
-    status: 0,
-    name: '未通知'
-  },
-  SUCCESS: {
-    status: 10,
-    name: '通知成功'
-  },
-  FAILURE: {
-    status: 20,
-    name: '通知失败'
-  }
-}
-
-/**
- * 支付订单退款状态枚举
- */
-export const PayOrderRefundStatusEnum = {
-  NO: {
-    status: 0,
-    name: '未退款'
-  },
-  SOME: {
-    status: 10,
-    name: '部分退款'
-  },
-  ALL: {
-    status: 20,
-    name: '全部退款'
   }
 }
 

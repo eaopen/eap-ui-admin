@@ -41,53 +41,6 @@ const actions = {
       // 存储到 Store 中
       commit('SET_DICT_DATAS', dictDataMap)
     })
-  },
-  // adapter for extn dictionary
-  getDictionaryData({ state, dispatch }, info) {
-    return new Promise(async resolve => {
-      let json = []
-      if (!state.dictDatas.length) {
-        await dispatch('loadDictDatas')
-      }
-      let dictDataMap = state.dictDatas
-      if (info.sort) {
-        let dictDatas =  dictDataMap[info.sort];
-        if(!dictDatas){
-          // try query again by dictType
-        }
-        if (!dictDatas || !dictDatas.length) return resolve([])
-        if (!info.id) {
-          // id, enCode, fullName
-          json = []
-          for (const dictData of dictDatas) {
-            json.push({
-              id: dictData.id,
-              encode: dictData.value,
-              fullName: dictData.label,
-              value: dictData.value,
-              label: dictData.label
-            })
-          }
-        } else {
-          // id -> value
-          let label = ''
-          let value = info.id + '' // 强制转换成字符串，因为 DictData 小类数值，是字符串
-          for (const dictData of dictDatas) {
-            if (dictData.value === value) {
-              label = dictData.label
-            }
-          }
-          json = {
-            id: info.id,
-            encode: value,
-            fullName: label,
-            value: value,
-            label: label
-          }
-        }
-      }
-      resolve(json)
-    })
   }
 }
 

@@ -4,9 +4,6 @@
     <doc-alert title="菜单路由" url="https://doc.iocoder.cn/vue2/route/" />
     <!-- 搜索工作栏 -->
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch">
-      <el-form-item label="菜单key" prop="alias">
-        <el-input v-model="queryParams.alias" placeholder="请输入菜单key" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
       <el-form-item label="菜单名称" prop="name">
         <el-input v-model="queryParams.name" placeholder="请输入菜单名称" clearable @keyup.enter.native="handleQuery"/>
       </el-form-item>
@@ -27,10 +24,6 @@
                    v-hasPermi="['system:menu:create']">新增</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleI18n"
-                   v-hasPermi="['system:menu:i18n']">检查菜单国际化</el-button>
-      </el-col>
-      <el-col :span="1.5">
         <el-button type="info" plain icon="el-icon-sort" size="mini" @click="toggleExpandAll">展开/折叠</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -38,18 +31,16 @@
 
     <el-table v-if="refreshTable" v-loading="loading" :data="menuList" row-key="id" :default-expand-all="isExpandAll"
               :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
-      <el-table-column prop="name" label="菜单名称" :show-overflow-tooltip="true" width="220"></el-table-column>
-      <!-- <el-table-column prop="alias" label="alias/key" :show-overflow-tooltip="true" width="150" /> -->
-      <el-table-column prop="icon" label="图标" align="center" width="80">
+      <el-table-column prop="name" label="菜单名称" :show-overflow-tooltip="true" width="250"></el-table-column>
+      <el-table-column prop="icon" label="图标" align="center" width="100">
         <template v-slot="scope">
           <svg-icon :icon-class="scope.row.icon" />
         </template>
       </el-table-column>
       <el-table-column prop="sort" label="排序" width="60"></el-table-column>
-      <el-table-column prop="path" label="路径" :show-overflow-tooltip="true" />
-      <el-table-column prop="component" label="组件路径" :show-overflow-tooltip="true" />
-<!--      <el-table-column prop="componentName" label="组件名称" :show-overflow-tooltip="true" />-->
       <el-table-column prop="permission" label="权限标识" :show-overflow-tooltip="true" />
+      <el-table-column prop="component" label="组件路径" :show-overflow-tooltip="true" />
+      <el-table-column prop="componentName" label="组件名称" :show-overflow-tooltip="true" />
       <el-table-column prop="status" label="状态" width="80">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
@@ -84,18 +75,8 @@
                   {{dict.label}}</el-radio>
               </el-radio-group>
             </el-form-item>
-          </el-col>   
-          <el-col :span="12">
-            <el-form-item label="菜单名称" prop="name">
-              <el-input v-model="form.name" placeholder="请输入菜单名称" />
-            </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="显示排序" prop="sort">
-              <el-input-number v-model="form.sort" controls-position="right" :min="0" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
+          <el-col :span="24">
             <el-form-item v-if="form.type !== 3" label="菜单图标">
               <el-popover placement="bottom-start" width="460" trigger="click" @show="$refs['iconSelect'].reset()">
                 <IconSelect ref="iconSelect" @selected="selected" />
@@ -105,6 +86,16 @@
                   <i v-else slot="prefix" class="el-icon-search el-input__icon" />
                 </el-input>
               </el-popover>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="菜单名称" prop="name">
+              <el-input v-model="form.name" placeholder="请输入菜单名称" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="显示排序" prop="sort">
+              <el-input-number v-model="form.sort" controls-position="right" :min="0" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -195,17 +186,7 @@
 							</el-radio-group>
 						</el-form-item>
 					</el-col>
-          <el-col :span="12">
-            <el-form-item label="菜单key" prop="alias">
-              <el-input v-model="form.alias" placeholder="请输入菜单key" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="24">
-            <el-form-item label="国际化翻译" prop="i18nJson">
-              <el-input v-model="form.i18nJson" />
-            </el-form-item>
-          </el-col>
-        </el-row>    
+        </el-row>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
@@ -216,7 +197,7 @@
 </template>
 
 <script>
-import { listMenu, getMenu, delMenu, addMenu, updateMenu,checkMenuI18n } from "@/api/system/menu";
+import { listMenu, getMenu, delMenu, addMenu, updateMenu } from "@/api/system/menu";
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 import IconSelect from "@/components/IconSelect";
@@ -323,7 +304,6 @@ export default {
       this.form = {
         id: undefined,
         parentId: 0,
-        alias: undefined,
         name: undefined,
         icon: undefined,
         type: SystemMenuTypeEnum.DIR,
@@ -338,12 +318,6 @@ export default {
     /** 搜索按钮操作 */
     handleQuery() {
       this.getList();
-    },
-    /** 检查菜单国际化 */
-    handleI18n() {
-      checkMenuI18n().then(response => {
-        console.debug(response.data)
-      });
     },
     /** 重置按钮操作 */
     resetQuery() {

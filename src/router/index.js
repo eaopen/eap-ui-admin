@@ -65,31 +65,15 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '/lockScreen',
-    component: (resolve) => require(['@/views/system/lockScreen'], resolve),
-    hidden: true
-  },
-  {
     path: '',
     component: Layout,
     redirect: 'index',
     children: [{
         path: 'index',
         component: (resolve) => require(['@/views/index'], resolve),
-        name: 'Home',
-        meta: {title: 'home', icon: 'dashboard', affix: true, zhTitle: '首页'}
-      },
-      {
-        path: 'previewModel',
-        component: (resolve) => require(['@/views/extn/dynamicModel'], resolve),
-        name: 'previewModel',
-        meta: {
-          title: '功能预览',
-          affix: false,
-          zhTitle: '功能预览',
-          icon: 'icon-ym icon-ym-btn-preview',
-        }
-      },
+        name: '首页',
+        meta: {title: '首页', icon: 'dashboard', affix: true}
+      }
     ]
   },
   {
@@ -101,37 +85,13 @@ export const constantRoutes = [
         path: 'profile',
         component: (resolve) => require(['@/views/system/user/profile/index'], resolve),
         name: 'Profile',
-        meta: {title: 'profile', icon: 'user'}
+        meta: {title: '个人中心', icon: 'user'}
       }, {
         path: 'notify-message',
         component: (resolve) => require(['@/views/system/notify/my/index'], resolve),
         name: 'MyNotifyMessage',
-        meta: { title: 'myNotifyMessage', icon: 'message' },
+        meta: { title: '我的站内信', icon: 'message' },
     }]
-  },
-  {
-    path: '/components',
-    component: Layout,
-    hidden: true,
-    redirect: 'noredirect',
-    children: [{
-        path: 'icons',
-        component: (resolve) => require(['@/views/components/icons/index'], resolve),
-        name: 'Icons',
-        meta: {title: 'Icons', icon: 'icon'}
-      },{
-        path: 'visualPortal',
-        component: (resolve) => require(['@/views/onlineDev/visualPortal/index'], resolve),
-        name: 'VisualPortal',
-        meta: {title: 'visualPortal', icon: 'icon'}
-      },
-      {
-        path: 'notification',
-        component: (resolve) => require(['@/views/components/notification/index'], resolve),
-        name: 'Notification',
-        meta: {title: 'Icons', icon: 'icon'}
-      },
-    ]
   },
   {
     path: '/dict',
@@ -141,7 +101,7 @@ export const constantRoutes = [
         path: 'type/data/:dictId(\\d+)',
         component: (resolve) => require(['@/views/system/dict/data'], resolve),
         name: 'SystemDictData',
-        meta: {title: 'dictData', icon: '', activeMenu: '/system/dict'}
+        meta: {title: '字典数据', icon: '', activeMenu: '/system/dict'}
       }
     ]
   },
@@ -153,7 +113,7 @@ export const constantRoutes = [
         path: 'log',
         component: (resolve) => require(['@/views/infra/job/log'], resolve),
         name: 'InfraJobLog',
-        meta: {title: 'jobLog', activeMenu: '/infra/job'}
+        meta: {title: '调度日志', activeMenu: '/infra/job'}
       }
     ]
   }, {
@@ -164,28 +124,28 @@ export const constantRoutes = [
         path: 'edit/:tableId(\\d+)',
         component: (resolve) => require(['@/views/infra/codegen/editTable'], resolve),
         name: 'InfraCodegenEditTable',
-        meta: {title: 'codegen', activeMenu: '/infra/codegen'}
+        meta: {title: '修改生成配置', activeMenu: '/infra/codegen'}
       }
     ]
   },
-  // {
-  //   path: '/bpm',
-  //   component: Layout,
-  //   hidden: true,
-  //   redirect: 'noredirect',
-  //   children: [{
-  //       path: 'oa/leave/create',
-  //       component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
-  //       name: 'BpmOALeaveCreate',
-  //       meta: {title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave'}
-  //     }, {
-  //       path: 'oa/leave/detail',
-  //       component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
-  //       name: 'BpmOALeaveDetail',
-  //       meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
-  //     }
-  //   ]
-  // },
+  {
+    path: '/bpm',
+    component: Layout,
+    hidden: true,
+    redirect: 'noredirect',
+    children: [{
+        path: 'oa/leave/create',
+        component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
+        name: 'BpmOALeaveCreate',
+        meta: {title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave'}
+      }, {
+        path: 'oa/leave/detail',
+        component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
+        name: 'BpmOALeaveDetail',
+        meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
+      }
+    ]
+  },
   {
     path: '/bpm',
     component: Layout,
@@ -217,6 +177,65 @@ export const constantRoutes = [
         meta: {title: '流程详情', activeMenu: '/bpm/task/my'}
       }
     ]
+  },
+  {
+    path: '/property',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'value/:propertyId(\\d+)',
+      component: (resolve) => require(['@/views/mall/product/property/value'], resolve),
+      name: 'ProductPropertyValue',
+      meta: {title: '商品属性值', icon: '', activeMenu: '/product/property'}
+    }
+    ]
+  },
+  {
+    path: '/spu',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'edit/:spuId(\\d+)',
+      component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
+      name: 'ProductSpuUpdate',
+      meta: {title: '修改商品', activeMenu: '/product/spu'}
+    },
+      {
+        path: 'add',
+        component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
+        name: 'ProductSpuCreate',
+        meta: {title: '添加商品', activeMenu: '/product/spu'}
+      }
+    ]
+  },
+  {
+    path: '/trade/order',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'detail',
+        name: 'TradeOrderDetail',
+        hidden: true,
+        meta: { title: '订单详情' },
+        component: (resolve) => require(['@/views/mall/trade/order/detail'], resolve)
+      }
+    ]
+  },
+  {
+    path: '/pay',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'cashier',
+      name: 'PayCashier',
+      hidden: true,
+      meta: {
+        title: '收银台',
+        noCache: true
+      },
+      component: (resolve) => require(['@/views/pay/cashier'], resolve)
+    }]
   }
 ]
 

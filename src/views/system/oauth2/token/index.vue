@@ -27,7 +27,6 @@
       <el-table-column label="访问令牌" align="center" prop="accessToken" width="300" />
       <el-table-column label="刷新令牌" align="center" prop="refreshToken" width="300" />
       <el-table-column label="用户编号" align="center" prop="userId" />
-      <el-table-column label="用户Key" align="center" prop="userKey" />
       <el-table-column label="用户类型" align="center" prop="userType" width="100">
         <template v-slot="scope">
           <dict-tag :type="DICT_TYPE.USER_TYPE" :value="scope.row.userType"/>

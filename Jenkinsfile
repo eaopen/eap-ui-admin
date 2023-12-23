@@ -10,16 +10,16 @@ pipeline {
   }
 
   environment {
-    APP_NAME = 'eoa-web'
-    PROJECT_DIR=''
-    NGINX_WORKDIR = '/usr/share/nginx/html'
+    APP_NAME = 'yudao-admin'
+    PROJECT_DIR='yudao-admin-ui'
+    NGINX_WORKDIR = '/home/pi/mydata/nginx/html/'
   }
 
   stages {
     stage('检出') {
       steps {
-        git url: "https://e.coding.net/openea/bpm-ext/eoa-web.git",
-          branch: "dev"
+        git url: "https://gitee.com/will-we/ruoyi-vue-pro.git",
+          branch: "devops"
       }
     }
 

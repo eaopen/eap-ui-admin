@@ -84,7 +84,7 @@ export default {
           ],
         },
         placeholder: "请输入内容",
-        readOnly: true, //this.readOnly,
+        readOnly: true,
       },
     };
   },

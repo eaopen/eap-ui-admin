@@ -135,28 +135,3 @@ export function importTemplate() {
     responseType: 'blob'
   })
 }
-
-// 更新当前用户系统主题
-export function UpdateTheme(data) {
-  return request({
-    url: '/system/user/Current/SystemTheme',
-    method: 'PUT',
-    data
-  })
-}
-// 更新当前用户系统语言配置
-export function UpdateLanguage(data) {
-  return request({
-    url: `/system/user/Current/SystemLanguage`,
-    method: 'PUT',
-    data
-  })
-}
-
-export function getImUser(params){
-  return request({
-    url: '/system/user/ImUser',
-    method: 'get',
-    params
-  })
-}

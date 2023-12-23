@@ -1,6 +1,5 @@
 import hasRole from './permission/hasRole'
 import hasPermi from './permission/hasPermi'
-import abPermission from './obpm/abPermission'
 import dialogDrag from './dialog/drag'
 import dialogDragWidth from './dialog/dragWidth'
 import dialogDragHeight from './dialog/dragHeight'
@@ -14,15 +13,11 @@ const install = function(Vue) {
   Vue.directive('dialogDrag', dialogDrag)
   Vue.directive('dialogDragWidth', dialogDragWidth)
   Vue.directive('dialogDragHeight', dialogDragHeight)
-
-  Vue.directive('abPermission', abPermission)
 }
 
 if (window.Vue) {
   window['hasRole'] = hasRole
   window['hasPermi'] = hasPermi
-  window['abPermission'] = abPermission
-  console.log('引入指令',abPermission)
   Vue.use(install); // eslint-disable-line
 }
 

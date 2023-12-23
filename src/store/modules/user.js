@@ -1,6 +1,5 @@
 import {login, logout, getInfo, socialLogin, smsLogin} from '@/api/login'
 import {setToken, removeToken} from '@/utils/auth'
-import {getLock, setLock} from '@/utils/auth'
 
 const user = {
   state: {
@@ -8,20 +7,10 @@ const user = {
     name: '',
     avatar: '',
     roles: [],
-    permissions: [],
-    isLock: getLock() || 0,
-    token: localStorage.getItem('ACCESS_TOKEN')?localStorage.getItem('ACCESS_TOKEN'):'',
-    socket: '',
-    userInfo: {}
+    permissions: []
   },
 
   mutations: {
-    SET_SOCKET: (state, socket) => {
-      state.socket = socket
-    },
-    SET_LOCK: (state, isLock) => {
-      state.isLock = isLock
-    },
     SET_ID: (state, id) => {
       state.id = id
     },
@@ -39,27 +28,10 @@ const user = {
     },
     SET_PERMISSIONS: (state, permissions) => {
       state.permissions = permissions
-    },
-    SET_TOKEN: (state, token) => {
-      console.log('token', token)
-      state.token = token.accessToken
-      if(token){
-        setToken(token)
-      }else {
-        removeToken()
-      }
-      
-    },
-    SET_USERINFO: (state, userInfo) => {
-      state.userInfo = userInfo
-    },
+    }
   },
 
   actions: {
-    setLock({ commit }) {
-      commit('SET_LOCK', 1)
-      setLock(1)
-    },
     // 登录
     Login({ commit }, userInfo) {
       const username = userInfo.username.trim()
@@ -72,7 +44,7 @@ const user = {
         login(username, password, captchaVerification, socialType, socialCode, socialState).then(res => {
           res = res.data;
           // 设置 token
-          commit('SET_TOKEN', res)
+          setToken(res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -89,7 +61,7 @@ const user = {
         socialLogin(type, code, state).then(res => {
           res = res.data;
           // 设置 token
-          commit('SET_TOKEN', res)
+          setToken(res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -105,7 +77,7 @@ const user = {
         smsLogin(mobile,mobileCode).then(res => {
           res = res.data;
           // 设置 token
-          commit('SET_TOKEN', res)
+          setToken(res)
           resolve()
         }).catch(error => {
           reject(error)
@@ -123,7 +95,6 @@ const user = {
                 roles: [],
                 user: {
                   id: '',
-                  userId: '',
                   avatar: '',
                   userName: '',
                   nickname: ''
@@ -145,11 +116,6 @@ const user = {
           commit('SET_NAME', user.userName)
           commit('SET_NICKNAME', user.nickname)
           commit('SET_AVATAR', avatar)
-
-          // fix ['userInfo']
-          let userInfo = user;
-          if(!userInfo.userId) userInfo.userId = userInfo.id
-          commit('SET_USERINFO', userInfo)
           resolve(res)
         }).catch(error => {
           reject(error)
@@ -161,13 +127,9 @@ const user = {
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
-          if (state.socket) {
-            state.socket.close()
-            commit('SET_SOCKET', null)
-          }
           commit('SET_ROLES', [])
           commit('SET_PERMISSIONS', [])
-          commit('SET_TOKEN', '')
+          removeToken()
           resolve()
         }).catch(error => {
           reject(error)

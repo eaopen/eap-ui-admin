@@ -50,13 +50,3 @@ export function getSimpleForms() {
     method: 'get'
   })
 }
-
-// 查询流程表单列表
-export function listForm(query) {
-  return request({
-    url: '/bpm/form/list-all-simple',
-    method: 'get',
-    params: query
-  })
-}
-

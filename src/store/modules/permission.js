@@ -1,12 +1,7 @@
 import {constantRoutes} from '@/router'
-//import {getRouters} from '@/api/menu'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView';
-import agList from '@/views/obpm/agList.vue'
-import webComponent from '@/views/obpm/web.vue'
 import {toCamelCase} from "@/utils";
-import { extn } from "@/utils/extn"
-
 
 const permission = {
   state: {
@@ -40,11 +35,8 @@ const permission = {
     GenerateRoutes({commit}, menus) {
       return new Promise(resolve => {
         // 将 menus 菜单，转换为 route 路由数组
-        // console.log('menus', menus)
-        let strMenus = JSON.stringify(menus)
-        const sdata = JSON.parse(strMenus) // 【重要】用于菜单中的数据
-        const rdata = JSON.parse(strMenus) // 用于最后添加到 Router 中的数据
-
+        const sdata = JSON.parse(JSON.stringify(menus)) // 【重要】用于菜单中的数据
+        const rdata = JSON.parse(JSON.stringify(menus)) // 用于最后添加到 Router 中的数据
         const sidebarRoutes = filterAsyncRouter(sdata)
         const rewriteRoutes = filterAsyncRouter(rdata, false, true)
         rewriteRoutes.push({path: '*', redirect: '/404', hidden: true})
@@ -58,31 +50,28 @@ const permission = {
   }
 }
 
-// 遍历后台传来的路由字符串，转换为组件对象,add routes lastRouter=false, type=true
+// 遍历后台传来的路由字符串，转换为组件对象
 function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
   return asyncRouterMap.filter(route => {
+    // 将 ruoyi 后端原有耦合前端的逻辑，迁移到此处
     // 处理 meta 属性
     route.meta = {
       title: route.name,
       icon: route.icon,
       noCache: !route.keepAlive,
-      urlAddr: route.urlAddr || route.path,
     }
     route.hidden = !route.visible
     // 处理 name 属性
     if (route.componentName && route.componentName.length > 0) {
       route.name = route.componentName
     } else {
-      // 路由地址转首字母小写驼峰，作为路由名称，适配 keepAlive
-      // toCamelCase转换 -_?&=./
-      route.name = toCamelCase(route.path, false)
-      //console.log("route:"+route.name+",component="+route.component+",path="+route.path+",urlAddr="+route.urlAddr)
-      // 如name过长可md5签名后取6位
+      // 路由地址转首字母大写驼峰，作为路由名称，适配 keepAlive
+      route.name = toCamelCase(route.path, true)
       // 处理三级及以上菜单路由缓存问题，将 path 名字赋值给 name
-      // if (route.path && route.path.indexOf("/") !== -1) {
-      //   const pathArr = route.path.split("/");
-      //   route.name = toCamelCase(pathArr[pathArr.length - 1], true)
-      // }
+      if (route.path.indexOf("/") !== -1) {
+        const pathArr = route.path.split("/");
+        route.name = toCamelCase(pathArr[pathArr.length - 1], true)
+      }
     }
     // 处理 component 属性
     if (route.children) { // 父节点
@@ -91,33 +80,8 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
       } else {
         route.component = ParentView
       }
-    } 
-    else if(route.component) { // 根节点
-      // for obpm
-      if(route.path.indexOf('listGrid/')>-1 || route.component.indexOf('obpm/agGrid')>-1){
-        //console.log(route.path)
-        route.name = extn.getParams(route.path).code
-        route.path = '/' + extn.formatListGridPath(route.path)
-        let agListCache = Object.assign({}, agList, {name: route.name})
-        route.component = agListCache
-      }else if(route.component.indexOf('/easyForm')>-1) {
-        route.component = import("@/components/obpm/easyForm/index.vue")
-      }else if(route.component.indexOf('obpm/admin')>-1 || route.component.indexOf('obpm/web')>-1){
-        if(!!route.path && route.path.indexOf('?')>0){
-          let [path1, queryString] = route.path.split('?');
-          route.path = path1
-        }
-        if(route.path.startsWith('_blank')){
-          route.path = route.path.slice(7)
-          route.component = webComponent
-        }else {
-          route.path = '/viewPage'+route.path
-          route.component = webComponent
-        }
-        
-      }else {
-        route.component = loadView(route.component)
-      }
+    } else { // 根节点
+      route.component = loadView(route.component)
     }
 
     // filterChildren
@@ -141,12 +105,7 @@ function filterChildren(childrenMap, lastRouter = false) {
     if (el.children && el.children.length) {
       if (!el.component && !lastRouter) {
         el.children.forEach(c => {
-          if(c.path){
-            if(!c.urlAddr) c.urlAddr = c.path
-            if(extn.isJoinPath(c.path)){
-              c.path = el.path + '/' + c.path
-            }
-          }
+          c.path = el.path + '/' + c.path
           if (c.children && c.children.length) {
             children = children.concat(filterChildren(c.children, c))
             return
@@ -156,10 +115,8 @@ function filterChildren(childrenMap, lastRouter = false) {
         return
       }
     }
-    if (lastRouter && el.path) {
-      if(extn.isJoinPath(el.path)){
-        el.path = lastRouter.path + '/' + el.path
-      }
+    if (lastRouter) {
+      el.path = lastRouter.path + '/' + el.path
     }
     children = children.concat(el)
   })

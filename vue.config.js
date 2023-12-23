@@ -1,7 +1,6 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -9,14 +8,9 @@ function resolve(dir) {
 
 const CompressionPlugin = require('compression-webpack-plugin')
 
-const name = process.env.VUE_APP_TITLE || 'EAP admin' // page title
+const name = process.env.VUE_APP_TITLE || 'EAP' // 网页标题
 
-// If your port is set to 80,
-// use administrator privileges to execute the command line.
-// For example, Mac: sudo npm run
-// You can change the port by the following method:
-// port = 3000 npm run dev OR npm run dev --port = 3000
-const port = process.env.port || process.env.npm_config_port || 80 // dev port
+const port = process.env.port || process.env.npm_config_port || 80 // 端口
 
 // vue.config.js 配置说明
 //官方vue.config.js 参考文档 https://cli.vuejs.org/zh/config/#css-loaderoptions
@@ -43,26 +37,11 @@ module.exports = {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       ['/proxy-api']: {
         target: `http://localhost:48080`,
-        // target: `http://124.223.81.114:48080`,
-        // target: `http://api-dashboard.eap.iocoder.cn`,
+        // target: `http://api-dashboard.yudao.iocoder.cn`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
-      },
-      ['/obpm-admin']: {
-        target: 'http://localhost:8080/',
-        changeOrigin: true,
-        pathRewrite: {
-          ['^/obpm-admin']: ''
-        }
-      },
-      ['/obpm-web1']: {
-        target: 'http://localhost:8080/',
-            changeOrigin: true,
-            pathRewrite: {
-               ['^/obpm-web1']: ''
-            }
       }
     },
     disableHostCheck: true
@@ -78,16 +57,10 @@ module.exports = {
     name: name,
     resolve: {
       alias: {
-        '@': resolve('src'),
-        'vue$': 'vue/dist/vue.esm.js',
-        'static': resolve('static') // 增加这一行代码
+        '@': resolve('src')
       }
     },
     plugins: [
-      // new MonacoWebpackPlugin({
-      //   // available options are documented at https://github.com/Microsoft/monaco-editor-webpack-plugin#options
-      //   languages: ['javascript', 'css', 'html', 'typescript', 'json', 'java', 'sql']
-      // }),
       // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
       new CompressionPlugin({
         cache: false,                   // 不启用文件缓存
@@ -99,22 +72,7 @@ module.exports = {
     ],
   },
   chainWebpack(config) {
-    config.externals({
-      //'monaco-editor': 'monaco-editor',
-      //'echarts': 'echarts'
-    })
-
-    // config.plugins.delete('preload') // TODO: need test
-    // it can improve the speed of the first screen, it is recommended to turn on preload
-    config.plugin('preload').tap(() => [{
-      rel: 'preload',
-      // to ignore runtime.js
-      // https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/cli-service/lib/config/app.js#L171
-      fileBlacklist: [/\.map$/, /hot-update\.js$/, /runtime\..*\.js$/],
-      include: 'initial'
-    }])
-
-    // when there are many pages, it will cause too many meaningless requests
+    config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
 
     // set svg-sprite-loader
@@ -133,12 +91,6 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-
-    config
-        // https://webpack.js.org/configuration/devtool/#development
-        .when(process.env.NODE_ENV === 'development',
-            config => config.devtool('cheap-source-map')
-        )
 
     config
       .when(process.env.NODE_ENV !== 'development',

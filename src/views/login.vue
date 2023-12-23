@@ -9,64 +9,57 @@
       <div class="field">
         <!-- [移动端]标题 -->
         <h2 class="mobile-title">
-          <h3 class="title">{{ $t('login.title') }}</h3>
+          <h3 class="title">eap admin</h3>
         </h2>
 
         <!-- 表单 -->
         <div class="form-cont">
-          <!-- 切换语言 非必要选择 -->
-          <template v-if="showLanguage">
-             <lang-select class="set-language" />
-          </template>
-
           <el-tabs class="form" v-model="loginForm.loginType" style=" float:none;">
-            <el-tab-pane :label="$t('login.titleUname')" name="uname">
+            <el-tab-pane label="账号密码登录" name="uname">
             </el-tab-pane>
-            <el-tab-pane :label="$t('login.titleSms')" name="sms" >
+            <el-tab-pane label="短信验证码登录" name="sms">
             </el-tab-pane>
           </el-tabs>
           <div>
             <el-form ref="loginForm" :model="loginForm" :rules="LoginRules" class="login-form">
               <el-form-item prop="tenantName" v-if="tenantEnable">
-                <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" :placeholder="$t('login.tenant')">
+                <el-input v-model="loginForm.tenantName" type="text" auto-complete="off" placeholder='租户'>
                   <svg-icon slot="prefix" icon-class="tree" class="el-input__icon input-icon"/>
                 </el-input>
               </el-form-item>
               <!-- 账号密码登录 -->
               <div v-if="loginForm.loginType === 'uname'">
                 <el-form-item prop="username">
-                  <el-input v-model="loginForm.username" type="text" auto-complete="off" :placeholder="$t('login.username')">
+                  <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
                     <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon"/>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                  <el-input v-model="loginForm.password" :type="showPassword?'text':'password'" auto-complete="off" :placeholder="$t('login.password')"
+                  <el-input v-model="loginForm.password" type="password" auto-complete="off" placeholder="密码"
                             @keyup.enter.native="getCode">
                     <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon"/>
-                    <svg-icon slot="suffix"  icon-class="eye-open" style="cursor: pointer;" v-if="!showPassword" @click="showPassword=!showPassword"/>
-                    <svg-icon slot="suffix"  icon-class="eye" style="cursor: pointer;" v-if="showPassword" @click="showPassword=!showPassword"/>
                   </el-input>
                 </el-form-item>
-                <el-checkbox v-model="loginForm.rememberMe" style="margin:0 0 25px 0;">{{ $t('login.rememberMe') }}</el-checkbox>
+                <el-checkbox v-model="loginForm.rememberMe" style="margin:0 0 25px 0;">记住密码</el-checkbox>
               </div>
 
               <!-- 短信验证码登录 -->
               <div v-if="loginForm.loginType === 'sms'">
                 <el-form-item prop="mobile">
-                  <el-input v-model="loginForm.mobile" type="text" auto-complete="off" :placeholder="$t('login.mobilePlh')">
+                  <el-input v-model="loginForm.mobile" type="text" auto-complete="off" placeholder="请输入手机号">
                     <svg-icon slot="prefix" icon-class="phone" class="el-input__icon input-icon"/>
                   </el-input>
                 </el-form-item>
                 <el-form-item prop="mobileCode">
-                  <el-input v-model="loginForm.mobileCode" type="text" auto-complete="off" :placeholder="$t('login.mobileCodePlh')"
+                  <el-input v-model="loginForm.mobileCode" type="text" auto-complete="off" placeholder="短信验证码"
                             class="sms-login-mobile-code-prefix"
                             @keyup.enter.native="handleLogin">
                     <template>
                       <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon"/>
                     </template>
                     <template slot="append">
-                      <span v-if="mobileCodeTimer <= 0" class="getMobileCode" @click="getSmsCode" style="cursor: pointer;">{{$t('login.getMobileCode')}}</span>
-                      <span v-if="mobileCodeTimer > 0" class="getMobileCode">{{ mobileCodeTimer }} {{$t('login.mobileCodeTimerTip')}}</span>
+                      <span v-if="mobileCodeTimer <= 0" class="getMobileCode" @click="getSmsCode" style="cursor: pointer;">获取验证码</span>
+                      <span v-if="mobileCodeTimer > 0" class="getMobileCode">{{ mobileCodeTimer }}秒后可重新获取</span>
                     </template>
                   </el-input>
                 </el-form-item>
@@ -76,8 +69,8 @@
               <el-form-item style="width:100%;">
                 <el-button :loading="loading" size="medium" type="primary" style="width:100%;"
                     @click.native.prevent="getCode">
-                  <span v-if="!loading">{{$t('login.logIn')}}</span>
-                  <span v-else>{{$t('login.waitLogin')}}</span>
+                  <span v-if="!loading">登 录</span>
+                  <span v-else>登 录 中...</span>
                 </el-button>
               </el-form-item>
 
@@ -91,11 +84,12 @@
                 </div>
               </el-form-item>
 
-
-
               <!-- 教程说明 -->
-              <el-form-item style="display: none; width:100%; margin-top:-25px">
+              <el-form-item style="width:100%; margin-top:-25px">
                 <el-link href="https://doc.iocoder.cn/" target="_blank">📚开发指南</el-link>
+                <el-link href="https://doc.iocoder.cn/video/" target="_blank" style="padding-left: 10px">🔥视频教程</el-link>
+                <el-link href="https://www.iocoder.cn/Interview/good-collection/" target="_blank" style="padding-left: 10px">⚡面试手册</el-link>
+                <el-link href="http://static.yudao.iocoder.cn/mp/Aix9975.jpeg" target="_blank" style="padding-left: 10px">🤝外包咨询</el-link>
               </el-form-item>
             </el-form>
           </div>
@@ -109,13 +103,12 @@
 
     <!-- footer -->
     <div class="footer">
-      Copyright © 2023- OpenEAP All Rights Reserved.
+      Copyright © 2020-2022 iocoder.cn All Rights Reserved.
     </div>
   </div>
 </template>
 
 <script>
-import LangSelect from '@/components/LangSelect';
 import {sendSmsCode, socialAuthRedirect} from "@/api/login";
 import {getTenantIdByName} from "@/api/system/tenant";
 import {SystemUserSocialTypeEnum} from "@/utils/constants";
@@ -136,8 +129,7 @@ import {resetUserPwd} from "@/api/system/user";
 export default {
   name: "Login",
   components: {
-    Verify,
-    LangSelect
+    Verify
   },
   data() {
     return {
@@ -145,7 +137,6 @@ export default {
       captchaEnable: true,
       tenantEnable: true,
       mobileCodeTimer: 0,
-      showPassword: false,
       loginForm: {
         loginType: "uname",
         username: "admin",
@@ -154,7 +145,7 @@ export default {
         mobile: "",
         mobileCode: "",
         rememberMe: false,
-        tenantName: "openEAP",
+        tenantName: "eap"
       },
       scene: 21,
 
@@ -220,14 +211,6 @@ export default {
     this.redirect = this.$route.query.redirect ? decodeURIComponent(this.$route.query.redirect) : undefined;
     this.getCookie();
   },
-  computed: {
-    showLanguage: {
-      get() {
-        // todo load last setting
-        return this.$store.state.settings.showLanguage
-      }
-    },
-  },
   methods: {
     getCode() {
       // 情况一，未开启：则直接登录
@@ -287,8 +270,8 @@ export default {
       let tenant = false;
       if (this.tenantEnable) {
         await this.$prompt('请输入租户名称', "提示", {
-          confirmBtnText: "确定",
-          cancelBtnText: "取消"
+          confirmButtonText: "确定",
+          cancelButtonText: "取消"
         }).then(async ({value}) => {
           await getTenantIdByName(value).then(res => {
             const tenantId = res.data;

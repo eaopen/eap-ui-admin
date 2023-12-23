@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 **/*.log
 
+.github
+
 tests/**/coverage/
 tests/e2e/reports
 selenium-debug.log
@@ -20,10 +22,3 @@ selenium-debug.log
 *.local
 
 package-lock.json
-
-**/openea-docker-login.sh
-src/lang/draft/
-/eoa-web.iml
-
-.env
-.env.dev

@@ -61,3 +61,26 @@ export function getTaskListByProcessInstanceId(processInstanceId) {
     method: 'get',
   })
 }
+
+export function getReturnList(taskId) {
+  return request({
+    url: '/bpm/task/return-list?taskId='+ taskId,
+    method: 'get',
+  })
+}
+
+export function returnTask(data) {
+  return request({
+    url: '/bpm/task/return',
+    method: 'PUT',
+    data: data
+  })
+}
+
+export function delegateTask(data) {
+  return request({
+    url: '/bpm/task/delegate',
+    method: 'PUT',
+    data: data
+  })
+}

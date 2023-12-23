@@ -13,8 +13,7 @@
 
     <!-- 顶部菜单超出数量折叠 -->
     <el-submenu :style="{'--theme': theme}" index="more" v-if="topMenus.length > visibleNumber">
-      <span>当前</span>
-      <template slot="title">{{ $t('navbar.moreLink') }}</template>
+      <template slot="title">更多菜单</template>
       <template v-for="(item, index) in topMenus">
         <el-menu-item
           :index="item.path"
@@ -76,7 +75,7 @@ export default {
             if(router.path === "/") {
               router.children[item].path = "/" + router.children[item].path;
             } else {
-              if(!this.ishttp(router.children[item].path) &&!router.children[item].path.startsWith('/')) {
+              if(!this.ishttp(router.children[item].path)) {
                 router.children[item].path = router.path + "/" + router.children[item].path;
               }
             }
@@ -93,11 +92,7 @@ export default {
       let activePath = path;
       if (path !== undefined && path.lastIndexOf("/") > 0 && hideList.indexOf(path) === -1) {
         const tmpPath = path.substring(1, path.length);
-        if(this.$route.path.indexOf('/listGrid')!=-1){
-          activePath = this.$route.matched[0].path
-        }else {
-          activePath = "/" + tmpPath.substring(0, tmpPath.indexOf("/"));
-        }
+        activePath = "/" + tmpPath.substring(0, tmpPath.indexOf("/"));
         if (!this.$route.meta.link) {
           this.$store.dispatch('app/toggleSideBarHide', false)
         }
@@ -169,7 +164,7 @@ export default {
 <style lang="scss">
 .topmenu-container.el-menu--horizontal > .el-menu-item {
   float: left;
-  height: 48px !important;
+  height: 50px !important;
   line-height: 50px !important;
   color: #999093 !important;
   padding: 0 5px !important;

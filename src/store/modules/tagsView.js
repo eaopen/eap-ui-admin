@@ -9,8 +9,7 @@ const mutations = {
     if (state.iframeViews.some(v => v.path === view.path)) return
     state.iframeViews.push(
       Object.assign({}, view, {
-        title: view.meta.title || 'no-name',
-        zhTitle: view.meta.zhTitle || view.meta.title,
+        title: view.meta.title || 'no-name'
       })
     )
   },
@@ -18,8 +17,7 @@ const mutations = {
     if (state.visitedViews.some(v => v.path === view.path)) return
     state.visitedViews.push(
       Object.assign({}, view, {
-        title: view.meta.title || 'no-name',
-        zhTitle: view.meta.zhTitle || view.meta.title,
+        title: view.meta.title || 'no-name'
       })
     )
   },

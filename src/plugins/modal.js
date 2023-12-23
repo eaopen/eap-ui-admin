@@ -54,16 +54,16 @@ export default {
   // 确认窗体
   confirm(content) {
     return MessageBox.confirm(content, "系统提示", {
-      confirmBtnText: '确定',
-      cancelBtnText: '取消',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
       type: "warning",
     })
   },
   // 提交内容
   prompt(content) {
     return MessageBox.prompt(content, "系统提示", {
-      confirmBtnText: '确定',
-      cancelBtnText: '取消',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
       type: "warning",
     })
   },

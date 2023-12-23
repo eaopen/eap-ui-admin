@@ -2,37 +2,32 @@
   <div class="app-container">
 
     <!-- 流程设计器，负责绘制流程等 -->
-    <bpmn-process-designer v-if="xmlString !== undefined" :key="`designer-${reloadIndex}`" v-model="xmlString" v-bind="controlForm"
+    <my-process-designer v-if="xmlString !== undefined" :key="`designer-${reloadIndex}`" v-model="xmlString" v-bind="controlForm"
       keyboard ref="processDesigner" @init-finished="initModeler"
       @save="save"/>
 
     <!-- 流程属性器，负责编辑每个流程节点的属性 -->
-    <bpmn-properties-panel :key="`penal-${reloadIndex}`" :bpmn-modeler="modeler" :prefix="controlForm.prefix" class="process-panel"
+    <my-properties-panel :key="`penal-${reloadIndex}`" :bpmn-modeler="modeler" :prefix="controlForm.prefix" class="process-panel"
       :model="model" />
 
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
 import translations from "@/components/bpmnProcessDesigner/src/translations";
 // 自定义元素选中时的弹出菜单（修改 默认任务 为 用户任务）
-import CustomContentPadProvider from "@/plugins/package/designer/plugins/content-pad";
+import CustomContentPadProvider from "@/components/bpmnProcessDesigner/package/designer/plugins/content-pad";
 // 自定义左侧菜单（修改 默认任务 为 用户任务）
-import CustomPaletteProvider from "@/plugins/package/designer/plugins/palette";
+import CustomPaletteProvider from "@/components/bpmnProcessDesigner/package/designer/plugins/palette";
 // import xmlObj2json from "./utils/xml2json";
-import MyProcessPalette from "@/plugins/package/palette/ProcessPalette";
+import MyProcessPalette from "@/components/bpmnProcessDesigner/package/palette/ProcessPalette";
 import {createModel, getModel, updateModel} from "@/api/bpm/model";
 // 自定义侧边栏
 // import MyProcessPanel from "../package/process-panel/ProcessPanel";
 
-// import { vuePlugin } from '@/plugins/package/highlight';
-import 'highlight.js/styles/atom-one-dark-reasonable.css';
-// Vue.use(vuePlugin);
-
 export default {
   name: "BpmModelEditor",
-  components: {  MyProcessPalette },
+  components: { MyProcessPalette },
   data() {
     return {
       xmlString: undefined, // BPMN XML

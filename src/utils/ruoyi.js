@@ -184,6 +184,7 @@ export function getTenantEnable() {
   if (process.env.VUE_APP_TENANT_ENABLE === "false") {
     return false;
   }
+  // default disable tenant
   return process.env.VUE_APP_TENANT_ENABLE || false;
 }
 

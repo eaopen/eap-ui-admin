@@ -16,16 +16,7 @@ export function listSimpleMenus() {
     method: 'get'
   })
 }
-// 获取上级菜单下拉框
-export const getMenuSelector = (data, type, systemId) => {
-  data.type=1
-  return request({
-    url: '/api/visualdev/Portal/Selector/All',
-    method: 'GET',
-    params: data
 
-  })
-}
 // 查询菜单详细
 export function getMenu(id) {
   return request({
@@ -57,13 +48,5 @@ export function delMenu(id) {
   return request({
     url: '/system/menu/delete?id=' + id,
     method: 'delete'
-  })
-}
-
-// 检查更新菜单国际化数据
-export function checkMenuI18n(){
-  return request({
-    url:'/system/menu/checkI18n',
-    method: 'get'
   })
 }

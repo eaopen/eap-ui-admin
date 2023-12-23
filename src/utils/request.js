@@ -5,9 +5,7 @@ import {getAccessToken, getRefreshToken, getTenantId, setToken} from '@/utils/au
 import errorCode from '@/utils/errorCode'
 import {getPath, getTenantEnable} from "@/utils/ruoyi";
 import {refreshToken} from "@/api/login";
-import { getLanguage } from '@/lang/index';
 
-// todo i18n
 // 需要忽略的提示。忽略后，自动 Promise.reject('error')
 const ignoreMsgs = [
   "无效的刷新令牌", // 刷新令牌被删除时，不用提示
@@ -35,21 +33,10 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   // 是否需要设置 token
-  const apiPathMap = {
-    listConfig: '/etech/formCustSql/view/vo3_',
-    listData: '/etech/formCustSql/view/list_'
-  }
-  if(config.url && config.url.indexOf('${')!==-1){
-    config.url = '`'+config.url+'`'
-    config.url = eval(config.url)
-  }
   const isToken = (config.headers || {}).isToken === false
   if (getAccessToken() && !isToken) {
     config.headers['Authorization'] = 'Bearer ' + getAccessToken() // 让每个请求携带自定义token 请根据实际情况自行修改
   }
-  let language = getLanguage();
-  config.headers['Accept-Language'] = language || 'en';
-  config.headers['eap-origin'] = 'pc'
   // 设置租户
   if (getTenantEnable()) {
     const tenantId = getTenantId();
@@ -57,12 +44,7 @@ service.interceptors.request.use(config => {
       config.headers['tenant-id'] = tenantId;
     }
   }
-
   // get请求映射params参数
-
-  if (config.method == 'get' && !config.params) {
-    config.params = config.data
-  }
   if (config.method === 'get' && config.params) {
     let url = config.url + '?';
     for (const propName of Object.keys(config.params)) {
@@ -81,30 +63,18 @@ service.interceptors.request.use(config => {
       }
     }
     url = url.slice(0, -1);
-
-    // timestamp
-    let timestamp = Date.parse(new Date()) / 1000
-    if (url.indexOf('?') > -1) {
-      url += `&n=${timestamp}`
-    } else {
-      url += `?n=${timestamp}`
-    }
-
     config.params = {};
     config.url = url;
   }
   return config
 }, error => {
-  if (process.env.NODE_ENV === 'development') {
-    console.log(error) // for debug
-  }
-  return Promise.reject(error)
+    console.log(error)
+    Promise.reject(error)
 })
 
-// response interceptor 响应拦截器
+// 响应拦截器
 service.interceptors.response.use(async res => {
   // 未设置状态码则默认成功状态
-  res.data.code = res.data.code - 0
   const code = res.data.code || 200;
   // 获取错误信息
   const msg = res.data.msg || errorCode[code] || errorCode['default']
@@ -122,8 +92,7 @@ service.interceptors.response.use(async res => {
       try {
         const refreshTokenRes = await refreshToken()
         // 2.1 刷新成功，则回放队列的请求 + 当前请求
-        store.commit('SET_TOKEN', refreshTokenRes.data)
-        // setToken(refreshTokenRes.data)
+        setToken(refreshTokenRes.data)
         requestList.forEach(cb => cb())
         return service(res.config)
       } catch (e) {// 为什么需要 catch 异常呢？刷新失败时，请求因为 Promise.reject 触发异常。
@@ -162,7 +131,11 @@ service.interceptors.response.use(async res => {
       type: 'error',
       duration: 0,
       dangerouslyUseHTMLString: true,
-      message: '<div>演示模式，无法进行写操作</div>',
+      message: '<div>演示模式，无法进行写操作</div>'
+        + '<div> &nbsp; </div>'
+        + '<div>参考 https://doc.iocoder.cn/ 教程</div>'
+        + '<div> &nbsp; </div>'
+        + '<div>5 分钟搭建本地环境</div>',
     })
     return Promise.reject(new Error(msg))
   } else if (code !== 200) {
@@ -190,8 +163,7 @@ service.interceptors.response.use(async res => {
     Message({
       message: message,
       type: 'error',
-      duration: 5 * 1000,
-      showClose: true,
+      duration: 5 * 1000
     })
     return Promise.reject(error)
   }
@@ -208,8 +180,8 @@ function handleAuthorized() {
   if (!isRelogin.show) {
     isRelogin.show = true;
     MessageBox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
-        confirmBtnText: '重新登录',
-        cancelBtnText: '取消',
+        confirmButtonText: '重新登录',
+        cancelButtonText: '取消',
         type: 'warning'
       }
     ).then(() => {
