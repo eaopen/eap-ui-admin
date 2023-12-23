@@ -3,7 +3,7 @@
     <div>
       <div class="setting-drawer-content">
         <div class="setting-drawer-title">
-          <h3 class="drawer-title">主题风格设置</h3>
+          <h3 class="drawer-title">{{ $t('settings.themeStyle') }}</h3>
         </div>
         <div class="setting-drawer-block-checbox">
           <div class="setting-drawer-block-checbox-item" @click="handleTheme('theme-dark')">
@@ -33,14 +33,14 @@
         </div>
 
         <div class="drawer-item">
-          <span>主题颜色</span>
+          <span>{{ $t('settings.theme') }}</span>
           <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
         </div>
       </div>
 
       <el-divider/>
 
-      <h3 class="drawer-title">系统布局配置</h3>
+      <h3 class="drawer-title">{{ $t('settings.title') }}</h3>
 
       <div class="drawer-item">
         <span>开启 TopNav</span>
@@ -65,6 +65,11 @@
       <div class="drawer-item">
         <span>动态标题</span>
         <el-switch v-model="dynamicTitle" class="drawer-switch" />
+      </div>
+
+      <div class="drawer-item" v-if="topNav">
+        <span>{{$t('settings.language')}}</span>
+        <el-switch v-model="showLanguage" class="drawer-switch" />
       </div>
 
       <el-divider/>
@@ -144,6 +149,17 @@ export default {
           key: 'dynamicTitle',
           value: val
         })
+      }
+    },
+    showLanguage: {
+      get() {
+        return this.$store.state.settings.showLanguage;
+      },
+      set(val) {
+        this.$store.dispatch("settings/changeSetting", {
+          key: "showLanguage",
+          value: val
+        });
       }
     },
   },

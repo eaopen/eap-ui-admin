@@ -14,9 +14,13 @@
 
         <screenfull id="screenfull" class="right-menu-item hover-effect" />
 
-        <el-tooltip content="布局大小" effect="dark" placement="bottom">
+        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
         </el-tooltip>
+
+        <template v-if="showLanguage">
+          <lang-select class="right-menu-item hover-effect" />
+        </template>
 
       </template>
 
@@ -28,13 +32,13 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/user/profile">
-            <el-dropdown-item>个人中心</el-dropdown-item>
+            <el-dropdown-item>{{ $t('navbar.profile') }}</el-dropdown-item>
           </router-link>
           <el-dropdown-item @click.native="setting = true">
-            <span>布局设置</span>
+            <span>{{ $t('navbar.setting') }}</span>
           </el-dropdown-item>
           <el-dropdown-item divided @click.native="logout">
-            <span>退出登录</span>
+            <span>{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -49,6 +53,7 @@ import TopNav from '@/components/TopNav'
 import Hamburger from '@/components/Hamburger'
 import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
+import LangSelect from '@/components/LangSelect'
 import Search from '@/components/HeaderSearch'
 import RuoYiGit from '@/components/RuoYi/Git'
 import RuoYiDoc from '@/components/RuoYi/Doc'
@@ -62,6 +67,7 @@ export default {
     Hamburger,
     Screenfull,
     SizeSelect,
+    LangSelect,
     Search,
     RuoYiGit,
     RuoYiDoc,
@@ -89,7 +95,12 @@ export default {
       get() {
         return this.$store.state.settings.topNav
       }
-    }
+    },
+    showLanguage: {
+      get() {
+        return this.$store.state.settings.showLanguage
+      }
+    },
   },
   methods: {
     toggleSideBar() {

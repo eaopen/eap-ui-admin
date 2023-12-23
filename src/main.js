@@ -3,13 +3,14 @@ import Vue from 'vue'
 import Element from 'element-ui'
 import './assets/styles/element-variables.scss'
 
-import '@/assets/styles/index.scss' // global css
+import '@/assets/styles/index.scss' // gglobal css
 import '@/assets/styles/ruoyi.scss' // ruoyi css
 import App from './App'
 import store from './store'
 import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
+import i18n from './lang' // internationalization
 
 import './assets/icons' // icon
 import './permission' // permission control
@@ -95,5 +96,6 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   render: h => h(App)
 })
